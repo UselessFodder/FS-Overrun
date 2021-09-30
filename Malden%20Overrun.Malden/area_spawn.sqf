@@ -279,6 +279,9 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 		
 };//end while{true}
 
+//end any ongoing missions to allow them to become active again
+ZoneArray select _locationIndex set [4, false];
+
 //testing delete ***
 diag_log format ["Area %1 deactivated. Current infection is %2", _location, ZoneArray select _locationIndex select 2];
 	

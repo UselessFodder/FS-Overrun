@@ -81,12 +81,14 @@ if (isServer) then {
 		//publicVariable "InfectionRate";		
 	};//end if
 	
+	/*
 	_saveCheck = profileNamespace getVariable "ActiveSpawn";
 	
 	if (!isNil "_saveCheck") then{
 		ActiveSpawn = profileNamespace getVariable "ActiveSpawn";
 		//publicVariable "ActiveSpawn";			
 	};//end if
+	*/
 	
 	_saveCheck = profileNamespace getVariable "FactionBank";
 	if (!isNil "_saveCheck") then{	

@@ -11,7 +11,7 @@ if(isServer) then {
 	//set variables to namespace
 	profileNamespace setVariable ["IsInfected", IsInfected];
 	profileNamespace setVariable ["InfectionRate", InfectionRate];
-	profileNamespace setVariable ["ActiveSpawn", ActiveSpawn];
+	//profileNamespace setVariable ["ActiveSpawn", ActiveSpawn];
 	profileNamespace setVariable ["FactionBank", FactionBank];
 	profileNamespace setVariable ["UnlockTracker", UnlockTracker];
 

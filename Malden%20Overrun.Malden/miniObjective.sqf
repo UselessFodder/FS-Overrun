@@ -41,8 +41,8 @@ if (isServer) then {
 	};
 
 	//select a random mini-objective
-	_miniObj = selectRandom[0,1,2];
-	//_miniObj = selectRandom[1]; //***
+	//_miniObj = selectRandom[0,1,2];
+	_miniObj = selectRandom[1];
 	
 	// -- generate mini-objective --
 	
@@ -77,28 +77,6 @@ if (isServer) then {
 		
 		//log
 		diag_log format ["Boss Zombie created near %1", ZoneArray select _locationIndex select 0];
-		
-		/*
-			fnc_bossZDead = { //***
-				//params ["_bossZ"];
-				_bossZ = _this select 0;
-				//_locationIndex = _this select 1;
-				
-				//objectiveComplete = true;
-				//publicVariable "objectiveComplete";
-				private _locationIndex = _bossZ getVariable "_bossLocationIndex";
-				
-				hint format ["values are %1 + %2", _bossZ, _locationIndex]; //***
-				
-				ZoneArray select _locationIndex set [4, false];
-				//[["Big Z is down. Carry on with the mission.", "PLAIN"]] remoteExec ["titleText", 0];
-				[["_bossZMarker",300,"Big Z is down. Carry on with the mission."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
-				//sleep 0.5;
-				deleteMarker "_bossZMarker";
-				//add 10 currency into faction bank
-				[[10],"addToBank.sqf"] remoteExec ["BIS_fnc_execVM",2];
-			};
-		*/	
 			
 			fnc_bossZMarker = {
 				params ["_bossZ"];
@@ -172,6 +150,7 @@ if (isServer) then {
 		//[_researchObject] remoteExec ["fnc_takeResearch",0];
 		[_researchObject, _locationIndex] remoteExec ["fnc_researchMarker",2];
 		
+			/*
 			fnc_takeResearch = {
 				params["_locationIndex","_researchObject"];
 				 //_researchObject = _this select 0;
@@ -187,6 +166,7 @@ if (isServer) then {
 				//add 10 currency into faction bank
 				[[10],"addToBank.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			};
+			*/
 			
 			//move marker over research object in case it gets moved (explosion, etc)
 			fnc_researchMarker = {
@@ -212,13 +192,16 @@ if (isServer) then {
 			
 			//log
 			diag_log format ["Research picked up near %1", ZoneArray select _locationIndex select 0];
-		
+			
+			//clear mission state			
 			ZoneArray select _locationIndex set [4, false];
 			//set infection rate lower to prevent mission happening again
 			ZoneArray select _locationIndex set [2, (ZoneArray select _locationIndex select 2) - 0.01];
 			deleteVehicle _researchObject; 
-			[["_intelMarker",300,"Thanks, we'll begin analyzing this now. Continue the clean-up."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
-			//sleep 0.5;
+			//alert players mission is over
+			private _messageMarker = ZoneArray select _locationIndex select 0;
+			[[_messageMarker,500,"Thanks, we'll begin analyzing this now. Continue the clean-up."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];	
+			sleep 0.5;
 			deleteMarker "_intelMarker";
 			//add 10 currency into faction bank
 			[[10],"addToBank.sqf"] remoteExec ["BIS_fnc_execVM",2];
@@ -227,12 +210,11 @@ if (isServer) then {
 		};},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];			
 
 		//inform players
-		[["_intelMarker",500,"Intel indicates valuable research was dropped in your area. Secure it for further study..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+		[["_intelMarker",500,"Reports indicate valuable research was dropped in your area. Secure it for further study..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
 		//log
 		diag_log format ["Research spawned near %1", ZoneArray select _locationIndex select 0];
 
-		
 	};
 	
 	//kill zombie group

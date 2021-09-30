@@ -1,0 +1,28 @@
+// initialize respawn base
+respawn = base;
+respawnOnStart = -1;
+respawndelay = 10;
+
+loadScreen = "MaldenOverrun.paa";
+
+//custom patches
+class CfgUnitInsignia
+{
+	class BRT_Blue
+	{
+		displayName = "Bioterrorism Response Team - Blue"; // Name displayed in Arsenal
+		author = "SlugFox97"; // Author displayed in Arsenal
+		texture = "BRT_Blue.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+	
+	class BRT_Gray
+	{
+		displayName = "Bioterrorism Response Team - Gray"; // Name displayed in Arsenal
+		author = "SlugFox97"; // Author displayed in Arsenal
+		texture = "BRT_Gray.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+
+
+	};	
+};

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=1104;
+		nextID=1192;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5302.0117,90.868538,4704.3252};
-		dir[]={0.098811634,-0.25710142,0.96131957};
-		up[]={0.026288306,0.96638435,0.2557539};
-		aside[]={0.9947589,-3.7252903e-009,-0.10224877};
+		pos[]={4551.7041,437.12888,7075.188};
+		dir[]={0.30317366,-0.3576667,0.88326681};
+		up[]={0.11611629,0.93384928,0.33829346};
+		aside[]={0.94583434,0,-0.32464945};
 	};
 };
 binarizationWanted=0;
@@ -389,7 +389,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.0.2";
+		briefingName="Malden Overrun v0.0.3";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -415,7 +415,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=754;
+		items=841;
 		class Item0
 		{
 			dataType="Marker";
@@ -686,14 +686,13 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4541.8647,405.57062,7088.147};
-				angles[]={6.2535939,2.3163486,0.047164604};
+				position[]={4541.8647,405.57059,7088.1465};
+				angles[]={6.253602,2.3163486,0.047158793};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{[this, ""BRT_Blue""] call BIS_fnc_setUnitInsignia;}";
 				name="mobileRespawn";
 			};
 			id=35;
@@ -4986,17 +4985,17 @@ class Mission
 		class Item314
 		{
 			dataType="Marker";
-			position[]={5526.2632,36.246094,3117.896};
+			position[]={5421.9229,34.10376,3209.2981};
 			name="marker_35";
 			markerType="ELLIPSE";
 			type="ellipse";
 			colorName="ColorRed";
 			fillName="BDiagonal";
 			a=861.70166;
-			b=1357.9165;
-			angle=351.95065;
+			b=959.42664;
+			angle=308.89929;
 			id=465;
-			atlOffset=-22.094501;
+			atlOffset=-26.534595;
 		};
 		class Item315
 		{
@@ -5018,7 +5017,7 @@ class Mission
 					class Attributes
 					{
 						rank="COLONEL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA1";
 						description="BRT Team Leader";
 						isPlayer=1;
@@ -5158,7 +5157,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA2";
 						description="BRT Medic";
 						isPlayable=1;
@@ -5259,7 +5258,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA3";
 						description="BRT Engineer";
 						isPlayable=1;
@@ -5359,7 +5358,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA4";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5440,7 +5439,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA5";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5521,7 +5520,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA6";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5602,7 +5601,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA7";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5683,7 +5682,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA8";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5764,7 +5763,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA9";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5845,7 +5844,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA10";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6102,7 +6101,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB2";
 						description="BRT Medic";
 						isPlayable=1;
@@ -6202,7 +6201,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB3";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6283,7 +6282,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB4";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6364,7 +6363,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB5";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6445,7 +6444,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB6";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6526,7 +6525,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB7";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6607,7 +6606,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB8";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6688,7 +6687,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB9";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6770,7 +6769,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB10";
 						description="BRT Engineer";
 						isPlayable=1;
@@ -8257,7 +8256,7 @@ class Mission
 			type="Empty";
 			colorName="ColorRed";
 			id=696;
-			atlOffset=1.6772766;
+			atlOffset=1.4300385;
 		};
 		class Item451
 		{
@@ -11553,8 +11552,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4561.8735,406.40628,7116.064};
-				angles[]={6.2496004,2.5537035,0.087771513};
+				position[]={4561.873,406.40594,7116.064};
+				angles[]={6.2496047,2.5536959,0.0877726};
 			};
 			side="Empty";
 			flags=4;
@@ -11565,7 +11564,7 @@ class Mission
 			};
 			id=981;
 			type="B_Truck_01_medical_F";
-			atlOffset=-0.040740967;
+			atlOffset=-0.040985107;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -12240,13 +12239,13 @@ class Mission
 		class Item751
 		{
 			dataType="Trigger";
-			position[]={5162.6597,86.714607,4744.0928};
+			position[]={5162.6602,86.714447,4744.0928};
 			class Attributes
 			{
 				name="DorresTrigger";
 				condition="call{this}";
-				onActivation="if (ZoneArray select 8 select 3 == false) then { " \n "call{ZoneArray select 8 set [3,true]; " \n " " \n "_spawnArray = [""lr_SP_1"",""lr_SP_2"",""lr_SP_3"",""lr_SP_4"",""lr_SP_5"",""lr_SP_6"",""lr_SP_7"",""lr_SP_8"",""lr_SP_9"",""lr_SP_10"",""lr_SP_11"",""lr_SP_12"",""lr_SP_13"",""lr_SP_14"",""lr_SP_15"",""lr_SP_16"",""lr_SP_17"",""lr_SP_18"",""lr_SP_19"",""lr_SP_20""]; " \n "_waypointArray = [""lr_wp_1"",""lr_wp_2"",""lr_wp_3"",""lr_wp_4"",""lr_wp_5"",""lr_wp_6"",""lr_wp_7"",""lr_wp_8"",""lr_wp_9"",""lr_wp_10"",""lr_wp_11"",""lr_wp_12"",""lr_wp_13"",""lr_wp_14"",""lr_wp_15"",""lr_wp_16"",""lr_wp_17"",""lr_wp_18"",""lr_wp_19"",""lr_wp_20""]; " \n " " \n "[[8,_spawnArray,_waypointArray,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 15 set [3,false];" \n "}";
+				onActivation="if (ZoneArray select 8 select 3 == false) then {  " \n "call{ZoneArray select 8 set [3,true];  " \n "  " \n "_spawnArray = [""do_wp_1"",""do_wp_2"",""do_wp_3"",""do_wp_4"",""do_wp_5"",""do_wp_6"",""do_wp_7"",""do_wp_8"",""do_wp_9"",""do_wp_10"",""do_wp_11"",""do_wp_12"",""do_wp_13"",""do_wp_14"",""do_wp_15"",""do_wp_16"",""do_wp_17"",""do_wp_18"",""do_wp_19"",""do_wp_20""];  " \n "_waypointArray = [""do_wp_1"",""do_wp_2"",""do_wp_3"",""do_wp_4"",""do_wp_5"",""do_wp_6"",""do_wp_7"",""do_wp_8"",""do_wp_9"",""do_wp_10"",""do_wp_11"",""do_wp_12"",""do_wp_13"",""do_wp_14"",""do_wp_15"",""do_wp_16"",""do_wp_17"",""do_wp_18"",""do_wp_19"",""do_wp_20""];  " \n "  " \n "[[8,_spawnArray,_waypointArray,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];}  " \n "} ";
+				onDeactivation="call{ZoneArray select 8 set [3,false];" \n "}";
 				sizeA=300;
 				sizeB=300;
 				repeatable=1;
@@ -12278,6 +12277,803 @@ class Mission
 			{
 			};
 			id=1103;
+			type="Flag_White_F";
+		};
+		class Item754
+		{
+			dataType="Trigger";
+			position[]={5584.4121,103.78483,4237.416};
+			class Attributes
+			{
+				name="Saint_MartinTrigger_1";
+				condition="call{this}";
+				onActivation="if (ZoneArray select 28 select 3 == false) then { " \n "call{ZoneArray select 28 set [3,true]; " \n " " \n "_spawnArray = [""sme_wp_1"",""sme_wp_2"",""sme_wp_3"",""sme_wp_4"",""sme_wp__5"",""sme_wp_6"", ""sme_wp_7"", ""sme_wp_8"", ""sme_wp_9"", ""sme_wp_10"", ""sme_wp_11"", ""sme_wp_12"",""sme_wp_13"", ""sme_wp_14"", ""sme_wp_15"", ""sme_wp_16"", ""sme_wp_17"", ""sme_wp_18"", ""sme_wp_19"", ""sme_wp_20""]; " \n "_waypointArray = [""sme_wp_21"",""sme_wp_22"",""sme_wp_23"",""sme_wp_24"",""sme_wp_25"",""sme_wp_26"", ""sme_wp_27"", ""sme_wp_28"", ""sme_wp_29"", ""sme_wp_30"", ""sme_wp_31"", ""sme_wp_32"",""sme_wp_33"", ""sme_wp_34"", ""sme_wp_35"", ""sme_wp_36"", ""sme_wp_37"", ""sme_wp_38"", ""sme_wp_39"", ""sme_wp_40""]; " \n "[[28,_spawnArray,_waypointArray,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
+				onDeactivation="call{ZoneArray select 28 set [3,false];" \n "}";
+				sizeA=300;
+				sizeB=300;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isServerOnly=1;
+			};
+			id=1104;
+			type="EmptyDetector";
+			atlOffset=7.6293945e-006;
+		};
+		class Item755
+		{
+			dataType="Marker";
+			position[]={5569.3721,102.987,4195.6519};
+			name="sme_wp_1";
+			type="Empty";
+			id=1105;
+			atlOffset=0.00092315674;
+		};
+		class Item756
+		{
+			dataType="Marker";
+			position[]={5585.0454,103.78467,4223.7134};
+			name="sme_wp_2";
+			type="Empty";
+			id=1106;
+			atlOffset=0.00092315674;
+		};
+		class Item757
+		{
+			dataType="Marker";
+			position[]={5590.3462,104.05707,4221.4341};
+			name="sme_wp_3";
+			type="Empty";
+			id=1107;
+			atlOffset=0.00092315674;
+		};
+		class Item758
+		{
+			dataType="Marker";
+			position[]={5569.5918,103.93026,4215.2134};
+			name="sme_wp_4";
+			type="Empty";
+			id=1108;
+			atlOffset=0.00092315674;
+		};
+		class Item759
+		{
+			dataType="Marker";
+			position[]={5550.603,103.75397,4210.4814};
+			name="sme_wp_5";
+			type="Empty";
+			id=1109;
+			atlOffset=0.00091552734;
+		};
+		class Item760
+		{
+			dataType="Marker";
+			position[]={5550.9087,103.52633,4199.4854};
+			name="sme_wp_6";
+			type="Empty";
+			id=1110;
+			atlOffset=0.00092315674;
+		};
+		class Item761
+		{
+			dataType="Marker";
+			position[]={5520.4722,103.83546,4197.8086};
+			name="sme_wp_7";
+			type="Empty";
+			id=1111;
+			atlOffset=0.00091552734;
+		};
+		class Item762
+		{
+			dataType="Marker";
+			position[]={5520.6504,104.19746,4224.02};
+			name="sme_wp_8";
+			type="Empty";
+			id=1112;
+			atlOffset=0.00091552734;
+		};
+		class Item763
+		{
+			dataType="Marker";
+			position[]={5546.126,104.41029,4221.4316};
+			name="sme_wp_9";
+			type="Empty";
+			id=1113;
+			atlOffset=0.00093078613;
+		};
+		class Item764
+		{
+			dataType="Marker";
+			position[]={5532.0869,103.82742,4214.6943};
+			name="sme_wp_10";
+			type="Empty";
+			id=1114;
+			atlOffset=0.00093078613;
+		};
+		class Item765
+		{
+			dataType="Marker";
+			position[]={5529.4692,103.81092,4225.6904};
+			name="sme_wp_11";
+			type="Empty";
+			id=1115;
+			atlOffset=0.00092315674;
+		};
+		class Item766
+		{
+			dataType="Marker";
+			position[]={5533.3667,103.81092,4226.7925};
+			name="sme_wp_12";
+			type="Empty";
+			id=1116;
+			atlOffset=0.00092315674;
+		};
+		class Item767
+		{
+			dataType="Marker";
+			position[]={5503.1992,104.13484,4240.835};
+			name="sme_wp_13";
+			type="Empty";
+			id=1117;
+			atlOffset=0.00092315674;
+		};
+		class Item768
+		{
+			dataType="Marker";
+			position[]={5501.3726,103.78096,4230.0249};
+			name="sme_wp_14";
+			type="Empty";
+			id=1118;
+			atlOffset=0.00092315674;
+		};
+		class Item769
+		{
+			dataType="Marker";
+			position[]={5489.4341,109.43906,4186.2002};
+			name="sme_wp_15";
+			type="Empty";
+			id=1119;
+			atlOffset=0.00092315674;
+		};
+		class Item770
+		{
+			dataType="Marker";
+			position[]={5524.1221,104.30472,4177.3735};
+			name="sme_wp_16";
+			type="Empty";
+			id=1120;
+			atlOffset=0.00092315674;
+		};
+		class Item771
+		{
+			dataType="Marker";
+			position[]={5570.6025,101.48363,4174.0264};
+			name="sme_wp_17";
+			type="Empty";
+			id=1121;
+			atlOffset=0.00092315674;
+		};
+		class Item772
+		{
+			dataType="Marker";
+			position[]={5555.2554,102.1181,4174.7178};
+			name="sme_wp_18";
+			type="Empty";
+			id=1122;
+			atlOffset=0.00093078613;
+		};
+		class Item773
+		{
+			dataType="Marker";
+			position[]={5481.7114,109.54668,4213.1831};
+			name="sme_wp_19";
+			type="Empty";
+			id=1123;
+		};
+		class Item774
+		{
+			dataType="Marker";
+			position[]={5505.0098,103.36424,4262.6025};
+			name="sme_wp_20";
+			type="Empty";
+			id=1124;
+			atlOffset=0.00092315674;
+		};
+		class Item775
+		{
+			dataType="Marker";
+			position[]={5488.4678,101.99518,4279.1338};
+			name="sme_wp_21";
+			type="Empty";
+			id=1126;
+			atlOffset=0.00092315674;
+		};
+		class Item776
+		{
+			dataType="Marker";
+			position[]={5486.4238,103.31522,4271.2217};
+			name="sme_wp_22";
+			type="Empty";
+			id=1127;
+			atlOffset=0.00093078613;
+		};
+		class Item777
+		{
+			dataType="Marker";
+			position[]={5520.1846,103.91832,4263.2993};
+			name="sme_wp_23";
+			type="Empty";
+			id=1128;
+			atlOffset=0.00092315674;
+		};
+		class Item778
+		{
+			dataType="Marker";
+			position[]={5538.0308,103.61387,4252.0103};
+			name="sme_wp_24";
+			type="Empty";
+			id=1129;
+			atlOffset=0.00092315674;
+		};
+		class Item779
+		{
+			dataType="Marker";
+			position[]={5527.6284,103.80206,4243.043};
+			name="sme_wp_25";
+			type="Empty";
+			id=1130;
+			atlOffset=0.00093078613;
+		};
+		class Item780
+		{
+			dataType="Marker";
+			position[]={5530.4375,100.80478,4284.3525};
+			name="sme_wp_26";
+			type="Empty";
+			id=1131;
+			atlOffset=0.00092315674;
+		};
+		class Item781
+		{
+			dataType="Marker";
+			position[]={5513.436,94.600922,4314.5054};
+			name="sme_wp_27";
+			type="Empty";
+			id=1132;
+			atlOffset=0.00092315674;
+		};
+		class Item782
+		{
+			dataType="Marker";
+			position[]={5515.3101,94.00209,4326.4648};
+			name="sme_wp_28";
+			type="Empty";
+			id=1133;
+			atlOffset=0.00092315674;
+		};
+		class Item783
+		{
+			dataType="Marker";
+			position[]={5542.0176,93.665115,4324.9473};
+			name="sme_wp_29";
+			type="Empty";
+			id=1134;
+			atlOffset=0.00092315674;
+		};
+		class Item784
+		{
+			dataType="Marker";
+			position[]={5535.77,94.600922,4306.0176};
+			name="sme_wp_30";
+			type="Empty";
+			id=1135;
+			atlOffset=0.00092315674;
+		};
+		class Item785
+		{
+			dataType="Marker";
+			position[]={5547.0732,94.281097,4316.9531};
+			name="sme_wp_31";
+			type="Empty";
+			id=1136;
+			atlOffset=0.00092315674;
+		};
+		class Item786
+		{
+			dataType="Marker";
+			position[]={5555.2144,96.750519,4296.8799};
+			name="sme_wp_32";
+			type="Empty";
+			id=1137;
+			atlOffset=0.00092315674;
+		};
+		class Item787
+		{
+			dataType="Marker";
+			position[]={5555.5474,102.95509,4266.7451};
+			name="sme_wp_33";
+			type="Empty";
+			id=1138;
+			atlOffset=0.00092315674;
+		};
+		class Item788
+		{
+			dataType="Marker";
+			position[]={5545.6533,102.6689,4267.6528};
+			name="sme_wp_34";
+			type="Empty";
+			id=1139;
+			atlOffset=0.00092315674;
+		};
+		class Item789
+		{
+			dataType="Marker";
+			position[]={5561.5889,104.03834,4248.0889};
+			name="sme_wp_35";
+			type="Empty";
+			id=1140;
+			atlOffset=0.00092315674;
+		};
+		class Item790
+		{
+			dataType="Marker";
+			position[]={5543.1963,103.79327,4242.2798};
+			name="sme_wp_36";
+			type="Empty";
+			id=1141;
+			atlOffset=0.00091552734;
+		};
+		class Item791
+		{
+			dataType="Marker";
+			position[]={5579.1353,102.81674,4271.5049};
+			name="sme_wp_37";
+			type="Empty";
+			id=1142;
+			atlOffset=0.00092315674;
+		};
+		class Item792
+		{
+			dataType="Marker";
+			position[]={5593.5986,102.94386,4285.1309};
+			name="sme_wp_38";
+			type="Empty";
+			id=1143;
+			atlOffset=0.00093078613;
+		};
+		class Item793
+		{
+			dataType="Marker";
+			position[]={5605.7441,102.58545,4298.0586};
+			name="sme_wp_39";
+			type="Empty";
+			id=1144;
+			atlOffset=0.00092315674;
+		};
+		class Item794
+		{
+			dataType="Marker";
+			position[]={5572.231,101.4836,4290.4224};
+			name="sme_wp_40";
+			type="Empty";
+			id=1145;
+			atlOffset=0.00091552734;
+		};
+		class Item795
+		{
+			dataType="Marker";
+			position[]={5580.6162,96.866402,4317.2471};
+			name="sme_wp_41";
+			type="Empty";
+			id=1146;
+			atlOffset=0.00092315674;
+		};
+		class Item796
+		{
+			dataType="Marker";
+			position[]={5631.5479,102.6895,4292.5684};
+			name="sme_wp_42";
+			type="Empty";
+			id=1147;
+			atlOffset=0.00092315674;
+		};
+		class Item797
+		{
+			dataType="Marker";
+			position[]={5587.7764,103.75921,4243.8677};
+			name="sme_wp_43";
+			type="Empty";
+			id=1148;
+			atlOffset=0.00092315674;
+		};
+		class Item798
+		{
+			dataType="Marker";
+			position[]={5597.667,103.39695,4245.7817};
+			name="sme_wp_44";
+			type="Empty";
+			id=1149;
+			atlOffset=0.00092315674;
+		};
+		class Item799
+		{
+			dataType="Marker";
+			position[]={5618.167,103.8341,4251.2432};
+			name="sme_wp_45";
+			type="Empty";
+			id=1150;
+			atlOffset=0.00092315674;
+		};
+		class Item800
+		{
+			dataType="Marker";
+			position[]={5631.25,104.42039,4261.0166};
+			name="sme_wp_46";
+			type="Empty";
+			id=1151;
+			atlOffset=0.00091552734;
+		};
+		class Item801
+		{
+			dataType="Marker";
+			position[]={5646.3125,105.40769,4274.2173};
+			name="sme_wp_47";
+			type="Empty";
+			id=1152;
+			atlOffset=0.00092315674;
+		};
+		class Item802
+		{
+			dataType="Marker";
+			position[]={5651.3354,105.40689,4276.3911};
+			name="sme_wp_48";
+			type="Empty";
+			id=1153;
+			atlOffset=0.00092315674;
+		};
+		class Item803
+		{
+			dataType="Marker";
+			position[]={5656.3511,105.26632,4274.7891};
+			name="sme_wp_49";
+			type="Empty";
+			id=1154;
+			atlOffset=0.00092315674;
+		};
+		class Item804
+		{
+			dataType="Marker";
+			position[]={5647.8198,102.28644,4291.939};
+			name="sme_wp_50";
+			type="Empty";
+			id=1155;
+			atlOffset=0.00092315674;
+		};
+		class Item805
+		{
+			dataType="Marker";
+			position[]={5657.5205,105.40499,4262.1948};
+			name="sme_wp_51";
+			type="Empty";
+			id=1156;
+			atlOffset=0.00092315674;
+		};
+		class Item806
+		{
+			dataType="Marker";
+			position[]={5671.3613,106.86432,4250.2271};
+			name="sme_wp_52";
+			type="Empty";
+			id=1157;
+			atlOffset=0.00092315674;
+		};
+		class Item807
+		{
+			dataType="Marker";
+			position[]={5668.0688,109.15784,4237.5293};
+			name="sme_wp_53";
+			type="Empty";
+			id=1158;
+			atlOffset=0.00092315674;
+		};
+		class Item808
+		{
+			dataType="Marker";
+			position[]={5661.4023,107.81149,4235.894};
+			name="sme_wp_54";
+			type="Empty";
+			id=1159;
+			atlOffset=0.00092315674;
+		};
+		class Item809
+		{
+			dataType="Marker";
+			position[]={5646.7358,105.4901,4244.9063};
+			name="sme_wp_55";
+			type="Empty";
+			id=1160;
+			atlOffset=0.00091552734;
+		};
+		class Item810
+		{
+			dataType="Marker";
+			position[]={5616.1465,103.11534,4235.6523};
+			name="sme_wp_56";
+			type="Empty";
+			id=1161;
+			atlOffset=0.00092315674;
+		};
+		class Item811
+		{
+			dataType="Marker";
+			position[]={5608.3013,103.27312,4228.4414};
+			name="sme_wp_57";
+			type="Empty";
+			id=1162;
+			atlOffset=0.00091552734;
+		};
+		class Item812
+		{
+			dataType="Marker";
+			position[]={5626.5527,104.32783,4217.4243};
+			name="sme_wp_58";
+			type="Empty";
+			id=1163;
+			atlOffset=0.00092315674;
+		};
+		class Item813
+		{
+			dataType="Marker";
+			position[]={5633.4097,105.63918,4195.1689};
+			name="sme_wp_59";
+			type="Empty";
+			id=1164;
+			atlOffset=0.00093078613;
+		};
+		class Item814
+		{
+			dataType="Marker";
+			position[]={5651.4121,108.84217,4201.8003};
+			name="sme_wp_60";
+			type="Empty";
+			id=1165;
+			atlOffset=0.00092315674;
+		};
+		class Item815
+		{
+			dataType="Marker";
+			position[]={5661.0801,108.81137,4206.4453};
+			name="sme_wp_61";
+			type="Empty";
+			id=1166;
+			atlOffset=0.00092315674;
+		};
+		class Item816
+		{
+			dataType="Marker";
+			position[]={5667.7168,108.54333,4210.3169};
+			name="sme_wp_62";
+			type="Empty";
+			id=1167;
+			atlOffset=0.00091552734;
+		};
+		class Item817
+		{
+			dataType="Marker";
+			position[]={5647.7217,106.76186,4230.3057};
+			name="sme_wp_63";
+			type="Empty";
+			id=1168;
+			atlOffset=0.00092315674;
+		};
+		class Item818
+		{
+			dataType="Marker";
+			position[]={5606.5918,102.76424,4203.1631};
+			name="sme_wp_64";
+			type="Empty";
+			id=1169;
+			atlOffset=0.00091552734;
+		};
+		class Item819
+		{
+			dataType="Marker";
+			position[]={5602.145,102.30478,4195.5337};
+			name="sme_wp_65";
+			type="Empty";
+			id=1170;
+			atlOffset=0.00092315674;
+		};
+		class Item820
+		{
+			dataType="Marker";
+			position[]={5601.7769,100.21542,4173.3638};
+			name="sme_wp_66";
+			type="Empty";
+			id=1171;
+			atlOffset=0.00092315674;
+		};
+		class Item821
+		{
+			dataType="Marker";
+			position[]={5600.3589,99.337204,4167.6372};
+			name="sme_wp_67";
+			type="Empty";
+			id=1172;
+			atlOffset=0.00092315674;
+		};
+		class Item822
+		{
+			dataType="Marker";
+			position[]={5590.3271,101.98375,4184.876};
+			name="sme_wp_68";
+			type="Empty";
+			id=1173;
+			atlOffset=0.00092315674;
+		};
+		class Item823
+		{
+			dataType="Marker";
+			position[]={5589.3247,101.8867,4181.896};
+			name="sme_wp_69";
+			type="Empty";
+			id=1174;
+			atlOffset=0.00092315674;
+		};
+		class Item824
+		{
+			dataType="Marker";
+			position[]={5562.8101,103.02717,4191.7861};
+			name="sme_wp_70";
+			type="Empty";
+			id=1175;
+			atlOffset=0.00092315674;
+		};
+		class Item825
+		{
+			dataType="Marker";
+			position[]={5607.207,103.21933,4238.854};
+			name="sme_wp_71";
+			type="Empty";
+			id=1176;
+			atlOffset=0.00092315674;
+		};
+		class Item826
+		{
+			dataType="Marker";
+			position[]={5593.6411,102.92082,4199.333};
+			name="sme_wp_72";
+			type="Empty";
+			id=1177;
+			atlOffset=0.00092315674;
+		};
+		class Item827
+		{
+			dataType="Marker";
+			position[]={5594.4487,103.40405,4217.3179};
+			name="sme_wp_73";
+			type="Empty";
+			id=1178;
+			atlOffset=0.00093078613;
+		};
+		class Item828
+		{
+			dataType="Marker";
+			position[]={5647.5972,105.55671,4187.1646};
+			name="sme_wp_74";
+			type="Empty";
+			id=1179;
+			atlOffset=0.00092315674;
+		};
+		class Item829
+		{
+			dataType="Marker";
+			position[]={5634.562,99.965698,4162.9697};
+			name="sme_wp_75";
+			type="Empty";
+			id=1180;
+			atlOffset=0.00092315674;
+		};
+		class Item830
+		{
+			dataType="Marker";
+			position[]={5602.4668,103.77446,4210.0864};
+			name="sme_wp_76";
+			type="Empty";
+			id=1181;
+			atlOffset=0.00092315674;
+		};
+		class Item831
+		{
+			dataType="Marker";
+			position[]={5601.3027,103.01932,4199.4653};
+			name="sme_wp_77";
+			type="Empty";
+			id=1182;
+			atlOffset=0.00092315674;
+		};
+		class Item832
+		{
+			dataType="Marker";
+			position[]={5575.8091,95.78022,4139.4058};
+			name="sme_wp_78";
+			type="Empty";
+			id=1183;
+			atlOffset=0.00092315674;
+		};
+		class Item833
+		{
+			dataType="Marker";
+			position[]={4431.4146,117.06785,2730.7224};
+			name="sm_wp_11";
+			type="Empty";
+			id=1184;
+			atlOffset=7.6293945e-006;
+		};
+		class Item834
+		{
+			dataType="Marker";
+			position[]={4455.2969,118.04013,2817.8604};
+			name="sm_wp_12";
+			type="Empty";
+			id=1185;
+			atlOffset=7.6293945e-006;
+		};
+		class Item835
+		{
+			dataType="Marker";
+			position[]={4387.1387,121.45078,2760.1697};
+			name="sm_wp_13";
+			type="Empty";
+			id=1186;
+			atlOffset=7.6293945e-006;
+		};
+		class Item836
+		{
+			dataType="Marker";
+			position[]={4409.0781,121.73624,2763.4414};
+			name="sm_wp_14";
+			type="Empty";
+			id=1187;
+			atlOffset=7.6293945e-006;
+		};
+		class Item837
+		{
+			dataType="Marker";
+			position[]={4426.0884,121.33878,2793.0215};
+			name="sm_wp_15";
+			type="Empty";
+			id=1188;
+			atlOffset=7.6293945e-006;
+		};
+		class Item838
+		{
+			dataType="Marker";
+			position[]={4356.457,118.94466,2726.2146};
+			name="sm_wp_16";
+			type="Empty";
+			id=1189;
+		};
+		class Item839
+		{
+			dataType="Marker";
+			position[]={5584.3691,103.78503,4229.2344};
+			name="marker_43";
+			type="mil_flag";
+			id=1190;
+		};
+		class Item840
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5583.0737,107.9275,4228.7134};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1191;
 			type="Flag_White_F";
 		};
 	};

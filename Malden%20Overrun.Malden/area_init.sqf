@@ -2,9 +2,7 @@
 	Initializes area to full zombies and then calls area_spawn
 */
 if(isServer) then {
-	
 
-	
 	params["_locationIndex","_spawnArrayOLD","_waypointArrayOLD","_maxZ"];
 
 	 private _locationIndex = _this select 0;
@@ -20,7 +18,7 @@ if(isServer) then {
 	 private _spawnArray = allMapMarkers select {[_location, getMarkerPos _x] call BIS_fnc_inTrigger};
 	 private _waypointArray = _spawnArray;
 	 	
-	 _waypointArray = _this select 2;
+	 //_waypointArray = _this select 2;
 	 _maxZ = _this select 3;
 	 //get the nearest whole max Z count from maxZ * infection rate
 	 private _currentMaxZ = round (_maxZ * _infectionRate);
@@ -29,14 +27,12 @@ if(isServer) then {
 	 _zCount = 0;
 	 _perKill = (1/_maxZ)/2;
 
-	//while{ActiveSpawn select _locationIndex == true && _numZ < _currentMaxZ} do{ 		
-	while{ZoneArray select _locationIndex select 3 == true && _numZ < _currentMaxZ} do{ 		
+	while{ZoneArray select _locationIndex select 3 == true && _numZ < _currentMaxZ} do { 		
 
 		//check if isInfected is still true
 		_isInfected = ZoneArray select _locationIndex select 1;
 		if(_isInfected) then {
 			//get updated infection rate
-			//_infectionRate = InfectionRate select _locationIndex;
 			_infectionRate = ZoneArray select _locationIndex select 2;
 			
 			//update maxZ based on infectionRate
@@ -50,7 +46,7 @@ if(isServer) then {
 				//create group to put Z's in
 				private _temp_Group = createGroup[EAST,true]; 
 				
-			//select a position for new group and ensure it's more than 20m from the party
+			//select a position for new group and ensure it's more than 30m from the players
 			private _locCheck = false;
 			private _locCheckCounter = 0;
 			private _minimumDistance = 30;
@@ -181,7 +177,7 @@ if(isServer) then {
 			}; 
 		} else {
 			//if isInfected has changed to false, exit spawner
-			ZoneArray select _locationIndex select 3 == false;
+			//ZoneArray select _locationIndex select 3 = false;
 		}; //end if-else isInfected = true
 		
 		//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ]; ***

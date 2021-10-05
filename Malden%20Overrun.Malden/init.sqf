@@ -79,16 +79,7 @@ if (isServer) then {
 	if (!isNil "_saveCheck") then{
 		InfectionRate = profileNamespace getVariable "InfectionRate";
 		//publicVariable "InfectionRate";		
-	};//end if
-	
-	/*
-	_saveCheck = profileNamespace getVariable "ActiveSpawn";
-	
-	if (!isNil "_saveCheck") then{
-		ActiveSpawn = profileNamespace getVariable "ActiveSpawn";
-		//publicVariable "ActiveSpawn";			
-	};//end if
-	*/
+	};//end if	
 	
 	_saveCheck = profileNamespace getVariable "FactionBank";
 	if (!isNil "_saveCheck") then{	
@@ -151,26 +142,6 @@ if (isServer) then {
 
 };
 
-//for players spawning in, set helicopter actions locally
-if(!isServer) then {
-	/*
-	if(UnlockTracker select 0 == true) then {
-		if(isNil "LittleBirdArmed" || LittleBirdArmed == true) then {
-			removeAllActions littleBird;
-			littleBird addAction ["Airborne DECON", {["littleBirdDecon.sqf"] remoteExec ["BIS_fnc_execVM",2]; {removeAllActions littleBird;} remoteExec ["call", 0];},nil,1.5,FALSE,true,"","true",5,false,"",""];
-			//[littleBird,["Airborne DECON", {["littleBirdDecon.sqf"] remoteExec ["BIS_fnc_execVM",2]; {removeAllActions littleBird;} remoteExec ["bis_fnc_call", 0];},nil,1.5,FALSE,true,"","true",5,false,"",""]] remoteExec ["addAction",0];
-		} else {
-			removeAllActions littleBird;
-			littleBird addAction ["Rearm Decontaminate", {["rearmLittleBird.sqf"] remoteExec ["BIS_fnc_execVM",2]; {removeAllActions littleBird;} remoteExec ["call", 0];},nil,1.5,FALSE,true,"","true",5,false,"",""];
-			//[littleBird,["Rearm Decontaminate", {["rearmLittleBird.sqf"] remoteExec ["BIS_fnc_execVM",2]; {removeAllActions littleBird;} remoteExec ["bis_fnc_call", 0];},nil,1.5,FALSE,true,"","true",5,false,"",""]] remoteExec ["addAction",0];
-		};
-		
-		
-	}; */
-	//[[LittleBirdArmed],"littleBirdAddAction.sqf"] remoteExec ["BIS_fnc_execVM",0];
-	//[LittleBirdArmed] execVM "LittleBirdAddAction.sqf";
-};
-
 //init marker colors
 execVM "infectionMarkers.sqf";
 
@@ -180,5 +151,5 @@ execVM "deconMarker.sqf";
 //prevent time from changing
 execVM "timeSet.sqf";
 
-//initialize arsenal in box and respawn truck
+//initialize arsenal in box and decon truck
 execVM "initArsenal.sqf";

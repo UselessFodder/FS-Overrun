@@ -29,7 +29,7 @@ while{true} do{
 		if ((side _unit) == east) then {
 			if ( ({(_unit distance _x) > _dist} count playableUnits) == ({isplayer _x} count playableUnits) ) then {
 				deletevehicle _unit;
-				hint "deleting person";
+				diag_log "Running garbage collection";
 			};
 		};
 	

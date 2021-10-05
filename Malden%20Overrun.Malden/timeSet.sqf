@@ -6,5 +6,5 @@ _initdate = date;
 while {true} do
 {
 	setdate _initdate;
-	sleep 0.2;
+	sleep 30;
 }; 

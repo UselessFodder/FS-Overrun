@@ -48,7 +48,8 @@ if(_nearLoc isEqualTo "") then {
 	titleText ["The DECON Vehicle is too far from any infected point.\nIt can only be operated within 50m of an infection center", "PLAIN"];
 } else {
 	// Check if area is still infected
-	if (isInfected select _locIndex == false) then {
+	//if (isInfected select _locIndex == false) then {
+		if (ZoneArray select _locIndex select 1 == false) then {
 		titleText [format ["%1 has already been decontaminated!", _nearLoc], "PLAIN"];
 	} else {
 		// Else, check if infection rate is below 10%
@@ -63,9 +64,6 @@ if(_nearLoc isEqualTo "") then {
 				private _locIndex = _this select 0;
 				private _nearLoc = _this select 1;
 				
-				//private _deconMan = objNull;
-				
-				//titleText ["Beginning DECON Process... Please Hold...", "PLAIN"];
 				[[_nearLoc,300,"Beginning DECON Process... Please Hold...."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 				sleep 5;
 				
@@ -100,17 +98,3 @@ if(_nearLoc isEqualTo "") then {
 	};
 
 };
-
-//for save
-/*
-this addAction ["Begin DECON", "initCleanse.sqf",[],1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
-
-[this,["Begin DECON", "initCleanse.sqf",[],1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
-
-[this,["Begin DECON", "initCleanse.sqf",[],1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
-
-	//TESTING
-	//Hint format["Distance to %1: %2", _x, deconTruck distance getMarkerPos _x];
-	//sleep 1;
-
-*/

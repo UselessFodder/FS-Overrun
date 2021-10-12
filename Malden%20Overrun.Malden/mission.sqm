@@ -8,11 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-<<<<<<< Updated upstream
-		nextID=1104;
-=======
 		nextID=2336;
->>>>>>> Stashed changes
 	};
 	class MarkerIDProvider
 	{
@@ -20,17 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-<<<<<<< Updated upstream
-		pos[]={5302.0439,89.699661,4706.0107};
-		dir[]={0.098817311,-0.25711614,0.96137452};
-		up[]={0.026291277,0.9663713,0.25578034};
-		aside[]={0.99480993,-3.3728702e-007,-0.10225433};
-=======
 		pos[]={7048.3643,150.51495,9939.1719};
 		dir[]={-0.86210591,-0.36254951,0.35402158};
 		up[]={-0.33537334,0.9319644,0.1377202};
 		aside[]={0.37986591,0,0.92504144};
->>>>>>> Stashed changes
 	};
 };
 binarizationWanted=0;
@@ -400,11 +389,7 @@ class Mission
 {
 	class Intel
 	{
-<<<<<<< Updated upstream
-		briefingName="Malden Overrun v0.0.2";
-=======
 		briefingName="Malden Overrun v0.0.5";
->>>>>>> Stashed changes
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -430,11 +415,7 @@ class Mission
 	};
 	class Entities
 	{
-<<<<<<< Updated upstream
-		items=754;
-=======
 		items=1923;
->>>>>>> Stashed changes
 		class Item0
 		{
 			dataType="Marker";
@@ -705,14 +686,13 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4541.8647,405.57062,7088.147};
-				angles[]={6.2535939,2.3163486,0.047164604};
+				position[]={4541.8647,405.57059,7088.1465};
+				angles[]={6.253602,2.3163486,0.047158793};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{[this, ""BRT_Blue""] call BIS_fnc_setUnitInsignia;}";
 				name="mobileRespawn";
 			};
 			id=35;
@@ -2232,7 +2212,6 @@ class Mission
 			name="lap_SP_2";
 			type="Empty";
 			id=230;
-			atlOffset=0.51782227;
 		};
 		class Item139
 		{
@@ -2250,7 +2229,6 @@ class Mission
 			name="lap_SP_4";
 			type="Empty";
 			id=232;
-			atlOffset=0.77314758;
 		};
 		class Item141
 		{
@@ -5005,24 +4983,6 @@ class Mission
 		};
 		class Item314
 		{
-<<<<<<< Updated upstream
-			dataType="Marker";
-			position[]={5526.2632,36.246094,3117.896};
-			name="marker_35";
-			markerType="ELLIPSE";
-			type="ellipse";
-			colorName="ColorRed";
-			fillName="BDiagonal";
-			a=861.70166;
-			b=1357.9165;
-			angle=351.95065;
-			id=465;
-			atlOffset=-22.094501;
-		};
-		class Item315
-		{
-=======
->>>>>>> Stashed changes
 			dataType="Group";
 			side="West";
 			class Entities
@@ -5041,7 +5001,7 @@ class Mission
 					class Attributes
 					{
 						rank="COLONEL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA1";
 						description="BRT Team Leader";
 						isPlayer=1;
@@ -5181,7 +5141,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA2";
 						description="BRT Medic";
 						isPlayable=1;
@@ -5282,7 +5242,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA3";
 						description="BRT Engineer";
 						isPlayable=1;
@@ -5382,7 +5342,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA4";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5463,7 +5423,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA5";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5544,7 +5504,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA6";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5625,7 +5585,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA7";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5706,7 +5666,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA8";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5787,7 +5747,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA9";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -5868,7 +5828,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pA10";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6125,7 +6085,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB2";
 						description="BRT Medic";
 						isPlayable=1;
@@ -6225,7 +6185,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB3";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6306,7 +6266,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB4";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6387,7 +6347,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB5";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6468,7 +6428,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB6";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6549,7 +6509,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB7";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6630,7 +6590,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB8";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6711,7 +6671,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB9";
 						description="BRT Rifleman";
 						isPlayable=1;
@@ -6793,7 +6753,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
 						name="pB10";
 						description="BRT Engineer";
 						isPlayable=1;
@@ -8280,7 +8240,7 @@ class Mission
 			type="Empty";
 			colorName="ColorRed";
 			id=696;
-			atlOffset=1.6772766;
+			atlOffset=1.4300385;
 		};
 		class Item450
 		{
@@ -11576,8 +11536,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4561.8735,406.40628,7116.064};
-				angles[]={6.2496004,2.5537035,0.087771513};
+				position[]={4561.873,406.40594,7116.064};
+				angles[]={6.2496047,2.5536959,0.0877726};
 			};
 			side="Empty";
 			flags=4;
@@ -11588,7 +11548,7 @@ class Mission
 			};
 			id=981;
 			type="B_Truck_01_medical_F";
-			atlOffset=-0.040740967;
+			atlOffset=-0.040985107;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -12263,18 +12223,13 @@ class Mission
 		class Item750
 		{
 			dataType="Trigger";
-			position[]={5162.6597,86.714607,4744.0928};
+			position[]={5162.6602,86.714447,4744.0928};
 			class Attributes
 			{
 				name="DorresTrigger";
 				condition="call{this}";
-<<<<<<< Updated upstream
-				onActivation="if (ZoneArray select 8 select 3 == false) then { " \n "call{ZoneArray select 8 set [3,true]; " \n " " \n "_spawnArray = [""lr_SP_1"",""lr_SP_2"",""lr_SP_3"",""lr_SP_4"",""lr_SP_5"",""lr_SP_6"",""lr_SP_7"",""lr_SP_8"",""lr_SP_9"",""lr_SP_10"",""lr_SP_11"",""lr_SP_12"",""lr_SP_13"",""lr_SP_14"",""lr_SP_15"",""lr_SP_16"",""lr_SP_17"",""lr_SP_18"",""lr_SP_19"",""lr_SP_20""]; " \n "_waypointArray = [""lr_wp_1"",""lr_wp_2"",""lr_wp_3"",""lr_wp_4"",""lr_wp_5"",""lr_wp_6"",""lr_wp_7"",""lr_wp_8"",""lr_wp_9"",""lr_wp_10"",""lr_wp_11"",""lr_wp_12"",""lr_wp_13"",""lr_wp_14"",""lr_wp_15"",""lr_wp_16"",""lr_wp_17"",""lr_wp_18"",""lr_wp_19"",""lr_wp_20""]; " \n " " \n "[[8,_spawnArray,_waypointArray,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 15 set [3,false];" \n "}";
-=======
 				onActivation="if (ZoneArray select 8 select 3 == false) then {  " \n "call{ZoneArray select 8 set [3,true];    " \n "" \n "[[8,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];}  " \n "} ";
 				onDeactivation="call{ZoneArray select 8 set [3,false];" \n "}";
->>>>>>> Stashed changes
 				sizeA=300;
 				sizeB=300;
 				repeatable=1;
@@ -12308,8 +12263,6 @@ class Mission
 			id=1103;
 			type="Flag_White_F";
 		};
-<<<<<<< Updated upstream
-=======
 		class Item753
 		{
 			dataType="Trigger";
@@ -22333,6 +22286,5 @@ class Mission
 			id=2335;
 			atlOffset=-0.0001373291;
 		};
->>>>>>> Stashed changes
 	};
 };

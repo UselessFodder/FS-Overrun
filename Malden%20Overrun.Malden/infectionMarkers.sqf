@@ -16,7 +16,7 @@
 						//add additional infection to all currently infected locations if they are < 100
 						//if(InfectionRate select _i < 1) then {InfectionRate set [_i, ((InfectionRate select _i) + 0.001)];};
 						if(ZoneArray select _i select 2 < 1) then {ZoneArray select _i set [2, ((ZoneArray select _i select 2) + 0.001)];};
-						publicVariable "InfectionRate";
+						publicVariable "ZoneArray";
 					};
 					
 					//update marker colors and alpha

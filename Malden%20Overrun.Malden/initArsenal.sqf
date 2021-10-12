@@ -152,10 +152,23 @@ ArsenalItems = [
 	"ACE_Yardage450",                                               // Yardage 450	
 	
 	//TFAR Items
-	"tf_anprc148jem",                                               // AN/PRC-148 JEM
-	"tf_anprc152",                                                  // AN/PRC-152
-	"tf_anprc154_1",                                                // AN/PRC-154
-	"tf_fadak",                                                     // FADAK
+	"TFAR_anprc148jem",                                               // AN/PRC-148 JEM
+	"TFAR_anprc152",                                                  // AN/PRC-152
+	"TFAR_anprc154",                                                // AN/PRC-154
+	"TFAR_fadak",                                                     // FADAK
+	"TFAR_pnr1000a",
+	"TFAR_rt1523g",
+	"TFAR_rt1523g_big",
+	"TFAR_rt1523g_black",
+	"TFAR_rt1523g_fabric",
+	"TFAR_rt1523g_green",
+	"TFAR_rt1523g_rhs",
+	"TFAR_rt1523g_sage",
+	"TFAR_anprc155",
+	"TFAR_anprc155_coyote",
+	"TFAR_mr3000",
+	"TFAR_mr3000_multicam",
+	"TFAR_mr3000_rhs",
 	"tf_microdagr",                                                 // MicroDAGR Radio Programmer
 	"tf_pnr1000a_1",                                                // PNR-1000A
 	"tf_rf7800str",                                                  // PF-7800S-TR	

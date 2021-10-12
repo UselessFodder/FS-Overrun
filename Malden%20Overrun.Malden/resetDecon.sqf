@@ -21,5 +21,11 @@ if(isNull deconTruck == false) then {
 		//add decon action to truck
 		[deconTruck,["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
 		//deconTruck addAction ["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
+		
+		//create arsenal
+		[deconTruck,ArsenalItems,false,false] call BIS_fnc_addVirtualItemCargo;
+		[deconTruck,ArsenalBackpacks,false,false] call BIS_fnc_addVirtualBackpackCargo;
+		[deconTruck,ArsenalWeapons,false,false] call BIS_fnc_addVirtualWeaponCargo;
+		[deconTruck,ArsenalMagazines,false,false] call BIS_fnc_addVirtualMagazineCargo;
 	};
 };

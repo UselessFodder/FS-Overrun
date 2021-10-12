@@ -14,28 +14,25 @@
 		spawn random zombie type at random _SP#
 */
 
-params["_locationIndex","_spawnArray","_waypointArray","_maxZ"];
+//params["_locationIndex","_spawnArray","_maxZ"];
 
  private _locationIndex = _this select 0;
+ private _spawnArray = _this select 1;
+ private _maxZ = _this select 2;
  
  	 private _location = ZoneArray select _locationIndex select 0;
 	 private _isInfected = ZoneArray select _locationIndex select 1;
 	 private _infectionRate = ZoneArray select _locationIndex select 2;
- 
- //_spawnArray = _this select 1;
- //_waypointArray = _this select 2;
- //_maxZ = _this select 3;
 
  _numZ = {_x inArea _location && side _x == east} count allunits;
  _zCount = 0;
  _perKill = (1/_maxZ)/2;
 
-//objectiveComplete = true;
-//publicVariable "objectiveComplete";
 
 _currentInfection = _infectionRate;
 _previousInfection = _infectionRate;
-_infectionHoldRate = InfectionRate select _locationIndex;
+//_infectionHoldRate = InfectionRate select _locationIndex;
+_infectionHoldRate = ZoneArray select _locationIndex select 2;
 
 
 //while{ActiveSpawn select _locationIndex == true} do{ 		
@@ -63,43 +60,47 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			
 			//check if current infection rate is below threshold and last one wasn't				
 			if(_currentInfection < 0.8 && _previousInfection > 0.8) then {
-				InfectionRate set [_locationIndex, 0.8];
+				//InfectionRate set [_locationIndex, 0.8];
+				ZoneArray select _locationIndex set [2, 0.8];
 				_infectionHoldRate = 0.8;
 				_currentInfection = 0.8;
 				_previousInfection = 0.8;
-				[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+				[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 				ZoneArray select _locationIndex set [4, true];
 				
 				
 			} else {
 				if(_currentInfection < 0.6 && _previousInfection > 0.6) then {
-					InfectionRate set [_locationIndex, 0.6];
+					//InfectionRate set [_locationIndex, 0.6];
+					ZoneArray select _locationIndex set [2, 0.6];
 					_infectionHoldRate = 0.6;
 					_currentInfection = 0.6;
 					_previousInfection = 0.6;
-					[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";	
+					[_locationIndex,_spawnArray] execVM "miniObjective.sqf";	
 					//objectiveComplete = false;
 					//publicVariable "objectiveComplete";
 					ZoneArray select _locationIndex set [4, true];
 					
 				} else {
 					if(_currentInfection < 0.4 && _previousInfection > 0.4) then {
-						InfectionRate set [_locationIndex, 0.4];
+						//InfectionRate set [_locationIndex, 0.4];
+						ZoneArray select _locationIndex set [2, 0.4];
 						_infectionHoldRate = 0.4;
 						_currentInfection = 0.4;
 						_previousInfection = 0.4;
-						[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+						[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 						//objectiveComplete = false;
 						//publicVariable "objectiveComplete";
 						ZoneArray select _locationIndex set [4, true];
 						
 					}else {
 						if(_currentInfection < 0.2 && _previousInfection > 0.2) then {
-							InfectionRate set [_locationIndex, 0.2];
+							//InfectionRate set [_locationIndex, 0.2];
+							ZoneArray select _locationIndex set [2, 0.2];
 							_infectionHoldRate = 0.2;
 							_currentInfection = 0.2;
 							_previousInfection = 0.2;
-							[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+							[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 							//objectiveComplete = false;
 							//publicVariable "objectiveComplete";
 							ZoneArray select _locationIndex set [4, true];
@@ -113,18 +114,13 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 				};
 			};
 				
-				////if no mission is running, then update infectionRate
-				//if(objectiveComplete == true) then {				
+				////if no mission is running, then update infectionRate			
 				if (ZoneArray select _locationIndex select 4 == false) then {
 					//InfectionRate set [_locationIndex, _infectionRate - (_perKill * (_currentMaxZ - _numZ))];					
 					ZoneArray select _locationIndex set [2,_infectionRate];
 					
 					//set _previousInfection to test for mission start
-					_previousInfection = _currentInfection;	
-					//[[format ["New infection rate is %1, objectiveComplete = %2", InfectionRate select _locationIndex, objectiveComplete], "PLAIN"]] remoteExec ["titleText", 0]; //TESTING***
-					
-					//add currency to faction bank for each Z replaced
-					//[_currentMaxZ - _numZ] execVM "addToBank.sqf";					
+					_previousInfection = _currentInfection;					
 					
 				} else {
 					//InfectionRate set [_locationIndex, _infectionHoldRate];
@@ -144,8 +140,6 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			
 			while {!_locCheck} do {
 				if (_locCheckCounter < 5) then {
-					//select a spawnpoint
-					//_currentSpawn = selectRandom _spawnArray;	
 					
 					//select random spawnpoint
 					_startSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
@@ -227,11 +221,30 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			// get random point inside zone
 			_currentWaypoint = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 			
-			switch (selectRandom[0,1,2,3]) do {
+			switch (selectRandom[0,1,2,3,4,4,4,4]) do {
 				case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol};
 				case 1: {[_temp_Group, _currentWaypoint] call BIS_fnc_taskDefend};
 				case 2: {[_temp_Group, _currentSpawn,5] call BIS_fnc_taskPatrol};
-				case 3: {[_temp_Group, _currentSpawn] call BIS_fnc_taskDefend}
+				case 3: {_orderPos = getPos (nearestBuilding _currentWaypoint); _temp_Group move _orderPos};
+				case 4: {								
+							_centerPos = ZoneArray select _locationIndex select 0;
+							
+							//find which axis is smaller and select that
+							_centerPosX = getMarkerSize _centerPos select 0;
+							_centerPosY = getMarkerSize _centerPos select 1;
+							_orderRadius = _centerPosY;
+							if (_centerPosX >= _centerPosY) then {
+								_orderRadius = _centerPosX;
+							};
+							
+							//randomize radius near center
+							_orderRadius = random [1, _orderRadius *.25, _orderRadius * .75];
+							
+							//get a random position near zone center and order zombies to it
+							_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;
+							[_temp_Group, _orderPos, 10] call BIS_fnc_taskPatrol;
+						};
+									
 			};//end switch	
 
 			//set to new group to each spawn operates separately
@@ -245,12 +258,8 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 		}; 
 	} else {
 		//if isInfected has changed to false, exit spawner
-		//ActiveSpawn set [_locationIndex, false];
-		//ZoneArray select _locationIndex set [3, false];
 		
 		//clear hint
-		//hint "";
-		//[""] remoteExec ["hint", 0];
 		[[_location,500,""],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
 	}; //end if-else isInfected = true
@@ -263,21 +272,20 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			//_updatedInfection = InfectionRate select _locationIndex;
 			_updatedInfection = ZoneArray select _locationIndex select 2;
 			[[_location,400,Format ["%1 infection rate: %2 %3", _location, round (_updatedInfection * 100), "%"]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
-			//[Format ["%1 infection rate: %2 %3", _location, round (_updatedInfection * 100), "%"]] remoteExec ["hint", 0];
-			//hint Format ["%1 infection rate: %2 %3", _location, Floor (_infectionRate * 100), "%"];	
 		} else {
 			//display area DECONNED
-			//[Format ["%1 has been decontaminated.", _location]] remoteExec ["hint", 0];
 			[[_location,300,Format ["%1 has been decontaminated.", _location]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			//hint Format ["%1 has been decontaminated.", _location];	
 		};
 	};
 	
 	
-	//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ]; ***
-	sleep 5;
+	sleep 2;
 		
 };//end while{true}
+
+//end any ongoing missions to allow them to become active again
+ZoneArray select _locationIndex set [4, false];
 
 //testing delete ***
 diag_log format ["Area %1 deactivated. Current infection is %2", _location, ZoneArray select _locationIndex select 2];

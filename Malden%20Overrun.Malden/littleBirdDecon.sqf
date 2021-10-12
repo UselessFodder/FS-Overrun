@@ -34,7 +34,8 @@ if(isServer) then {
 		
 	} else {
 		// Check if area is still infected
-		if (isInfected select _locIndex == false) then {
+		//if (isInfected select _locIndex == false) then {
+		if (ZoneArray select _locIndex select 1 == false) then {
 			//titleText [format ["%1 has already been decontaminated!", _nearLoc], "PLAIN"];		
 			[["littleBirdMarker",300,(format ["%1 has already been decontaminated!", _nearLoc])],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			//add action back to heli
@@ -44,7 +45,8 @@ if(isServer) then {
 			
 		} else {
 			// else, check if infection rate is below 81%
-			if((InfectionRate select _locIndex) < 0.81) then {
+			//if((InfectionRate select _locIndex) < 0.81) then {
+			if((ZoneArray select _locIndex select 2) < 0.81) then {
 				//titleText ["The infection is already below the airborne decontamination threashold!", "PLAIN"];			
 				[["littleBirdMarker",300,"The infection is already below the airborne decontamination threashold!"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];			
 				
@@ -63,8 +65,12 @@ if(isServer) then {
 					[[_nearLoc,300,"Beginning airborne DECON process... Once started, hold steady for 20 seconds..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 					sleep 5;
 					
-					_deconShell = "SmokeShell" createVehicle (position littleBird);
-					_deconShell attachto [littleBird, [0,0,-1]];
+					_deconShell_1 = "SmokeShell" createVehicle (position littleBird);
+					_deconShell_1 attachto [littleBird, [0,0,-1]];
+					_deconShell_2 = "SmokeShell" createVehicle (position littleBird);
+					_deconShell_2 attachto [littleBird, [0.5,0,-1]];
+					_deconShell_3 = "SmokeShell" createVehicle (position littleBird);
+					_deconShell_3 attachto [littleBird, [-0.5,0,-1]];
 					
 					private _deconTimer = 20;
 					private _airDeconFail = false;
@@ -103,7 +109,9 @@ if(isServer) then {
 								_airDeconComplete = true;
 							
 								//set infection rate to 81%
-								InfectionRate set [_locIndex, 0.81];
+								ZoneArray select _locIndex set [2, 0.81];
+								//InfectionRate set [_locIndex, 0.81];
+								
 								
 								//inform success
 								[[_nearLoc,300,"Airborne decontamination successful. RTB to rearm decontaminate."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
@@ -116,7 +124,9 @@ if(isServer) then {
 					//once attempt is complete, give rearm command & delete smoke
 					//[littleBird,["Rearm Decontaminate", {["rearmLittleBird.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,true,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",-2];
 					//[[LittleBirdArmed],"littleBirdAddAction.sqf"] remoteExec ["BIS_fnc_execVM",0];
-					deleteVehicle _deconShell;
+					deleteVehicle _deconShell_1;
+					deleteVehicle _deconShell_2;
+					deleteVehicle _deconShell_3;
 
 					
 				};

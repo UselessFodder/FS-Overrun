@@ -2,15 +2,13 @@
 	Spawns a random mini-objective 
 */
 
-params ["_locationIndex","_spawnArray","_waypointArray"];
+params ["_locationIndex","_spawnArray"];
 
 private _locationIndex = _this select 0;
 private _spawnArray = _this select 1;
-private _waypointArray = _this select 2;
 
 private _objLocs = [];
 _objLocs append _spawnArray;
-_objLocs append _waypointArray;
 private _zCount = 0;
 
 //objectiveComplete = false;
@@ -42,7 +40,11 @@ if (isServer) then {
 
 	//select a random mini-objective
 	_miniObj = selectRandom[0,1,2];
+<<<<<<< Updated upstream
 	//_miniObj = selectRandom[1]; //***
+=======
+	//_miniObj = selectRandom[0];
+>>>>>>> Stashed changes
 	
 	// -- generate mini-objective --
 	
@@ -58,12 +60,17 @@ if (isServer) then {
 		_bossZ = _bossGroup createUnit[_demonSelect, getMarkerPos _currentLoc, [], 5, "NONE"];
 
 		//set demon to defend point ***add patrol possibility
-		[_bossGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend;
+		//[_bossGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend;
+		
+		//set demon to defend point or patrol
+		switch (selectRandom[0,0,1]) do {
+			case 0: {[_bossGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend};
+			case 1: {[_bossGroup, getMarkerPos _currentLoc,20] call BIS_fnc_taskPatrol};
+		};//end switch	
 
 		//add index to zombie unit
 		_bossZ setVariable ["_bossLocationIndex", _locationIndex, true];
-		
-		
+
 		//create marker to show research location
 		createMarker ["_bossZMarker", getMarkerPos _currentLoc];
 		

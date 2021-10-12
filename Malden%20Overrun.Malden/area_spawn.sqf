@@ -14,9 +14,11 @@
 		spawn random zombie type at random _SP#
 */
 
-params["_locationIndex","_spawnArray","_waypointArray","_maxZ"];
+//params["_locationIndex","_spawnArray","_maxZ"];
 
  private _locationIndex = _this select 0;
+ private _spawnArray = _this select 1;
+ private _maxZ = _this select 2;
  
  	 private _location = ZoneArray select _locationIndex select 0;
 	 private _isInfected = ZoneArray select _locationIndex select 1;
@@ -67,7 +69,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 				_infectionHoldRate = 0.8;
 				_currentInfection = 0.8;
 				_previousInfection = 0.8;
-				[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+				[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 				ZoneArray select _locationIndex set [4, true];
 				
 				
@@ -77,7 +79,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 					_infectionHoldRate = 0.6;
 					_currentInfection = 0.6;
 					_previousInfection = 0.6;
-					[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";	
+					[_locationIndex,_spawnArray] execVM "miniObjective.sqf";	
 					//objectiveComplete = false;
 					//publicVariable "objectiveComplete";
 					ZoneArray select _locationIndex set [4, true];
@@ -88,7 +90,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 						_infectionHoldRate = 0.4;
 						_currentInfection = 0.4;
 						_previousInfection = 0.4;
-						[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+						[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 						//objectiveComplete = false;
 						//publicVariable "objectiveComplete";
 						ZoneArray select _locationIndex set [4, true];
@@ -99,7 +101,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 							_infectionHoldRate = 0.2;
 							_currentInfection = 0.2;
 							_previousInfection = 0.2;
-							[_locationIndex,_spawnArray,_waypointArray] execVM "miniObjective.sqf";
+							[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
 							//objectiveComplete = false;
 							//publicVariable "objectiveComplete";
 							ZoneArray select _locationIndex set [4, true];
@@ -227,11 +229,30 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			// get random point inside zone
 			_currentWaypoint = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 			
-			switch (selectRandom[0,1,2,3]) do {
+			switch (selectRandom[0,1,2,3,4,4,4,4]) do {
 				case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol};
 				case 1: {[_temp_Group, _currentWaypoint] call BIS_fnc_taskDefend};
 				case 2: {[_temp_Group, _currentSpawn,5] call BIS_fnc_taskPatrol};
-				case 3: {[_temp_Group, _currentSpawn] call BIS_fnc_taskDefend}
+				case 3: {_orderPos = getPos (nearestBuilding _currentWaypoint); _temp_Group move _orderPos};
+				case 4: {								
+							_centerPos = ZoneArray select _locationIndex select 0;
+							
+							//find which axis is smaller and select that
+							_centerPosX = getMarkerSize _centerPos select 0;
+							_centerPosY = getMarkerSize _centerPos select 1;
+							_orderRadius = _centerPosY;
+							if (_centerPosX >= _centerPosY) then {
+								_orderRadius = _centerPosX;
+							};
+							
+							//randomize radius near center
+							_orderRadius = random [1, _orderRadius *.25, _orderRadius * .75];
+							
+							//get a random position near zone center and order zombies to it
+							_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;
+							[_temp_Group, _orderPos, 10] call BIS_fnc_taskPatrol;
+						};
+									
 			};//end switch	
 
 			//set to new group to each spawn operates separately
@@ -274,8 +295,12 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 	};
 	
 	
+<<<<<<< Updated upstream
 	//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ]; ***
 	sleep 5;
+=======
+	sleep 2;
+>>>>>>> Stashed changes
 		
 };//end while{true}
 

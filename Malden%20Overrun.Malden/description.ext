@@ -26,3 +26,75 @@ class CfgUnitInsignia
 
 	};	
 };
+
+class Params
+{
+	class PercentToVictory
+	{
+		title = "Percentage of Zones Cleared for Victory ";
+		texts[] = {"100%","90%","80%","70%"};
+		values[] = {1,0.9,0.8,0.7};
+		default = 100;
+	};
+    class Spacer0 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };	
+	class UnlockDescription
+	{
+		title = "Start with these unlocked? (Recommended to leave default for best experience)";
+		texts[] = {""};
+		values[] = {""};
+		default = "";
+	};
+	class NVGUnlocked
+	{
+		title = "- Night Vision Items?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class SupressorUnlocked
+	{
+		title = "- Supressors?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class TechnicalUnlocked
+	{
+		title = "- Techncial?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class LittleBirdUnlocked
+	{
+		title = "- DECON Little Bird?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class FullArsenalUnlocked
+	{
+		title = "Completely Unlock Arsenal? (NOTE: Significantly reduces difficulty and fun)";
+		texts[] = {"No","FULL UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+    class Spacer1 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };		
+	class ResetStatus 
+	{
+        title = "Fully Reset Campaign Progress? (NOTE: YOU CANNOT UNDO)";
+        texts[] = {"No","Negative","YES RESET"};
+        values[] = {1,2,3};
+        default = "1";
+    };	
+};

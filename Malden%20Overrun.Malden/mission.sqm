@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6581.689,182.13632,6018.3193};
-		dir[]={0.18229634,-0.53253943,0.82654089};
-		up[]={0.11469683,0.84640527,0.52004129};
-		aside[]={0.97653103,0,-0.21537717};
+		pos[]={4551.1851,428.52505,7077.8359};
+		dir[]={0.2589421,-0.61531085,0.74454302};
+		up[]={0.20212221,0.78828382,0.58116657};
+		aside[]={0.94450939,7.3312549e-008,-0.32848796};
 	};
 };
 binarizationWanted=0;
@@ -405,7 +405,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.0.6";
+		briefingName="Malden Overrun v0.0.7";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -7802,7 +7802,7 @@ class Mission
 			name="fa_SP_7";
 			type="Empty";
 			id=546;
-			atlOffset=17.434677;
+			atlOffset=17.736355;
 		};
 		class Item367
 		{
@@ -8576,7 +8576,7 @@ class Mission
 			type="Empty";
 			colorName="ColorRed";
 			id=696;
-			atlOffset=1.6772766;
+			atlOffset=1.4300385;
 		};
 		class Item450
 		{

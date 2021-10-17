@@ -5,9 +5,12 @@
 //log run of this script
 diag_log "Running Victory Check";
 
+//get mission param on victory % needed
+_victoryPercent = ["PercentToVictory", 100] call BIS_fnc_getParamValue;
+
 //get full list and count of ZoneArray indexes currently created in Overrun
 _currrentZones = [1,2,3,7,8,9,10,11,12,13,14,15,17,18,26,28,29,30];
-_victoryZoneCount = count _currrentZones;
+_victoryZoneCount = (count _currrentZones) * _victoryPercent;
 
 //value to hold total number of deconed zones
 _totalDeconed = 0;
@@ -26,7 +29,7 @@ _totalDeconed = 0;
 diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 
 //If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the players will win
-if (_totalDeconed == _victoryZoneCount) then {
+if (_totalDeconed >= _victoryZoneCount) then {
 	//*** SEPARATE INTO NEW SQF
 	[["You've done it... Malden has been cleansed of the zombie menace!", "PLAIN"]] remoteExec ["titleText", 0];
 	

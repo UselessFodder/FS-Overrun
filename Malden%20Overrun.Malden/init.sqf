@@ -18,7 +18,7 @@
 		X Saving
 		X Mini-Objectives
 		- Set triggers for all towns
-		- Victory conditions
+		X Victory conditions
 		
 */
 
@@ -62,8 +62,8 @@ if (isServer) then {
 	publicVariable "FactionBank";
 	
 	//tracker to keep track of all unlocks
-	//0 - Heli, 1 - Tech
-	UnlockTracker = [false,false];
+	//0 - Heli, 1 - Tech, 2 - NVGs, 3 - Supressors
+	UnlockTracker = [false,false,false,false];
 	publicVariable "UnlockTracker";
 
 	//check if profileNamespace contains changeable variables. If so, load variables
@@ -104,6 +104,30 @@ if (isServer) then {
 	
 	publicVariable "ZoneArray";	
 	diag_log format ["ZoneArray initialized with %1 entries", count ZoneArray];
+	
+	//check params and run resetState if selected
+	if (["ResetStatus", 1] call BIS_fnc_getParamValue == 3)  then {
+		[true] execVM "resetState.sqf";
+	};
+	
+	//check params and unlock applicable slots
+	if(["LittleBirdUnlocked", 0] call BIS_fnc_getParamValue == 1) then {
+		diag_log "Little Bird Unlock Selected...";
+		UnlockTracker set [0, true];
+	};
+	if(["TechnicalUnlocked", 0] call BIS_fnc_getParamValue == 1) then {
+		diag_log "Technical Unlock Selected...";
+		UnlockTracker set [1, true];
+	};
+	if(["NVGUnlocked", 0] call BIS_fnc_getParamValue == 1) then {
+		diag_log "NVG Unlock Selected...";
+		UnlockTracker set [2, true];
+	};
+	if(["SupressorUnlocked", 0] call BIS_fnc_getParamValue == 1) then {
+		diag_log "Suppressor Unlock Selected...";
+		UnlockTracker set [3, true];
+	};
+	publicVariable "UnlockTracker";
 	
 	
 	//initialized unlocked vehicles

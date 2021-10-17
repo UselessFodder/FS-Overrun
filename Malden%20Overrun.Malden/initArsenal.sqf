@@ -1485,6 +1485,64 @@ ArsenalMagazines = [
 ];
 publicVariable "ArsenalMagazines";
 
+//if NVGs have been unlocked, append all NVG items to the arsenal loader
+if(UnlockTracker select 2 == true) then {
+	diag_log "NVGs are unlocked. Adding to Arsenal Items";
+	ArsenalItems append [
+	//Arma NV optic and binos
+	"optic_Nightstalker",
+	
+	//Arma NVGs
+	"NVGoggles",
+	"NVGoggles_OPFOR",
+	"NVGoggles_INDEP",
+	"O_NVGoggles_hex_F",
+	"O_NVGoggles_urb_F",
+	"O_NVGoggles_ghex_F",
+	"NVGoggles_tna_F",
+	"NVGogglesB_blk_F",
+	"NVGogglesB_grn_F",
+	"NVGogglesB_gry_F",
+	"O_NVGoggles_grn_F",	
+	
+	//ACE & CUP NV optics and binos
+	"ACE_Vector",
+	"CUP_Vector21Nite",
+	"CUP_optic_AN_PAS_13c1",
+	"CUP_optic_AN_PAS_13c2",
+	"CUP_optic_CWS"
+	];	
+	
+	//find and add all NVGs in base game and all mods
+	{
+		ArsenalItems pushBack (configName _x);
+		//diag_log format ["%1 added to ArsenalItems", (configName _x)];
+	} 
+	forEach ("((configName (_x)) isKindof ['NVGoggles', configFile >> 'cfgWeapons']) && (getText (_x >> 'displayName') != '')" configClasses (configFile >> "cfgWeapons")); 
+	
+	publicVariable "ArsenalItems";	
+};
+
+//if suppressors have been unlocked, append all suppressors to the arsenal loader
+if(UnlockTracker select 3 == true) then {
+	diag_log "Suppressors are unlocked. Adding to Arsenal Items";
+	//ArsenalItems append [];
+	
+	//find and add all suppressors by checking audibleFire in config from base game and all mods
+	//_allMuzzles = ("getnumber (_x >> 'itemInfo' >> 'type') isEqualTo 101 && getNumber (_x>> 'scope') >1" configClasses (configfile >> "CfgWeapons")) apply {configName _x};
+	_suppressors = ("getNumber (_x >> 'itemInfo' >> 'type') isEqualTo 101 && getNumber (_x>> 'scope') >1 && getNumber (_x >> 'ItemInfo' >> 'AmmoCoef' >> 'audibleFire') <1 " configClasses (configfile >> "CfgWeapons")) apply {configName _x};
+	ArsenalItems append _suppressors;
+	/*
+	{
+		ArsenalItems pushBack (configName _x);
+		//diag_log format [" %1 added to ArsenalItems", (configName _x)];
+	} 
+	forEach ("getNumber (_x >> 'itemInfo' >> 'type') isEqualTo 101 && getNumber (_x>> 'scope') >1 && getNumber (_x >> 'ItemInfo' >> 'AmmoCoef' >> 'audibleFire') <1 " configClasses (configfile >> "CfgWeapons")) apply {configName _x}; 
+	*/
+	publicVariable "ArsenalItems";
+};
+
+
 //add all items to arsenalBox
 [arsenalBox,ArsenalItems,false,false] call BIS_fnc_addVirtualItemCargo;
 [arsenalBox,ArsenalBackpacks,false,false] call BIS_fnc_addVirtualBackpackCargo;

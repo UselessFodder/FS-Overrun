@@ -42,29 +42,34 @@ if(isServer) then {
 			//if below max Z
 			if(_numZ < _currentMaxZ) then {
 				//create group to put Z's in
-				private _temp_Group = createGroup[EAST,true]; 
-				
-			//select a position for new group and ensure it's more than 30m from the players
+				private _temp_Group = createGroup[EAST,true]; 				
+			
+			//select a position for new group and ensure it's more than 30m from the party
 			private _locCheck = false;
 			private _locCheckCounter = 0;
 			private _minimumDistance = 30;
-			private _currentSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
+			private _currentSpawn = [0,0,0];
 			
 			while {!_locCheck} do {
 				if (_locCheckCounter < 5) then {
-					//select a spawnpoint
-					//_currentSpawn = selectRandom _spawnArray;	
 					
-					//select a random spawnpoint
+					//select random spawnpoint
 					_startSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 					_currentSpawn = _startSpawn findEmptyPosition [0,10];
+					
+					//default _locCheck to true and only change to false if a player is too close to the spawn
+					_locCheck = true;
 					
 					//check if it is within minimum distance of a player
 					{
 						//_currentDistance = getMarkerPos _currentSpawn distance _x;
 						_currentDistance = _currentSpawn distance _x;
-						if (_currentDistance > _minimumDistance) then {
-							_locCheck = true;
+						if (_currentDistance < _minimumDistance) then {
+							//*** debug
+							diag_log format ["Cannot use spawn as it is within %1 of a player, less than the minimum of %2", _currentDistance, _minimumDistance];
+						
+							//if the spawn is too close, change _locCheck to false so the check runs again
+							_locCheck = false;
 						};							
 					} forEach allPlayers;
 					

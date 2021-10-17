@@ -57,7 +57,9 @@ if(_nearLoc isEqualTo "") then {
 			titleText ["The infection is still too strong in this area.\nClear more infected from the area!", "PLAIN"];
 		} else {
 			
-			[_locIndex,_nearLoc] remoteExec ["fnc_deconStart",2];
+			if(isServer) then {
+				[_locIndex,_nearLoc] remoteExec ["fnc_deconStart",2];			
+			};
 			
 			fnc_deconStart = {
 				params ["_locIndex","_nearLoc"];

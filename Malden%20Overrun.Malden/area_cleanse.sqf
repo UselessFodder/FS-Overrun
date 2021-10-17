@@ -121,6 +121,10 @@ while{CleanseActive} do {
 				//clear decon status
 				CleanseActive = false;
 				publicVariable "CleanseActive";
+				
+				//check if this is the final zone for victory
+				execVM "victoryCheck.sqf";
+				
 			};
 			
 

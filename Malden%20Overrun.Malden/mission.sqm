@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=2336;
+		nextID=2766;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={7048.3643,150.51495,9939.1719};
-		dir[]={-0.86210591,-0.36254951,0.35402158};
-		up[]={-0.33537334,0.9319644,0.1377202};
-		aside[]={0.37986591,0,0.92504144};
+		pos[]={6581.689,182.13632,6018.3193};
+		dir[]={0.18229634,-0.53253943,0.82654089};
+		up[]={0.11469683,0.84640527,0.52004129};
+		aside[]={0.97653103,0,-0.21537717};
 	};
 };
 binarizationWanted=0;
@@ -64,6 +64,8 @@ addons[]=
 	"A3_Structures_F_Mil_Flags",
 	"ryanzombiesfunctions",
 	"A3_Characters_F",
+	"A3_Weapons_F",
+	"ace_optics",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Soft_F_Gamma_Truck_01",
 	"A3_Soft_F_Exp_Truck_01"
@@ -72,7 +74,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=27;
+		items=29;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -234,19 +236,33 @@ class AddonsMetaData
 		};
 		class Item24
 		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item25
+		{
+			className="ace_optics";
+			name="ACE3 - Optics";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item26
+		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item25
+		class Item27
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item26
+		class Item28
 		{
 			className="A3_Soft_F_Exp";
 			name="Arma 3 Apex - Unarmored Land Vehicles";
@@ -389,7 +405,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.0.5";
+		briefingName="Malden Overrun v0.0.6";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -415,7 +431,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1923;
+		items=2343;
 		class Item0
 		{
 			dataType="Marker";
@@ -4962,7 +4978,7 @@ class Mission
 			fillName="BDiagonal";
 			a=1121.068;
 			b=1048.0693;
-			angle=178.69797;
+			angle=178.69792;
 			id=463;
 			atlOffset=13.873001;
 		};
@@ -5001,11 +5017,27 @@ class Mission
 					class Attributes
 					{
 						rank="COLONEL";
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA1";
 						description="BRT Team Leader";
 						isPlayer=1;
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=145;
 					type="B_Survivor_F";
@@ -5141,10 +5173,26 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA2";
 						description="BRT Medic";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=87;
 					type="B_Survivor_F";
@@ -5242,10 +5290,26 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA3";
 						description="BRT Engineer";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=467;
 					type="B_Survivor_F";
@@ -5342,10 +5406,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA4";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=104;
 					type="B_Survivor_F";
@@ -5423,10 +5503,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA5";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=469;
 					type="B_Survivor_F";
@@ -5504,10 +5600,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA6";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=98;
 					type="B_Survivor_F";
@@ -5585,10 +5697,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA7";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=100;
 					type="B_Survivor_F";
@@ -5666,10 +5794,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA8";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=485;
 					type="B_Survivor_F";
@@ -5747,10 +5891,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA9";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=471;
 					type="B_Survivor_F";
@@ -5828,10 +5988,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pA10";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=96;
 					type="B_Survivor_F";
@@ -5946,10 +6122,26 @@ class Mission
 					class Attributes
 					{
 						rank="COLONEL";
-						init="call{[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";}";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB1";
 						description="BRT Team Leader";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=488;
 					type="B_Survivor_F";
@@ -6085,10 +6277,26 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB2";
 						description="BRT Medic";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=92;
 					type="B_Survivor_F";
@@ -6185,10 +6393,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB3";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=94;
 					type="B_Survivor_F";
@@ -6266,10 +6490,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB4";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=481;
 					type="B_Survivor_F";
@@ -6347,10 +6587,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB5";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=102;
 					type="B_Survivor_F";
@@ -6428,10 +6684,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB6";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=473;
 					type="B_Survivor_F";
@@ -6509,10 +6781,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB7";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=475;
 					type="B_Survivor_F";
@@ -6590,10 +6878,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB8";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=477;
 					type="B_Survivor_F";
@@ -6671,10 +6975,26 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB9";
 						description="BRT Rifleman";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=479;
 					type="B_Survivor_F";
@@ -6753,10 +7073,26 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
-						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;" \n "" \n "removeGoggles this;" \n "removeAllItems this;" \n "this addweapon  ""Binocular"";" \n "this addItem ""ItemCompass"";" \n "this assignItem ""ItemCompass"";" \n "this additem ""ItemMap"";" \n "this assignItem ""ItemMap"";" \n "this addItem ""ItemWatch"";" \n "this assignItem ""ItemWatch"";" \n "this addItem ""tf_anprc152""; " \n "this assignItem ""tf_anprc152"";";
+						init="[this, ""brt_gray""] call BIS_fnc_setUnitInsignia;";
 						name="pB10";
 						description="BRT Engineer";
 						isPlayable=1;
+						class Inventory
+						{
+							class binocular
+							{
+								name="Binocular";
+							};
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam";
+								isBackpack=0;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							gps="ItemGPS";
+						};
 					};
 					id=90;
 					type="B_Survivor_F";
@@ -8240,7 +8576,7 @@ class Mission
 			type="Empty";
 			colorName="ColorRed";
 			id=696;
-			atlOffset=1.4300385;
+			atlOffset=1.6772766;
 		};
 		class Item450
 		{
@@ -8745,9 +9081,8 @@ class Mission
 			position[]={4550.2939,403.50705,7095.2969};
 			class Attributes
 			{
-				condition="call{this}";
-				onActivation="call{if (player in thisList) then {" \n "     hint format[""Current Faction Bank: %1"", FactionBank];" \n "};}";
-				onDeactivation="call{  if (player in thisList) then {" \n "     hint """";" \n "  };" \n "}";
+				onActivation="if (player in thisList) then {" \n "     hint format[""Current Faction Bank: %1"", FactionBank];" \n "};";
+				onDeactivation="if (player in thisList) then {" \n "     hint """";" \n "  };";
 				sizeA=3;
 				sizeB=3;
 				repeatable=1;
@@ -16060,7 +16395,7 @@ class Mission
 		class Item1208
 		{
 			dataType="Marker";
-			position[]={5075.4487,64.626656,3875.9077};
+			position[]={5136.6025,81.180656,4022.2144};
 			name="sme_wp_164";
 			type="Empty";
 			id=1570;
@@ -20482,7 +20817,7 @@ class Mission
 			name="ho_wp_288";
 			type="Empty";
 			id=2122;
-			atlOffset=2.2888184e-005;
+			atlOffset=1.5258789e-005;
 		};
 		class Item1724
 		{
@@ -20500,7 +20835,7 @@ class Mission
 			name="ho_wp_290";
 			type="Empty";
 			id=2124;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1726
 		{
@@ -20509,7 +20844,7 @@ class Mission
 			name="ho_wp_291";
 			type="Empty";
 			id=2125;
-			atlOffset=2.2888184e-005;
+			atlOffset=1.5258789e-005;
 		};
 		class Item1727
 		{
@@ -20635,7 +20970,7 @@ class Mission
 			name="ho_wp_305";
 			type="Empty";
 			id=2142;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1741
 		{
@@ -20653,7 +20988,7 @@ class Mission
 			name="ho_wp_307";
 			type="Empty";
 			id=2144;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1743
 		{
@@ -21040,7 +21375,7 @@ class Mission
 			name="ho_wp_350";
 			type="Empty";
 			id=2189;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1786
 		{
@@ -21058,7 +21393,7 @@ class Mission
 			name="ho_wp_352";
 			type="Empty";
 			id=2191;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1788
 		{
@@ -21247,7 +21582,7 @@ class Mission
 			name="ho_wp_373";
 			type="Empty";
 			id=2213;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1809
 		{
@@ -21274,7 +21609,7 @@ class Mission
 			name="ho_wp_376";
 			type="Empty";
 			id=2216;
-			atlOffset=2.2888184e-005;
+			atlOffset=3.0517578e-005;
 		};
 		class Item1812
 		{
@@ -22285,6 +22620,3797 @@ class Mission
 			type="Empty";
 			id=2335;
 			atlOffset=-0.0001373291;
+		};
+		class Item1923
+		{
+			dataType="Trigger";
+			position[]={4553.1812,403.66907,7110.9878};
+			angle=2.5005155;
+			class Attributes
+			{
+				condition="player in thisList";
+				onActivation="thisTrigger setVariable [""_playerAction"", player addAction [""Redeploy"",{forceRespawn player; deleteVehicle player}]];";
+				onDeactivation="player removeAction (thisTrigger getVariable [""_playerAction"",-1])";
+				sizeA=15.164;
+				sizeB=14.696;
+				repeatable=1;
+				activationBy="WEST";
+				triggerInterval=1;
+			};
+			id=2336;
+			type="EmptyDetector";
+			atlOffset=-0.023010254;
+		};
+		class Item1924
+		{
+			dataType="Marker";
+			position[]={1187.9097,21.57674,577.30878};
+			name="fa_SP_9";
+			type="Empty";
+			id=2337;
+			atlOffset=-0.18533325;
+		};
+		class Item1925
+		{
+			dataType="Marker";
+			position[]={1193.9253,14.260083,536.06952};
+			name="fa_SP_10";
+			type="Empty";
+			id=2338;
+			atlOffset=-0.18533325;
+		};
+		class Item1926
+		{
+			dataType="Marker";
+			position[]={1234.4585,26.648468,593.35968};
+			name="fa_SP_11";
+			type="Empty";
+			id=2339;
+			atlOffset=-0.18533325;
+		};
+		class Item1927
+		{
+			dataType="Marker";
+			position[]={1175.4698,27.038671,662.84302};
+			name="fa_SP_12";
+			type="Empty";
+			id=2340;
+			atlOffset=-0.18533325;
+		};
+		class Item1928
+		{
+			dataType="Marker";
+			position[]={1106.8311,6.6185269,679.30585};
+			name="fa_SP_13";
+			type="Empty";
+			id=2341;
+			atlOffset=-0.18533325;
+		};
+		class Item1929
+		{
+			dataType="Marker";
+			position[]={1102.3619,6.5257339,701.6618};
+			name="fa_SP_14";
+			type="Empty";
+			id=2342;
+			atlOffset=-0.18533325;
+		};
+		class Item1930
+		{
+			dataType="Marker";
+			position[]={1087.9554,4.6726251,704.24188};
+			name="fa_SP_15";
+			type="Empty";
+			id=2343;
+			atlOffset=-0.18533325;
+		};
+		class Item1931
+		{
+			dataType="Marker";
+			position[]={1080.2954,4.4252186,678.10614};
+			name="fa_SP_16";
+			type="Empty";
+			id=2344;
+			atlOffset=0.30020809;
+		};
+		class Item1932
+		{
+			dataType="Marker";
+			position[]={1063.0358,4.4226885,649.30817};
+			name="fa_SP_17";
+			type="Empty";
+			id=2345;
+			atlOffset=-0.18533325;
+		};
+		class Item1933
+		{
+			dataType="Marker";
+			position[]={1070.0479,4.7861252,649.56494};
+			name="fa_SP_18";
+			type="Empty";
+			id=2346;
+			atlOffset=-0.18533325;
+		};
+		class Item1934
+		{
+			dataType="Marker";
+			position[]={1064.9821,4.4129219,652.24939};
+			name="fa_SP_19";
+			type="Empty";
+			id=2347;
+			atlOffset=-0.18533325;
+		};
+		class Item1935
+		{
+			dataType="Marker";
+			position[]={1082.8224,4.1873078,662.77057};
+			name="fa_SP_20";
+			type="Empty";
+			id=2348;
+			atlOffset=-0.18533325;
+		};
+		class Item1936
+		{
+			dataType="Marker";
+			position[]={1049.3499,1.2955095,735.35132};
+			name="fa_SP_21";
+			type="Empty";
+			id=2349;
+			atlOffset=-0.18533325;
+		};
+		class Item1937
+		{
+			dataType="Marker";
+			position[]={1070.8527,3.8734488,705.73792};
+			name="fa_SP_22";
+			type="Empty";
+			id=2350;
+			atlOffset=-0.18533325;
+		};
+		class Item1938
+		{
+			dataType="Marker";
+			position[]={1077.187,8.3226566,579.98297};
+			name="fa_SP_23";
+			type="Empty";
+			id=2351;
+			atlOffset=-0.18533325;
+		};
+		class Item1939
+		{
+			dataType="Marker";
+			position[]={1055.3202,1.0711412,555.43646};
+			name="fa_SP_24";
+			type="Empty";
+			id=2352;
+			atlOffset=-0.18533325;
+		};
+		class Item1940
+		{
+			dataType="Marker";
+			position[]={1041.8241,0.78797281,598.19037};
+			name="fa_SP_25";
+			type="Empty";
+			id=2353;
+			atlOffset=-0.18533325;
+		};
+		class Item1941
+		{
+			dataType="Marker";
+			position[]={992.75446,1.9861546,734.91388};
+			name="fa_SP_26";
+			type="Empty";
+			id=2354;
+			atlOffset=8.5482168;
+		};
+		class Item1942
+		{
+			dataType="Marker";
+			position[]={1055.0284,0.85274875,752.02271};
+			name="fa_SP_27";
+			type="Empty";
+			id=2355;
+			atlOffset=-0.18533325;
+		};
+		class Item1943
+		{
+			dataType="Marker";
+			position[]={1075.2101,1.1085538,776.28131};
+			name="fa_SP_28";
+			type="Empty";
+			id=2356;
+			atlOffset=-0.18533325;
+		};
+		class Item1944
+		{
+			dataType="Marker";
+			position[]={1099.5891,15.794906,594.47998};
+			name="fa_SP_29";
+			type="Empty";
+			id=2357;
+			atlOffset=-0.18533325;
+		};
+		class Item1945
+		{
+			dataType="Marker";
+			position[]={1115.8351,19.869555,586.65411};
+			name="fa_SP_30";
+			type="Empty";
+			id=2358;
+			atlOffset=-0.18533325;
+		};
+		class Item1946
+		{
+			dataType="Marker";
+			position[]={1166.3539,22.180225,581.80957};
+			name="fa_SP_31";
+			type="Empty";
+			id=2359;
+			atlOffset=0.43176079;
+		};
+		class Item1947
+		{
+			dataType="Marker";
+			position[]={1215.6394,21.134609,787.83203};
+			name="fa_SP_32";
+			type="Empty";
+			id=2360;
+			atlOffset=-0.18533325;
+		};
+		class Item1948
+		{
+			dataType="Marker";
+			position[]={1195.8861,15.409115,793.36621};
+			name="fa_SP_33";
+			type="Empty";
+			id=2362;
+			atlOffset=-0.18533325;
+		};
+		class Item1949
+		{
+			dataType="Marker";
+			position[]={6296.1367,115.55836,8808.2207};
+			name="lar_SP_53";
+			type="Empty";
+			id=2363;
+			atlOffset=-0.2179718;
+		};
+		class Item1950
+		{
+			dataType="Marker";
+			position[]={6342.6631,113.89237,8855.0361};
+			name="lar_SP_54";
+			type="Empty";
+			id=2364;
+			atlOffset=-0.53279114;
+		};
+		class Item1951
+		{
+			dataType="Marker";
+			position[]={6325.6523,113.20757,8864.1963};
+			name="lar_SP_55";
+			type="Empty";
+			id=2365;
+			atlOffset=-0.79573059;
+		};
+		class Item1952
+		{
+			dataType="Marker";
+			position[]={6341.3057,113.97182,8905.4688};
+			name="lar_SP_56";
+			type="Empty";
+			id=2366;
+			atlOffset=-0.79573822;
+		};
+		class Item1953
+		{
+			dataType="Marker";
+			position[]={6348.6279,113.93573,8905.6738};
+			name="lar_SP_57";
+			type="Empty";
+			id=2367;
+			atlOffset=-0.52735138;
+		};
+		class Item1954
+		{
+			dataType="Marker";
+			position[]={6348.3076,113.93585,8900.0234};
+			name="lar_SP_58";
+			type="Empty";
+			id=2368;
+			atlOffset=-0.41905975;
+		};
+		class Item1955
+		{
+			dataType="Marker";
+			position[]={6347.5483,113.0826,8861.0322};
+			name="lar_SP_59";
+			type="Empty";
+			id=2369;
+			atlOffset=-0.79572296;
+		};
+		class Item1956
+		{
+			dataType="Marker";
+			position[]={6368.9521,112.32507,8882.2344};
+			name="lar_SP_60";
+			type="Empty";
+			id=2370;
+			atlOffset=-0.79572296;
+		};
+		class Item1957
+		{
+			dataType="Marker";
+			position[]={6368.5479,112.79034,8896.084};
+			name="lar_SP_61";
+			type="Empty";
+			id=2371;
+			atlOffset=-0.79573059;
+		};
+		class Item1958
+		{
+			dataType="Marker";
+			position[]={6361.5225,113.50494,8918.5947};
+			name="lar_SP_62";
+			type="Empty";
+			id=2372;
+			atlOffset=-0.79573822;
+		};
+		class Item1959
+		{
+			dataType="Marker";
+			position[]={6328.2983,116.38447,8945.9619};
+			name="lar_SP_63";
+			type="Empty";
+			id=2373;
+			atlOffset=-0.79573059;
+		};
+		class Item1960
+		{
+			dataType="Marker";
+			position[]={6296.8652,117.40269,8927.8545};
+			name="lar_SP_64";
+			type="Empty";
+			id=2374;
+			atlOffset=-0.79573822;
+		};
+		class Item1961
+		{
+			dataType="Marker";
+			position[]={6322.9805,115.01384,8913.7227};
+			name="lar_SP_65";
+			type="Empty";
+			id=2375;
+			atlOffset=-0.79573059;
+		};
+		class Item1962
+		{
+			dataType="Marker";
+			position[]={6353.8623,114.19074,8751.4297};
+			name="lar_SP_66";
+			type="Empty";
+			id=2376;
+			atlOffset=-0.58444214;
+		};
+		class Item1963
+		{
+			dataType="Marker";
+			position[]={6357.3164,114.04398,8736.2881};
+			name="lar_SP_67";
+			type="Empty";
+			id=2377;
+			atlOffset=-0.79573059;
+		};
+		class Item1964
+		{
+			dataType="Marker";
+			position[]={6350.3267,114.6296,8705.3438};
+			name="lar_SP_68";
+			type="Empty";
+			id=2378;
+			atlOffset=-0.79573059;
+		};
+		class Item1965
+		{
+			dataType="Marker";
+			position[]={6238.896,117.37895,8762.4414};
+			name="lar_SP_69";
+			type="Empty";
+			id=2379;
+			atlOffset=-0.79573059;
+		};
+		class Item1966
+		{
+			dataType="Marker";
+			position[]={6196.8438,118.51077,8757.2529};
+			name="lar_SP_70";
+			type="Empty";
+			id=2380;
+			atlOffset=-0.79572296;
+		};
+		class Item1967
+		{
+			dataType="Marker";
+			position[]={6203.3931,118.65263,8730.2227};
+			name="lar_SP_71";
+			type="Empty";
+			id=2381;
+			atlOffset=-0.79573059;
+		};
+		class Item1968
+		{
+			dataType="Marker";
+			position[]={6169.1558,120.27474,8760.0361};
+			name="lar_SP_72";
+			type="Empty";
+			id=2382;
+			atlOffset=-0.79573059;
+		};
+		class Item1969
+		{
+			dataType="Marker";
+			position[]={6131.54,122.25742,8788.0645};
+			name="lar_SP_73";
+			type="Empty";
+			id=2383;
+			atlOffset=-0.6236496;
+		};
+		class Item1970
+		{
+			dataType="Marker";
+			position[]={6130.3833,121.84579,8773.668};
+			name="lar_SP_74";
+			type="Empty";
+			id=2384;
+			atlOffset=-0.79573822;
+		};
+		class Item1971
+		{
+			dataType="Marker";
+			position[]={6129.6665,122.15069,8770.1367};
+			name="lar_SP_75";
+			type="Empty";
+			id=2385;
+			atlOffset=-0.53156281;
+		};
+		class Item1972
+		{
+			dataType="Marker";
+			position[]={6078.1226,123.49936,8773.6963};
+			name="lar_SP_76";
+			type="Empty";
+			id=2386;
+			atlOffset=-0.79573059;
+		};
+		class Item1973
+		{
+			dataType="Marker";
+			position[]={6066.6011,123.70969,8761.1367};
+			name="lar_SP_77";
+			type="Empty";
+			id=2387;
+			atlOffset=-0.79573059;
+		};
+		class Item1974
+		{
+			dataType="Marker";
+			position[]={6049.8198,124.19296,8752.3184};
+			name="lar_SP_78";
+			type="Empty";
+			id=2388;
+			atlOffset=-0.79572296;
+		};
+		class Item1975
+		{
+			dataType="Marker";
+			position[]={6055.3223,124.09894,8759.1465};
+			name="lar_SP_79";
+			type="Empty";
+			id=2389;
+			atlOffset=-0.79573059;
+		};
+		class Item1976
+		{
+			dataType="Marker";
+			position[]={6028.2544,124.65025,8781.3916};
+			name="lar_SP_80";
+			type="Empty";
+			id=2390;
+			atlOffset=-0.79573059;
+		};
+		class Item1977
+		{
+			dataType="Marker";
+			position[]={6081.4292,123.98637,8782.9248};
+			name="lar_SP_81";
+			type="Empty";
+			id=2391;
+			atlOffset=-0.41950989;
+		};
+		class Item1978
+		{
+			dataType="Marker";
+			position[]={6076.0669,124.56564,8811.3232};
+			name="lar_SP_82";
+			type="Empty";
+			id=2392;
+			atlOffset=-0.79573059;
+		};
+		class Item1979
+		{
+			dataType="Marker";
+			position[]={6057.5776,126.45103,8834.9326};
+			name="lar_SP_83";
+			type="Empty";
+			id=2393;
+			atlOffset=-0.38375854;
+		};
+		class Item1980
+		{
+			dataType="Marker";
+			position[]={6051.5957,126.45966,8831.9053};
+			name="lar_SP_84";
+			type="Empty";
+			id=2394;
+			atlOffset=-0.47189331;
+		};
+		class Item1981
+		{
+			dataType="Marker";
+			position[]={6068.3896,127.24963,8871.7393};
+			name="lar_SP_85";
+			type="Empty";
+			id=2395;
+			atlOffset=-0.79573059;
+		};
+		class Item1982
+		{
+			dataType="Marker";
+			position[]={6069.2847,126.19234,8851.501};
+			name="lar_SP_86";
+			type="Empty";
+			id=2396;
+			atlOffset=-0.79573822;
+		};
+		class Item1983
+		{
+			dataType="Marker";
+			position[]={6044.1357,128.63086,8855.0918};
+			name="lar_SP_87";
+			type="Empty";
+			id=2397;
+			atlOffset=0.44372559;
+		};
+		class Item1984
+		{
+			dataType="Marker";
+			position[]={6005.9707,129.86346,8848.6406};
+			name="lar_SP_88";
+			type="Empty";
+			id=2398;
+			atlOffset=0.16845703;
+		};
+		class Item1985
+		{
+			dataType="Marker";
+			position[]={6033.9678,130.62091,8886.3438};
+			name="lar_SP_89";
+			type="Empty";
+			id=2399;
+			atlOffset=-0.12011719;
+		};
+		class Item1986
+		{
+			dataType="Marker";
+			position[]={6059.2432,127.93352,8874.0752};
+			name="lar_SP_90";
+			type="Empty";
+			id=2400;
+			atlOffset=-0.79573059;
+		};
+		class Item1987
+		{
+			dataType="Marker";
+			position[]={6074.4937,129.5555,8903.8301};
+			name="lar_SP_91";
+			type="Empty";
+			id=2401;
+			atlOffset=-0.79573059;
+		};
+		class Item1988
+		{
+			dataType="Marker";
+			position[]={6091.2598,129.63548,8909.4336};
+			name="lar_SP_92";
+			type="Empty";
+			id=2402;
+			atlOffset=-0.79573059;
+		};
+		class Item1989
+		{
+			dataType="Marker";
+			position[]={6081.5366,130.65939,8923.707};
+			name="lar_SP_93";
+			type="Empty";
+			id=2403;
+			atlOffset=-0.38475037;
+		};
+		class Item1990
+		{
+			dataType="Marker";
+			position[]={6087.4189,130.65837,8923.6016};
+			name="lar_SP_94";
+			type="Empty";
+			id=2404;
+			atlOffset=-0.38366699;
+		};
+		class Item1991
+		{
+			dataType="Marker";
+			position[]={6072.9326,130.38449,8914.6084};
+			name="lar_SP_95";
+			type="Empty";
+			id=2405;
+			atlOffset=-0.44441223;
+		};
+		class Item1992
+		{
+			dataType="Marker";
+			position[]={6071.0972,130.25699,8924.2549};
+			name="lar_SP_96";
+			type="Empty";
+			id=2406;
+			atlOffset=-0.79573059;
+		};
+		class Item1993
+		{
+			dataType="Marker";
+			position[]={6060.8667,130.7876,8947.6748};
+			name="lar_SP_97";
+			type="Empty";
+			id=2407;
+			atlOffset=-0.28240967;
+		};
+		class Item1994
+		{
+			dataType="Marker";
+			position[]={6066.9976,130.27428,8944.0322};
+			name="lar_SP_98";
+			type="Empty";
+			id=2408;
+			atlOffset=-0.79573059;
+		};
+		class Item1995
+		{
+			dataType="Marker";
+			position[]={6109.917,130.51625,8962.2031};
+			name="lar_SP_99";
+			type="Empty";
+			id=2409;
+			atlOffset=-0.55375671;
+		};
+		class Item1996
+		{
+			dataType="Marker";
+			position[]={6139.2681,129.60092,8950.583};
+			name="lar_SP_100";
+			type="Empty";
+			id=2410;
+			atlOffset=-0.79573059;
+		};
+		class Item1997
+		{
+			dataType="Marker";
+			position[]={6172.2554,125.09889,8898.5762};
+			name="lar_SP_101";
+			type="Empty";
+			id=2411;
+			atlOffset=-0.79573059;
+		};
+		class Item1998
+		{
+			dataType="Marker";
+			position[]={6113.0718,127.89384,8906.1123};
+			name="lar_SP_102";
+			type="Empty";
+			id=2412;
+			atlOffset=-0.79573822;
+		};
+		class Item1999
+		{
+			dataType="Marker";
+			position[]={6109.3032,123.72255,8848.0127};
+			name="lar_SP_103";
+			type="Empty";
+			id=2413;
+			atlOffset=-0.79573059;
+		};
+		class Item2000
+		{
+			dataType="Marker";
+			position[]={6010.3306,130.37601,8871.1738};
+			name="lar_SP_104";
+			type="Empty";
+			id=2414;
+			atlOffset=-0.79573059;
+		};
+		class Item2001
+		{
+			dataType="Marker";
+			position[]={5984.1479,132.71147,8882.2969};
+			name="lar_SP_105";
+			type="Empty";
+			id=2415;
+			atlOffset=0.21862793;
+		};
+		class Item2002
+		{
+			dataType="Marker";
+			position[]={5971.1724,130.79422,8851.9971};
+			name="lar_SP_106";
+			type="Empty";
+			id=2416;
+			atlOffset=-0.79573059;
+		};
+		class Item2003
+		{
+			dataType="Marker";
+			position[]={5950.6626,135.36353,8883.4111};
+			name="lar_SP_107";
+			type="Empty";
+			id=2417;
+			atlOffset=-0.79573059;
+		};
+		class Item2004
+		{
+			dataType="Marker";
+			position[]={5987.6851,135.55739,8915.9824};
+			name="lar_SP_108";
+			type="Empty";
+			id=2418;
+			atlOffset=-0.79573059;
+		};
+		class Item2005
+		{
+			dataType="Marker";
+			position[]={6016.4312,131.7812,8930.6621};
+			name="lar_SP_109";
+			type="Empty";
+			id=2419;
+			atlOffset=-0.79573059;
+		};
+		class Item2006
+		{
+			dataType="Marker";
+			position[]={6042.439,130.71091,8957.2529};
+			name="lar_SP_110";
+			type="Empty";
+			id=2420;
+			atlOffset=-0.79573059;
+		};
+		class Item2007
+		{
+			dataType="Marker";
+			position[]={6049.9839,129.52191,8967.2383};
+			name="lar_SP_111";
+			type="Empty";
+			id=2421;
+			atlOffset=-0.79573059;
+		};
+		class Item2008
+		{
+			dataType="Marker";
+			position[]={6010.918,135.98195,8973.7764};
+			name="lar_SP_112";
+			type="Empty";
+			id=2422;
+			atlOffset=-0.79573059;
+		};
+		class Item2009
+		{
+			dataType="Marker";
+			position[]={5965.543,139.12175,8920.1309};
+			name="lar_SP_113";
+			type="Empty";
+			id=2423;
+			atlOffset=-0.79573059;
+		};
+		class Item2010
+		{
+			dataType="Marker";
+			position[]={5942.5586,150.49879,8976.7529};
+			name="lar_SP_114";
+			type="Empty";
+			id=2424;
+			atlOffset=-0.79573059;
+		};
+		class Item2011
+		{
+			dataType="Marker";
+			position[]={5884.4746,149.65356,8914.9053};
+			name="lar_SP_115";
+			type="Empty";
+			id=2425;
+			atlOffset=-0.79573059;
+		};
+		class Item2012
+		{
+			dataType="Marker";
+			position[]={5870.5747,153.95779,8931.6377};
+			name="lar_SP_116";
+			type="Empty";
+			id=2426;
+			atlOffset=-0.79573059;
+		};
+		class Item2013
+		{
+			dataType="Marker";
+			position[]={5866.6963,162.23247,8980.5313};
+			name="lar_SP_117";
+			type="Empty";
+			id=2427;
+			atlOffset=-0.79573059;
+		};
+		class Item2014
+		{
+			dataType="Marker";
+			position[]={5813.7642,153.53885,8896.8525};
+			name="lar_SP_118";
+			type="Empty";
+			id=2428;
+			atlOffset=-0.79573059;
+		};
+		class Item2015
+		{
+			dataType="Marker";
+			position[]={5849.0039,138.15759,8835.4561};
+			name="lar_SP_119";
+			type="Empty";
+			id=2429;
+			atlOffset=-0.79573059;
+		};
+		class Item2016
+		{
+			dataType="Marker";
+			position[]={5871.1812,137.88914,8826.1377};
+			name="lar_SP_120";
+			type="Empty";
+			id=2430;
+			atlOffset=-0.26185608;
+		};
+		class Item2017
+		{
+			dataType="Marker";
+			position[]={5797.2163,138.91408,8812.0576};
+			name="lar_SP_121";
+			type="Empty";
+			id=2431;
+			atlOffset=-0.79573059;
+		};
+		class Item2018
+		{
+			dataType="Marker";
+			position[]={5744.3447,147.97591,8818.7832};
+			name="lar_SP_122";
+			type="Empty";
+			id=2432;
+			atlOffset=-0.79573059;
+		};
+		class Item2019
+		{
+			dataType="Marker";
+			position[]={5754.9263,139.00848,8724.5674};
+			name="lar_SP_123";
+			type="Empty";
+			id=2433;
+			atlOffset=-0.79573059;
+		};
+		class Item2020
+		{
+			dataType="Marker";
+			position[]={5742.5103,147.02864,8612.4121};
+			name="lar_SP_124";
+			type="Empty";
+			id=2434;
+			atlOffset=-0.79573059;
+		};
+		class Item2021
+		{
+			dataType="Marker";
+			position[]={5814.5747,135.47112,8616.207};
+			name="lar_SP_125";
+			type="Empty";
+			id=2435;
+			atlOffset=-0.79573059;
+		};
+		class Item2022
+		{
+			dataType="Marker";
+			position[]={5841.6567,131.09001,8650.8379};
+			name="lar_SP_126";
+			type="Empty";
+			id=2436;
+			atlOffset=-0.79573059;
+		};
+		class Item2023
+		{
+			dataType="Marker";
+			position[]={5867.3389,129.17152,8654.4824};
+			name="lar_SP_127";
+			type="Empty";
+			id=2437;
+			atlOffset=-0.79573059;
+		};
+		class Item2024
+		{
+			dataType="Marker";
+			position[]={5875.627,128.95686,8661.3623};
+			name="lar_SP_128";
+			type="Empty";
+			id=2438;
+			atlOffset=-0.60713196;
+		};
+		class Item2025
+		{
+			dataType="Marker";
+			position[]={5877.0693,128.55559,8666.7842};
+			name="lar_SP_129";
+			type="Empty";
+			id=2439;
+			atlOffset=-0.79573059;
+		};
+		class Item2026
+		{
+			dataType="Marker";
+			position[]={5871.1782,128.88123,8658.9648};
+			name="lar_SP_130";
+			type="Empty";
+			id=2440;
+			atlOffset=-0.79573059;
+		};
+		class Item2027
+		{
+			dataType="Marker";
+			position[]={5898.2954,127.92523,8650.8818};
+			name="lar_SP_131";
+			type="Empty";
+			id=2441;
+			atlOffset=-0.79573059;
+		};
+		class Item2028
+		{
+			dataType="Marker";
+			position[]={5907.9824,128.07426,8693.4443};
+			name="lar_SP_132";
+			type="Empty";
+			id=2442;
+			atlOffset=-0.79573059;
+		};
+		class Item2029
+		{
+			dataType="Marker";
+			position[]={5898.0103,128.07426,8695.2285};
+			name="lar_SP_133";
+			type="Empty";
+			id=2443;
+			atlOffset=-0.79573059;
+		};
+		class Item2030
+		{
+			dataType="Marker";
+			position[]={5915.1167,127.84538,8731.0293};
+			name="lar_SP_134";
+			type="Empty";
+			id=2444;
+			atlOffset=-0.79573059;
+		};
+		class Item2031
+		{
+			dataType="Marker";
+			position[]={5885.8384,128.11946,8733.291};
+			name="lar_SP_135";
+			type="Empty";
+			id=2445;
+			atlOffset=-0.79573059;
+		};
+		class Item2032
+		{
+			dataType="Marker";
+			position[]={5873.0498,128.38547,8736.957};
+			name="lar_SP_136";
+			type="Empty";
+			id=2446;
+			atlOffset=-0.79573059;
+		};
+		class Item2033
+		{
+			dataType="Marker";
+			position[]={5869.9351,128.49635,8711.7813};
+			name="lar_SP_137";
+			type="Empty";
+			id=2447;
+			atlOffset=-0.37364197;
+		};
+		class Item2034
+		{
+			dataType="Marker";
+			position[]={5871.2891,128.57426,8694.1377};
+			name="lar_SP_138";
+			type="Empty";
+			id=2448;
+			atlOffset=-0.29573059;
+		};
+		class Item2035
+		{
+			dataType="Marker";
+			position[]={5862.0854,129.37387,8674.2725};
+			name="lar_SP_139";
+			type="Empty";
+			id=2449;
+			atlOffset=-0.49775696;
+		};
+		class Item2036
+		{
+			dataType="Marker";
+			position[]={5851.8286,128.7341,8702.8369};
+			name="lar_SP_140";
+			type="Empty";
+			id=2450;
+			atlOffset=-0.39743042;
+		};
+		class Item2037
+		{
+			dataType="Marker";
+			position[]={5873.2881,128.62511,8742.6016};
+			name="lar_SP_141";
+			type="Empty";
+			id=2451;
+			atlOffset=-0.79573059;
+		};
+		class Item2038
+		{
+			dataType="Marker";
+			position[]={5906.7949,127.9256,8737.2266};
+			name="lar_SP_142";
+			type="Empty";
+			id=2452;
+			atlOffset=-0.79573059;
+		};
+		class Item2039
+		{
+			dataType="Marker";
+			position[]={5954.1416,125.20002,8725.2012};
+			name="lar_SP_143";
+			type="Empty";
+			id=2453;
+			atlOffset=-0.79573059;
+		};
+		class Item2040
+		{
+			dataType="Marker";
+			position[]={5968.8667,125.54224,8743.9531};
+			name="lar_SP_144";
+			type="Empty";
+			id=2454;
+			atlOffset=-0.39566803;
+		};
+		class Item2041
+		{
+			dataType="Marker";
+			position[]={5974.4053,125.67716,8725.6973};
+			name="lar_SP_145";
+			type="Empty";
+			id=2455;
+			atlOffset=0.41153717;
+		};
+		class Item2042
+		{
+			dataType="Marker";
+			position[]={6000.1694,124.72174,8716.0254};
+			name="lar_SP_146";
+			type="Empty";
+			id=2456;
+			atlOffset=-0.35517883;
+		};
+		class Item2043
+		{
+			dataType="Marker";
+			position[]={5993.6816,124.72174,8716.001};
+			name="lar_SP_147";
+			type="Empty";
+			id=2457;
+			atlOffset=-0.37747192;
+		};
+		class Item2044
+		{
+			dataType="Marker";
+			position[]={5975.5557,124.28323,8706.5752};
+			name="lar_SP_148";
+			type="Empty";
+			id=2458;
+			atlOffset=-0.79572296;
+		};
+		class Item2045
+		{
+			dataType="Marker";
+			position[]={5981.9336,124.30659,8698.5498};
+			name="lar_SP_149";
+			type="Empty";
+			id=2459;
+			atlOffset=-0.79573059;
+		};
+		class Item2046
+		{
+			dataType="Marker";
+			position[]={5964.9692,124.8541,8654.1064};
+			name="lar_SP_150";
+			type="Empty";
+			id=2460;
+			atlOffset=-0.34344482;
+		};
+		class Item2047
+		{
+			dataType="Marker";
+			position[]={5971.8154,124.8541,8659.3027};
+			name="lar_SP_151";
+			type="Empty";
+			id=2461;
+			atlOffset=-0.29825592;
+		};
+		class Item2048
+		{
+			dataType="Marker";
+			position[]={5946.168,125.46511,8690.8438};
+			name="lar_SP_152";
+			type="Empty";
+			id=2462;
+			atlOffset=-0.79573059;
+		};
+		class Item2049
+		{
+			dataType="Marker";
+			position[]={5945.5322,125.80679,8694.5742};
+			name="lar_SP_153";
+			type="Empty";
+			id=2463;
+			atlOffset=-0.48552704;
+		};
+		class Item2050
+		{
+			dataType="Marker";
+			position[]={5946.8892,125.10615,8667.9805};
+			name="lar_SP_154";
+			type="Empty";
+			id=2464;
+			atlOffset=-0.79573059;
+		};
+		class Item2051
+		{
+			dataType="Marker";
+			position[]={5947.9985,125.25143,8656.001};
+			name="lar_SP_155";
+			type="Empty";
+			id=2465;
+			atlOffset=-0.47627258;
+		};
+		class Item2052
+		{
+			dataType="Marker";
+			position[]={5916.5645,127.61754,8671.4199};
+			name="lar_SP_156";
+			type="Empty";
+			id=2466;
+			atlOffset=-0.79573059;
+		};
+		class Item2053
+		{
+			dataType="Marker";
+			position[]={5918.7373,127.39961,8633.2305};
+			name="lar_SP_157";
+			type="Empty";
+			id=2467;
+			atlOffset=-0.47856903;
+		};
+		class Item2054
+		{
+			dataType="Marker";
+			position[]={5929.3149,127.11414,8629.165};
+			name="lar_SP_158";
+			type="Empty";
+			id=2468;
+			atlOffset=-0.26412201;
+		};
+		class Item2055
+		{
+			dataType="Marker";
+			position[]={5918.2622,127.40768,8613.8262};
+			name="lar_SP_159";
+			type="Empty";
+			id=2469;
+			atlOffset=-0.35430145;
+		};
+		class Item2056
+		{
+			dataType="Marker";
+			position[]={5936.1675,125.71398,8591.8926};
+			name="lar_SP_160";
+			type="Empty";
+			id=2470;
+			atlOffset=-0.37593079;
+		};
+		class Item2057
+		{
+			dataType="Marker";
+			position[]={5953.6865,124.56064,8597.1074};
+			name="lar_SP_161";
+			type="Empty";
+			id=2471;
+			atlOffset=-0.4934082;
+		};
+		class Item2058
+		{
+			dataType="Marker";
+			position[]={5960.6323,124.7628,8576.2734};
+			name="lar_SP_162";
+			type="Empty";
+			id=2473;
+			atlOffset=-0.21211243;
+		};
+		class Item2059
+		{
+			dataType="Marker";
+			position[]={5949.1792,125.55071,8572.0654};
+			name="lar_SP_163";
+			type="Empty";
+			id=2474;
+			atlOffset=0.12722778;
+		};
+		class Item2060
+		{
+			dataType="Marker";
+			position[]={5922.2085,127.42453,8561.5762};
+			name="lar_SP_164";
+			type="Empty";
+			id=2475;
+			atlOffset=-0.45220947;
+		};
+		class Item2061
+		{
+			dataType="Marker";
+			position[]={5922.7681,127.39841,8556.3828};
+			name="lar_SP_165";
+			type="Empty";
+			id=2476;
+			atlOffset=-0.79573059;
+		};
+		class Item2062
+		{
+			dataType="Marker";
+			position[]={5901.4907,129.56973,8539.5244};
+			name="lar_SP_166";
+			type="Empty";
+			id=2477;
+			atlOffset=-0.79573059;
+		};
+		class Item2063
+		{
+			dataType="Marker";
+			position[]={5829.5781,136.01357,8540.3096};
+			name="lar_SP_167";
+			type="Empty";
+			id=2478;
+			atlOffset=-0.79573059;
+		};
+		class Item2064
+		{
+			dataType="Marker";
+			position[]={5834.9468,137.55002,8520.6982};
+			name="lar_SP_168";
+			type="Empty";
+			id=2479;
+			atlOffset=0.30299377;
+		};
+		class Item2065
+		{
+			dataType="Marker";
+			position[]={5844.9429,135.41391,8501.1201};
+			name="lar_SP_169";
+			type="Empty";
+			id=2480;
+			atlOffset=-0.79573059;
+		};
+		class Item2066
+		{
+			dataType="Marker";
+			position[]={5845.8086,133.58427,8468.2031};
+			name="lar_SP_170";
+			type="Empty";
+			id=2481;
+			atlOffset=-0.79573059;
+		};
+		class Item2067
+		{
+			dataType="Marker";
+			position[]={5862.2368,133.18303,8449.9961};
+			name="lar_SP_171";
+			type="Empty";
+			id=2482;
+			atlOffset=-0.79573059;
+		};
+		class Item2068
+		{
+			dataType="Marker";
+			position[]={5894.79,133.04895,8464.1572};
+			name="lar_SP_172";
+			type="Empty";
+			id=2483;
+			atlOffset=-0.19096375;
+		};
+		class Item2069
+		{
+			dataType="Marker";
+			position[]={5866.4072,133.99823,8456.1064};
+			name="lar_SP_173";
+			type="Empty";
+			id=2484;
+			atlOffset=-0.24653625;
+		};
+		class Item2070
+		{
+			dataType="Marker";
+			position[]={5859.7144,133.80008,8414.3838};
+			name="lar_SP_174";
+			type="Empty";
+			id=2485;
+			atlOffset=-0.79573059;
+		};
+		class Item2071
+		{
+			dataType="Marker";
+			position[]={5840.1626,138.8801,8404.0498};
+			name="lar_SP_175";
+			type="Empty";
+			id=2486;
+			atlOffset=-0.79573059;
+		};
+		class Item2072
+		{
+			dataType="Marker";
+			position[]={5793.6929,147.80162,8393.3477};
+			name="lar_SP_176";
+			type="Empty";
+			id=2487;
+			atlOffset=-0.79573059;
+		};
+		class Item2073
+		{
+			dataType="Marker";
+			position[]={5791.5708,148.56783,8381.582};
+			name="lar_SP_177";
+			type="Empty";
+			id=2488;
+			atlOffset=-0.79573059;
+		};
+		class Item2074
+		{
+			dataType="Marker";
+			position[]={5770.8027,153.36356,8354.2627};
+			name="lar_SP_178";
+			type="Empty";
+			id=2489;
+			atlOffset=-0.79573059;
+		};
+		class Item2075
+		{
+			dataType="Marker";
+			position[]={5804.8618,147.59927,8351.4551};
+			name="lar_SP_179";
+			type="Empty";
+			id=2490;
+			atlOffset=-0.79573059;
+		};
+		class Item2076
+		{
+			dataType="Marker";
+			position[]={5803.5273,152.38393,8295.9824};
+			name="lar_SP_180";
+			type="Empty";
+			id=2491;
+			atlOffset=-0.79573059;
+		};
+		class Item2077
+		{
+			dataType="Marker";
+			position[]={5868.8076,141.04755,8350.7588};
+			name="lar_SP_181";
+			type="Empty";
+			id=2492;
+			atlOffset=-0.79573059;
+		};
+		class Item2078
+		{
+			dataType="Marker";
+			position[]={5876.562,138.56197,8361.2471};
+			name="lar_SP_182";
+			type="Empty";
+			id=2493;
+			atlOffset=-0.79573059;
+		};
+		class Item2079
+		{
+			dataType="Marker";
+			position[]={5899.7407,134.57747,8365.2588};
+			name="lar_SP_183";
+			type="Empty";
+			id=2494;
+			atlOffset=-0.79573059;
+		};
+		class Item2080
+		{
+			dataType="Marker";
+			position[]={5910.6631,133.47133,8373.7627};
+			name="lar_SP_184";
+			type="Empty";
+			id=2495;
+			atlOffset=-0.79573059;
+		};
+		class Item2081
+		{
+			dataType="Marker";
+			position[]={5962.0835,133.47427,8393.9658};
+			name="lar_SP_185";
+			type="Empty";
+			id=2496;
+			atlOffset=-0.79573059;
+		};
+		class Item2082
+		{
+			dataType="Marker";
+			position[]={5968.2144,134.30824,8336};
+			name="lar_SP_186";
+			type="Empty";
+			id=2497;
+			atlOffset=-0.79573059;
+		};
+		class Item2083
+		{
+			dataType="Marker";
+			position[]={5977.1201,133.78545,8390.9521};
+			name="lar_SP_187";
+			type="Empty";
+			id=2498;
+			atlOffset=-0.48455811;
+		};
+		class Item2084
+		{
+			dataType="Marker";
+			position[]={5975.1973,133.77295,8397.1748};
+			name="lar_SP_188";
+			type="Empty";
+			id=2499;
+			atlOffset=-0.49705505;
+		};
+		class Item2085
+		{
+			dataType="Marker";
+			position[]={5953.6743,133.34178,8416.7471};
+			name="lar_SP_189";
+			type="Empty";
+			id=2500;
+			atlOffset=-0.79573059;
+		};
+		class Item2086
+		{
+			dataType="Marker";
+			position[]={5964.2832,132.61667,8430.2568};
+			name="lar_SP_190";
+			type="Empty";
+			id=2501;
+			atlOffset=-0.79573059;
+		};
+		class Item2087
+		{
+			dataType="Marker";
+			position[]={5965.9536,133.47427,8403.3066};
+			name="lar_SP_191";
+			type="Empty";
+			id=2502;
+			atlOffset=-0.79573059;
+		};
+		class Item2088
+		{
+			dataType="Marker";
+			position[]={5992.0786,134.45682,8386.2031};
+			name="lar_SP_192";
+			type="Empty";
+			id=2503;
+			atlOffset=0.18681335;
+		};
+		class Item2089
+		{
+			dataType="Marker";
+			position[]={6018.0376,133.47427,8387.4746};
+			name="lar_SP_193";
+			type="Empty";
+			id=2504;
+			atlOffset=-0.79573059;
+		};
+		class Item2090
+		{
+			dataType="Marker";
+			position[]={6022.5781,133.47427,8366.5771};
+			name="lar_SP_194";
+			type="Empty";
+			id=2505;
+			atlOffset=-0.79573059;
+		};
+		class Item2091
+		{
+			dataType="Marker";
+			position[]={6011.4912,133.89699,8388.0459};
+			name="lar_SP_195";
+			type="Empty";
+			id=2506;
+			atlOffset=-0.39352417;
+		};
+		class Item2092
+		{
+			dataType="Marker";
+			position[]={6014.083,133.77196,8397.4941};
+			name="lar_SP_196";
+			type="Empty";
+			id=2507;
+			atlOffset=-0.49804688;
+		};
+		class Item2093
+		{
+			dataType="Marker";
+			position[]={6013.3354,133.25342,8413.1895};
+			name="lar_SP_197";
+			type="Empty";
+			id=2508;
+			atlOffset=-0.38401794;
+		};
+		class Item2094
+		{
+			dataType="Marker";
+			position[]={6026.8721,129.78154,8434.9736};
+			name="lar_SP_198";
+			type="Empty";
+			id=2509;
+			atlOffset=-0.79573059;
+		};
+		class Item2095
+		{
+			dataType="Marker";
+			position[]={6026.541,129.97847,8444.8867};
+			name="lar_SP_199";
+			type="Empty";
+			id=2510;
+			atlOffset=-0.2215271;
+		};
+		class Item2096
+		{
+			dataType="Marker";
+			position[]={6039.5493,129.96544,8457.9512};
+			name="lar_SP_200";
+			type="Empty";
+			id=2511;
+			atlOffset=-0.30014038;
+		};
+		class Item2097
+		{
+			dataType="Marker";
+			position[]={6040.3857,129.96544,8450.7939};
+			name="lar_SP_201";
+			type="Empty";
+			id=2512;
+			atlOffset=-0.32688904;
+		};
+		class Item2098
+		{
+			dataType="Marker";
+			position[]={6050.6035,131.20158,8429.0303};
+			name="lar_SP_202";
+			type="Empty";
+			id=2513;
+			atlOffset=-0.79573059;
+		};
+		class Item2099
+		{
+			dataType="Marker";
+			position[]={6096.9634,134.62852,8403.4893};
+			name="lar_SP_203";
+			type="Empty";
+			id=2514;
+			atlOffset=-0.79573059;
+		};
+		class Item2100
+		{
+			dataType="Marker";
+			position[]={6177.4404,145.59128,8346.502};
+			name="lar_SP_204";
+			type="Empty";
+			id=2515;
+			atlOffset=-0.79573059;
+		};
+		class Item2101
+		{
+			dataType="Marker";
+			position[]={6175.6118,141.66452,8366.5732};
+			name="lar_SP_205";
+			type="Empty";
+			id=2516;
+			atlOffset=-0.79573059;
+		};
+		class Item2102
+		{
+			dataType="Marker";
+			position[]={6166.4443,133.21019,8428.3779};
+			name="lar_SP_206";
+			type="Empty";
+			id=2517;
+			atlOffset=-0.79573059;
+		};
+		class Item2103
+		{
+			dataType="Marker";
+			position[]={6163.1113,131.28882,8467.1289};
+			name="lar_SP_207";
+			type="Empty";
+			id=2518;
+			atlOffset=-0.79573059;
+		};
+		class Item2104
+		{
+			dataType="Marker";
+			position[]={6153.4785,128.24937,8492.502};
+			name="lar_SP_208";
+			type="Empty";
+			id=2519;
+			atlOffset=-0.79573059;
+		};
+		class Item2105
+		{
+			dataType="Marker";
+			position[]={6130.7461,126.5481,8498.6992};
+			name="lar_SP_209";
+			type="Empty";
+			id=2520;
+			atlOffset=-0.79573059;
+		};
+		class Item2106
+		{
+			dataType="Marker";
+			position[]={6103.0527,130.74245,8449.7129};
+			name="lar_SP_210";
+			type="Empty";
+			id=2521;
+			atlOffset=-0.08430481;
+		};
+		class Item2107
+		{
+			dataType="Marker";
+			position[]={6098.5029,132.9048,8418.2861};
+			name="lar_SP_211";
+			type="Empty";
+			id=2522;
+			atlOffset=-0.6494751;
+		};
+		class Item2108
+		{
+			dataType="Marker";
+			position[]={6176.0117,132.68562,8449.4316};
+			name="lar_SP_212";
+			type="Empty";
+			id=2523;
+			atlOffset=-0.79573059;
+		};
+		class Item2109
+		{
+			dataType="Marker";
+			position[]={6191.6694,132.94041,8467.2451};
+			name="lar_SP_213";
+			type="Empty";
+			id=2524;
+			atlOffset=-0.46366882;
+		};
+		class Item2110
+		{
+			dataType="Marker";
+			position[]={6196.646,133.00385,8467.0049};
+			name="lar_SP_214";
+			type="Empty";
+			id=2525;
+			atlOffset=-0.39303589;
+		};
+		class Item2111
+		{
+			dataType="Marker";
+			position[]={6198.311,132.68427,8447.1406};
+			name="lar_SP_215";
+			type="Empty";
+			id=2526;
+			atlOffset=-0.79573059;
+		};
+		class Item2112
+		{
+			dataType="Marker";
+			position[]={6276.0479,136.08148,8462.1133};
+			name="lar_SP_216";
+			type="Empty";
+			id=2527;
+			atlOffset=-0.79573059;
+		};
+		class Item2113
+		{
+			dataType="Marker";
+			position[]={6367.0601,143.78578,8469.0742};
+			name="lar_SP_217";
+			type="Empty";
+			id=2528;
+			atlOffset=-0.35974121;
+		};
+		class Item2114
+		{
+			dataType="Marker";
+			position[]={6221.2998,127.54901,8540.8027};
+			name="lar_SP_218";
+			type="Empty";
+			id=2529;
+			atlOffset=-0.79573059;
+		};
+		class Item2115
+		{
+			dataType="Marker";
+			position[]={6247.7119,126.69048,8559.2793};
+			name="lar_SP_219";
+			type="Empty";
+			id=2530;
+			atlOffset=-0.79572296;
+		};
+		class Item2116
+		{
+			dataType="Marker";
+			position[]={6263.5581,128.41267,8547.8193};
+			name="lar_SP_220";
+			type="Empty";
+			id=2531;
+			atlOffset=-0.79573059;
+		};
+		class Item2117
+		{
+			dataType="Marker";
+			position[]={6267.1963,129.42094,8535.9521};
+			name="lar_SP_221";
+			type="Empty";
+			id=2532;
+			atlOffset=-0.79573059;
+		};
+		class Item2118
+		{
+			dataType="Marker";
+			position[]={6221.6602,128.27739,8527.9766};
+			name="lar_SP_222";
+			type="Empty";
+			id=2533;
+			atlOffset=-0.79573059;
+		};
+		class Item2119
+		{
+			dataType="Marker";
+			position[]={6243.8462,126.86401,8558.9443};
+			name="lar_SP_223";
+			type="Empty";
+			id=2534;
+			atlOffset=-0.62097931;
+		};
+		class Item2120
+		{
+			dataType="Marker";
+			position[]={6232.4541,127.89638,8560.6152};
+			name="lar_SP_224";
+			type="Empty";
+			id=2535;
+			atlOffset=0.43185425;
+		};
+		class Item2121
+		{
+			dataType="Marker";
+			position[]={6270.9463,126.57642,8580.457};
+			name="lar_SP_225";
+			type="Empty";
+			id=2536;
+			atlOffset=-0.79573059;
+		};
+		class Item2122
+		{
+			dataType="Marker";
+			position[]={6299.4678,127.36781,8580.2773};
+			name="lar_SP_226";
+			type="Empty";
+			id=2537;
+			atlOffset=-0.79573059;
+		};
+		class Item2123
+		{
+			dataType="Marker";
+			position[]={6294.7017,122.77084,8626.6914};
+			name="lar_SP_227";
+			type="Empty";
+			id=2538;
+			atlOffset=-0.79572296;
+		};
+		class Item2124
+		{
+			dataType="Marker";
+			position[]={6283.0459,118.70171,8664.0635};
+			name="lar_SP_228";
+			type="Empty";
+			id=2539;
+			atlOffset=-0.79572296;
+		};
+		class Item2125
+		{
+			dataType="Marker";
+			position[]={6280.9351,118.84631,8670.623};
+			name="lar_SP_229";
+			type="Empty";
+			id=2540;
+			atlOffset=-0.19399261;
+		};
+		class Item2126
+		{
+			dataType="Marker";
+			position[]={6283.0054,118.8436,8676.042};
+			name="lar_SP_230";
+			type="Empty";
+			id=2541;
+			atlOffset=0.3465271;
+		};
+		class Item2127
+		{
+			dataType="Marker";
+			position[]={6233.8306,122.56689,8625.5293};
+			name="lar_SP_231";
+			type="Empty";
+			id=2542;
+			atlOffset=-0.79573059;
+		};
+		class Item2128
+		{
+			dataType="Marker";
+			position[]={6214.8232,120.30059,8658.7842};
+			name="lar_SP_232";
+			type="Empty";
+			id=2543;
+			atlOffset=-0.79573059;
+		};
+		class Item2129
+		{
+			dataType="Marker";
+			position[]={6203.6855,120.4259,8661.9131};
+			name="lar_SP_233";
+			type="Empty";
+			id=2544;
+			atlOffset=-0.79573059;
+		};
+		class Item2130
+		{
+			dataType="Marker";
+			position[]={6232.1504,119.64147,8669.6621};
+			name="lar_SP_234";
+			type="Empty";
+			id=2545;
+			atlOffset=-0.79573059;
+		};
+		class Item2131
+		{
+			dataType="Marker";
+			position[]={6246.2939,118.73415,8700.1689};
+			name="lar_SP_235";
+			type="Empty";
+			id=2546;
+			atlOffset=-0.79573059;
+		};
+		class Item2132
+		{
+			dataType="Marker";
+			position[]={6214.7817,119.67663,8689.4189};
+			name="lar_SP_236";
+			type="Empty";
+			id=2547;
+			atlOffset=-0.79573059;
+		};
+		class Item2133
+		{
+			dataType="Marker";
+			position[]={6163.9004,121.58102,8677.2275};
+			name="lar_SP_237";
+			type="Empty";
+			id=2548;
+			atlOffset=-0.79573059;
+		};
+		class Item2134
+		{
+			dataType="Marker";
+			position[]={6156.8315,122.01472,8676.2988};
+			name="lar_SP_238";
+			type="Empty";
+			id=2549;
+			atlOffset=-0.47671509;
+		};
+		class Item2135
+		{
+			dataType="Marker";
+			position[]={6156.2236,121.58489,8690.6689};
+			name="lar_SP_239";
+			type="Empty";
+			id=2550;
+			atlOffset=-0.49785614;
+		};
+		class Item2136
+		{
+			dataType="Marker";
+			position[]={6179.8066,120.71211,8712.8037};
+			name="lar_SP_240";
+			type="Empty";
+			id=2551;
+			atlOffset=-0.15392303;
+		};
+		class Item2137
+		{
+			dataType="Marker";
+			position[]={6206.4321,119.00775,8711.6104};
+			name="lar_SP_241";
+			type="Empty";
+			id=2552;
+			atlOffset=-0.79573059;
+		};
+		class Item2138
+		{
+			dataType="Marker";
+			position[]={6114.7754,124.45924,8672.2471};
+			name="lar_SP_242";
+			type="Empty";
+			id=2553;
+			atlOffset=-0.48310089;
+		};
+		class Item2139
+		{
+			dataType="Marker";
+			position[]={6104.6846,124.53059,8670.0068};
+			name="lar_SP_243";
+			type="Empty";
+			id=2554;
+			atlOffset=-0.54491425;
+		};
+		class Item2140
+		{
+			dataType="Marker";
+			position[]={6099.7139,124.62554,8653.0762};
+			name="lar_SP_244";
+			type="Empty";
+			id=2555;
+			atlOffset=-0.44812775;
+		};
+		class Item2141
+		{
+			dataType="Marker";
+			position[]={6088.8535,124.30911,8673.0146};
+			name="lar_SP_245";
+			type="Empty";
+			id=2556;
+			atlOffset=-0.79573059;
+		};
+		class Item2142
+		{
+			dataType="Marker";
+			position[]={6069.5332,124.58353,8665.7324};
+			name="lar_SP_246";
+			type="Empty";
+			id=2557;
+			atlOffset=-0.53647614;
+		};
+		class Item2143
+		{
+			dataType="Marker";
+			position[]={6065.5186,124.58353,8670.9717};
+			name="lar_SP_247";
+			type="Empty";
+			id=2558;
+			atlOffset=-0.53647614;
+		};
+		class Item2144
+		{
+			dataType="Marker";
+			position[]={6034.3452,124.82423,8675.877};
+			name="lar_SP_248";
+			type="Empty";
+			id=2559;
+			atlOffset=-0.29577637;
+		};
+		class Item2145
+		{
+			dataType="Marker";
+			position[]={6058.0117,124.60629,8697.5273};
+			name="lar_SP_249";
+			type="Empty";
+			id=2560;
+			atlOffset=-0.49407196;
+		};
+		class Item2146
+		{
+			dataType="Marker";
+			position[]={6063.1816,124.7449,8717.3506};
+			name="lar_SP_250";
+			type="Empty";
+			id=2561;
+			atlOffset=-0.28404999;
+		};
+		class Item2147
+		{
+			dataType="Marker";
+			position[]={6061.106,124.66279,8723.5742};
+			name="lar_SP_251";
+			type="Empty";
+			id=2562;
+			atlOffset=-0.33414459;
+		};
+		class Item2148
+		{
+			dataType="Marker";
+			position[]={6062.0571,124.46271,8738.7422};
+			name="lar_SP_252";
+			type="Empty";
+			id=2563;
+			atlOffset=-0.38259125;
+		};
+		class Item2149
+		{
+			dataType="Marker";
+			position[]={6066.1689,124.1381,8727.7461};
+			name="lar_SP_253";
+			type="Empty";
+			id=2564;
+			atlOffset=-0.79573059;
+		};
+		class Item2150
+		{
+			dataType="Marker";
+			position[]={6030.7983,124.21057,8732.0205};
+			name="lar_SP_254";
+			type="Empty";
+			id=2565;
+			atlOffset=-0.79573059;
+		};
+		class Item2151
+		{
+			dataType="Marker";
+			position[]={6027.3516,124.18427,8746.0654};
+			name="lar_SP_255";
+			type="Empty";
+			id=2566;
+			atlOffset=-0.79573059;
+		};
+		class Item2152
+		{
+			dataType="Marker";
+			position[]={6003.168,124.66935,8748.2207};
+			name="lar_SP_256";
+			type="Empty";
+			id=2567;
+			atlOffset=-0.79573059;
+		};
+		class Item2153
+		{
+			dataType="Marker";
+			position[]={6002.4097,124.88746,8711.9238};
+			name="lar_SP_257";
+			type="Empty";
+			id=2568;
+			atlOffset=-0.1753006;
+		};
+		class Item2154
+		{
+			dataType="Marker";
+			position[]={5999.7764,124.31435,8693.6982};
+			name="lar_SP_258";
+			type="Empty";
+			id=2569;
+			atlOffset=-0.79573822;
+		};
+		class Item2155
+		{
+			dataType="Marker";
+			position[]={6017.1357,124.58357,8687.4463};
+			name="lar_SP_259";
+			type="Empty";
+			id=2570;
+			atlOffset=-0.53643036;
+		};
+		class Item2156
+		{
+			dataType="Marker";
+			position[]={6021.0034,124.80038,8703.1602};
+			name="lar_SP_260";
+			type="Empty";
+			id=2571;
+			atlOffset=-0.2976532;
+		};
+		class Item2157
+		{
+			dataType="Marker";
+			position[]={6014.7539,124.68842,8730.748};
+			name="lar_SP_261";
+			type="Empty";
+			id=2572;
+			atlOffset=-0.45874023;
+		};
+		class Item2158
+		{
+			dataType="Marker";
+			position[]={6019.2246,124.68842,8729.5391};
+			name="lar_SP_262";
+			type="Empty";
+			id=2573;
+			atlOffset=-0.42111969;
+		};
+		class Item2159
+		{
+			dataType="Marker";
+			position[]={5999.375,124.74114,8741.2871};
+			name="lar_SP_263";
+			type="Empty";
+			id=2574;
+			atlOffset=-0.6604538;
+		};
+		class Item2160
+		{
+			dataType="Marker";
+			position[]={5926.9438,128.05469,8776.3555};
+			name="lar_SP_264";
+			type="Empty";
+			id=2575;
+			atlOffset=-0.79573059;
+		};
+		class Item2161
+		{
+			dataType="Marker";
+			position[]={5931.7295,126.70644,8738.2734};
+			name="lar_SP_265";
+			type="Empty";
+			id=2576;
+			atlOffset=-0.79573059;
+		};
+		class Item2162
+		{
+			dataType="Marker";
+			position[]={5952.3174,125.09,8702.1025};
+			name="lar_SP_266";
+			type="Empty";
+			id=2577;
+			atlOffset=-0.79573059;
+		};
+		class Item2163
+		{
+			dataType="Marker";
+			position[]={5980.2437,124.31815,8691.3252};
+			name="lar_SP_267";
+			type="Empty";
+			id=2578;
+			atlOffset=-0.79573059;
+		};
+		class Item2164
+		{
+			dataType="Marker";
+			position[]={5988.7964,124.63781,8685.4375};
+			name="lar_SP_268";
+			type="Empty";
+			id=2579;
+			atlOffset=-0.48219299;
+		};
+		class Item2165
+		{
+			dataType="Marker";
+			position[]={6005.9541,124.80024,8676.2002};
+			name="lar_SP_269";
+			type="Empty";
+			id=2580;
+			atlOffset=-0.31976318;
+		};
+		class Item2166
+		{
+			dataType="Marker";
+			position[]={5996.6304,124.32427,8660.0479};
+			name="lar_SP_270";
+			type="Empty";
+			id=2581;
+			atlOffset=-0.79573059;
+		};
+		class Item2167
+		{
+			dataType="Marker";
+			position[]={5987.6763,124.62737,8658.2881};
+			name="lar_SP_271";
+			type="Empty";
+			id=2582;
+			atlOffset=-0.49263;
+		};
+		class Item2168
+		{
+			dataType="Marker";
+			position[]={5998.0068,124.89147,8654.4551};
+			name="lar_SP_272";
+			type="Empty";
+			id=2583;
+			atlOffset=-0.22853088;
+		};
+		class Item2169
+		{
+			dataType="Marker";
+			position[]={5987.4165,124.32447,8632.6934};
+			name="lar_SP_273";
+			type="Empty";
+			id=2584;
+			atlOffset=-0.79573059;
+		};
+		class Item2170
+		{
+			dataType="Marker";
+			position[]={5972.2002,124.32427,8605.3389};
+			name="lar_SP_274";
+			type="Empty";
+			id=2585;
+			atlOffset=-0.79573059;
+		};
+		class Item2171
+		{
+			dataType="Marker";
+			position[]={5947.1484,125.24419,8619.4795};
+			name="lar_SP_275";
+			type="Empty";
+			id=2586;
+			atlOffset=-0.79573059;
+		};
+		class Item2172
+		{
+			dataType="Marker";
+			position[]={5917.8774,126.93676,8623.3975};
+			name="lar_SP_276";
+			type="Empty";
+			id=2587;
+			atlOffset=-0.79573059;
+		};
+		class Item2173
+		{
+			dataType="Marker";
+			position[]={5955.8291,124.37762,8607.0791};
+			name="lar_SP_277";
+			type="Empty";
+			id=2588;
+			atlOffset=-0.79573059;
+		};
+		class Item2174
+		{
+			dataType="Marker";
+			position[]={5960.3491,124.04672,8595.2217};
+			name="lar_SP_278";
+			type="Empty";
+			id=2589;
+			atlOffset=-0.79573059;
+		};
+		class Item2175
+		{
+			dataType="Marker";
+			position[]={5940.1523,125.00762,8587.0029};
+			name="lar_SP_279";
+			type="Empty";
+			id=2590;
+			atlOffset=-0.79573059;
+		};
+		class Item2176
+		{
+			dataType="Marker";
+			position[]={5928.8784,126.01868,8587.5195};
+			name="lar_SP_280";
+			type="Empty";
+			id=2591;
+			atlOffset=-0.79573059;
+		};
+		class Item2177
+		{
+			dataType="Marker";
+			position[]={5996.77,124.63186,8553.6934};
+			name="lar_SP_281";
+			type="Empty";
+			id=2592;
+			atlOffset=-0.48297119;
+		};
+		class Item2178
+		{
+			dataType="Marker";
+			position[]={6001.6636,124.32427,8585.9141};
+			name="lar_SP_282";
+			type="Empty";
+			id=2593;
+			atlOffset=-0.79573059;
+		};
+		class Item2179
+		{
+			dataType="Marker";
+			position[]={6024.853,124.32427,8579.8711};
+			name="lar_SP_283";
+			type="Empty";
+			id=2594;
+			atlOffset=-0.79573059;
+		};
+		class Item2180
+		{
+			dataType="Marker";
+			position[]={5985.6299,125.05355,8572.1172};
+			name="lar_SP_284";
+			type="Empty";
+			id=2595;
+			atlOffset=-0.072311401;
+		};
+		class Item2181
+		{
+			dataType="Marker";
+			position[]={5994.2314,124.42196,8580.0713};
+			name="lar_SP_285";
+			type="Empty";
+			id=2596;
+			atlOffset=-0.69804382;
+		};
+		class Item2182
+		{
+			dataType="Marker";
+			position[]={6014.4932,124.83381,8559.1084};
+			name="lar_SP_286";
+			type="Empty";
+			id=2597;
+			atlOffset=-0.28619385;
+		};
+		class Item2183
+		{
+			dataType="Marker";
+			position[]={6016.8608,124.83381,8552.7676};
+			name="lar_SP_287";
+			type="Empty";
+			id=2598;
+			atlOffset=-0.28619385;
+		};
+		class Item2184
+		{
+			dataType="Marker";
+			position[]={6019.7754,125.2514,8563.1992};
+			name="lar_SP_288";
+			type="Empty";
+			id=2599;
+			atlOffset=0.13140106;
+		};
+		class Item2185
+		{
+			dataType="Marker";
+			position[]={6018.5938,124.32427,8581.9385};
+			name="lar_SP_289";
+			type="Empty";
+			id=2600;
+			atlOffset=-0.79573059;
+		};
+		class Item2186
+		{
+			dataType="Marker";
+			position[]={6014.3169,124.73015,8589.2422};
+			name="lar_SP_290";
+			type="Empty";
+			id=2601;
+			atlOffset=-0.38985443;
+		};
+		class Item2187
+		{
+			dataType="Marker";
+			position[]={6014.8755,124.73015,8592.458};
+			name="lar_SP_291";
+			type="Empty";
+			id=2602;
+			atlOffset=-0.38985443;
+		};
+		class Item2188
+		{
+			dataType="Marker";
+			position[]={6011.4639,124.72749,8596.5791};
+			name="lar_SP_292";
+			type="Empty";
+			id=2603;
+			atlOffset=-0.39250946;
+		};
+		class Item2189
+		{
+			dataType="Marker";
+			position[]={6043.877,124.32427,8578.7764};
+			name="lar_SP_293";
+			type="Empty";
+			id=2604;
+			atlOffset=-0.79573059;
+		};
+		class Item2190
+		{
+			dataType="Marker";
+			position[]={6054.4736,124.32427,8586.6299};
+			name="lar_SP_294";
+			type="Empty";
+			id=2605;
+			atlOffset=-0.79573059;
+		};
+		class Item2191
+		{
+			dataType="Marker";
+			position[]={6067.3447,124.32427,8577.2959};
+			name="lar_SP_295";
+			type="Empty";
+			id=2606;
+			atlOffset=-0.79573059;
+		};
+		class Item2192
+		{
+			dataType="Marker";
+			position[]={6046.4751,124.82898,8569.3184};
+			name="lar_SP_296";
+			type="Empty";
+			id=2607;
+			atlOffset=-0.29102325;
+		};
+		class Item2193
+		{
+			dataType="Marker";
+			position[]={6044.1035,124.82898,8572.4658};
+			name="lar_SP_297";
+			type="Empty";
+			id=2608;
+			atlOffset=-0.29102325;
+		};
+		class Item2194
+		{
+			dataType="Marker";
+			position[]={6045.751,124.6763,8558.8057};
+			name="lar_SP_298";
+			type="Empty";
+			id=2609;
+			atlOffset=-0.4437027;
+		};
+		class Item2195
+		{
+			dataType="Marker";
+			position[]={6042.4907,124.6201,8551.0283};
+			name="lar_SP_299";
+			type="Empty";
+			id=2610;
+			atlOffset=-0.49990082;
+		};
+		class Item2196
+		{
+			dataType="Marker";
+			position[]={6058.8369,124.32427,8549.9707};
+			name="lar_SP_300";
+			type="Empty";
+			id=2611;
+			atlOffset=-0.79573059;
+		};
+		class Item2197
+		{
+			dataType="Marker";
+			position[]={6029.1973,124.91557,8519.9355};
+			name="lar_SP_301";
+			type="Empty";
+			id=2612;
+			atlOffset=-0.38674927;
+		};
+		class Item2198
+		{
+			dataType="Marker";
+			position[]={5998.6655,124.79099,8512.3633};
+			name="lar_SP_302";
+			type="Empty";
+			id=2613;
+			atlOffset=-0.79573059;
+		};
+		class Item2199
+		{
+			dataType="Marker";
+			position[]={5994.2012,124.91442,8528.7705};
+			name="lar_SP_303";
+			type="Empty";
+			id=2614;
+			atlOffset=-0.20558167;
+		};
+		class Item2200
+		{
+			dataType="Marker";
+			position[]={5998.8833,124.91442,8516.5137};
+			name="lar_SP_304";
+			type="Empty";
+			id=2615;
+			atlOffset=-0.51108551;
+		};
+		class Item2201
+		{
+			dataType="Marker";
+			position[]={5982.8911,124.53303,8535.9697};
+			name="lar_SP_305";
+			type="Empty";
+			id=2616;
+			atlOffset=-0.57959747;
+		};
+		class Item2202
+		{
+			dataType="Marker";
+			position[]={5963.6016,125.85579,8531.6992};
+			name="lar_SP_306";
+			type="Empty";
+			id=2617;
+			atlOffset=0.7304306;
+		};
+		class Item2203
+		{
+			dataType="Marker";
+			position[]={5964.8306,125.35366,8511.5898};
+			name="lar_SP_307";
+			type="Empty";
+			id=2618;
+			atlOffset=-0.79573059;
+		};
+		class Item2204
+		{
+			dataType="Marker";
+			position[]={5897.0913,133.81117,8444.8262};
+			name="lar_SP_308";
+			type="Empty";
+			id=2619;
+			atlOffset=0.13459778;
+		};
+		class Item2205
+		{
+			dataType="Marker";
+			position[]={5880.6543,134.3528,8428.6514};
+			name="lar_SP_309";
+			type="Empty";
+			id=2620;
+			atlOffset=-0.21012878;
+		};
+		class Item2206
+		{
+			dataType="Marker";
+			position[]={5874.9473,133.77138,8421.2158};
+			name="lar_SP_310";
+			type="Empty";
+			id=2621;
+			atlOffset=-0.79573059;
+		};
+		class Item2207
+		{
+			dataType="Marker";
+			position[]={5912.0786,130.88594,8480.0371};
+			name="lar_SP_311";
+			type="Empty";
+			id=2622;
+			atlOffset=-0.79573059;
+		};
+		class Item2208
+		{
+			dataType="Marker";
+			position[]={5945.4971,127.66174,8499.623};
+			name="lar_SP_312";
+			type="Empty";
+			id=2623;
+			atlOffset=-0.79573059;
+		};
+		class Item2209
+		{
+			dataType="Marker";
+			position[]={6042.4136,124.48027,8649.9072};
+			name="lar_SP_313";
+			type="Empty";
+			id=2624;
+			atlOffset=-0.63973236;
+		};
+		class Item2210
+		{
+			dataType="Marker";
+			position[]={6045.8389,124.66612,8646.4326};
+			name="lar_SP_314";
+			type="Empty";
+			id=2625;
+			atlOffset=-0.45388031;
+		};
+		class Item2211
+		{
+			dataType="Marker";
+			position[]={6050.2935,124.66612,8649.4385};
+			name="lar_SP_315";
+			type="Empty";
+			id=2626;
+			atlOffset=-0.45388031;
+		};
+		class Item2212
+		{
+			dataType="Marker";
+			position[]={6029.4019,124.39516,8644.3076};
+			name="lar_SP_316";
+			type="Empty";
+			id=2627;
+			atlOffset=-0.72484589;
+		};
+		class Item2213
+		{
+			dataType="Marker";
+			position[]={6062.2026,124.93103,8642.792};
+			name="lar_SP_317";
+			type="Empty";
+			id=2628;
+			atlOffset=-0.18897247;
+		};
+		class Item2214
+		{
+			dataType="Marker";
+			position[]={6066.2246,124.93594,8638.6006};
+			name="lar_SP_318";
+			type="Empty";
+			id=2629;
+			atlOffset=-0.18405914;
+		};
+		class Item2215
+		{
+			dataType="Marker";
+			position[]={6086.8735,124.62323,8615.6377};
+			name="lar_SP_319";
+			type="Empty";
+			id=2630;
+			atlOffset=-0.49677277;
+		};
+		class Item2216
+		{
+			dataType="Marker";
+			position[]={6089.0967,124.6226,8612.1563};
+			name="lar_SP_320";
+			type="Empty";
+			id=2631;
+			atlOffset=-0.49740601;
+		};
+		class Item2217
+		{
+			dataType="Marker";
+			position[]={6104.6816,124.31678,8610.9746};
+			name="lar_SP_321";
+			type="Empty";
+			id=2632;
+			atlOffset=-0.79573059;
+		};
+		class Item2218
+		{
+			dataType="Marker";
+			position[]={6091.7803,124.7506,8618.6221};
+			name="lar_SP_322";
+			type="Empty";
+			id=2633;
+			atlOffset=-0.36940002;
+		};
+		class Item2219
+		{
+			dataType="Marker";
+			position[]={6109.0347,124.64104,8629.8818};
+			name="lar_SP_323";
+			type="Empty";
+			id=2634;
+			atlOffset=-0.49205017;
+		};
+		class Item2220
+		{
+			dataType="Marker";
+			position[]={6133.0859,124.27644,8641.1592};
+			name="lar_SP_324";
+			type="Empty";
+			id=2635;
+			atlOffset=-0.16628265;
+		};
+		class Item2221
+		{
+			dataType="Marker";
+			position[]={6153.0161,123.35081,8638.8721};
+			name="lar_SP_325";
+			type="Empty";
+			id=2636;
+			atlOffset=-0.3332901;
+		};
+		class Item2222
+		{
+			dataType="Marker";
+			position[]={6161.6475,122.49724,8637.2813};
+			name="lar_SP_326";
+			type="Empty";
+			id=2637;
+			atlOffset=-0.79573059;
+		};
+		class Item2223
+		{
+			dataType="Marker";
+			position[]={6158.9116,121.99805,8654.6797};
+			name="lar_SP_327";
+			type="Empty";
+			id=2638;
+			atlOffset=-0.79573059;
+		};
+		class Item2224
+		{
+			dataType="Marker";
+			position[]={6169.4512,122.84726,8629.583};
+			name="lar_SP_328";
+			type="Empty";
+			id=2639;
+			atlOffset=-0.50283813;
+		};
+		class Item2225
+		{
+			dataType="Marker";
+			position[]={6162.0884,123.52995,8606.0088};
+			name="lar_SP_329";
+			type="Empty";
+			id=2640;
+			atlOffset=-0.79572296;
+		};
+		class Item2226
+		{
+			dataType="Marker";
+			position[]={6164.5835,124.26154,8593.166};
+			name="lar_SP_330";
+			type="Empty";
+			id=2641;
+			atlOffset=-0.79573059;
+		};
+		class Item2227
+		{
+			dataType="Marker";
+			position[]={6155.5591,124.7897,8588.2773};
+			name="lar_SP_331";
+			type="Empty";
+			id=2642;
+			atlOffset=-0.55150604;
+		};
+		class Item2228
+		{
+			dataType="Marker";
+			position[]={6160.9272,124.78973,8593.0654};
+			name="lar_SP_332";
+			type="Empty";
+			id=2643;
+			atlOffset=-0.26940918;
+		};
+		class Item2229
+		{
+			dataType="Marker";
+			position[]={6122.1758,124.65751,8562.542};
+			name="lar_SP_333";
+			type="Empty";
+			id=2644;
+			atlOffset=-0.4702301;
+		};
+		class Item2230
+		{
+			dataType="Marker";
+			position[]={6127.2974,124.65751,8570.4092};
+			name="lar_SP_334";
+			type="Empty";
+			id=2645;
+			atlOffset=-0.48902893;
+		};
+		class Item2231
+		{
+			dataType="Marker";
+			position[]={6132.064,124.38512,8570.9473};
+			name="lar_SP_335";
+			type="Empty";
+			id=2646;
+			atlOffset=-0.79573822;
+		};
+		class Item2232
+		{
+			dataType="Marker";
+			position[]={6165.4204,125.95508,8545.8584};
+			name="lar_SP_336";
+			type="Empty";
+			id=2647;
+			atlOffset=-0.79573059;
+		};
+		class Item2233
+		{
+			dataType="Marker";
+			position[]={6169.7729,124.7701,8568.4053};
+			name="lar_SP_337";
+			type="Empty";
+			id=2648;
+			atlOffset=-0.79573059;
+		};
+		class Item2234
+		{
+			dataType="Marker";
+			position[]={6071.5205,124.32427,8593.0293};
+			name="lar_SP_338";
+			type="Empty";
+			id=2649;
+			atlOffset=-0.79573059;
+		};
+		class Item2235
+		{
+			dataType="Marker";
+			position[]={6086.6563,124.74498,8589.1016};
+			name="lar_SP_339";
+			type="Empty";
+			id=2650;
+			atlOffset=-0.37502289;
+		};
+		class Item2236
+		{
+			dataType="Marker";
+			position[]={6092.0835,124.63779,8581.2861};
+			name="lar_SP_340";
+			type="Empty";
+			id=2651;
+			atlOffset=-0.48221588;
+		};
+		class Item2237
+		{
+			dataType="Marker";
+			position[]={6105.1563,124.47985,8597.667};
+			name="lar_SP_341";
+			type="Empty";
+			id=2652;
+			atlOffset=-0.63562775;
+		};
+		class Item2238
+		{
+			dataType="Marker";
+			position[]={6135.8628,124.4138,8584.1875};
+			name="lar_SP_342";
+			type="Empty";
+			id=2653;
+			atlOffset=-0.79572296;
+		};
+		class Item2239
+		{
+			dataType="Marker";
+			position[]={6128.3965,124.26748,8595.1973};
+			name="lar_SP_343";
+			type="Empty";
+			id=2654;
+			atlOffset=-0.79573059;
+		};
+		class Item2240
+		{
+			dataType="Marker";
+			position[]={6130.5176,123.98293,8614.4795};
+			name="lar_SP_344";
+			type="Empty";
+			id=2655;
+			atlOffset=-0.79572296;
+		};
+		class Item2241
+		{
+			dataType="Marker";
+			position[]={6115.2114,124.27437,8615.3564};
+			name="lar_SP_345";
+			type="Empty";
+			id=2656;
+			atlOffset=-0.79573059;
+		};
+		class Item2242
+		{
+			dataType="Marker";
+			position[]={6128.6411,123.96862,8619.376};
+			name="lar_SP_346";
+			type="Empty";
+			id=2657;
+			atlOffset=-0.79573059;
+		};
+		class Item2243
+		{
+			dataType="Marker";
+			position[]={6147.7979,123.33778,8624.6152};
+			name="lar_SP_347";
+			type="Empty";
+			id=2658;
+			atlOffset=-0.79572296;
+		};
+		class Item2244
+		{
+			dataType="Marker";
+			position[]={6065.7905,124.32427,8515.9463};
+			name="lar_SP_348";
+			type="Empty";
+			id=2659;
+			atlOffset=-0.79573059;
+		};
+		class Item2245
+		{
+			dataType="Marker";
+			position[]={6080.8306,124.83228,8516.5273};
+			name="lar_SP_349";
+			type="Empty";
+			id=2660;
+			atlOffset=-0.47895813;
+		};
+		class Item2246
+		{
+			dataType="Marker";
+			position[]={6091.4292,125.1022,8517.3369};
+			name="lar_SP_350";
+			type="Empty";
+			id=2661;
+			atlOffset=-0.28171539;
+		};
+		class Item2247
+		{
+			dataType="Marker";
+			position[]={6096.0376,124.64348,8516.1016};
+			name="lar_SP_351";
+			type="Empty";
+			id=2662;
+			atlOffset=-0.79573059;
+		};
+		class Item2248
+		{
+			dataType="Marker";
+			position[]={6077.3975,124.32427,8544.167};
+			name="lar_SP_352";
+			type="Empty";
+			id=2663;
+			atlOffset=-0.79573059;
+		};
+		class Item2249
+		{
+			dataType="Marker";
+			position[]={6090.252,124.32427,8557.9111};
+			name="lar_SP_353";
+			type="Empty";
+			id=2664;
+			atlOffset=-0.79573059;
+		};
+		class Item2250
+		{
+			dataType="Marker";
+			position[]={6094.0674,124.64753,8557.3516};
+			name="lar_SP_354";
+			type="Empty";
+			id=2665;
+			atlOffset=-0.47247314;
+		};
+		class Item2251
+		{
+			dataType="Marker";
+			position[]={6101.0854,124.64159,8550.1367};
+			name="lar_SP_355";
+			type="Empty";
+			id=2666;
+			atlOffset=-0.47841644;
+		};
+		class Item2252
+		{
+			dataType="Marker";
+			position[]={6117.2305,124.40374,8542.3779};
+			name="lar_SP_356";
+			type="Empty";
+			id=2667;
+			atlOffset=-0.79573059;
+		};
+		class Item2253
+		{
+			dataType="Marker";
+			position[]={6109.6543,124.32427,8578.4824};
+			name="lar_SP_357";
+			type="Empty";
+			id=2668;
+			atlOffset=-0.79573059;
+		};
+		class Item2254
+		{
+			dataType="Marker";
+			position[]={6109.6255,124.32358,8590.8105};
+			name="lar_SP_358";
+			type="Empty";
+			id=2669;
+			atlOffset=-0.79573059;
+		};
+		class Item2255
+		{
+			dataType="Marker";
+			position[]={6058.6709,124.90005,8516.3066};
+			name="lar_SP_359";
+			type="Empty";
+			id=2670;
+			atlOffset=-0.22063446;
+		};
+		class Item2256
+		{
+			dataType="Marker";
+			position[]={6032.6914,124.66265,8515.6006};
+			name="lar_SP_360";
+			type="Empty";
+			id=2671;
+			atlOffset=-0.79573059;
+		};
+		class Item2257
+		{
+			dataType="Marker";
+			position[]={6014.2729,126.36786,8494.1563};
+			name="lar_SP_361";
+			type="Empty";
+			id=2672;
+			atlOffset=-0.79573059;
+		};
+		class Item2258
+		{
+			dataType="Marker";
+			position[]={6000.5757,127.44232,8482.4199};
+			name="lar_SP_362";
+			type="Empty";
+			id=2673;
+			atlOffset=-0.79573059;
+		};
+		class Item2259
+		{
+			dataType="Marker";
+			position[]={6085.7612,127.59381,8478.21};
+			name="lar_SP_363";
+			type="Empty";
+			id=2674;
+			atlOffset=-0.79573059;
+		};
+		class Item2260
+		{
+			dataType="Marker";
+			position[]={6082.0923,124.77094,8509.9277};
+			name="lar_SP_364";
+			type="Empty";
+			id=2675;
+			atlOffset=-0.79573059;
+		};
+		class Item2261
+		{
+			dataType="Marker";
+			position[]={5918.8706,132.23997,8436.7354};
+			name="lar_SP_365";
+			type="Empty";
+			id=2676;
+			atlOffset=-0.45863342;
+		};
+		class Item2262
+		{
+			dataType="Marker";
+			position[]={4616.8887,389.56097,8025.6768};
+			name="sj_sp_11";
+			type="Empty";
+			id=2677;
+			atlOffset=-0.53973389;
+		};
+		class Item2263
+		{
+			dataType="Marker";
+			position[]={4602.8784,381.93628,7999.5029};
+			name="sj_sp_12";
+			type="Empty";
+			id=2678;
+			atlOffset=-0.73175049;
+		};
+		class Item2264
+		{
+			dataType="Marker";
+			position[]={4611.2808,375.51416,7893.6436};
+			name="sj_sp_13";
+			type="Empty";
+			id=2679;
+			atlOffset=-0.73175049;
+		};
+		class Item2265
+		{
+			dataType="Marker";
+			position[]={4618.7471,376.81174,7896.0356};
+			name="sj_sp_14";
+			type="Empty";
+			id=2680;
+			atlOffset=-0.27737427;
+		};
+		class Item2266
+		{
+			dataType="Marker";
+			position[]={4635.3965,379.08603,7915.5742};
+			name="sj_sp_15";
+			type="Empty";
+			id=2681;
+			atlOffset=-0.73175049;
+		};
+		class Item2267
+		{
+			dataType="Marker";
+			position[]={4533.1841,370.43979,7997.4619};
+			name="sj_sp_16";
+			type="Empty";
+			id=2682;
+			atlOffset=-0.43463135;
+		};
+		class Item2268
+		{
+			dataType="Marker";
+			position[]={4514.1899,369.55081,7998.5547};
+			name="sj_sp_17";
+			type="Empty";
+			id=2683;
+			atlOffset=-0.10284424;
+		};
+		class Item2269
+		{
+			dataType="Marker";
+			position[]={4489.0044,364.68356,7998.5698};
+			name="sj_sp_18";
+			type="Empty";
+			id=2684;
+			atlOffset=-0.73175049;
+		};
+		class Item2270
+		{
+			dataType="Marker";
+			position[]={4506.0947,364.90576,7950.3574};
+			name="sj_sp_19";
+			type="Empty";
+			id=2685;
+			atlOffset=-0.73175049;
+		};
+		class Item2271
+		{
+			dataType="Marker";
+			position[]={4543.1938,368.64923,7966.4785};
+			name="sj_sp_20";
+			type="Empty";
+			id=2686;
+			atlOffset=-0.73175049;
+		};
+		class Item2272
+		{
+			dataType="Marker";
+			position[]={4585.3105,370.93967,7934.3071};
+			name="sj_sp_21";
+			type="Empty";
+			id=2687;
+			atlOffset=-0.73175049;
+		};
+		class Item2273
+		{
+			dataType="Marker";
+			position[]={4583.5278,369.20474,7853.7744};
+			name="sj_sp_22";
+			type="Empty";
+			id=2689;
+			atlOffset=-0.73175049;
+		};
+		class Item2274
+		{
+			dataType="Marker";
+			position[]={4569.4946,370.02826,8021.9907};
+			name="sj_sp_23";
+			type="Empty";
+			id=2690;
+			atlOffset=-0.73175049;
+		};
+		class Item2275
+		{
+			dataType="Marker";
+			position[]={4568.8027,370.7944,8028.1406};
+			name="sj_sp_24";
+			type="Empty";
+			id=2691;
+			atlOffset=0.034393311;
+		};
+		class Item2276
+		{
+			dataType="Marker";
+			position[]={4575.542,374.815,8086.0889};
+			name="sj_sp_25";
+			type="Empty";
+			id=2692;
+			atlOffset=-0.73175049;
+		};
+		class Item2277
+		{
+			dataType="Marker";
+			position[]={4565.0532,375.02289,8076.2437};
+			name="sj_sp_26";
+			type="Empty";
+			id=2693;
+			atlOffset=-0.35836792;
+		};
+		class Item2278
+		{
+			dataType="Marker";
+			position[]={4566.1606,375.02289,8070.0078};
+			name="sj_sp_27";
+			type="Empty";
+			id=2694;
+			atlOffset=-0.34768677;
+		};
+		class Item2279
+		{
+			dataType="Marker";
+			position[]={4470.2212,371.86923,8110.0791};
+			name="sj_sp_28";
+			type="Empty";
+			id=2695;
+			atlOffset=-0.73175049;
+		};
+		class Item2280
+		{
+			dataType="Marker";
+			position[]={4494.5811,374.582,8141.8467};
+			name="sj_sp_29";
+			type="Empty";
+			id=2696;
+			atlOffset=-0.73175049;
+		};
+		class Item2281
+		{
+			dataType="Marker";
+			position[]={4499.4453,374.48682,8119.0776};
+			name="sj_sp_30";
+			type="Empty";
+			id=2697;
+			atlOffset=-0.73175049;
+		};
+		class Item2282
+		{
+			dataType="Marker";
+			position[]={4548.4985,379.51563,8180.2412};
+			name="sj_sp_31";
+			type="Empty";
+			id=2698;
+			atlOffset=-0.73175049;
+		};
+		class Item2283
+		{
+			dataType="Marker";
+			position[]={4553.3218,380.32065,8181.2627};
+			name="sj_sp_32";
+			type="Empty";
+			id=2699;
+			atlOffset=-0.19244385;
+		};
+		class Item2284
+		{
+			dataType="Marker";
+			position[]={4543.1958,379.76178,8185.1943};
+			name="sj_sp_33";
+			type="Empty";
+			id=2700;
+			atlOffset=-0.73175049;
+		};
+		class Item2285
+		{
+			dataType="Marker";
+			position[]={4517.6548,378.82925,8184.5044};
+			name="sj_sp_34";
+			type="Empty";
+			id=2701;
+			atlOffset=-0.73175049;
+		};
+		class Item2286
+		{
+			dataType="Marker";
+			position[]={4494.8296,376.46756,8171.6484};
+			name="sj_sp_35";
+			type="Empty";
+			id=2702;
+			atlOffset=-0.73175049;
+		};
+		class Item2287
+		{
+			dataType="Marker";
+			position[]={4499.7173,377.77185,8207.2373};
+			name="sj_sp_36";
+			type="Empty";
+			id=2703;
+			atlOffset=-0.73175049;
+		};
+		class Item2288
+		{
+			dataType="Marker";
+			position[]={4452.6909,372.67725,8238.8848};
+			name="sj_sp_37";
+			type="Empty";
+			id=2704;
+			atlOffset=-0.47955322;
+		};
+		class Item2289
+		{
+			dataType="Marker";
+			position[]={4447.7583,372.31738,8241.2656};
+			name="sj_sp_38";
+			type="Empty";
+			id=2705;
+			atlOffset=-0.73175049;
+		};
+		class Item2290
+		{
+			dataType="Marker";
+			position[]={4456.8789,372.48917,8233.9756};
+			name="sj_sp_39";
+			type="Empty";
+			id=2706;
+			atlOffset=-0.73175049;
+		};
+		class Item2291
+		{
+			dataType="Marker";
+			position[]={4479.3975,372.79642,8332.7578};
+			name="sj_sp_40";
+			type="Empty";
+			id=2707;
+			atlOffset=-0.32138062;
+		};
+		class Item2292
+		{
+			dataType="Marker";
+			position[]={4492.853,371.69348,8370.5918};
+			name="sj_sp_41";
+			type="Empty";
+			id=2708;
+			atlOffset=-0.39422607;
+		};
+		class Item2293
+		{
+			dataType="Marker";
+			position[]={4496.2373,371.58115,8366.0938};
+			name="sj_sp_42";
+			type="Empty";
+			id=2709;
+			atlOffset=-0.73175049;
+		};
+		class Item2294
+		{
+			dataType="Marker";
+			position[]={4494.5908,371.65216,8380.1826};
+			name="sj_sp_43";
+			type="Empty";
+			id=2710;
+			atlOffset=-0.73175049;
+		};
+		class Item2295
+		{
+			dataType="Marker";
+			position[]={4459.1123,367.59369,8398.4668};
+			name="sj_sp_44";
+			type="Empty";
+			id=2711;
+			atlOffset=-0.73175049;
+		};
+		class Item2296
+		{
+			dataType="Marker";
+			position[]={4460.5439,370.50836,8356.6299};
+			name="sj_sp_45";
+			type="Empty";
+			id=2712;
+			atlOffset=-0.73175049;
+		};
+		class Item2297
+		{
+			dataType="Marker";
+			position[]={4466.3745,371.77148,8318.1201};
+			name="sj_sp_46";
+			type="Empty";
+			id=2713;
+			atlOffset=-0.73175049;
+		};
+		class Item2298
+		{
+			dataType="Marker";
+			position[]={4501.9116,376.92465,8311.502};
+			name="sj_sp_47";
+			type="Empty";
+			id=2714;
+			atlOffset=-0.73175049;
+		};
+		class Item2299
+		{
+			dataType="Marker";
+			position[]={4571.2188,388.6188,8366.082};
+			name="sj_sp_48";
+			type="Empty";
+			id=2715;
+			atlOffset=-0.73175049;
+		};
+		class Item2300
+		{
+			dataType="Marker";
+			position[]={4532.2534,385.49777,8377.3389};
+			name="sj_sp_49";
+			type="Empty";
+			id=2716;
+			atlOffset=-0.73175049;
+		};
+		class Item2301
+		{
+			dataType="Marker";
+			position[]={4548.5063,387.14691,8384.1924};
+			name="sj_sp_50";
+			type="Empty";
+			id=2717;
+			atlOffset=-0.35470581;
+		};
+		class Item2302
+		{
+			dataType="Marker";
+			position[]={4550.8242,386.52325,8395.0078};
+			name="sj_sp_51";
+			type="Empty";
+			id=2718;
+			atlOffset=-0.73175049;
+		};
+		class Item2303
+		{
+			dataType="Marker";
+			position[]={4455.332,375.24426,8187.7266};
+			name="sj_sp_52";
+			type="Empty";
+			id=2719;
+			atlOffset=-0.73175049;
+		};
+		class Item2304
+		{
+			dataType="Marker";
+			position[]={4598.6265,401.58228,8240.1494};
+			name="sj_sp_53";
+			type="Empty";
+			id=2720;
+			atlOffset=-0.73175049;
+		};
+		class Item2305
+		{
+			dataType="Marker";
+			position[]={4569.8213,390.07227,8333.2256};
+			name="sj_sp_54";
+			type="Empty";
+			id=2721;
+			atlOffset=-0.73175049;
+		};
+		class Item2306
+		{
+			dataType="Marker";
+			position[]={4557.3799,374.58078,8130.814};
+			name="sj_sp_55";
+			type="Empty";
+			id=2722;
+			atlOffset=-0.73175049;
+		};
+		class Item2307
+		{
+			dataType="Marker";
+			position[]={4581.334,374.91956,8122.5142};
+			name="sj_sp_56";
+			type="Empty";
+			id=2723;
+			atlOffset=-0.73175049;
+		};
+		class Item2308
+		{
+			dataType="Marker";
+			position[]={4589.8066,379.729,8085.1025};
+			name="sj_sp_57";
+			type="Empty";
+			id=2724;
+			atlOffset=-0.73175049;
+		};
+		class Item2309
+		{
+			dataType="Marker";
+			position[]={4641.8345,382.09628,7949.9038};
+			name="sj_sp_58";
+			type="Empty";
+			id=2726;
+			atlOffset=-0.73175049;
+		};
+		class Item2310
+		{
+			dataType="Marker";
+			position[]={4621.2021,377.77988,7936.8403};
+			name="sj_sp_59";
+			type="Empty";
+			id=2728;
+			atlOffset=-0.73175049;
+		};
+		class Item2311
+		{
+			dataType="Marker";
+			position[]={4597.8906,372.21426,7900.8687};
+			name="sj_sp_60";
+			type="Empty";
+			id=2729;
+			atlOffset=-0.73175049;
+		};
+		class Item2312
+		{
+			dataType="Marker";
+			position[]={4581.1929,369.81915,7887.0283};
+			name="sj_sp_61";
+			type="Empty";
+			id=2730;
+			atlOffset=-0.73175049;
+		};
+		class Item2313
+		{
+			dataType="Marker";
+			position[]={4563.5889,369.10748,7939.5293};
+			name="sj_sp_62";
+			type="Empty";
+			id=2731;
+			atlOffset=-0.73175049;
+		};
+		class Item2314
+		{
+			dataType="Marker";
+			position[]={4580.1499,373.71289,7968.0034};
+			name="sj_sp_63";
+			type="Empty";
+			id=2732;
+			atlOffset=-0.73175049;
+		};
+		class Item2315
+		{
+			dataType="Marker";
+			position[]={4603.1445,373.67749,7877.3291};
+			name="sj_sp_64";
+			type="Empty";
+			id=2733;
+			atlOffset=-0.73175049;
+		};
+		class Item2316
+		{
+			dataType="Marker";
+			position[]={4502.0522,358.349,7842.7959};
+			name="sj_sp_65";
+			type="Empty";
+			id=2734;
+			atlOffset=-0.73175049;
+		};
+		class Item2317
+		{
+			dataType="Marker";
+			position[]={4519.2158,360.69278,7836.877};
+			name="sj_sp_66";
+			type="Empty";
+			id=2735;
+			atlOffset=-0.73175049;
+		};
+		class Item2318
+		{
+			dataType="Marker";
+			position[]={4498.0571,357.85089,7877.252};
+			name="sj_sp_67";
+			type="Empty";
+			id=2736;
+			atlOffset=-0.73175049;
+		};
+		class Item2319
+		{
+			dataType="Marker";
+			position[]={4496.832,363.41653,7945.0171};
+			name="sj_sp_68";
+			type="Empty";
+			id=2737;
+			atlOffset=-0.73175049;
+		};
+		class Item2320
+		{
+			dataType="Marker";
+			position[]={4544.5703,367.21008,7915.5479};
+			name="sj_sp_69";
+			type="Empty";
+			id=2738;
+			atlOffset=-0.73175049;
+		};
+		class Item2321
+		{
+			dataType="Marker";
+			position[]={4522.1426,367.1864,7959.4346};
+			name="sj_sp_70";
+			type="Empty";
+			id=2739;
+			atlOffset=-0.73175049;
+		};
+		class Item2322
+		{
+			dataType="Marker";
+			position[]={4519.3726,368.94415,7990.4736};
+			name="sj_sp_71";
+			type="Empty";
+			id=2740;
+			atlOffset=-0.73175049;
+		};
+		class Item2323
+		{
+			dataType="Marker";
+			position[]={4561.1582,371.99985,7986.6431};
+			name="sj_sp_72";
+			type="Empty";
+			id=2741;
+			atlOffset=-0.73175049;
+		};
+		class Item2324
+		{
+			dataType="Marker";
+			position[]={4564.9697,370.68204,8009.3706};
+			name="sj_sp_73";
+			type="Empty";
+			id=2742;
+			atlOffset=-0.73175049;
+		};
+		class Item2325
+		{
+			dataType="Marker";
+			position[]={4502.4067,369.71268,8044.3574};
+			name="sj_sp_74";
+			type="Empty";
+			id=2743;
+			atlOffset=-0.67672729;
+		};
+		class Item2326
+		{
+			dataType="Marker";
+			position[]={4489.7192,368.41611,8047.7539};
+			name="sj_sp_75";
+			type="Empty";
+			id=2744;
+			atlOffset=-0.73175049;
+		};
+		class Item2327
+		{
+			dataType="Marker";
+			position[]={4520.7524,370.24826,8061.8198};
+			name="sj_sp_76";
+			type="Empty";
+			id=2745;
+			atlOffset=-0.73175049;
+		};
+		class Item2328
+		{
+			dataType="Marker";
+			position[]={4534.1543,370.80972,8066.3784};
+			name="sj_sp_77";
+			type="Empty";
+			id=2746;
+			atlOffset=-0.73175049;
+		};
+		class Item2329
+		{
+			dataType="Marker";
+			position[]={4531.9824,371.86063,8073.061};
+			name="sj_sp_78";
+			type="Empty";
+			id=2747;
+			atlOffset=-0.73175049;
+		};
+		class Item2330
+		{
+			dataType="Marker";
+			position[]={4535.0205,372.88553,8080.02};
+			name="sj_sp_79";
+			type="Empty";
+			id=2748;
+			atlOffset=-0.73175049;
+		};
+		class Item2331
+		{
+			dataType="Marker";
+			position[]={4541.8643,373.19424,8078.311};
+			name="sj_sp_80";
+			type="Empty";
+			id=2749;
+			atlOffset=-0.73175049;
+		};
+		class Item2332
+		{
+			dataType="Marker";
+			position[]={4571.4019,374.63745,8068.1226};
+			name="sj_sp_81";
+			type="Empty";
+			id=2750;
+			atlOffset=-0.73175049;
+		};
+		class Item2333
+		{
+			dataType="Marker";
+			position[]={4571.0166,374.60266,8078.3784};
+			name="sj_sp_82";
+			type="Empty";
+			id=2751;
+			atlOffset=-0.73175049;
+		};
+		class Item2334
+		{
+			dataType="Marker";
+			position[]={4577.3896,375.4053,8116.9258};
+			name="sj_sp_83";
+			type="Empty";
+			id=2752;
+			atlOffset=-0.73175049;
+		};
+		class Item2335
+		{
+			dataType="Marker";
+			position[]={4592.7446,375.1311,8124.0615};
+			name="sj_sp_84";
+			type="Empty";
+			id=2753;
+			atlOffset=-0.73175049;
+		};
+		class Item2336
+		{
+			dataType="Marker";
+			position[]={4567.9287,374.70593,8131.228};
+			name="sj_sp_85";
+			type="Empty";
+			id=2754;
+			atlOffset=-0.73175049;
+		};
+		class Item2337
+		{
+			dataType="Marker";
+			position[]={4548.1064,375.66827,8148.6323};
+			name="sj_sp_86";
+			type="Empty";
+			id=2755;
+			atlOffset=-0.73175049;
+		};
+		class Item2338
+		{
+			dataType="Marker";
+			position[]={4542.6646,375.04318,8132.5439};
+			name="sj_sp_87";
+			type="Empty";
+			id=2756;
+			atlOffset=-0.73175049;
+		};
+		class Item2339
+		{
+			dataType="Marker";
+			position[]={4523.3784,375.69873,8149.5552};
+			name="sj_sp_88";
+			type="Empty";
+			id=2757;
+			atlOffset=-0.73175049;
+		};
+		class Item2340
+		{
+			dataType="Marker";
+			position[]={4514.2358,376.26279,8156.7393};
+			name="sj_sp_89";
+			type="Empty";
+			id=2758;
+			atlOffset=-0.73175049;
+		};
+		class Item2341
+		{
+			dataType="Marker";
+			position[]={4595.1631,379.21338,8166.3481};
+			name="sj_sp_90";
+			type="Empty";
+			id=2759;
+			atlOffset=-0.73175049;
+		};
+		class Item2342
+		{
+			dataType="Marker";
+			position[]={4656.4756,406.05161,8226.5557};
+			name="sj_sp_91";
+			type="Empty";
+			id=2760;
+			atlOffset=-0.73175049;
 		};
 	};
 };

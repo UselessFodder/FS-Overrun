@@ -34,6 +34,20 @@ if (_actuallyReset == true) then {
 		//diag_log format ["%1 read into %2 slot in InfectionRate", _infectionRateArray select (count _infectionRateArray -1), (count _infectionRateArray) - 1];		
 	};	
 	
+	//set unlocks to none
+	private _unlockArray = [];
+	private _unlockArraySize = count UnlockTracker;
+	for [{private _i = 0}, {_i < _zoneArraySize}, {_i = _i +1}] do{
+		_currentBool = false;
+		UnlockTracker set [_i, _currentBool];
+		//diag_log format ["%1 read into %2 slot in InfectionRate", _infectionRateArray select (count _infectionRateArray -1), (count _infectionRateArray) - 1];		
+	};	
+	
+	//set faction bank to zero
+	FactionBank = 0;
+	publicVariable "FactionBank";
+	
+	
 	//diag save complete
 	diag_log "Reset Complete";
 };

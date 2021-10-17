@@ -3,17 +3,11 @@
 */
 
 //set default insignia
-[player, "brt_gray"] call BIS_fnc_setUnitInsignia;
+[_this select 0, "brt_gray"] call BIS_fnc_setUnitInsignia;
 
-removeAllItems player;
-player addItem "Binocular";
-player assignItem "Binocular";
-player addItem "ItemCompass";
-player assignItem "ItemCompass";
-player additem "ItemMap";
-player assignItem "ItemMap";
-player addItem "ItemWatch";
-player assignItem "ItemWatch";
-player addItem "FirstAidKit";
-player addItem "tf_anprc152";
-player assignItem "tf_anprc152";
+_deadBody = _this select 1;
+
+//if body is in the base, then delete it
+if (_deadBody distance getMarkerPos "FOB" < 50) then{
+	deleteVehicle _deadBody;
+};

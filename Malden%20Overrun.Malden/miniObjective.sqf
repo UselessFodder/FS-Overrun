@@ -121,7 +121,9 @@ if (isServer) then {
 			//log
 			diag_log format ["Boss Zombie defeated at %1", ZoneArray select _locationIndex select 0];
 		}];
-
+		
+		//set mission as active in this location
+		ZoneArray select _locationIndex set [4, true];
 		
 		//inform players		
 		[["_bossZMarker",500,"A singularly strong Z detected in your area. Kill it to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
@@ -158,8 +160,6 @@ if (isServer) then {
 				//detect if all units are dead
 				waitUntil {({alive _x} count units zGroup) < 1;};
 				//delete marker and set mission status to false				
-				//objectiveComplete = true;
-				//publicVariable "objectiveComplete"; 
 				ZoneArray select _locationIndex set [4, false];
 				//set infection rate lower to prevent mission happening again
 				ZoneArray select _locationIndex set [2, (ZoneArray select _locationIndex select 2) - 0.01];
@@ -204,6 +204,9 @@ if (isServer) then {
 		"_zMarker" setMarkerSize [25,25];
 		"_zMarker" setMarkerText "Significant Z Presence";
 		
+		//set mission as active in this location
+		ZoneArray select _locationIndex set [4, true];
+
 		//inform players
 		[["_zMarker",500,"A significant presence of Z's has been detected. Go clear them out to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
@@ -288,6 +291,9 @@ if (isServer) then {
 			
 			
 		};},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];			
+
+		//set mission as active in this location
+		ZoneArray select _locationIndex set [4, true];
 
 		//inform players
 		[["_intelMarker",500,"Reports indicate valuable research was dropped in your area. Secure it for further study..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];

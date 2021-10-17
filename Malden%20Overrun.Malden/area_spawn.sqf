@@ -66,7 +66,6 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 				_currentInfection = 0.8;
 				_previousInfection = 0.8;
 				[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
-				ZoneArray select _locationIndex set [4, true];
 				
 				
 			} else {
@@ -77,9 +76,6 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 					_currentInfection = 0.6;
 					_previousInfection = 0.6;
 					[_locationIndex,_spawnArray] execVM "miniObjective.sqf";	
-					//objectiveComplete = false;
-					//publicVariable "objectiveComplete";
-					ZoneArray select _locationIndex set [4, true];
 					
 				} else {
 					if(_currentInfection < 0.4 && _previousInfection > 0.4) then {
@@ -89,9 +85,6 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 						_currentInfection = 0.4;
 						_previousInfection = 0.4;
 						[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
-						//objectiveComplete = false;
-						//publicVariable "objectiveComplete";
-						ZoneArray select _locationIndex set [4, true];
 						
 					}else {
 						if(_currentInfection < 0.2 && _previousInfection > 0.2) then {
@@ -100,11 +93,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 							_infectionHoldRate = 0.2;
 							_currentInfection = 0.2;
 							_previousInfection = 0.2;
-							[_locationIndex,_spawnArray] execVM "miniObjective.sqf";
-							//objectiveComplete = false;
-							//publicVariable "objectiveComplete";
-							ZoneArray select _locationIndex set [4, true];
-							
+							[_locationIndex,_spawnArray] execVM "miniObjective.sqf";							
 							
 						} else {
 							//objectiveComplete = true;
@@ -136,7 +125,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			private _locCheck = false;
 			private _locCheckCounter = 0;
 			private _minimumDistance = 30;
-			private _currentSpawn = [0,0,0];
+			private _currentSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 			
 			while {!_locCheck} do {
 				if (_locCheckCounter < 5) then {
@@ -145,12 +134,19 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 					_startSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 					_currentSpawn = _startSpawn findEmptyPosition [0,10];
 					
+					//default _locCheck to true and only change to false if a player is too close to the spawn
+					_locCheck = true;
+					
 					//check if it is within minimum distance of a player
 					{
 						//_currentDistance = getMarkerPos _currentSpawn distance _x;
 						_currentDistance = _currentSpawn distance _x;
-						if (_currentDistance > _minimumDistance) then {
-							_locCheck = true;
+						if (_currentDistance < _minimumDistance) then {
+							//*** debug
+							diag_log format ["Cannot use spawn as it is within %1 of a player, less than the minimum of %2", _currentDistance, _minimumDistance];
+						
+							//if the spawn is too close, change _locCheck to false so the check runs again
+							_locCheck = false;
 						};							
 					} forEach allPlayers;
 					

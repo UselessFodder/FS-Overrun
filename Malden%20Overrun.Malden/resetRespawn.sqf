@@ -21,6 +21,8 @@ if(isNull mobileRespawn == false) then {
 		mobileRespawn addEventHandler ["Killed",{execVM "mobileRespawnDestroyed.sqf"}];
 	};
 	
+	/*
+	
 	//item list for arsenal
 	ArsenalItems = [
 		// Vanilla Standard Items
@@ -623,7 +625,7 @@ if(isNull mobileRespawn == false) then {
 		"RPG32_HE_F",
 		"NLAW_F",
 		*/
-		
+	/*
 		// -- Grenades --
 		"HandGrenade",
 		"MiniGrenade",
@@ -1467,3 +1469,5 @@ if(isNull mobileRespawn == false) then {
 	[mobileRespawn,ArsenalMagazines,true,true] remoteExecCall ["BIS_fnc_addVirtualMagazineCargo", 0];
 
 };
+
+*/

@@ -22,10 +22,27 @@ if(isNull deconTruck == false) then {
 		[deconTruck,["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
 		//deconTruck addAction ["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
 		
-		//create arsenal
-		[deconTruck,ArsenalItems,false,false] call BIS_fnc_addVirtualItemCargo;
-		[deconTruck,ArsenalBackpacks,false,false] call BIS_fnc_addVirtualBackpackCargo;
-		[deconTruck,ArsenalWeapons,false,false] call BIS_fnc_addVirtualWeaponCargo;
-		[deconTruck,ArsenalMagazines,false,false] call BIS_fnc_addVirtualMagazineCargo;
+	  //attach patch to truck 
+	  _tex = "UserTexture1m_F" createvehicle getpos deconTruck; 
+	  _tex setobjectTexture [0,"BRT_Gray.paa"]; 
+	  _tex Attachto [deconTruck, [-1.4,-2.3,0.4]];
+	  _tex setdir 90;
+	  _tex setObjectScale 1.5; 
+	 
+	  //attach patch to truck 
+	  _tex = "UserTexture1m_F" createvehicle getpos deconTruck; 
+	  _tex setobjectTexture [0,"BRT_Gray.paa"]; 
+	  _tex Attachto [deconTruck, [1.1,-2.3,0.4]];
+	  _tex setdir 270;
+	  _tex setObjectScale 1.7; 
+ 
+
+		
+		//create arsenal for all players
+		[deconTruck,ArsenalItems,true,true] remoteExecCall ["BIS_fnc_addVirtualItemCargo", 0];
+		[deconTruck,ArsenalBackpacks,true,true] remoteExecCall ["BIS_fnc_addVirtualBackpackCargo", 0];
+		[deconTruck,ArsenalWeapons,true,true] remoteExecCall ["BIS_fnc_addVirtualWeaponCargo", 0];
+		[deconTruck,ArsenalMagazines,true,true] remoteExecCall ["BIS_fnc_addVirtualMagazineCargo", 0];
+			
 	};
 };

@@ -177,3 +177,6 @@ execVM "timeSet.sqf";
 
 //initialize arsenal in box and decon truck
 execVM "initArsenal.sqf";
+
+//add decon action to deconTruck
+deconTruck addAction ["Begin DECON", {[[],"initCleanse.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];

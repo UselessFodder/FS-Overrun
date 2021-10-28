@@ -8,18 +8,18 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=2766;
+		nextID=3519;
 	};
 	class MarkerIDProvider
 	{
-		nextID=44;
+		nextID=46;
 	};
 	class Camera
 	{
-		pos[]={4551.1851,428.52505,7077.8359};
-		dir[]={0.2589421,-0.61531085,0.74454302};
-		up[]={0.20212221,0.78828382,0.58116657};
-		aside[]={0.94450939,7.3312549e-008,-0.32848796};
+		pos[]={4511.8359,436.04993,7119.5029};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
@@ -42,6 +42,7 @@ addons[]=
 	"A3_Static_F_HMG_02",
 	"A3_Static_F",
 	"CUP_Misc_e_Config",
+	"ace_sitting",
 	"CUP_CAMisc",
 	"A3_Props_F_Argo_Items_Documents",
 	"A3_Props_F_Orange_Humanitarian_Camps",
@@ -68,13 +69,14 @@ addons[]=
 	"ace_optics",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Soft_F_Gamma_Truck_01",
-	"A3_Soft_F_Exp_Truck_01"
+	"A3_Soft_F_Exp_Truck_01",
+	"A3_Modules_F_Intel"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=29;
+		items=31;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -166,106 +168,120 @@ class AddonsMetaData
 		};
 		class Item13
 		{
+			className="ace_sitting";
+			name="ACE3 - Sitting";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item14
+		{
 			className="CUP_CAMisc";
 			name="CUP_CAMisc";
 		};
-		class Item14
+		class Item15
 		{
 			className="A3_Props_F_Argo";
 			name="Arma 3 Malden - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item15
+		class Item16
 		{
 			className="A3_Props_F_Orange";
 			name="Arma 3 Orange - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item17
 		{
 			className="CUP_Misc3_Config";
 			name="CUP_Misc3_Config";
 		};
-		class Item17
+		class Item18
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item19
 		{
 			className="A3_Structures_F_Enoch_Military";
 			name="Arma 3 Contact Platform - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item19
+		class Item20
 		{
 			className="A3_Structures_F_Bootcamp";
 			name="Arma 3 Bootcamp Update - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
+		class Item21
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item21
+		class Item22
 		{
 			className="CUP_CAStructures_E_Misc_Misc_Interier";
 			name="CUP_CAStructures_E_Misc_Misc_Interier";
 		};
-		class Item22
+		class Item23
 		{
 			className="A3_Structures_F_Enoch";
 			name="Arma 3 Contact Platform - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item23
+		class Item24
 		{
 			className="ryanzombiesfunctions";
 			name="ryanzombiesfunctions";
 			author="Ryan";
 		};
-		class Item24
+		class Item25
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item25
+		class Item26
 		{
 			className="ace_optics";
 			name="ACE3 - Optics";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item26
+		class Item27
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item27
+		class Item28
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item28
+		class Item29
 		{
 			className="A3_Soft_F_Exp";
 			name="Arma 3 Apex - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item30
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -405,7 +421,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.0.7";
+		briefingName="Malden Overrun v0.1.0";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -431,7 +447,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=2343;
+		items=3060;
 		class Item0
 		{
 			dataType="Marker";
@@ -1918,14 +1934,14 @@ class Mission
 		class Item112
 		{
 			dataType="Marker";
-			position[]={7904.7031,31.354,9075.3945};
+			position[]={7900.3071,31.354004,9080.2969};
 			name="Bosquet";
 			markerType="RECTANGLE";
 			type="rectangle";
 			a=100;
 			b=100;
 			id=172;
-			atlOffset=-0.84600067;
+			atlOffset=-0.84599686;
 		};
 		class Item113
 		{
@@ -3070,7 +3086,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this addAction [""Save Mission State"", { " \n " {null = execVM ""saveState.sqf""} remoteExec [""call"",0]; " \n "}];" \n "" \n "this addAction [""Reset DECON Truck"", { " \n " {null = execVM ""resetDecon.sqf""} remoteExec [""call"",0]; " \n "}];" \n "" \n "this addAction [""Reset Mobile Respawn"", { " \n " {null = execVM ""resetRespawn.sqf""} remoteExec [""call"",0]; " \n "}];" \n "" \n "this addAction [""Unlock Menu"", { " \n " {null = execVM ""unlockMenu.sqf""} remoteExec [""call"",0]; " \n "}];}";
+				init="call{this addAction [""Save Mission State"", { " \n " {null = execVM ""saveState.sqf""} remoteExec [""call"",0]; " \n "}];" \n "" \n "this addAction [""Reset DECON Truck"", { " \n " {null = execVM ""resetDecon.sqf""} remoteExec [""call"",2]; " \n "}];" \n "" \n "this addAction [""Reset Transport Truck"", { " \n " {null = execVM ""resetRespawn.sqf""} remoteExec [""call"",2]; " \n "}];" \n "" \n "this addAction [""Unlock Menu"", { " \n " {null = execVM ""unlockMenu.sqf""} remoteExec [""call"",0]; " \n "}];}";
 				name="missionLaptop";
 			};
 			id=291;
@@ -3444,7 +3460,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={7898.9507,36.176804,9073.0381};
+				position[]={7896.8413,36.176804,9079.4072};
 			};
 			side="Empty";
 			flags=5;
@@ -4571,7 +4587,7 @@ class Mission
 			{
 				name="La_RiviereTrigger";
 				condition="call{this}";
-				onActivation="if (ZoneArray select 15 select 3 == false) then { " \n "call{ZoneArray select 15 set [3,true]; " \n "  " \n "[[15,100],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
+				onActivation="if (ZoneArray select 15 select 3 == false) then { " \n "call{ZoneArray select 15 set [3,true]; " \n "  " \n "[[15,80],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
 				onDeactivation="call{ZoneArray select 15 set [3,false];" \n "}";
 				sizeA=300;
 				sizeB=300;
@@ -4955,32 +4971,32 @@ class Mission
 		class Item311
 		{
 			dataType="Marker";
-			position[]={6748.2866,61.047607,10593.286};
+			position[]={6768.4688,65.329834,10686.801};
 			name="marker_32";
-			markerType="ELLIPSE";
+			markerType="RECTANGLE";
 			type="ellipse";
 			colorName="ColorRed";
 			fillName="BDiagonal";
-			a=1000;
-			b=1895.8221;
-			angle=121.44618;
+			a=1208.7842;
+			b=1865.6543;
+			angle=90.656731;
 			id=462;
-			atlOffset=-23.4039;
+			atlOffset=-18.24514;
 		};
 		class Item312
 		{
 			dataType="Marker";
-			position[]={7706.5972,106.744,8484.1152};
+			position[]={7834.6909,109.43311,7875.2759};
 			name="marker_33";
 			markerType="ELLIPSE";
 			type="ellipse";
 			colorName="ColorRed";
 			fillName="BDiagonal";
 			a=1121.068;
-			b=1048.0693;
+			b=580.6795;
 			angle=178.69792;
 			id=463;
-			atlOffset=13.873001;
+			atlOffset=-89.416359;
 		};
 		class Item313
 		{
@@ -11878,7 +11894,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{[this, ""BRT_Blue""] call BIS_fnc_setUnitInsignia;" \n "" \n "this addAction [""Begin DECON"", { " \n " [[],""initCleanse.sqf""] remoteExec [""BIS_fnc_execVM"",0]; " \n "},nil,1.5,FALSE,FALSE,"""",""CleanseActive == false"",5,false,"""",""""];}";
+				init="   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [-1.4,-2.3,0.4]]; " \n "   _tex setdir 90; " \n "   _tex setObjectScale 1.5;  " \n "" \n "   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [1.1,-2.3,0.4]]; " \n "   _tex setdir 270; " \n "   _tex setObjectScale 1.7; ";
 				name="deconTruck";
 			};
 			id=981;
@@ -12604,7 +12620,7 @@ class Mission
 			position[]={5584.4121,103.78483,4237.416};
 			class Attributes
 			{
-				name="Saint_MartinTrigger_1";
+				name="Saint_MarieTrigger";
 				condition="call{this}";
 				onActivation="if (ZoneArray select 28 select 3 == false) then { " \n "call{ZoneArray select 28 set [3,true]; " \n " " \n "[[28,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
 				onDeactivation="call{ZoneArray select 28 set [3,false];" \n "}";
@@ -14067,6 +14083,7 @@ class Mission
 			name="dou_SP_10";
 			type="Empty";
 			id=1273;
+			atlOffset=0.90702057;
 		};
 		class Item920
 		{
@@ -14075,6 +14092,7 @@ class Mission
 			name="dou_SP_11";
 			type="Empty";
 			id=1274;
+			atlOffset=1.5136871;
 		};
 		class Item921
 		{
@@ -14379,6 +14397,7 @@ class Mission
 			name="dou_SP_49";
 			type="Empty";
 			id=1313;
+			atlOffset=0.43326569;
 		};
 		class Item959
 		{
@@ -14459,6 +14478,7 @@ class Mission
 			name="dou_SP_59";
 			type="Empty";
 			id=1323;
+			atlOffset=0.34301758;
 		};
 		class Item969
 		{
@@ -14555,6 +14575,7 @@ class Mission
 			name="dou_SP_71";
 			type="Empty";
 			id=1335;
+			atlOffset=1.3314514;
 		};
 		class Item981
 		{
@@ -14587,6 +14608,7 @@ class Mission
 			name="dou_SP_75";
 			type="Empty";
 			id=1339;
+			atlOffset=1.1708603;
 		};
 		class Item985
 		{
@@ -15075,6 +15097,7 @@ class Mission
 			name="dou_SP_137";
 			type="Empty";
 			id=1404;
+			atlOffset=0.67966461;
 		};
 		class Item1046
 		{
@@ -15212,6 +15235,7 @@ class Mission
 			name="dou_SP_153";
 			type="Empty";
 			id=1421;
+			atlOffset=0.32978821;
 		};
 		class Item1063
 		{
@@ -15252,6 +15276,7 @@ class Mission
 			name="dou_SP_158";
 			type="Empty";
 			id=1426;
+			atlOffset=0.14664459;
 		};
 		class Item1068
 		{
@@ -15284,6 +15309,7 @@ class Mission
 			name="dou_SP_162";
 			type="Empty";
 			id=1430;
+			atlOffset=0.29543304;
 		};
 		class Item1072
 		{
@@ -15572,6 +15598,7 @@ class Mission
 			name="dou_SP_198";
 			type="Empty";
 			id=1467;
+			atlOffset=0.72181702;
 		};
 		class Item1108
 		{
@@ -15580,6 +15607,7 @@ class Mission
 			name="dou_SP_199";
 			type="Empty";
 			id=1468;
+			atlOffset=0.93685913;
 		};
 		class Item1109
 		{
@@ -18432,7 +18460,7 @@ class Mission
 			name="ho_wp_23";
 			type="Empty";
 			id=1852;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.19284821;
 		};
 		class Item1459
 		{
@@ -18441,7 +18469,7 @@ class Mission
 			name="ho_wp_24";
 			type="Empty";
 			id=1853;
-			atlOffset=2.2888184e-005;
+			atlOffset=1.0130768;
 		};
 		class Item1460
 		{
@@ -19224,7 +19252,7 @@ class Mission
 			name="ho_wp_111";
 			type="Empty";
 			id=1945;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.012245178;
 		};
 		class Item1547
 		{
@@ -19701,7 +19729,7 @@ class Mission
 			name="ho_wp_164";
 			type="Empty";
 			id=1998;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.44488525;
 		};
 		class Item1600
 		{
@@ -19710,7 +19738,7 @@ class Mission
 			name="ho_wp_165";
 			type="Empty";
 			id=1999;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.46868134;
 		};
 		class Item1601
 		{
@@ -19719,7 +19747,7 @@ class Mission
 			name="ho_wp_166";
 			type="Empty";
 			id=2000;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.25370789;
 		};
 		class Item1602
 		{
@@ -19728,7 +19756,7 @@ class Mission
 			name="ho_wp_167";
 			type="Empty";
 			id=2001;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.33078766;
 		};
 		class Item1603
 		{
@@ -19737,7 +19765,7 @@ class Mission
 			name="ho_wp_168";
 			type="Empty";
 			id=2002;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.29727173;
 		};
 		class Item1604
 		{
@@ -20385,7 +20413,7 @@ class Mission
 			name="ho_wp_240";
 			type="Empty";
 			id=2074;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.36125183;
 		};
 		class Item1676
 		{
@@ -20394,7 +20422,7 @@ class Mission
 			name="ho_wp_241";
 			type="Empty";
 			id=2075;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.88858032;
 		};
 		class Item1677
 		{
@@ -20448,7 +20476,7 @@ class Mission
 			name="ho_wp_247";
 			type="Empty";
 			id=2081;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.021125793;
 		};
 		class Item1683
 		{
@@ -20619,7 +20647,7 @@ class Mission
 			name="ho_wp_266";
 			type="Empty";
 			id=2100;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.33068848;
 		};
 		class Item1702
 		{
@@ -20781,7 +20809,7 @@ class Mission
 			name="ho_wp_284";
 			type="Empty";
 			id=2118;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.32190704;
 		};
 		class Item1720
 		{
@@ -21708,7 +21736,7 @@ class Mission
 			name="ho_wp_387";
 			type="Empty";
 			id=2228;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.3267746;
 		};
 		class Item1823
 		{
@@ -21717,7 +21745,7 @@ class Mission
 			name="ho_wp_388";
 			type="Empty";
 			id=2229;
-			atlOffset=2.2888184e-005;
+			atlOffset=0.4123764;
 		};
 		class Item1824
 		{
@@ -26411,6 +26439,7292 @@ class Mission
 			type="Empty";
 			id=2760;
 			atlOffset=-0.73175049;
+		};
+		class Item2343
+		{
+			dataType="Trigger";
+			position[]={7154.1509,105.28,8980.374};
+			angle=0.72982693;
+			class Attributes
+			{
+				name="Saint_LuisTrigger";
+				condition="call{this}";
+				onActivation="if (ZoneArray select 27 select 3 == false) then { " \n "call{ZoneArray select 27 set [3,true]; " \n "" \n "[[27,90],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
+				onDeactivation="call{ZoneArray select 27 set [3,false];" \n "}";
+				sizeA=500;
+				sizeB=500;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isServerOnly=1;
+			};
+			id=2766;
+			type="EmptyDetector";
+		};
+		class Item2344
+		{
+			dataType="Marker";
+			position[]={6971.124,103.89146,8835.4785};
+			name="stl_wp_1";
+			type="Empty";
+			id=2768;
+			atlOffset=-0.45854187;
+		};
+		class Item2345
+		{
+			dataType="Marker";
+			position[]={6952.9619,103.90232,8829.2314};
+			name="stl_wp_2";
+			type="Empty";
+			id=2769;
+			atlOffset=-0.44767761;
+		};
+		class Item2346
+		{
+			dataType="Marker";
+			position[]={6949.6792,103.5507,8810.9434};
+			name="stl_wp_3";
+			type="Empty";
+			id=2770;
+			atlOffset=-0.79621887;
+		};
+		class Item2347
+		{
+			dataType="Marker";
+			position[]={6982.8281,103.4402,8851.7549};
+			name="stl_wp_4";
+			type="Empty";
+			id=2771;
+			atlOffset=-0.79621124;
+		};
+		class Item2348
+		{
+			dataType="Marker";
+			position[]={6936.4233,103.52334,8841.2939};
+			name="stl_wp_5";
+			type="Empty";
+			id=2772;
+			atlOffset=-0.79621124;
+		};
+		class Item2349
+		{
+			dataType="Marker";
+			position[]={6933.0908,103.49542,8860.5938};
+			name="stl_wp_6";
+			type="Empty";
+			id=2773;
+			atlOffset=-0.79621124;
+		};
+		class Item2350
+		{
+			dataType="Marker";
+			position[]={6943.0386,103.48661,8865.4209};
+			name="stl_wp_7";
+			type="Empty";
+			id=2774;
+			atlOffset=-0.79621124;
+		};
+		class Item2351
+		{
+			dataType="Marker";
+			position[]={6934.9077,104.40422,8896.2324};
+			name="stl_wp_8";
+			type="Empty";
+			id=2775;
+			atlOffset=-0.79621124;
+		};
+		class Item2352
+		{
+			dataType="Marker";
+			position[]={6967.5078,103.37194,8876.3184};
+			name="stl_wp_9";
+			type="Empty";
+			id=2776;
+			atlOffset=-0.79621124;
+		};
+		class Item2353
+		{
+			dataType="Marker";
+			position[]={6992.2256,103.30314,8858.5996};
+			name="stl_wp_10";
+			type="Empty";
+			id=2777;
+			atlOffset=-0.79621124;
+		};
+		class Item2354
+		{
+			dataType="Marker";
+			position[]={7000.9404,103.53227,8813.3096};
+			name="stl_wp_11";
+			type="Empty";
+			id=2778;
+			atlOffset=-0.79621124;
+		};
+		class Item2355
+		{
+			dataType="Marker";
+			position[]={6962.7471,102.62527,8790.7549};
+			name="stl_wp_12";
+			type="Empty";
+			id=2779;
+			atlOffset=-0.79621124;
+		};
+		class Item2356
+		{
+			dataType="Marker";
+			position[]={6999.7632,110.6593,8740.2656};
+			name="stl_wp_13";
+			type="Empty";
+			id=2780;
+			atlOffset=-0.79621124;
+		};
+		class Item2357
+		{
+			dataType="Marker";
+			position[]={7043.1362,100.3978,8800.1133};
+			name="stl_wp_14";
+			type="Empty";
+			id=2781;
+			atlOffset=-0.79621124;
+		};
+		class Item2358
+		{
+			dataType="Marker";
+			position[]={7063.5464,100.50227,8808.3984};
+			name="stl_wp_15";
+			type="Empty";
+			id=2782;
+			atlOffset=-0.79620361;
+		};
+		class Item2359
+		{
+			dataType="Marker";
+			position[]={7077.23,100.43093,8811.5781};
+			name="stl_wp_16";
+			type="Empty";
+			id=2783;
+			atlOffset=-0.79621124;
+		};
+		class Item2360
+		{
+			dataType="Marker";
+			position[]={7083.5283,105.41872,8779.6719};
+			name="stl_wp_17";
+			type="Empty";
+			id=2784;
+			atlOffset=-0.79621124;
+		};
+		class Item2361
+		{
+			dataType="Marker";
+			position[]={7090.4326,107.78704,8758.8779};
+			name="stl_wp_18";
+			type="Empty";
+			id=2785;
+			atlOffset=-0.79621124;
+		};
+		class Item2362
+		{
+			dataType="Marker";
+			position[]={7126.0508,105.72856,8761.9424};
+			name="stl_wp_19";
+			type="Empty";
+			id=2786;
+			atlOffset=-0.79621124;
+		};
+		class Item2363
+		{
+			dataType="Marker";
+			position[]={7145.939,102.19979,8780.8701};
+			name="stl_wp_20";
+			type="Empty";
+			id=2787;
+			atlOffset=-0.79621124;
+		};
+		class Item2364
+		{
+			dataType="Marker";
+			position[]={7139.6187,102.59375,8786.4658};
+			name="stl_wp_21";
+			type="Empty";
+			id=2788;
+			atlOffset=-0.2052002;
+		};
+		class Item2365
+		{
+			dataType="Marker";
+			position[]={7150.0288,101.22694,8795.292};
+			name="stl_wp_22";
+			type="Empty";
+			id=2789;
+			atlOffset=-0.79621887;
+		};
+		class Item2366
+		{
+			dataType="Marker";
+			position[]={7194.1221,99.076103,8767.2617};
+			name="stl_wp_23";
+			type="Empty";
+			id=2790;
+			atlOffset=-0.79621124;
+		};
+		class Item2367
+		{
+			dataType="Marker";
+			position[]={7198.043,94.455048,8815.5449};
+			name="stl_wp_24";
+			type="Empty";
+			id=2791;
+			atlOffset=-0.79621124;
+		};
+		class Item2368
+		{
+			dataType="Marker";
+			position[]={7244.3203,85.720886,8823.9111};
+			name="stl_wp_25";
+			type="Empty";
+			id=2792;
+			atlOffset=-0.79621124;
+		};
+		class Item2369
+		{
+			dataType="Marker";
+			position[]={7241.7285,88.200562,8765.7744};
+			name="stl_wp_26";
+			type="Empty";
+			id=2793;
+			atlOffset=-0.79621124;
+		};
+		class Item2370
+		{
+			dataType="Marker";
+			position[]={7246.4575,87.23452,8767.3672};
+			name="stl_wp_27";
+			type="Empty";
+			id=2794;
+			atlOffset=-0.79621124;
+		};
+		class Item2371
+		{
+			dataType="Marker";
+			position[]={7247.7964,86.824112,8777.1104};
+			name="stl_wp_28";
+			type="Empty";
+			id=2795;
+			atlOffset=-0.79621124;
+		};
+		class Item2372
+		{
+			dataType="Marker";
+			position[]={7248.4902,85.295059,8825.5332};
+			name="stl_wp_29";
+			type="Empty";
+			id=2796;
+			atlOffset=-0.79621124;
+		};
+		class Item2373
+		{
+			dataType="Marker";
+			position[]={7271.9717,85.341843,8823.5205};
+			name="stl_wp_30";
+			type="Empty";
+			id=2797;
+			atlOffset=-0.24584961;
+		};
+		class Item2374
+		{
+			dataType="Marker";
+			position[]={7275.5723,84.759247,8824.957};
+			name="stl_wp_31";
+			type="Empty";
+			id=2798;
+			atlOffset=-0.79621124;
+		};
+		class Item2375
+		{
+			dataType="Marker";
+			position[]={7291.2617,85.304291,8823.8486};
+			name="stl_wp_32";
+			type="Empty";
+			id=2799;
+			atlOffset=-0.79621124;
+		};
+		class Item2376
+		{
+			dataType="Marker";
+			position[]={7289.3696,85.25061,8810.7217};
+			name="stl_wp_33";
+			type="Empty";
+			id=2800;
+			atlOffset=-0.79621124;
+		};
+		class Item2377
+		{
+			dataType="Marker";
+			position[]={7262.8652,84.893791,8818.0684};
+			name="stl_wp_34";
+			type="Empty";
+			id=2801;
+			atlOffset=-0.79621124;
+		};
+		class Item2378
+		{
+			dataType="Marker";
+			position[]={7275.5981,85.73587,8803.7773};
+			name="stl_wp_35";
+			type="Empty";
+			id=2802;
+			atlOffset=-0.23325348;
+		};
+		class Item2379
+		{
+			dataType="Marker";
+			position[]={7282.7837,85.396057,8802.9854};
+			name="stl_wp_36";
+			type="Empty";
+			id=2803;
+			atlOffset=-0.59841156;
+		};
+		class Item2380
+		{
+			dataType="Marker";
+			position[]={7280.0996,85.39698,8808.2881};
+			name="stl_wp_37";
+			type="Empty";
+			id=2804;
+			atlOffset=-0.45265198;
+		};
+		class Item2381
+		{
+			dataType="Marker";
+			position[]={7261.6899,85.210381,8803.1133};
+			name="stl_wp_38";
+			type="Empty";
+			id=2805;
+			atlOffset=-0.79621124;
+		};
+		class Item2382
+		{
+			dataType="Marker";
+			position[]={7262.6323,86.285622,8774.0908};
+			name="stl_wp_39";
+			type="Empty";
+			id=2806;
+			atlOffset=-0.79621124;
+		};
+		class Item2383
+		{
+			dataType="Marker";
+			position[]={7278.4634,87.780556,8759.4297};
+			name="stl_wp_40";
+			type="Empty";
+			id=2807;
+			atlOffset=-0.79621124;
+		};
+		class Item2384
+		{
+			dataType="Marker";
+			position[]={7284.3428,86.14167,8783.583};
+			name="stl_wp_41";
+			type="Empty";
+			id=2808;
+			atlOffset=-0.79621124;
+		};
+		class Item2385
+		{
+			dataType="Marker";
+			position[]={7279.4565,85.36113,8798.7803};
+			name="stl_wp_42";
+			type="Empty";
+			id=2809;
+			atlOffset=-0.79621124;
+		};
+		class Item2386
+		{
+			dataType="Marker";
+			position[]={7288.0718,85.652184,8793.334};
+			name="stl_wp_43";
+			type="Empty";
+			id=2810;
+			atlOffset=-0.79621124;
+		};
+		class Item2387
+		{
+			dataType="Marker";
+			position[]={7281.9824,86.202751,8788.8779};
+			name="stl_wp_44";
+			type="Empty";
+			id=2811;
+			atlOffset=-0.27267456;
+		};
+		class Item2388
+		{
+			dataType="Marker";
+			position[]={7287.5483,86.591682,8780.3193};
+			name="stl_wp_45";
+			type="Empty";
+			id=2812;
+			atlOffset=-0.79621124;
+		};
+		class Item2389
+		{
+			dataType="Marker";
+			position[]={7277.8057,88.90947,8743.5234};
+			name="stl_wp_46";
+			type="Empty";
+			id=2813;
+			atlOffset=-0.79621124;
+		};
+		class Item2390
+		{
+			dataType="Marker";
+			position[]={7291.1147,85.272972,8805.2041};
+			name="stl_wp_47";
+			type="Empty";
+			id=2814;
+			atlOffset=-0.79621124;
+		};
+		class Item2391
+		{
+			dataType="Marker";
+			position[]={7273.4917,85.128418,8830.2803};
+			name="stl_wp_48";
+			type="Empty";
+			id=2815;
+			atlOffset=-0.79621124;
+		};
+		class Item2392
+		{
+			dataType="Marker";
+			position[]={7239.6157,86.277313,8836.9307};
+			name="stl_wp_49";
+			type="Empty";
+			id=2816;
+			atlOffset=-0.79621124;
+		};
+		class Item2393
+		{
+			dataType="Marker";
+			position[]={7228.3999,92.561958,8858.0146};
+			name="stl_wp_50";
+			type="Empty";
+			id=2817;
+			atlOffset=-0.79621124;
+		};
+		class Item2394
+		{
+			dataType="Marker";
+			position[]={7238.7368,93.820618,8873.8516};
+			name="stl_wp_51";
+			type="Empty";
+			id=2818;
+			atlOffset=-0.79621124;
+		};
+		class Item2395
+		{
+			dataType="Marker";
+			position[]={7232.9492,94.665535,8875.3047};
+			name="stl_wp_52";
+			type="Empty";
+			id=2819;
+			atlOffset=-0.79621124;
+		};
+		class Item2396
+		{
+			dataType="Marker";
+			position[]={7205.3379,98.582443,8876.0869};
+			name="stl_wp_53";
+			type="Empty";
+			id=2820;
+			atlOffset=-0.31334686;
+		};
+		class Item2397
+		{
+			dataType="Marker";
+			position[]={7217.9063,96.949188,8883.7275};
+			name="stl_wp_54";
+			type="Empty";
+			id=2821;
+			atlOffset=-0.79621124;
+		};
+		class Item2398
+		{
+			dataType="Marker";
+			position[]={7208.2534,98.019745,8890.2012};
+			name="stl_wp_55";
+			type="Empty";
+			id=2822;
+			atlOffset=-0.58382416;
+		};
+		class Item2399
+		{
+			dataType="Marker";
+			position[]={7198.0093,98.676125,8894.542};
+			name="stl_wp_56";
+			type="Empty";
+			id=2823;
+			atlOffset=-0.15113068;
+		};
+		class Item2400
+		{
+			dataType="Marker";
+			position[]={7196.2603,97.679047,8887.8203};
+			name="stl_wp_57";
+			type="Empty";
+			id=2824;
+			atlOffset=-0.79621124;
+		};
+		class Item2401
+		{
+			dataType="Marker";
+			position[]={7191.9624,98.766701,8876.0625};
+			name="stl_wp_58";
+			type="Empty";
+			id=2825;
+			atlOffset=-0.79621124;
+		};
+		class Item2402
+		{
+			dataType="Marker";
+			position[]={7201.9829,97.321449,8865.5879};
+			name="stl_wp_59";
+			type="Empty";
+			id=2826;
+			atlOffset=-0.79621124;
+		};
+		class Item2403
+		{
+			dataType="Marker";
+			position[]={7164.3379,100.65186,8847.9844};
+			name="stl_wp_60";
+			type="Empty";
+			id=2827;
+			atlOffset=-0.79620361;
+		};
+		class Item2404
+		{
+			dataType="Marker";
+			position[]={7187.9243,99.128029,8875.0723};
+			name="stl_wp_61";
+			type="Empty";
+			id=2828;
+			atlOffset=-0.79621124;
+		};
+		class Item2405
+		{
+			dataType="Marker";
+			position[]={7158.6792,103.10822,8900.9961};
+			name="stl_wp_62";
+			type="Empty";
+			id=2829;
+			atlOffset=-0.79620361;
+		};
+		class Item2406
+		{
+			dataType="Marker";
+			position[]={7150.688,103.02379,8887.3848};
+			name="stl_wp_63";
+			type="Empty";
+			id=2830;
+			atlOffset=-0.79621124;
+		};
+		class Item2407
+		{
+			dataType="Marker";
+			position[]={7153.437,103.02379,8878.1631};
+			name="stl_wp_64";
+			type="Empty";
+			id=2831;
+			atlOffset=-0.79621124;
+		};
+		class Item2408
+		{
+			dataType="Marker";
+			position[]={7163.4932,102.3151,8862.9766};
+			name="stl_wp_65";
+			type="Empty";
+			id=2832;
+			atlOffset=-0.79621124;
+		};
+		class Item2409
+		{
+			dataType="Marker";
+			position[]={7140.2256,102.63847,8864.6729};
+			name="stl_wp_66";
+			type="Empty";
+			id=2833;
+			atlOffset=-0.79620361;
+		};
+		class Item2410
+		{
+			dataType="Marker";
+			position[]={7126.0107,103.42809,8871.8408};
+			name="stl_wp_67";
+			type="Empty";
+			id=2834;
+			atlOffset=-0.30132294;
+		};
+		class Item2411
+		{
+			dataType="Marker";
+			position[]={7134.1875,103.13587,8892.1699};
+			name="stl_wp_68";
+			type="Empty";
+			id=2835;
+			atlOffset=-0.79621124;
+		};
+		class Item2412
+		{
+			dataType="Marker";
+			position[]={7139.1182,103.58677,8884.3838};
+			name="stl_wp_69";
+			type="Empty";
+			id=2836;
+			atlOffset=-0.23323059;
+		};
+		class Item2413
+		{
+			dataType="Marker";
+			position[]={7147.6382,103.02379,8882.5869};
+			name="stl_wp_70";
+			type="Empty";
+			id=2837;
+			atlOffset=-0.79621124;
+		};
+		class Item2414
+		{
+			dataType="Marker";
+			position[]={7140.6265,100.77966,8838.5557};
+			name="stl_wp_71";
+			type="Empty";
+			id=2838;
+			atlOffset=-0.79620361;
+		};
+		class Item2415
+		{
+			dataType="Marker";
+			position[]={7114.2241,102.13741,8846.3916};
+			name="stl_wp_72";
+			type="Empty";
+			id=2839;
+			atlOffset=-0.79620361;
+		};
+		class Item2416
+		{
+			dataType="Marker";
+			position[]={7118.6201,102.27349,8851.7451};
+			name="stl_wp_73";
+			type="Empty";
+			id=2840;
+			atlOffset=-0.79621124;
+		};
+		class Item2417
+		{
+			dataType="Marker";
+			position[]={7112.5015,102.91805,8868.707};
+			name="stl_wp_74";
+			type="Empty";
+			id=2841;
+			atlOffset=-0.79620361;
+		};
+		class Item2418
+		{
+			dataType="Marker";
+			position[]={7117.7593,103.28835,8898.5234};
+			name="stl_wp_75";
+			type="Empty";
+			id=2842;
+			atlOffset=-0.79620361;
+		};
+		class Item2419
+		{
+			dataType="Marker";
+			position[]={7136.8623,103.45975,8902.2363};
+			name="stl_wp_76";
+			type="Empty";
+			id=2843;
+			atlOffset=-0.79621124;
+		};
+		class Item2420
+		{
+			dataType="Marker";
+			position[]={7117.6841,104.33893,8920.3291};
+			name="stl_wp_77";
+			type="Empty";
+			id=2844;
+			atlOffset=-0.79621124;
+		};
+		class Item2421
+		{
+			dataType="Marker";
+			position[]={7105.7021,103.4195,8896.0576};
+			name="stl_wp_78";
+			type="Empty";
+			id=2845;
+			atlOffset=-0.79621124;
+		};
+		class Item2422
+		{
+			dataType="Marker";
+			position[]={7109.502,103.5104,8891.001};
+			name="stl_wp_79";
+			type="Empty";
+			id=2846;
+			atlOffset=-0.47758484;
+		};
+		class Item2423
+		{
+			dataType="Marker";
+			position[]={7113.2461,100.17336,8813.9082};
+			name="stl_wp_80";
+			type="Empty";
+			id=2847;
+			atlOffset=-0.79621124;
+		};
+		class Item2424
+		{
+			dataType="Marker";
+			position[]={7097.9341,103.8571,8910.042};
+			name="stl_wp_81";
+			type="Empty";
+			id=2848;
+			atlOffset=-0.79621124;
+		};
+		class Item2425
+		{
+			dataType="Marker";
+			position[]={7113.7104,104.12851,8914.54};
+			name="stl_wp_82";
+			type="Empty";
+			id=2849;
+			atlOffset=-0.79621124;
+		};
+		class Item2426
+		{
+			dataType="Marker";
+			position[]={7099.2114,103.93871,8903.8789};
+			name="stl_wp_83";
+			type="Empty";
+			id=2850;
+			atlOffset=-0.60181427;
+		};
+		class Item2427
+		{
+			dataType="Marker";
+			position[]={7086.7896,104.22293,8915.9668};
+			name="stl_wp_84";
+			type="Empty";
+			id=2851;
+			atlOffset=-0.79621124;
+		};
+		class Item2428
+		{
+			dataType="Marker";
+			position[]={7098.6523,103.21657,8891.5186};
+			name="stl_wp_85";
+			type="Empty";
+			id=2852;
+			atlOffset=-0.79621124;
+		};
+		class Item2429
+		{
+			dataType="Marker";
+			position[]={7107.8491,102.89788,8867.5059};
+			name="stl_wp_86";
+			type="Empty";
+			id=2853;
+			atlOffset=-0.79621124;
+		};
+		class Item2430
+		{
+			dataType="Marker";
+			position[]={7114.4028,102.31009,8850.4141};
+			name="stl_wp_87";
+			type="Empty";
+			id=2854;
+			atlOffset=-0.79621124;
+		};
+		class Item2431
+		{
+			dataType="Marker";
+			position[]={7085.4277,102.67802,8843.9404};
+			name="stl_wp_88";
+			type="Empty";
+			id=2855;
+			atlOffset=-0.79621124;
+		};
+		class Item2432
+		{
+			dataType="Marker";
+			position[]={7114.4438,102.11286,8845.9443};
+			name="stl_wp_89";
+			type="Empty";
+			id=2856;
+			atlOffset=-0.79621124;
+		};
+		class Item2433
+		{
+			dataType="Marker";
+			position[]={7085.4219,102.61662,8839.6699};
+			name="stl_wp_90";
+			type="Empty";
+			id=2857;
+			atlOffset=-0.79621124;
+		};
+		class Item2434
+		{
+			dataType="Marker";
+			position[]={7064.668,103.00645,8853.3115};
+			name="stl_wp_91";
+			type="Empty";
+			id=2858;
+			atlOffset=-0.79621124;
+		};
+		class Item2435
+		{
+			dataType="Marker";
+			position[]={7090.7539,102.65125,8848.7949};
+			name="stl_wp_92";
+			type="Empty";
+			id=2859;
+			atlOffset=-0.79620361;
+		};
+		class Item2436
+		{
+			dataType="Marker";
+			position[]={7088.6025,103.09564,8854.1221};
+			name="stl_wp_93";
+			type="Empty";
+			id=2860;
+			atlOffset=-0.48114014;
+		};
+		class Item2437
+		{
+			dataType="Marker";
+			position[]={7097.9448,103.03534,8856.915};
+			name="stl_wp_94";
+			type="Empty";
+			id=2861;
+			atlOffset=-0.49211884;
+		};
+		class Item2438
+		{
+			dataType="Marker";
+			position[]={7094.666,102.95374,8869.8496};
+			name="stl_wp_95";
+			type="Empty";
+			id=2862;
+			atlOffset=-0.79621124;
+		};
+		class Item2439
+		{
+			dataType="Marker";
+			position[]={7105.5986,103.3848,8873.377};
+			name="stl_wp_96";
+			type="Empty";
+			id=2863;
+			atlOffset=-0.40792084;
+		};
+		class Item2440
+		{
+			dataType="Marker";
+			position[]={7099.4429,103.37537,8868.9238};
+			name="stl_wp_97";
+			type="Empty";
+			id=2864;
+			atlOffset=-0.36199951;
+		};
+		class Item2441
+		{
+			dataType="Marker";
+			position[]={7114.1558,103.02379,8876.6426};
+			name="stl_wp_98";
+			type="Empty";
+			id=2865;
+			atlOffset=-0.79621124;
+		};
+		class Item2442
+		{
+			dataType="Marker";
+			position[]={7096.5942,103.02379,8886.7109};
+			name="stl_wp_99";
+			type="Empty";
+			id=2866;
+			atlOffset=-0.79621124;
+		};
+		class Item2443
+		{
+			dataType="Marker";
+			position[]={7082.0859,103.23583,8892.1504};
+			name="stl_wp_100";
+			type="Empty";
+			id=2867;
+			atlOffset=-0.79621124;
+		};
+		class Item2444
+		{
+			dataType="Marker";
+			position[]={7080.0156,104.03051,8913.7666};
+			name="stl_wp_101";
+			type="Empty";
+			id=2868;
+			atlOffset=-0.79621124;
+		};
+		class Item2445
+		{
+			dataType="Marker";
+			position[]={7072.5361,104.06499,8910.3604};
+			name="stl_wp_102";
+			type="Empty";
+			id=2869;
+			atlOffset=-0.49004364;
+		};
+		class Item2446
+		{
+			dataType="Marker";
+			position[]={7077.4487,104.06223,8910.1152};
+			name="stl_wp_103";
+			type="Empty";
+			id=2870;
+			atlOffset=-0.54266357;
+		};
+		class Item2447
+		{
+			dataType="Marker";
+			position[]={7076.0483,103.50295,8898.0078};
+			name="stl_wp_104";
+			type="Empty";
+			id=2871;
+			atlOffset=-0.79621124;
+		};
+		class Item2448
+		{
+			dataType="Marker";
+			position[]={7065.1821,103.54231,8909.5322};
+			name="stl_wp_105";
+			type="Empty";
+			id=2872;
+			atlOffset=-0.79621124;
+		};
+		class Item2449
+		{
+			dataType="Marker";
+			position[]={7075.1714,104.11858,8925.1982};
+			name="stl_wp_106";
+			type="Empty";
+			id=2873;
+			atlOffset=-0.79621124;
+		};
+		class Item2450
+		{
+			dataType="Marker";
+			position[]={7060.5396,103.52342,8899.2178};
+			name="stl_wp_107";
+			type="Empty";
+			id=2874;
+			atlOffset=-0.57549286;
+		};
+		class Item2451
+		{
+			dataType="Marker";
+			position[]={7058.8311,103.52342,8892.0498};
+			name="stl_wp_108";
+			type="Empty";
+			id=2875;
+			atlOffset=-0.47225189;
+		};
+		class Item2452
+		{
+			dataType="Marker";
+			position[]={7058.0083,103.15284,8887.9668};
+			name="stl_wp_109";
+			type="Empty";
+			id=2876;
+			atlOffset=-0.79621124;
+		};
+		class Item2453
+		{
+			dataType="Marker";
+			position[]={7036.0688,103.05206,8877.5107};
+			name="stl_wp_110";
+			type="Empty";
+			id=2877;
+			atlOffset=-0.79621124;
+		};
+		class Item2454
+		{
+			dataType="Marker";
+			position[]={7042.3335,103.03379,8885.0977};
+			name="stl_wp_111";
+			type="Empty";
+			id=2878;
+			atlOffset=-0.79621124;
+		};
+		class Item2455
+		{
+			dataType="Marker";
+			position[]={7057.4873,103.0278,8874.9141};
+			name="stl_wp_112";
+			type="Empty";
+			id=2879;
+			atlOffset=-0.79621124;
+		};
+		class Item2456
+		{
+			dataType="Marker";
+			position[]={7067.9067,103.13266,8887.6016};
+			name="stl_wp_113";
+			type="Empty";
+			id=2880;
+			atlOffset=-0.79621124;
+		};
+		class Item2457
+		{
+			dataType="Marker";
+			position[]={7068.6611,102.98906,8859.3711};
+			name="stl_wp_114";
+			type="Empty";
+			id=2881;
+			atlOffset=-0.79621124;
+		};
+		class Item2458
+		{
+			dataType="Marker";
+			position[]={7057.8818,103.02379,8860.3105};
+			name="stl_wp_115";
+			type="Empty";
+			id=2882;
+			atlOffset=-0.79621124;
+		};
+		class Item2459
+		{
+			dataType="Marker";
+			position[]={7020.7969,103.48141,8869.7803};
+			name="stl_wp_116";
+			type="Empty";
+			id=2883;
+			atlOffset=-0.79621887;
+		};
+		class Item2460
+		{
+			dataType="Marker";
+			position[]={7026.877,104.09518,8837.3525};
+			name="stl_wp_117";
+			type="Empty";
+			id=2884;
+			atlOffset=-0.79621124;
+		};
+		class Item2461
+		{
+			dataType="Marker";
+			position[]={7059.6426,103.02608,8870.1504};
+			name="stl_wp_118";
+			type="Empty";
+			id=2885;
+			atlOffset=-0.79621124;
+		};
+		class Item2462
+		{
+			dataType="Marker";
+			position[]={7080.6445,103.02379,8879.4707};
+			name="stl_wp_119";
+			type="Empty";
+			id=2886;
+			atlOffset=-0.79621124;
+		};
+		class Item2463
+		{
+			dataType="Marker";
+			position[]={7020.8545,103.07304,8881.6885};
+			name="stl_wp_120";
+			type="Empty";
+			id=2887;
+			atlOffset=-0.79621124;
+		};
+		class Item2464
+		{
+			dataType="Marker";
+			position[]={7136.3589,104.48379,8939.8984};
+			name="stl_wp_121";
+			type="Empty";
+			id=2888;
+			atlOffset=-0.79621124;
+		};
+		class Item2465
+		{
+			dataType="Marker";
+			position[]={7128.7261,104.98392,8944.1816};
+			name="stl_wp_122";
+			type="Empty";
+			id=2889;
+			atlOffset=-0.29608154;
+		};
+		class Item2466
+		{
+			dataType="Marker";
+			position[]={7122.6553,104.98392,8935.9443};
+			name="stl_wp_123";
+			type="Empty";
+			id=2890;
+			atlOffset=-0.29610443;
+		};
+		class Item2467
+		{
+			dataType="Marker";
+			position[]={7129.2183,104.75197,8934.7197};
+			name="stl_wp_124";
+			type="Empty";
+			id=2891;
+			atlOffset=-0.52135468;
+		};
+		class Item2468
+		{
+			dataType="Marker";
+			position[]={7132.3999,104.38658,8922.7295};
+			name="stl_wp_125";
+			type="Empty";
+			id=2892;
+			atlOffset=-0.79621124;
+		};
+		class Item2469
+		{
+			dataType="Marker";
+			position[]={7148.8623,104.46664,8926.46};
+			name="stl_wp_126";
+			type="Empty";
+			id=2893;
+			atlOffset=-0.79621124;
+		};
+		class Item2470
+		{
+			dataType="Marker";
+			position[]={7133.1836,104.26694,8918.6875};
+			name="stl_wp_127";
+			type="Empty";
+			id=2894;
+			atlOffset=-0.79621124;
+		};
+		class Item2471
+		{
+			dataType="Marker";
+			position[]={7106.5171,104.28992,8920.0244};
+			name="stl_wp_128";
+			type="Empty";
+			id=2895;
+			atlOffset=-0.79621124;
+		};
+		class Item2472
+		{
+			dataType="Marker";
+			position[]={7110.7183,105.2902,8931.5303};
+			name="stl_wp_129";
+			type="Empty";
+			id=2896;
+			atlOffset=-0.0021743774;
+		};
+		class Item2473
+		{
+			dataType="Marker";
+			position[]={7102.0317,104.73003,8927.8164};
+			name="stl_wp_130";
+			type="Empty";
+			id=2897;
+			atlOffset=-0.52098846;
+		};
+		class Item2474
+		{
+			dataType="Marker";
+			position[]={7095.2422,104.70236,8917.8291};
+			name="stl_wp_131";
+			type="Empty";
+			id=2898;
+			atlOffset=-0.13202667;
+		};
+		class Item2475
+		{
+			dataType="Marker";
+			position[]={7146.3516,104.15791,8915.0039};
+			name="stl_wp_132";
+			type="Empty";
+			id=2899;
+			atlOffset=-0.79620361;
+		};
+		class Item2476
+		{
+			dataType="Marker";
+			position[]={7151.937,103.02379,8897.9619};
+			name="stl_wp_133";
+			type="Empty";
+			id=2900;
+			atlOffset=-0.79621124;
+		};
+		class Item2477
+		{
+			dataType="Marker";
+			position[]={7154.8867,104.65683,8919.9023};
+			name="stl_wp_134";
+			type="Empty";
+			id=2901;
+			atlOffset=-0.51074219;
+		};
+		class Item2478
+		{
+			dataType="Marker";
+			position[]={7013.1035,103.07828,8892.5723};
+			name="stl_wp_135";
+			type="Empty";
+			id=2902;
+			atlOffset=-0.79621124;
+		};
+		class Item2479
+		{
+			dataType="Marker";
+			position[]={7014.6392,103.10349,8902.9883};
+			name="stl_wp_136";
+			type="Empty";
+			id=2903;
+			atlOffset=-0.79620361;
+		};
+		class Item2480
+		{
+			dataType="Marker";
+			position[]={7021.7358,103.08562,8911.9971};
+			name="stl_wp_137";
+			type="Empty";
+			id=2904;
+			atlOffset=-0.79621124;
+		};
+		class Item2481
+		{
+			dataType="Marker";
+			position[]={7017.479,103.40829,8906.6396};
+			name="stl_wp_138";
+			type="Empty";
+			id=2905;
+			atlOffset=-0.52677155;
+		};
+		class Item2482
+		{
+			dataType="Marker";
+			position[]={7024.7549,104.31093,8906.0361};
+			name="stl_wp_139";
+			type="Empty";
+			id=2906;
+			atlOffset=0.48217773;
+		};
+		class Item2483
+		{
+			dataType="Marker";
+			position[]={7025.4526,103.0293,8897.4023};
+			name="stl_wp_140";
+			type="Empty";
+			id=2907;
+			atlOffset=-0.79621124;
+		};
+		class Item2484
+		{
+			dataType="Marker";
+			position[]={7029.8662,103.04617,8910.2148};
+			name="stl_wp_141";
+			type="Empty";
+			id=2908;
+			atlOffset=-0.79621124;
+		};
+		class Item2485
+		{
+			dataType="Marker";
+			position[]={7044.9751,103.33175,8923.4844};
+			name="stl_wp_142";
+			type="Empty";
+			id=2909;
+			atlOffset=-0.79621124;
+		};
+		class Item2486
+		{
+			dataType="Marker";
+			position[]={7044.9233,103.96508,8938.8428};
+			name="stl_wp_143";
+			type="Empty";
+			id=2910;
+			atlOffset=-0.79621124;
+		};
+		class Item2487
+		{
+			dataType="Marker";
+			position[]={7031.1675,104.39132,8935.0322};
+			name="stl_wp_144";
+			type="Empty";
+			id=2911;
+			atlOffset=-0.79621124;
+		};
+		class Item2488
+		{
+			dataType="Marker";
+			position[]={7015.2646,103.16149,8913.5029};
+			name="stl_wp_145";
+			type="Empty";
+			id=2912;
+			atlOffset=-0.79621124;
+		};
+		class Item2489
+		{
+			dataType="Marker";
+			position[]={6992.4795,105.20264,8943.7617};
+			name="stl_wp_146";
+			type="Empty";
+			id=2913;
+			atlOffset=-0.79621124;
+		};
+		class Item2490
+		{
+			dataType="Marker";
+			position[]={6953.2461,106.86584,8941.6709};
+			name="stl_wp_147";
+			type="Empty";
+			id=2914;
+			atlOffset=-0.79621124;
+		};
+		class Item2491
+		{
+			dataType="Marker";
+			position[]={6931.5669,107.4278,8941.957};
+			name="stl_wp_148";
+			type="Empty";
+			id=2915;
+			atlOffset=-0.79620361;
+		};
+		class Item2492
+		{
+			dataType="Marker";
+			position[]={6963.3853,108.24788,8964.5117};
+			name="stl_wp_149";
+			type="Empty";
+			id=2916;
+			atlOffset=-0.79621124;
+		};
+		class Item2493
+		{
+			dataType="Marker";
+			position[]={6961.2852,104.85485,8915.3105};
+			name="stl_wp_150";
+			type="Empty";
+			id=2917;
+			atlOffset=-0.79621124;
+		};
+		class Item2494
+		{
+			dataType="Marker";
+			position[]={6988.6743,104.28646,8922.2354};
+			name="stl_wp_151";
+			type="Empty";
+			id=2918;
+			atlOffset=-0.79621124;
+		};
+		class Item2495
+		{
+			dataType="Marker";
+			position[]={7030.1558,103.20509,8923.8789};
+			name="stl_wp_152";
+			type="Empty";
+			id=2919;
+			atlOffset=-0.79621124;
+		};
+		class Item2496
+		{
+			dataType="Marker";
+			position[]={7056.1475,103.65617,8926.8975};
+			name="stl_wp_153";
+			type="Empty";
+			id=2920;
+			atlOffset=-0.79620361;
+		};
+		class Item2497
+		{
+			dataType="Marker";
+			position[]={7047.397,104.1198,8945.9482};
+			name="stl_wp_154";
+			type="Empty";
+			id=2921;
+			atlOffset=-0.79621887;
+		};
+		class Item2498
+		{
+			dataType="Marker";
+			position[]={7060.415,103.96756,8947.0801};
+			name="stl_wp_155";
+			type="Empty";
+			id=2922;
+			atlOffset=-0.79621124;
+		};
+		class Item2499
+		{
+			dataType="Marker";
+			position[]={7059.5757,104.14763,8959.6934};
+			name="stl_wp_156";
+			type="Empty";
+			id=2923;
+			atlOffset=-0.79621124;
+		};
+		class Item2500
+		{
+			dataType="Marker";
+			position[]={7043.1309,104.50879,8973.5596};
+			name="stl_wp_157";
+			type="Empty";
+			id=2924;
+			atlOffset=-0.79621124;
+		};
+		class Item2501
+		{
+			dataType="Marker";
+			position[]={7038.8989,104.48055,8986.1709};
+			name="stl_wp_158";
+			type="Empty";
+			id=2925;
+			atlOffset=-0.79621124;
+		};
+		class Item2502
+		{
+			dataType="Marker";
+			position[]={7024.3438,105.29641,8986.6621};
+			name="stl_wp_159";
+			type="Empty";
+			id=2926;
+			atlOffset=-0.79621124;
+		};
+		class Item2503
+		{
+			dataType="Marker";
+			position[]={7020.311,105.24114,8977.1484};
+			name="stl_wp_160";
+			type="Empty";
+			id=2927;
+			atlOffset=-0.79621124;
+		};
+		class Item2504
+		{
+			dataType="Marker";
+			position[]={7052.4819,104.18179,8960.4854};
+			name="stl_wp_161";
+			type="Empty";
+			id=2928;
+			atlOffset=-0.79620361;
+		};
+		class Item2505
+		{
+			dataType="Marker";
+			position[]={7037.9648,104.69595,8957.9287};
+			name="stl_wp_162";
+			type="Empty";
+			id=2929;
+			atlOffset=-0.79620361;
+		};
+		class Item2506
+		{
+			dataType="Marker";
+			position[]={7042.9341,104.50701,8959.4063};
+			name="stl_wp_163";
+			type="Empty";
+			id=2930;
+			atlOffset=-0.79621124;
+		};
+		class Item2507
+		{
+			dataType="Marker";
+			position[]={7029.3418,105.02706,8968.624};
+			name="stl_wp_164";
+			type="Empty";
+			id=2931;
+			atlOffset=-0.79621124;
+		};
+		class Item2508
+		{
+			dataType="Marker";
+			position[]={6997.2764,105.59779,8961.8604};
+			name="stl_wp_165";
+			type="Empty";
+			id=2932;
+			atlOffset=-0.79621124;
+		};
+		class Item2509
+		{
+			dataType="Marker";
+			position[]={7005.0054,105.40818,8960.0381};
+			name="stl_wp_166";
+			type="Empty";
+			id=2933;
+			atlOffset=-0.79621124;
+		};
+		class Item2510
+		{
+			dataType="Marker";
+			position[]={7008.77,104.98848,8946.042};
+			name="stl_wp_167";
+			type="Empty";
+			id=2934;
+			atlOffset=-0.79621124;
+		};
+		class Item2511
+		{
+			dataType="Marker";
+			position[]={7014.6719,105.1086,8952.5596};
+			name="stl_wp_168";
+			type="Empty";
+			id=2935;
+			atlOffset=-0.79621887;
+		};
+		class Item2512
+		{
+			dataType="Marker";
+			position[]={7018.1567,104.96796,8944.9121};
+			name="stl_wp_169";
+			type="Empty";
+			id=2936;
+			atlOffset=-0.79621124;
+		};
+		class Item2513
+		{
+			dataType="Marker";
+			position[]={7032.6387,104.66544,8940.3564};
+			name="stl_wp_170";
+			type="Empty";
+			id=2937;
+			atlOffset=-0.79620361;
+		};
+		class Item2514
+		{
+			dataType="Marker";
+			position[]={7044.2661,104.45399,8951.1016};
+			name="stl_wp_171";
+			type="Empty";
+			id=2938;
+			atlOffset=-0.79621124;
+		};
+		class Item2515
+		{
+			dataType="Marker";
+			position[]={7032.0635,105.62613,8950.1914};
+			name="stl_wp_172";
+			type="Empty";
+			id=2939;
+			atlOffset=-0.042289734;
+		};
+		class Item2516
+		{
+			dataType="Marker";
+			position[]={7001.3203,105.30695,8980.8555};
+			name="stl_wp_173";
+			type="Empty";
+			id=2940;
+			atlOffset=-0.79621124;
+		};
+		class Item2517
+		{
+			dataType="Marker";
+			position[]={6992.2344,105.30379,8978.8916};
+			name="stl_wp_174";
+			type="Empty";
+			id=2941;
+			atlOffset=-0.79621124;
+		};
+		class Item2518
+		{
+			dataType="Marker";
+			position[]={6992.5513,106.04865,8995.2148};
+			name="stl_wp_175";
+			type="Empty";
+			id=2942;
+			atlOffset=-0.79620361;
+		};
+		class Item2519
+		{
+			dataType="Marker";
+			position[]={7000.002,106.14676,8990.0303};
+			name="stl_wp_176";
+			type="Empty";
+			id=2943;
+			atlOffset=0.046760559;
+		};
+		class Item2520
+		{
+			dataType="Marker";
+			position[]={7003.8428,105.7445,9001.874};
+			name="stl_wp_177";
+			type="Empty";
+			id=2944;
+			atlOffset=-0.79621124;
+		};
+		class Item2521
+		{
+			dataType="Marker";
+			position[]={6999.4097,114.22079,9033.8887};
+			name="stl_wp_178";
+			type="Empty";
+			id=2945;
+			atlOffset=-0.79621124;
+		};
+		class Item2522
+		{
+			dataType="Marker";
+			position[]={6966.3706,116.55464,9028.8018};
+			name="stl_wp_179";
+			type="Empty";
+			id=2946;
+			atlOffset=-0.79621124;
+		};
+		class Item2523
+		{
+			dataType="Marker";
+			position[]={6963.6226,127.69296,9090.8945};
+			name="stl_wp_180";
+			type="Empty";
+			id=2947;
+			atlOffset=-0.79620361;
+		};
+		class Item2524
+		{
+			dataType="Marker";
+			position[]={7009.5645,117.37447,9051.3701};
+			name="stl_wp_181";
+			type="Empty";
+			id=2948;
+			atlOffset=-0.79620361;
+		};
+		class Item2525
+		{
+			dataType="Marker";
+			position[]={7008.7539,118.35602,9058.7861};
+			name="stl_wp_182";
+			type="Empty";
+			id=2949;
+			atlOffset=-0.79621124;
+		};
+		class Item2526
+		{
+			dataType="Marker";
+			position[]={6946.6704,131.21088,9102.7217};
+			name="stl_wp_183";
+			type="Empty";
+			id=2950;
+			atlOffset=-0.79621887;
+		};
+		class Item2527
+		{
+			dataType="Marker";
+			position[]={7043.6904,104.65971,8986.5938};
+			name="stl_wp_184";
+			type="Empty";
+			id=2951;
+			atlOffset=-0.79620361;
+		};
+		class Item2528
+		{
+			dataType="Marker";
+			position[]={7048.7856,105.67378,8993.9609};
+			name="stl_wp_185";
+			type="Empty";
+			id=2952;
+			atlOffset=-0.79621124;
+		};
+		class Item2529
+		{
+			dataType="Marker";
+			position[]={7062.4111,106.48886,9006.5176};
+			name="stl_wp_186";
+			type="Empty";
+			id=2953;
+			atlOffset=-0.79621124;
+		};
+		class Item2530
+		{
+			dataType="Marker";
+			position[]={7066.6758,107.56325,9019.5254};
+			name="stl_wp_187";
+			type="Empty";
+			id=2954;
+			atlOffset=-0.79621124;
+		};
+		class Item2531
+		{
+			dataType="Marker";
+			position[]={7064.209,106.79865,9003.4688};
+			name="stl_wp_188";
+			type="Empty";
+			id=2955;
+			atlOffset=-0.18436432;
+		};
+		class Item2532
+		{
+			dataType="Marker";
+			position[]={7074.27,106.54016,9000.1318};
+			name="stl_wp_189";
+			type="Empty";
+			id=2956;
+			atlOffset=0.043991089;
+		};
+		class Item2533
+		{
+			dataType="Marker";
+			position[]={7077.7451,106.63016,8993.1855};
+			name="stl_wp_190";
+			type="Empty";
+			id=2957;
+			atlOffset=0.65208435;
+		};
+		class Item2534
+		{
+			dataType="Marker";
+			position[]={7057.6924,105.42812,8991.6748};
+			name="stl_wp_191";
+			type="Empty";
+			id=2958;
+			atlOffset=-0.79621124;
+		};
+		class Item2535
+		{
+			dataType="Marker";
+			position[]={7055.7871,104.32288,8973.4316};
+			name="stl_wp_192";
+			type="Empty";
+			id=2959;
+			atlOffset=-0.79621124;
+		};
+		class Item2536
+		{
+			dataType="Marker";
+			position[]={7055.6113,105.00703,8988.2568};
+			name="stl_wp_193";
+			type="Empty";
+			id=2960;
+			atlOffset=-0.79621124;
+		};
+		class Item2537
+		{
+			dataType="Marker";
+			position[]={7066.1885,105.24824,8992.9727};
+			name="stl_wp_194";
+			type="Empty";
+			id=2961;
+			atlOffset=-0.79621124;
+		};
+		class Item2538
+		{
+			dataType="Marker";
+			position[]={7061.2231,105.47418,8993.7168};
+			name="stl_wp_195";
+			type="Empty";
+			id=2962;
+			atlOffset=-0.79621124;
+		};
+		class Item2539
+		{
+			dataType="Marker";
+			position[]={7086.6279,105.06271,8987.1113};
+			name="stl_wp_196";
+			type="Empty";
+			id=2963;
+			atlOffset=-0.79620361;
+		};
+		class Item2540
+		{
+			dataType="Marker";
+			position[]={7069.166,104.88142,8971.7451};
+			name="stl_wp_197";
+			type="Empty";
+			id=2964;
+			atlOffset=-0.38458252;
+		};
+		class Item2541
+		{
+			dataType="Marker";
+			position[]={7062.4971,104.96128,8964.9951};
+			name="stl_wp_198";
+			type="Empty";
+			id=2965;
+			atlOffset=-0.10457611;
+		};
+		class Item2542
+		{
+			dataType="Marker";
+			position[]={7070.7534,104.32253,8956.8027};
+			name="stl_wp_199";
+			type="Empty";
+			id=2966;
+			atlOffset=-0.79621124;
+		};
+		class Item2543
+		{
+			dataType="Marker";
+			position[]={7075.2085,104.37498,8953.8428};
+			name="stl_wp_200";
+			type="Empty";
+			id=2967;
+			atlOffset=-0.79621124;
+		};
+		class Item2544
+		{
+			dataType="Marker";
+			position[]={7058.2866,103.96342,8938.9785};
+			name="stl_wp_201";
+			type="Empty";
+			id=2968;
+			atlOffset=-0.79621887;
+		};
+		class Item2545
+		{
+			dataType="Marker";
+			position[]={7064.8589,103.94404,8929.002};
+			name="stl_wp_202";
+			type="Empty";
+			id=2969;
+			atlOffset=-0.79621124;
+		};
+		class Item2546
+		{
+			dataType="Marker";
+			position[]={7063.0728,103.97272,8932.8906};
+			name="stl_wp_203";
+			type="Empty";
+			id=2970;
+			atlOffset=-0.79621124;
+		};
+		class Item2547
+		{
+			dataType="Marker";
+			position[]={7081.1748,104.32162,8938.8564};
+			name="stl_wp_204";
+			type="Empty";
+			id=2971;
+			atlOffset=-0.79621887;
+		};
+		class Item2548
+		{
+			dataType="Marker";
+			position[]={7075.9316,104.56056,8943.1035};
+			name="stl_wp_205";
+			type="Empty";
+			id=2972;
+			atlOffset=-0.52573395;
+		};
+		class Item2549
+		{
+			dataType="Marker";
+			position[]={7072.5864,104.55994,8941.5195};
+			name="stl_wp_206";
+			type="Empty";
+			id=2973;
+			atlOffset=-0.41696167;
+		};
+		class Item2550
+		{
+			dataType="Marker";
+			position[]={7084.9976,104.61712,8956.5957};
+			name="stl_wp_207";
+			type="Empty";
+			id=2974;
+			atlOffset=-0.64398193;
+		};
+		class Item2551
+		{
+			dataType="Marker";
+			position[]={7092.96,105.22289,8966.6777};
+			name="stl_wp_208";
+			type="Empty";
+			id=2975;
+			atlOffset=-0.057106018;
+		};
+		class Item2552
+		{
+			dataType="Marker";
+			position[]={7101.3208,105.15382,8969.4414};
+			name="stl_wp_209";
+			type="Empty";
+			id=2976;
+			atlOffset=-0.22640991;
+		};
+		class Item2553
+		{
+			dataType="Marker";
+			position[]={7081.5186,104.64629,8962.5498};
+			name="stl_wp_210";
+			type="Empty";
+			id=2977;
+			atlOffset=-0.63370514;
+		};
+		class Item2554
+		{
+			dataType="Marker";
+			position[]={7098.2749,104.92229,8978.7422};
+			name="stl_wp_211";
+			type="Empty";
+			id=2978;
+			atlOffset=-0.64048004;
+		};
+		class Item2555
+		{
+			dataType="Marker";
+			position[]={6970.5684,129.35892,9116.5381};
+			name="stl_wp_212";
+			type="Empty";
+			id=2979;
+			atlOffset=-0.79620361;
+		};
+		class Item2556
+		{
+			dataType="Marker";
+			position[]={6975.0923,128.38089,9120.4209};
+			name="stl_wp_213";
+			type="Empty";
+			id=2980;
+			atlOffset=-0.79620361;
+		};
+		class Item2557
+		{
+			dataType="Marker";
+			position[]={6993.7383,127.43824,9108.9375};
+			name="stl_wp_214";
+			type="Empty";
+			id=2981;
+			atlOffset=-0.79621124;
+		};
+		class Item2558
+		{
+			dataType="Marker";
+			position[]={6998.3247,126.82568,9105.6406};
+			name="stl_wp_215";
+			type="Empty";
+			id=2982;
+			atlOffset=-0.79621124;
+		};
+		class Item2559
+		{
+			dataType="Marker";
+			position[]={7010.4521,127.86257,9123.3525};
+			name="stl_wp_216";
+			type="Empty";
+			id=2983;
+			atlOffset=-0.79621124;
+		};
+		class Item2560
+		{
+			dataType="Marker";
+			position[]={7005.6377,128.46542,9132.9971};
+			name="stl_wp_217";
+			type="Empty";
+			id=2984;
+			atlOffset=-0.79620361;
+		};
+		class Item2561
+		{
+			dataType="Marker";
+			position[]={7004.2393,129.2305,9158.7852};
+			name="stl_wp_218";
+			type="Empty";
+			id=2985;
+			atlOffset=-0.4352417;
+		};
+		class Item2562
+		{
+			dataType="Marker";
+			position[]={7009.6528,128.90402,9174.1865};
+			name="stl_wp_219";
+			type="Empty";
+			id=2986;
+			atlOffset=-0.79621887;
+		};
+		class Item2563
+		{
+			dataType="Marker";
+			position[]={7012.041,128.99625,9181.5752};
+			name="stl_wp_220";
+			type="Empty";
+			id=2987;
+			atlOffset=-0.79621887;
+		};
+		class Item2564
+		{
+			dataType="Marker";
+			position[]={6988.5532,128.44266,9148.998};
+			name="stl_wp_221";
+			type="Empty";
+			id=2988;
+			atlOffset=-0.79621887;
+		};
+		class Item2565
+		{
+			dataType="Marker";
+			position[]={6971.7183,129.03384,9123.2324};
+			name="stl_wp_222";
+			type="Empty";
+			id=2989;
+			atlOffset=-0.79621887;
+		};
+		class Item2566
+		{
+			dataType="Marker";
+			position[]={6983.3545,128.37689,9133.2246};
+			name="stl_wp_223";
+			type="Empty";
+			id=2990;
+			atlOffset=-0.79621887;
+		};
+		class Item2567
+		{
+			dataType="Marker";
+			position[]={7008.4814,128.46078,9136.0889};
+			name="stl_wp_224";
+			type="Empty";
+			id=2991;
+			atlOffset=-0.79620361;
+		};
+		class Item2568
+		{
+			dataType="Marker";
+			position[]={7006.7524,128.99371,9141.4893};
+			name="stl_wp_225";
+			type="Empty";
+			id=2992;
+			atlOffset=-0.30775452;
+		};
+		class Item2569
+		{
+			dataType="Marker";
+			position[]={7026.4106,128.56625,9149.1289};
+			name="stl_wp_226";
+			type="Empty";
+			id=2993;
+			atlOffset=-0.79621887;
+		};
+		class Item2570
+		{
+			dataType="Marker";
+			position[]={7042.0444,128.01022,9157.5205};
+			name="stl_wp_227";
+			type="Empty";
+			id=2994;
+			atlOffset=-0.79620361;
+		};
+		class Item2571
+		{
+			dataType="Marker";
+			position[]={7043.7002,128.76379,9185.416};
+			name="stl_wp_228";
+			type="Empty";
+			id=2995;
+			atlOffset=-0.79620361;
+		};
+		class Item2572
+		{
+			dataType="Marker";
+			position[]={7044.2715,128.76379,9190.4912};
+			name="stl_wp_229";
+			type="Empty";
+			id=2996;
+			atlOffset=-0.79620361;
+		};
+		class Item2573
+		{
+			dataType="Marker";
+			position[]={7053.6226,128.40445,9170.1748};
+			name="stl_wp_230";
+			type="Empty";
+			id=2997;
+			atlOffset=-0.79620361;
+		};
+		class Item2574
+		{
+			dataType="Marker";
+			position[]={7037.5444,129.33923,9174.3525};
+			name="stl_wp_231";
+			type="Empty";
+			id=2998;
+			atlOffset=-0.41729736;
+		};
+		class Item2575
+		{
+			dataType="Marker";
+			position[]={7032.3618,129.06387,9194.0186};
+			name="stl_wp_232";
+			type="Empty";
+			id=2999;
+			atlOffset=-0.79620361;
+		};
+		class Item2576
+		{
+			dataType="Marker";
+			position[]={7036.5811,131.54779,9224.8027};
+			name="stl_wp_233";
+			type="Empty";
+			id=3000;
+			atlOffset=-0.79621887;
+		};
+		class Item2577
+		{
+			dataType="Marker";
+			position[]={7057.8848,127.71035,9189.5381};
+			name="stl_wp_234";
+			type="Empty";
+			id=3001;
+			atlOffset=-0.79621124;
+		};
+		class Item2578
+		{
+			dataType="Marker";
+			position[]={7099.2266,121.83294,9201.8984};
+			name="stl_wp_235";
+			type="Empty";
+			id=3002;
+			atlOffset=-0.79621124;
+		};
+		class Item2579
+		{
+			dataType="Marker";
+			position[]={7112.2183,119.64153,9183.4023};
+			name="stl_wp_236";
+			type="Empty";
+			id=3003;
+			atlOffset=-0.79621124;
+		};
+		class Item2580
+		{
+			dataType="Marker";
+			position[]={7118.6113,118.20886,9157.0996};
+			name="stl_wp_237";
+			type="Empty";
+			id=3004;
+			atlOffset=-0.79621124;
+		};
+		class Item2581
+		{
+			dataType="Marker";
+			position[]={7114.292,117.55062,9142.9697};
+			name="stl_wp_238";
+			type="Empty";
+			id=3005;
+			atlOffset=-0.79621124;
+		};
+		class Item2582
+		{
+			dataType="Marker";
+			position[]={7115.3584,118.95014,9148.1406};
+			name="stl_wp_239";
+			type="Empty";
+			id=3006;
+			atlOffset=0.50318146;
+		};
+		class Item2583
+		{
+			dataType="Marker";
+			position[]={7077.1807,121.95649,9138.0977};
+			name="stl_wp_240";
+			type="Empty";
+			id=3007;
+			atlOffset=-0.79621124;
+		};
+		class Item2584
+		{
+			dataType="Marker";
+			position[]={7036.3296,124.34482,9122.3809};
+			name="stl_wp_241";
+			type="Empty";
+			id=3008;
+			atlOffset=-0.79621124;
+		};
+		class Item2585
+		{
+			dataType="Marker";
+			position[]={7020.9111,124.12993,9108.1475};
+			name="stl_wp_242";
+			type="Empty";
+			id=3009;
+			atlOffset=-0.79621124;
+		};
+		class Item2586
+		{
+			dataType="Marker";
+			position[]={7025.5825,119.40691,9082.7607};
+			name="stl_wp_243";
+			type="Empty";
+			id=3010;
+			atlOffset=-0.79620361;
+		};
+		class Item2587
+		{
+			dataType="Marker";
+			position[]={7054.7266,115.17162,9070.7617};
+			name="stl_wp_244";
+			type="Empty";
+			id=3011;
+			atlOffset=-0.79620361;
+		};
+		class Item2588
+		{
+			dataType="Marker";
+			position[]={7053.9873,113.01694,9054.7158};
+			name="stl_wp_245";
+			type="Empty";
+			id=3012;
+			atlOffset=-0.79621887;
+		};
+		class Item2589
+		{
+			dataType="Marker";
+			position[]={7066.5903,113.34904,9068.7852};
+			name="stl_wp_246";
+			type="Empty";
+			id=3013;
+			atlOffset=-0.79621887;
+		};
+		class Item2590
+		{
+			dataType="Marker";
+			position[]={7060.0737,117.78,9092.9277};
+			name="stl_wp_247";
+			type="Empty";
+			id=3014;
+			atlOffset=-0.79621124;
+		};
+		class Item2591
+		{
+			dataType="Marker";
+			position[]={7049.605,121.94701,9111.7021};
+			name="stl_wp_248";
+			type="Empty";
+			id=3015;
+			atlOffset=-0.79621124;
+		};
+		class Item2592
+		{
+			dataType="Marker";
+			position[]={7037.291,122.37263,9108.3701};
+			name="stl_wp_249";
+			type="Empty";
+			id=3016;
+			atlOffset=-0.79621887;
+		};
+		class Item2593
+		{
+			dataType="Marker";
+			position[]={7061.0703,121.88303,9118.3574};
+			name="stl_wp_250";
+			type="Empty";
+			id=3017;
+			atlOffset=-0.79620361;
+		};
+		class Item2594
+		{
+			dataType="Marker";
+			position[]={7070.6563,122.52142,9136.1914};
+			name="stl_wp_251";
+			type="Empty";
+			id=3018;
+			atlOffset=-0.79620361;
+		};
+		class Item2595
+		{
+			dataType="Marker";
+			position[]={7076.5327,121.06268,9130.0625};
+			name="stl_wp_252";
+			type="Empty";
+			id=3019;
+			atlOffset=-0.79621124;
+		};
+		class Item2596
+		{
+			dataType="Marker";
+			position[]={7094.5156,119.34008,9130.8398};
+			name="stl_wp_253";
+			type="Empty";
+			id=3020;
+			atlOffset=-0.79621124;
+		};
+		class Item2597
+		{
+			dataType="Marker";
+			position[]={7093.6777,116.95596,9107.9824};
+			name="stl_wp_254";
+			type="Empty";
+			id=3021;
+			atlOffset=-0.79621124;
+		};
+		class Item2598
+		{
+			dataType="Marker";
+			position[]={7095.6426,111.97988,9083.4385};
+			name="stl_wp_255";
+			type="Empty";
+			id=3022;
+			atlOffset=-0.79621124;
+		};
+		class Item2599
+		{
+			dataType="Marker";
+			position[]={7103.8208,112.59096,9090.1924};
+			name="stl_wp_256";
+			type="Empty";
+			id=3023;
+			atlOffset=-0.79621124;
+		};
+		class Item2600
+		{
+			dataType="Marker";
+			position[]={7127.5298,112.08869,9099.4268};
+			name="stl_wp_257";
+			type="Empty";
+			id=3024;
+			atlOffset=-0.79621124;
+		};
+		class Item2601
+		{
+			dataType="Marker";
+			position[]={7131.8589,106.81664,9079.1982};
+			name="stl_wp_258";
+			type="Empty";
+			id=3025;
+			atlOffset=-0.79620361;
+		};
+		class Item2602
+		{
+			dataType="Marker";
+			position[]={7160.6367,105.90644,9090.0127};
+			name="stl_wp_259";
+			type="Empty";
+			id=3026;
+			atlOffset=-0.79621124;
+		};
+		class Item2603
+		{
+			dataType="Marker";
+			position[]={7142.5586,112.16326,9122.0508};
+			name="stl_wp_260";
+			type="Empty";
+			id=3027;
+			atlOffset=-0.79621124;
+		};
+		class Item2604
+		{
+			dataType="Marker";
+			position[]={7122.1792,117.03407,9138.8135};
+			name="stl_wp_261";
+			type="Empty";
+			id=3028;
+			atlOffset=-0.79621124;
+		};
+		class Item2605
+		{
+			dataType="Marker";
+			position[]={7122.9072,115.40434,9124.2783};
+			name="stl_wp_262";
+			type="Empty";
+			id=3029;
+			atlOffset=-0.79621124;
+		};
+		class Item2606
+		{
+			dataType="Marker";
+			position[]={7163.1421,107.22758,9127.8838};
+			name="stl_wp_263";
+			type="Empty";
+			id=3030;
+			atlOffset=-0.79621887;
+		};
+		class Item2607
+		{
+			dataType="Marker";
+			position[]={7138.2402,114.35471,9145.0313};
+			name="stl_wp_264";
+			type="Empty";
+			id=3031;
+			atlOffset=-0.79620361;
+		};
+		class Item2608
+		{
+			dataType="Marker";
+			position[]={7188.7207,107.41744,9159.5225};
+			name="stl_wp_265";
+			type="Empty";
+			id=3032;
+			atlOffset=-0.79621124;
+		};
+		class Item2609
+		{
+			dataType="Marker";
+			position[]={7203.2212,105.54726,9182.8682};
+			name="stl_wp_266";
+			type="Empty";
+			id=3033;
+			atlOffset=-0.79621124;
+		};
+		class Item2610
+		{
+			dataType="Marker";
+			position[]={7169.2124,106.80355,9140.9004};
+			name="stl_wp_267";
+			type="Empty";
+			id=3034;
+			atlOffset=-0.79621124;
+		};
+		class Item2611
+		{
+			dataType="Marker";
+			position[]={7171.9897,106.33468,9120.5654};
+			name="stl_wp_268";
+			type="Empty";
+			id=3035;
+			atlOffset=-0.79621124;
+		};
+		class Item2612
+		{
+			dataType="Marker";
+			position[]={7176.5562,105.68748,9103.6123};
+			name="stl_wp_269";
+			type="Empty";
+			id=3036;
+			atlOffset=-0.79621124;
+		};
+		class Item2613
+		{
+			dataType="Marker";
+			position[]={7171.9619,105.53112,9091.498};
+			name="stl_wp_270";
+			type="Empty";
+			id=3037;
+			atlOffset=-0.79621124;
+		};
+		class Item2614
+		{
+			dataType="Marker";
+			position[]={7175.0923,104.17268,9078.4551};
+			name="stl_wp_271";
+			type="Empty";
+			id=3038;
+			atlOffset=-0.79621124;
+		};
+		class Item2615
+		{
+			dataType="Marker";
+			position[]={7174.6611,106.1014,9139.7998};
+			name="stl_wp_272";
+			type="Empty";
+			id=3039;
+			atlOffset=-0.79621124;
+		};
+		class Item2616
+		{
+			dataType="Marker";
+			position[]={7216.9365,105.09431,9150.001};
+			name="stl_wp_273";
+			type="Empty";
+			id=3040;
+			atlOffset=-0.79621887;
+		};
+		class Item2617
+		{
+			dataType="Marker";
+			position[]={7177.1421,105.90747,9121.7734};
+			name="stl_wp_274";
+			type="Empty";
+			id=3041;
+			atlOffset=-0.79621124;
+		};
+		class Item2618
+		{
+			dataType="Marker";
+			position[]={7206.4614,105.43075,9144.0977};
+			name="stl_wp_275";
+			type="Empty";
+			id=3042;
+			atlOffset=-0.79621124;
+		};
+		class Item2619
+		{
+			dataType="Marker";
+			position[]={7197.9932,105.92833,9124.4395};
+			name="stl_wp_276";
+			type="Empty";
+			id=3043;
+			atlOffset=-0.60768127;
+		};
+		class Item2620
+		{
+			dataType="Marker";
+			position[]={7190.8872,105.93324,9124.4795};
+			name="stl_wp_277";
+			type="Empty";
+			id=3044;
+			atlOffset=-0.1164093;
+		};
+		class Item2621
+		{
+			dataType="Marker";
+			position[]={7182.3853,105.31559,9109.3945};
+			name="stl_wp_278";
+			type="Empty";
+			id=3045;
+			atlOffset=-0.79621124;
+		};
+		class Item2622
+		{
+			dataType="Marker";
+			position[]={7216.2793,104.99092,9138.5186};
+			name="stl_wp_279";
+			type="Empty";
+			id=3046;
+			atlOffset=-0.79621124;
+		};
+		class Item2623
+		{
+			dataType="Marker";
+			position[]={7219.7363,105.71776,9144.543};
+			name="stl_wp_280";
+			type="Empty";
+			id=3047;
+			atlOffset=0.045860291;
+		};
+		class Item2624
+		{
+			dataType="Marker";
+			position[]={7208.4912,105.47678,9176.4463};
+			name="stl_wp_281";
+			type="Empty";
+			id=3048;
+			atlOffset=-0.79620361;
+		};
+		class Item2625
+		{
+			dataType="Marker";
+			position[]={7245.5039,102.85703,9179.3311};
+			name="stl_wp_282";
+			type="Empty";
+			id=3049;
+			atlOffset=-0.79620361;
+		};
+		class Item2626
+		{
+			dataType="Marker";
+			position[]={7250.6509,102.96311,9150.6729};
+			name="stl_wp_283";
+			type="Empty";
+			id=3050;
+			atlOffset=-0.79621124;
+		};
+		class Item2627
+		{
+			dataType="Marker";
+			position[]={7251.9648,103.10005,9145.6074};
+			name="stl_wp_284";
+			type="Empty";
+			id=3051;
+			atlOffset=-0.79621124;
+		};
+		class Item2628
+		{
+			dataType="Marker";
+			position[]={7253.2456,103.16693,9141.082};
+			name="stl_wp_285";
+			type="Empty";
+			id=3052;
+			atlOffset=-0.79621124;
+		};
+		class Item2629
+		{
+			dataType="Marker";
+			position[]={7227.5396,104.38895,9136.3525};
+			name="stl_wp_286";
+			type="Empty";
+			id=3053;
+			atlOffset=-0.79621124;
+		};
+		class Item2630
+		{
+			dataType="Marker";
+			position[]={7234.8418,104.36314,9131.0371};
+			name="stl_wp_287";
+			type="Empty";
+			id=3054;
+			atlOffset=-0.79621124;
+		};
+		class Item2631
+		{
+			dataType="Marker";
+			position[]={7224.1216,104.84989,9130.6836};
+			name="stl_wp_288";
+			type="Empty";
+			id=3055;
+			atlOffset=-0.4008255;
+		};
+		class Item2632
+		{
+			dataType="Marker";
+			position[]={7216.1309,105.46335,9134.5215};
+			name="stl_wp_289";
+			type="Empty";
+			id=3056;
+			atlOffset=-0.29159546;
+		};
+		class Item2633
+		{
+			dataType="Marker";
+			position[]={7217.3608,105.46335,9126.8896};
+			name="stl_wp_290";
+			type="Empty";
+			id=3057;
+			atlOffset=-0.22158813;
+		};
+		class Item2634
+		{
+			dataType="Marker";
+			position[]={7254.7979,103.23948,9128.2676};
+			name="stl_wp_291";
+			type="Empty";
+			id=3058;
+			atlOffset=-0.79621124;
+		};
+		class Item2635
+		{
+			dataType="Marker";
+			position[]={7278.585,100.32112,9133.7158};
+			name="stl_wp_292";
+			type="Empty";
+			id=3059;
+			atlOffset=-0.79621124;
+		};
+		class Item2636
+		{
+			dataType="Marker";
+			position[]={7263.0239,97.358643,9199.3271};
+			name="stl_wp_293";
+			type="Empty";
+			id=3060;
+			atlOffset=-0.79621124;
+		};
+		class Item2637
+		{
+			dataType="Marker";
+			position[]={7285.7129,87.733322,9225.6416};
+			name="stl_wp_294";
+			type="Empty";
+			id=3061;
+			atlOffset=-0.79621124;
+		};
+		class Item2638
+		{
+			dataType="Marker";
+			position[]={7291.3848,89.813713,9201.3916};
+			name="stl_wp_295";
+			type="Empty";
+			id=3062;
+			atlOffset=-0.79621124;
+		};
+		class Item2639
+		{
+			dataType="Marker";
+			position[]={7340.1113,83.59977,9195.5342};
+			name="stl_wp_296";
+			type="Empty";
+			id=3063;
+			atlOffset=-0.55698395;
+		};
+		class Item2640
+		{
+			dataType="Marker";
+			position[]={7347.084,83.286636,9197.0254};
+			name="stl_wp_297";
+			type="Empty";
+			id=3064;
+			atlOffset=-0.79621124;
+		};
+		class Item2641
+		{
+			dataType="Marker";
+			position[]={7359.3604,83.238815,9192.5498};
+			name="stl_wp_298";
+			type="Empty";
+			id=3065;
+			atlOffset=-0.79621124;
+		};
+		class Item2642
+		{
+			dataType="Marker";
+			position[]={7349.2603,83.485558,9178.8213};
+			name="stl_wp_299";
+			type="Empty";
+			id=3066;
+			atlOffset=-0.79621124;
+		};
+		class Item2643
+		{
+			dataType="Marker";
+			position[]={7361.6514,84.05735,9158.1768};
+			name="stl_wp_300";
+			type="Empty";
+			id=3067;
+			atlOffset=-0.79621124;
+		};
+		class Item2644
+		{
+			dataType="Marker";
+			position[]={7365.2993,83.517998,9161.7881};
+			name="stl_wp_301";
+			type="Empty";
+			id=3068;
+			atlOffset=-0.79621124;
+		};
+		class Item2645
+		{
+			dataType="Marker";
+			position[]={7372.2324,83.233788,9185.7783};
+			name="stl_wp_302";
+			type="Empty";
+			id=3069;
+			atlOffset=-0.79621124;
+		};
+		class Item2646
+		{
+			dataType="Marker";
+			position[]={7361.9614,83.387383,9169.749};
+			name="stl_wp_303";
+			type="Empty";
+			id=3070;
+			atlOffset=-0.79621124;
+		};
+		class Item2647
+		{
+			dataType="Marker";
+			position[]={7375.5186,83.389786,9172.6035};
+			name="stl_wp_304";
+			type="Empty";
+			id=3071;
+			atlOffset=-0.64021301;
+		};
+		class Item2648
+		{
+			dataType="Marker";
+			position[]={7386.6357,83.233871,9162.4941};
+			name="stl_wp_305";
+			type="Empty";
+			id=3072;
+			atlOffset=-0.79621124;
+		};
+		class Item2649
+		{
+			dataType="Marker";
+			position[]={7384.0396,83.233788,9190.7695};
+			name="stl_wp_306";
+			type="Empty";
+			id=3073;
+			atlOffset=-0.79621124;
+		};
+		class Item2650
+		{
+			dataType="Marker";
+			position[]={7401.5854,83.233788,9198.916};
+			name="stl_wp_307";
+			type="Empty";
+			id=3074;
+			atlOffset=-0.79621124;
+		};
+		class Item2651
+		{
+			dataType="Marker";
+			position[]={7418.4775,83.205093,9180.5635};
+			name="stl_wp_308";
+			type="Empty";
+			id=3075;
+			atlOffset=-0.79621124;
+		};
+		class Item2652
+		{
+			dataType="Marker";
+			position[]={7407.5,83.233788,9183.792};
+			name="stl_wp_309";
+			type="Empty";
+			id=3076;
+			atlOffset=-0.79621124;
+		};
+		class Item2653
+		{
+			dataType="Marker";
+			position[]={7417.0166,83.042282,9194.5137};
+			name="stl_wp_310";
+			type="Empty";
+			id=3077;
+			atlOffset=-0.79621124;
+		};
+		class Item2654
+		{
+			dataType="Marker";
+			position[]={7399.2373,82.755936,9227.543};
+			name="stl_wp_311";
+			type="Empty";
+			id=3078;
+			atlOffset=-0.79621124;
+		};
+		class Item2655
+		{
+			dataType="Marker";
+			position[]={7423.5132,80.606926,9227.5234};
+			name="stl_wp_312";
+			type="Empty";
+			id=3079;
+			atlOffset=-0.79621124;
+		};
+		class Item2656
+		{
+			dataType="Marker";
+			position[]={7392.144,83.233788,9208.9502};
+			name="stl_wp_313";
+			type="Empty";
+			id=3080;
+			atlOffset=-0.79621124;
+		};
+		class Item2657
+		{
+			dataType="Marker";
+			position[]={7395.1958,82.843994,9227.5918};
+			name="stl_wp_314";
+			type="Empty";
+			id=3081;
+			atlOffset=-0.79621124;
+		};
+		class Item2658
+		{
+			dataType="Marker";
+			position[]={7371.416,83.233788,9227.3135};
+			name="stl_wp_315";
+			type="Empty";
+			id=3082;
+			atlOffset=-0.79621124;
+		};
+		class Item2659
+		{
+			dataType="Marker";
+			position[]={7358.9819,83.233788,9232.3535};
+			name="stl_wp_316";
+			type="Empty";
+			id=3083;
+			atlOffset=-0.79621124;
+		};
+		class Item2660
+		{
+			dataType="Marker";
+			position[]={7321.4585,84.684586,9202.335};
+			name="stl_wp_317";
+			type="Empty";
+			id=3084;
+			atlOffset=-0.79621124;
+		};
+		class Item2661
+		{
+			dataType="Marker";
+			position[]={7299.2603,86.532211,9220.4658};
+			name="stl_wp_318";
+			type="Empty";
+			id=3085;
+			atlOffset=-0.79621124;
+		};
+		class Item2662
+		{
+			dataType="Marker";
+			position[]={7338.5566,83.454185,9188.8027};
+			name="stl_wp_319";
+			type="Empty";
+			id=3086;
+			atlOffset=-0.79621124;
+		};
+		class Item2663
+		{
+			dataType="Marker";
+			position[]={7365.0596,83.532768,9194.085};
+			name="stl_wp_320";
+			type="Empty";
+			id=3087;
+			atlOffset=-0.49723053;
+		};
+		class Item2664
+		{
+			dataType="Marker";
+			position[]={7390.9595,83.834854,9189.3877};
+			name="stl_wp_321";
+			type="Empty";
+			id=3088;
+			atlOffset=-0.19514465;
+		};
+		class Item2665
+		{
+			dataType="Marker";
+			position[]={7397.4849,83.233788,9212.1543};
+			name="stl_wp_322";
+			type="Empty";
+			id=3089;
+			atlOffset=-0.79621124;
+		};
+		class Item2666
+		{
+			dataType="Marker";
+			position[]={7385.5234,83.532394,9212.8096};
+			name="stl_wp_323";
+			type="Empty";
+			id=3090;
+			atlOffset=-0.49760437;
+		};
+		class Item2667
+		{
+			dataType="Marker";
+			position[]={7380.4932,83.533043,9210.4355};
+			name="stl_wp_324";
+			type="Empty";
+			id=3091;
+			atlOffset=-0.49695587;
+		};
+		class Item2668
+		{
+			dataType="Marker";
+			position[]={7355.4844,83.486397,9220.625};
+			name="stl_wp_325";
+			type="Empty";
+			id=3092;
+			atlOffset=-0.54360199;
+		};
+		class Item2669
+		{
+			dataType="Marker";
+			position[]={7362.2017,83.489555,9226.9717};
+			name="stl_wp_326";
+			type="Empty";
+			id=3093;
+			atlOffset=-0.54044342;
+		};
+		class Item2670
+		{
+			dataType="Marker";
+			position[]={7396.3662,84.502266,9136.2705};
+			name="stl_wp_327";
+			type="Empty";
+			id=3094;
+			atlOffset=-0.79621124;
+		};
+		class Item2671
+		{
+			dataType="Marker";
+			position[]={7416.106,85.550125,9089.1006};
+			name="stl_wp_328";
+			type="Empty";
+			id=3095;
+			atlOffset=-0.79621124;
+		};
+		class Item2672
+		{
+			dataType="Marker";
+			position[]={7412.1265,83.957985,9146.9082};
+			name="stl_wp_329";
+			type="Empty";
+			id=3096;
+			atlOffset=-0.79621124;
+		};
+		class Item2673
+		{
+			dataType="Marker";
+			position[]={7420.6826,83.223625,9174.0674};
+			name="stl_wp_330";
+			type="Empty";
+			id=3097;
+			atlOffset=-0.79621124;
+		};
+		class Item2674
+		{
+			dataType="Marker";
+			position[]={7403.3193,85.941116,9110.9697};
+			name="stl_wp_331";
+			type="Empty";
+			id=3098;
+			atlOffset=-0.79621124;
+		};
+		class Item2675
+		{
+			dataType="Marker";
+			position[]={7381.5757,88.249451,9094.0186};
+			name="stl_wp_332";
+			type="Empty";
+			id=3099;
+			atlOffset=-0.79621124;
+		};
+		class Item2676
+		{
+			dataType="Marker";
+			position[]={7352.8477,91.554489,9081.5693};
+			name="stl_wp_333";
+			type="Empty";
+			id=3100;
+			atlOffset=-0.79621124;
+		};
+		class Item2677
+		{
+			dataType="Marker";
+			position[]={7332.708,93.743935,9073.0801};
+			name="stl_wp_334";
+			type="Empty";
+			id=3101;
+			atlOffset=-0.79621124;
+		};
+		class Item2678
+		{
+			dataType="Marker";
+			position[]={7280.9653,97.826385,9050.6348};
+			name="stl_wp_335";
+			type="Empty";
+			id=3102;
+			atlOffset=-0.79621124;
+		};
+		class Item2679
+		{
+			dataType="Marker";
+			position[]={7254.6167,100.10695,9047.8584};
+			name="stl_wp_336";
+			type="Empty";
+			id=3103;
+			atlOffset=-0.79621124;
+		};
+		class Item2680
+		{
+			dataType="Marker";
+			position[]={7241.2241,100.80717,9037.0059};
+			name="stl_wp_337";
+			type="Empty";
+			id=3104;
+			atlOffset=-0.79621887;
+		};
+		class Item2681
+		{
+			dataType="Marker";
+			position[]={7231.8276,101.30244,9052.5625};
+			name="stl_wp_338";
+			type="Empty";
+			id=3105;
+			atlOffset=-0.79621124;
+		};
+		class Item2682
+		{
+			dataType="Marker";
+			position[]={7240.1221,100.74299,9058.0518};
+			name="stl_wp_339";
+			type="Empty";
+			id=3106;
+			atlOffset=-0.79621124;
+		};
+		class Item2683
+		{
+			dataType="Marker";
+			position[]={7243.2402,100.73275,9048.168};
+			name="stl_wp_340";
+			type="Empty";
+			id=3107;
+			atlOffset=-0.42224884;
+		};
+		class Item2684
+		{
+			dataType="Marker";
+			position[]={7252.9995,100.3126,9053.6523};
+			name="stl_wp_341";
+			type="Empty";
+			id=3108;
+			atlOffset=-0.79621124;
+		};
+		class Item2685
+		{
+			dataType="Marker";
+			position[]={7264.439,100.03005,9063.2578};
+			name="stl_wp_342";
+			type="Empty";
+			id=3109;
+			atlOffset=-0.79621124;
+		};
+		class Item2686
+		{
+			dataType="Marker";
+			position[]={7257.4946,101.44791,9073.125};
+			name="stl_wp_343";
+			type="Empty";
+			id=3110;
+			atlOffset=-0.20152283;
+		};
+		class Item2687
+		{
+			dataType="Marker";
+			position[]={7261.9897,100.69408,9080.2881};
+			name="stl_wp_344";
+			type="Empty";
+			id=3111;
+			atlOffset=-0.79621124;
+		};
+		class Item2688
+		{
+			dataType="Marker";
+			position[]={7241.9731,102.24756,9075.417};
+			name="stl_wp_345";
+			type="Empty";
+			id=3112;
+			atlOffset=-0.79621124;
+		};
+		class Item2689
+		{
+			dataType="Marker";
+			position[]={7227.8623,103.19713,9095.9268};
+			name="stl_wp_346";
+			type="Empty";
+			id=3113;
+			atlOffset=-0.79621124;
+		};
+		class Item2690
+		{
+			dataType="Marker";
+			position[]={7222.6392,103.07045,9079.0645};
+			name="stl_wp_347";
+			type="Empty";
+			id=3114;
+			atlOffset=-0.79621124;
+		};
+		class Item2691
+		{
+			dataType="Marker";
+			position[]={7188.8979,104.577,9102.3965};
+			name="stl_wp_348";
+			type="Empty";
+			id=3115;
+			atlOffset=-0.79620361;
+		};
+		class Item2692
+		{
+			dataType="Marker";
+			position[]={7189.7124,104.34679,9085.2451};
+			name="stl_wp_349";
+			type="Empty";
+			id=3116;
+			atlOffset=-0.79621124;
+		};
+		class Item2693
+		{
+			dataType="Marker";
+			position[]={7190.8325,103.79783,9074.3418};
+			name="stl_wp_350";
+			type="Empty";
+			id=3117;
+			atlOffset=-0.79621124;
+		};
+		class Item2694
+		{
+			dataType="Marker";
+			position[]={7195.4346,103.53146,9052.3252};
+			name="stl_wp_351";
+			type="Empty";
+			id=3118;
+			atlOffset=-0.79621124;
+		};
+		class Item2695
+		{
+			dataType="Marker";
+			position[]={7210.1978,103.67188,9058.2666};
+			name="stl_wp_352";
+			type="Empty";
+			id=3119;
+			atlOffset=-0.79620361;
+		};
+		class Item2696
+		{
+			dataType="Marker";
+			position[]={7199.6631,103.68723,9056.8867};
+			name="stl_wp_353";
+			type="Empty";
+			id=3120;
+			atlOffset=-0.79620361;
+		};
+		class Item2697
+		{
+			dataType="Marker";
+			position[]={7216.6064,103.24863,9054.3477};
+			name="stl_wp_354";
+			type="Empty";
+			id=3121;
+			atlOffset=-0.79621124;
+		};
+		class Item2698
+		{
+			dataType="Marker";
+			position[]={7209.7617,104.27525,9052.2324};
+			name="stl_wp_355";
+			type="Empty";
+			id=3122;
+			atlOffset=-0.093612671;
+		};
+		class Item2699
+		{
+			dataType="Marker";
+			position[]={7223.7798,102.62556,9056.4648};
+			name="stl_wp_356";
+			type="Empty";
+			id=3123;
+			atlOffset=-0.79621887;
+		};
+		class Item2700
+		{
+			dataType="Marker";
+			position[]={7217.0303,103.17985,9077.5996};
+			name="stl_wp_357";
+			type="Empty";
+			id=3124;
+			atlOffset=-0.79621124;
+		};
+		class Item2701
+		{
+			dataType="Marker";
+			position[]={7214.4897,103.17915,9081.5811};
+			name="stl_wp_358";
+			type="Empty";
+			id=3125;
+			atlOffset=-0.79620361;
+		};
+		class Item2702
+		{
+			dataType="Marker";
+			position[]={7202.1855,103.51704,9067.7021};
+			name="stl_wp_359";
+			type="Empty";
+			id=3126;
+			atlOffset=-0.79621887;
+		};
+		class Item2703
+		{
+			dataType="Marker";
+			position[]={7175.584,103.7258,9065.3359};
+			name="stl_wp_360";
+			type="Empty";
+			id=3127;
+			atlOffset=-0.79621124;
+		};
+		class Item2704
+		{
+			dataType="Marker";
+			position[]={7160.77,104.18932,9064.707};
+			name="stl_wp_361";
+			type="Empty";
+			id=3128;
+			atlOffset=-0.79620361;
+		};
+		class Item2705
+		{
+			dataType="Marker";
+			position[]={7148.9531,104.16155,9060.3652};
+			name="stl_wp_362";
+			type="Empty";
+			id=3129;
+			atlOffset=-0.79621124;
+		};
+		class Item2706
+		{
+			dataType="Marker";
+			position[]={7136.4463,104.69772,9064.4912};
+			name="stl_wp_363";
+			type="Empty";
+			id=3130;
+			atlOffset=-0.79621124;
+		};
+		class Item2707
+		{
+			dataType="Marker";
+			position[]={7118.8691,105.35832,9063.6729};
+			name="stl_wp_364";
+			type="Empty";
+			id=3131;
+			atlOffset=-0.79621124;
+		};
+		class Item2708
+		{
+			dataType="Marker";
+			position[]={7105.8706,105.65699,9054.4209};
+			name="stl_wp_365";
+			type="Empty";
+			id=3132;
+			atlOffset=-0.79621124;
+		};
+		class Item2709
+		{
+			dataType="Marker";
+			position[]={7101.1924,104.77126,9048.4805};
+			name="stl_wp_366";
+			type="Empty";
+			id=3133;
+			atlOffset=-0.79620361;
+		};
+		class Item2710
+		{
+			dataType="Marker";
+			position[]={7109.8218,104.64302,9044.7793};
+			name="stl_wp_367";
+			type="Empty";
+			id=3134;
+			atlOffset=-0.79621124;
+		};
+		class Item2711
+		{
+			dataType="Marker";
+			position[]={7085.5454,105.0396,9036.4688};
+			name="stl_wp_368";
+			type="Empty";
+			id=3135;
+			atlOffset=-0.79621124;
+		};
+		class Item2712
+		{
+			dataType="Marker";
+			position[]={7061.2832,109.93172,9040.3691};
+			name="stl_wp_369";
+			type="Empty";
+			id=3136;
+			atlOffset=-0.79621124;
+		};
+		class Item2713
+		{
+			dataType="Marker";
+			position[]={7085.1436,111.66685,9064.5293};
+			name="stl_wp_370";
+			type="Empty";
+			id=3137;
+			atlOffset=-0.79621124;
+		};
+		class Item2714
+		{
+			dataType="Marker";
+			position[]={7093.2705,108.06684,9055.7627};
+			name="stl_wp_371";
+			type="Empty";
+			id=3138;
+			atlOffset=-0.79621124;
+		};
+		class Item2715
+		{
+			dataType="Marker";
+			position[]={7080.0313,112.95708,9071.9082};
+			name="stl_wp_372";
+			type="Empty";
+			id=3139;
+			atlOffset=-0.23820496;
+		};
+		class Item2716
+		{
+			dataType="Marker";
+			position[]={7076.6455,115.65852,9094.252};
+			name="stl_wp_373";
+			type="Empty";
+			id=3140;
+			atlOffset=-0.79620361;
+		};
+		class Item2717
+		{
+			dataType="Marker";
+			position[]={7097.0308,109.38131,9071.4707};
+			name="stl_wp_374";
+			type="Empty";
+			id=3141;
+			atlOffset=-0.79621124;
+		};
+		class Item2718
+		{
+			dataType="Marker";
+			position[]={7074.5933,106.92415,9031.334};
+			name="stl_wp_375";
+			type="Empty";
+			id=3143;
+			atlOffset=-0.79621124;
+		};
+		class Item2719
+		{
+			dataType="Marker";
+			position[]={7082.3828,105.97201,9022.5713};
+			name="stl_wp_376";
+			type="Empty";
+			id=3144;
+			atlOffset=-0.79621124;
+		};
+		class Item2720
+		{
+			dataType="Marker";
+			position[]={7086.8848,106.06546,9021.6992};
+			name="stl_wp_377";
+			type="Empty";
+			id=3145;
+			atlOffset=-0.38365936;
+		};
+		class Item2721
+		{
+			dataType="Marker";
+			position[]={7092.8604,105.23296,9015.5459};
+			name="stl_wp_378";
+			type="Empty";
+			id=3146;
+			atlOffset=-0.79621124;
+		};
+		class Item2722
+		{
+			dataType="Marker";
+			position[]={7094.3296,104.77959,9025.4385};
+			name="stl_wp_379";
+			type="Empty";
+			id=3147;
+			atlOffset=-0.79621887;
+		};
+		class Item2723
+		{
+			dataType="Marker";
+			position[]={7104.8042,104.46207,9019.2861};
+			name="stl_wp_380";
+			type="Empty";
+			id=3148;
+			atlOffset=-0.79621124;
+		};
+		class Item2724
+		{
+			dataType="Marker";
+			position[]={7101.9966,105.57495,9014.1123};
+			name="stl_wp_381";
+			type="Empty";
+			id=3149;
+			atlOffset=0.10960388;
+		};
+		class Item2725
+		{
+			dataType="Marker";
+			position[]={7096.5571,105.57495,9011.251};
+			name="stl_wp_382";
+			type="Empty";
+			id=3150;
+			atlOffset=-0.22892761;
+		};
+		class Item2726
+		{
+			dataType="Marker";
+			position[]={7101.3804,105.09157,9004.7842};
+			name="stl_wp_383";
+			type="Empty";
+			id=3151;
+			atlOffset=-0.6230545;
+		};
+		class Item2727
+		{
+			dataType="Marker";
+			position[]={7113.3481,104.75368,9014.5137};
+			name="stl_wp_384";
+			type="Empty";
+			id=3152;
+			atlOffset=-0.79621124;
+		};
+		class Item2728
+		{
+			dataType="Marker";
+			position[]={7115.3022,104.75533,9011.5674};
+			name="stl_wp_385";
+			type="Empty";
+			id=3153;
+			atlOffset=-0.79620361;
+		};
+		class Item2729
+		{
+			dataType="Marker";
+			position[]={7117.7563,104.6855,8998.5986};
+			name="stl_wp_386";
+			type="Empty";
+			id=3154;
+			atlOffset=-0.79621124;
+		};
+		class Item2730
+		{
+			dataType="Marker";
+			position[]={7136.8237,104.48227,8986.2832};
+			name="stl_wp_387";
+			type="Empty";
+			id=3155;
+			atlOffset=-0.79621124;
+		};
+		class Item2731
+		{
+			dataType="Marker";
+			position[]={7122.249,104.54372,8989.6396};
+			name="stl_wp_388";
+			type="Empty";
+			id=3156;
+			atlOffset=-0.79621124;
+		};
+		class Item2732
+		{
+			dataType="Marker";
+			position[]={7113.355,105.41904,8996.125};
+			name="stl_wp_389";
+			type="Empty";
+			id=3157;
+			atlOffset=-0.14044189;
+		};
+		class Item2733
+		{
+			dataType="Marker";
+			position[]={7135.0205,105.0749,8981.6904};
+			name="stl_wp_390";
+			type="Empty";
+			id=3158;
+			atlOffset=-0.19847107;
+		};
+		class Item2734
+		{
+			dataType="Marker";
+			position[]={7135.9243,104.61905,8973.9961};
+			name="stl_wp_391";
+			type="Empty";
+			id=3159;
+			atlOffset=-0.64670563;
+		};
+		class Item2735
+		{
+			dataType="Marker";
+			position[]={7143.1611,104.48379,8986.1357};
+			name="stl_wp_392";
+			type="Empty";
+			id=3160;
+			atlOffset=-0.79621124;
+		};
+		class Item2736
+		{
+			dataType="Marker";
+			position[]={7141.5649,104.48379,9002.042};
+			name="stl_wp_393";
+			type="Empty";
+			id=3161;
+			atlOffset=-0.79621124;
+		};
+		class Item2737
+		{
+			dataType="Marker";
+			position[]={7127.5029,104.48379,9013.8008};
+			name="stl_wp_394";
+			type="Empty";
+			id=3162;
+			atlOffset=-0.79621124;
+		};
+		class Item2738
+		{
+			dataType="Marker";
+			position[]={7109.7124,104.53519,9020.6152};
+			name="stl_wp_395";
+			type="Empty";
+			id=3163;
+			atlOffset=-0.79621887;
+		};
+		class Item2739
+		{
+			dataType="Marker";
+			position[]={7107.9233,104.25661,9035.3086};
+			name="stl_wp_396";
+			type="Empty";
+			id=3164;
+			atlOffset=-0.79621887;
+		};
+		class Item2740
+		{
+			dataType="Marker";
+			position[]={7121.1626,104.75131,9052.9404};
+			name="stl_wp_397";
+			type="Empty";
+			id=3165;
+			atlOffset=-0.79621124;
+		};
+		class Item2741
+		{
+			dataType="Marker";
+			position[]={7141.9063,104.48379,9034.0049};
+			name="stl_wp_398";
+			type="Empty";
+			id=3166;
+			atlOffset=-0.79621124;
+		};
+		class Item2742
+		{
+			dataType="Marker";
+			position[]={7126.0171,104.48379,9022.749};
+			name="stl_wp_399";
+			type="Empty";
+			id=3167;
+			atlOffset=-0.79621124;
+		};
+		class Item2743
+		{
+			dataType="Marker";
+			position[]={7120.5303,104.94189,9024.6963};
+			name="stl_wp_400";
+			type="Empty";
+			id=3168;
+			atlOffset=-0.33811188;
+		};
+		class Item2744
+		{
+			dataType="Marker";
+			position[]={7127.9238,104.48379,9046.4141};
+			name="stl_wp_401";
+			type="Empty";
+			id=3169;
+			atlOffset=-0.79621124;
+		};
+		class Item2745
+		{
+			dataType="Marker";
+			position[]={7144.0781,104.47878,9053.1357};
+			name="stl_wp_402";
+			type="Empty";
+			id=3170;
+			atlOffset=-0.79620361;
+		};
+		class Item2746
+		{
+			dataType="Marker";
+			position[]={7159.4155,104.48379,9038.8535};
+			name="stl_wp_403";
+			type="Empty";
+			id=3171;
+			atlOffset=-0.79621124;
+		};
+		class Item2747
+		{
+			dataType="Marker";
+			position[]={7173.0762,103.86761,9052.7305};
+			name="stl_wp_404";
+			type="Empty";
+			id=3172;
+			atlOffset=-0.79621124;
+		};
+		class Item2748
+		{
+			dataType="Marker";
+			position[]={7162.9917,104.16415,9050.9189};
+			name="stl_wp_405";
+			type="Empty";
+			id=3173;
+			atlOffset=-0.79621887;
+		};
+		class Item2749
+		{
+			dataType="Marker";
+			position[]={7156.7446,104.89588,9048.3379};
+			name="stl_wp_406";
+			type="Empty";
+			id=3174;
+			atlOffset=-0.26215363;
+		};
+		class Item2750
+		{
+			dataType="Marker";
+			position[]={7170.729,104.19031,9043.5615};
+			name="stl_wp_407";
+			type="Empty";
+			id=3175;
+			atlOffset=-0.79621124;
+		};
+		class Item2751
+		{
+			dataType="Marker";
+			position[]={7178.8208,103.68105,9050.3086};
+			name="stl_wp_408";
+			type="Empty";
+			id=3176;
+			atlOffset=-0.79621124;
+		};
+		class Item2752
+		{
+			dataType="Marker";
+			position[]={7178.9741,103.86311,9056.6641};
+			name="stl_wp_409";
+			type="Empty";
+			id=3177;
+			atlOffset=-0.5471344;
+		};
+		class Item2753
+		{
+			dataType="Marker";
+			position[]={7175.3667,104.25399,9038.0957};
+			name="stl_wp_410";
+			type="Empty";
+			id=3178;
+			atlOffset=-0.79621124;
+		};
+		class Item2754
+		{
+			dataType="Marker";
+			position[]={7171.5654,104.44753,9025.7695};
+			name="stl_wp_411";
+			type="Empty";
+			id=3179;
+			atlOffset=-0.79621124;
+		};
+		class Item2755
+		{
+			dataType="Marker";
+			position[]={7187.6855,104.06025,9024.9023};
+			name="stl_wp_412";
+			type="Empty";
+			id=3180;
+			atlOffset=-0.79621124;
+		};
+		class Item2756
+		{
+			dataType="Marker";
+			position[]={7183.6328,103.99423,9033.4961};
+			name="stl_wp_413";
+			type="Empty";
+			id=3181;
+			atlOffset=-0.79621124;
+		};
+		class Item2757
+		{
+			dataType="Marker";
+			position[]={7163.437,104.76839,9034.5596};
+			name="stl_wp_414";
+			type="Empty";
+			id=3182;
+			atlOffset=-0.50786591;
+		};
+		class Item2758
+		{
+			dataType="Marker";
+			position[]={7156.4595,104.48895,9013.5342};
+			name="stl_wp_415";
+			type="Empty";
+			id=3183;
+			atlOffset=-0.79621124;
+		};
+		class Item2759
+		{
+			dataType="Marker";
+			position[]={7150.062,104.74379,9005.5586};
+			name="stl_wp_416";
+			type="Empty";
+			id=3184;
+			atlOffset=-0.53620911;
+		};
+		class Item2760
+		{
+			dataType="Marker";
+			position[]={7164.0088,104.86897,9004.9043};
+			name="stl_wp_417";
+			type="Empty";
+			id=3185;
+			atlOffset=-0.41615295;
+		};
+		class Item2761
+		{
+			dataType="Marker";
+			position[]={7156.9014,104.78689,8998.1357};
+			name="stl_wp_418";
+			type="Empty";
+			id=3186;
+			atlOffset=-0.49311066;
+		};
+		class Item2762
+		{
+			dataType="Marker";
+			position[]={7148.3594,104.74316,8998.54};
+			name="stl_wp_419";
+			type="Empty";
+			id=3187;
+			atlOffset=-0.53684235;
+		};
+		class Item2763
+		{
+			dataType="Marker";
+			position[]={7136.2256,104.48379,9007.623};
+			name="stl_wp_420";
+			type="Empty";
+			id=3188;
+			atlOffset=-0.79621124;
+		};
+		class Item2764
+		{
+			dataType="Marker";
+			position[]={7201.1831,103.72456,9025.6553};
+			name="stl_wp_421";
+			type="Empty";
+			id=3189;
+			atlOffset=-0.6272583;
+		};
+		class Item2765
+		{
+			dataType="Marker";
+			position[]={7193.3438,103.65498,9037.0293};
+			name="stl_wp_422";
+			type="Empty";
+			id=3190;
+			atlOffset=-0.79621124;
+		};
+		class Item2766
+		{
+			dataType="Marker";
+			position[]={7208.8218,103.26447,9046.7344};
+			name="stl_wp_423";
+			type="Empty";
+			id=3191;
+			atlOffset=-0.79621124;
+		};
+		class Item2767
+		{
+			dataType="Marker";
+			position[]={7218.0659,102.68524,9041.8447};
+			name="stl_wp_424";
+			type="Empty";
+			id=3192;
+			atlOffset=-0.79621124;
+		};
+		class Item2768
+		{
+			dataType="Marker";
+			position[]={7221.6982,102.61133,9044.9824};
+			name="stl_wp_425";
+			type="Empty";
+			id=3193;
+			atlOffset=-0.79621124;
+		};
+		class Item2769
+		{
+			dataType="Marker";
+			position[]={7218.334,102.99814,9048.8291};
+			name="stl_wp_426";
+			type="Empty";
+			id=3195;
+			atlOffset=-0.79621124;
+		};
+		class Item2770
+		{
+			dataType="Marker";
+			position[]={7205.3535,103.70905,9033.2637};
+			name="stl_wp_427";
+			type="Empty";
+			id=3196;
+			atlOffset=-0.42427063;
+		};
+		class Item2771
+		{
+			dataType="Marker";
+			position[]={7219.1304,103.0374,9034.2705};
+			name="stl_wp_428";
+			type="Empty";
+			id=3197;
+			atlOffset=-0.18966675;
+		};
+		class Item2772
+		{
+			dataType="Marker";
+			position[]={7225.3086,102.249,9034.1533};
+			name="stl_wp_429";
+			type="Empty";
+			id=3198;
+			atlOffset=-0.79621124;
+		};
+		class Item2773
+		{
+			dataType="Marker";
+			position[]={7234.4731,102.37696,9036.9766};
+			name="stl_wp_430";
+			type="Empty";
+			id=3199;
+			atlOffset=0.28022003;
+		};
+		class Item2774
+		{
+			dataType="Marker";
+			position[]={7147.3877,104.4817,8965.1396};
+			name="stl_wp_431";
+			type="Empty";
+			id=3200;
+			atlOffset=-0.79621124;
+		};
+		class Item2775
+		{
+			dataType="Marker";
+			position[]={7141.7075,104.47715,8971.9287};
+			name="stl_wp_432";
+			type="Empty";
+			id=3201;
+			atlOffset=-0.79621124;
+		};
+		class Item2776
+		{
+			dataType="Marker";
+			position[]={7160.4248,104.63616,8941.4082};
+			name="stl_wp_433";
+			type="Empty";
+			id=3202;
+			atlOffset=-0.62615204;
+		};
+		class Item2777
+		{
+			dataType="Marker";
+			position[]={7173.0493,104.48379,8961.085};
+			name="stl_wp_434";
+			type="Empty";
+			id=3203;
+			atlOffset=-0.79621124;
+		};
+		class Item2778
+		{
+			dataType="Marker";
+			position[]={7172.3403,105.12815,8950.5078};
+			name="stl_wp_435";
+			type="Empty";
+			id=3204;
+			atlOffset=-0.15529633;
+		};
+		class Item2779
+		{
+			dataType="Marker";
+			position[]={7160.6631,105.01782,8947.665};
+			name="stl_wp_436";
+			type="Empty";
+			id=3205;
+			atlOffset=-0.26990509;
+		};
+		class Item2780
+		{
+			dataType="Marker";
+			position[]={7165.9585,105.01782,8944.0762};
+			name="stl_wp_437";
+			type="Empty";
+			id=3206;
+			atlOffset=-0.22805023;
+		};
+		class Item2781
+		{
+			dataType="Marker";
+			position[]={7174.2036,104.20607,8934.7168};
+			name="stl_wp_438";
+			type="Empty";
+			id=3207;
+			atlOffset=-0.79621124;
+		};
+		class Item2782
+		{
+			dataType="Marker";
+			position[]={7177.5591,104.48174,8951.1133};
+			name="stl_wp_439";
+			type="Empty";
+			id=3208;
+			atlOffset=-0.79621124;
+		};
+		class Item2783
+		{
+			dataType="Marker";
+			position[]={7181.4106,104.34568,8946.1348};
+			name="stl_wp_440";
+			type="Empty";
+			id=3209;
+			atlOffset=-0.79621124;
+		};
+		class Item2784
+		{
+			dataType="Marker";
+			position[]={7185.0894,104.39031,8947.5176};
+			name="stl_wp_441";
+			type="Empty";
+			id=3210;
+			atlOffset=-0.79621124;
+		};
+		class Item2785
+		{
+			dataType="Marker";
+			position[]={7190.4067,104.4584,8956.9336};
+			name="stl_wp_442";
+			type="Empty";
+			id=3211;
+			atlOffset=-0.79621887;
+		};
+		class Item2786
+		{
+			dataType="Marker";
+			position[]={7180.6812,104.47924,8954.4092};
+			name="stl_wp_443";
+			type="Empty";
+			id=3213;
+			atlOffset=-0.79621124;
+		};
+		class Item2787
+		{
+			dataType="Marker";
+			position[]={7180.6528,104.96348,8968.2207};
+			name="stl_wp_444";
+			type="Empty";
+			id=3214;
+			atlOffset=-0.31652069;
+		};
+		class Item2788
+		{
+			dataType="Marker";
+			position[]={7190.1489,104.64249,8976.7256};
+			name="stl_wp_445";
+			type="Empty";
+			id=3215;
+			atlOffset=-0.6282959;
+		};
+		class Item2789
+		{
+			dataType="Marker";
+			position[]={7204.2998,104.24464,8955.9629};
+			name="stl_wp_446";
+			type="Empty";
+			id=3216;
+			atlOffset=-0.79621124;
+		};
+		class Item2790
+		{
+			dataType="Marker";
+			position[]={7207.1138,104.5382,8948.3945};
+			name="stl_wp_447";
+			type="Empty";
+			id=3217;
+			atlOffset=-0.21813965;
+		};
+		class Item2791
+		{
+			dataType="Marker";
+			position[]={7206.1924,102.88201,8936.4375};
+			name="stl_wp_448";
+			type="Empty";
+			id=3218;
+			atlOffset=-0.79621124;
+		};
+		class Item2792
+		{
+			dataType="Marker";
+			position[]={7225.8628,101.77472,8932.7139};
+			name="stl_wp_449";
+			type="Empty";
+			id=3219;
+			atlOffset=-0.79621124;
+		};
+		class Item2793
+		{
+			dataType="Marker";
+			position[]={7217.1597,100.22642,8921.0283};
+			name="stl_wp_450";
+			type="Empty";
+			id=3220;
+			atlOffset=-0.79621124;
+		};
+		class Item2794
+		{
+			dataType="Marker";
+			position[]={7234.2354,101.92209,8926.4268};
+			name="stl_wp_451";
+			type="Empty";
+			id=3221;
+			atlOffset=-0.42254639;
+		};
+		class Item2795
+		{
+			dataType="Marker";
+			position[]={7191.0107,103.95208,8940.6309};
+			name="stl_wp_452";
+			type="Empty";
+			id=3222;
+			atlOffset=-0.79621124;
+		};
+		class Item2796
+		{
+			dataType="Marker";
+			position[]={7185.1416,104.21783,8930.2334};
+			name="stl_wp_453";
+			type="Empty";
+			id=3223;
+			atlOffset=0.56534576;
+		};
+		class Item2797
+		{
+			dataType="Marker";
+			position[]={7239.1328,100.37931,8917.5791};
+			name="stl_wp_454";
+			type="Empty";
+			id=3224;
+			atlOffset=-0.79621124;
+		};
+		class Item2798
+		{
+			dataType="Marker";
+			position[]={7238.0752,101.2468,8929.8633};
+			name="stl_wp_455";
+			type="Empty";
+			id=3225;
+			atlOffset=-0.79620361;
+		};
+		class Item2799
+		{
+			dataType="Marker";
+			position[]={7228.5649,102.24178,8942.9844};
+			name="stl_wp_456";
+			type="Empty";
+			id=3226;
+			atlOffset=-0.79621124;
+		};
+		class Item2800
+		{
+			dataType="Marker";
+			position[]={7245.2222,100.24776,8955.9688};
+			name="stl_wp_457";
+			type="Empty";
+			id=3227;
+			atlOffset=-0.79621887;
+		};
+		class Item2801
+		{
+			dataType="Marker";
+			position[]={7257.3735,99.687912,8977.8438};
+			name="stl_wp_458";
+			type="Empty";
+			id=3228;
+			atlOffset=-0.79621124;
+		};
+		class Item2802
+		{
+			dataType="Marker";
+			position[]={7241.6274,101.23795,8975.0166};
+			name="stl_wp_459";
+			type="Empty";
+			id=3229;
+			atlOffset=-0.79621124;
+		};
+		class Item2803
+		{
+			dataType="Marker";
+			position[]={7222.4521,103.50783,8966.9844};
+			name="stl_wp_460";
+			type="Empty";
+			id=3230;
+			atlOffset=-0.79621124;
+		};
+		class Item2804
+		{
+			dataType="Marker";
+			position[]={7221.6572,103.47749,8981.7002};
+			name="stl_wp_461";
+			type="Empty";
+			id=3231;
+			atlOffset=-0.79621124;
+		};
+		class Item2805
+		{
+			dataType="Marker";
+			position[]={7213.8101,103.88095,8960.7764};
+			name="stl_wp_462";
+			type="Empty";
+			id=3232;
+			atlOffset=-0.79621124;
+		};
+		class Item2806
+		{
+			dataType="Marker";
+			position[]={7204.3564,104.50703,8965.2861};
+			name="stl_wp_463";
+			type="Empty";
+			id=3233;
+			atlOffset=-0.5583725;
+		};
+		class Item2807
+		{
+			dataType="Marker";
+			position[]={7200.6123,104.4083,8970.6738};
+			name="stl_wp_464";
+			type="Empty";
+			id=3234;
+			atlOffset=-0.79621124;
+		};
+		class Item2808
+		{
+			dataType="Marker";
+			position[]={7215.4067,104.16268,8982.9961};
+			name="stl_wp_465";
+			type="Empty";
+			id=3235;
+			atlOffset=-0.79621124;
+		};
+		class Item2809
+		{
+			dataType="Marker";
+			position[]={7227.7832,102.64328,8985.5215};
+			name="stl_wp_466";
+			type="Empty";
+			id=3236;
+			atlOffset=-0.79621124;
+		};
+		class Item2810
+		{
+			dataType="Marker";
+			position[]={7252.813,100.51898,8984.707};
+			name="stl_wp_467";
+			type="Empty";
+			id=3237;
+			atlOffset=-0.79621124;
+		};
+		class Item2811
+		{
+			dataType="Marker";
+			position[]={7255.7778,100.28506,8989.0732};
+			name="stl_wp_468";
+			type="Empty";
+			id=3238;
+			atlOffset=-0.79621124;
+		};
+		class Item2812
+		{
+			dataType="Marker";
+			position[]={7252.2979,100.48426,8997.3604};
+			name="stl_wp_469";
+			type="Empty";
+			id=3239;
+			atlOffset=-0.79621124;
+		};
+		class Item2813
+		{
+			dataType="Marker";
+			position[]={7249.8965,100.66248,9002.1953};
+			name="stl_wp_470";
+			type="Empty";
+			id=3240;
+			atlOffset=-0.79620361;
+		};
+		class Item2814
+		{
+			dataType="Marker";
+			position[]={7240.7266,101.32574,9006.7656};
+			name="stl_wp_471";
+			type="Empty";
+			id=3241;
+			atlOffset=-0.79621124;
+		};
+		class Item2815
+		{
+			dataType="Marker";
+			position[]={7243.4849,101.06101,9015.5947};
+			name="stl_wp_472";
+			type="Empty";
+			id=3242;
+			atlOffset=-0.79621124;
+		};
+		class Item2816
+		{
+			dataType="Marker";
+			position[]={7223.4097,102.8372,9006.5352};
+			name="stl_wp_473";
+			type="Empty";
+			id=3243;
+			atlOffset=-0.79621887;
+		};
+		class Item2817
+		{
+			dataType="Marker";
+			position[]={7211.251,103.51348,9006.7188};
+			name="stl_wp_474";
+			type="Empty";
+			id=3244;
+			atlOffset=-0.79621124;
+		};
+		class Item2818
+		{
+			dataType="Marker";
+			position[]={7206.314,104.04565,8997.8271};
+			name="stl_wp_475";
+			type="Empty";
+			id=3245;
+			atlOffset=-0.79621124;
+		};
+		class Item2819
+		{
+			dataType="Marker";
+			position[]={7214.5098,104.08649,8989.6748};
+			name="stl_wp_476";
+			type="Empty";
+			id=3246;
+			atlOffset=-0.79621124;
+		};
+		class Item2820
+		{
+			dataType="Marker";
+			position[]={7189.2583,104.47114,8996.3828};
+			name="stl_wp_477";
+			type="Empty";
+			id=3247;
+			atlOffset=-0.79621124;
+		};
+		class Item2821
+		{
+			dataType="Marker";
+			position[]={7194.7583,104.44587,9003.8281};
+			name="stl_wp_478";
+			type="Empty";
+			id=3248;
+			atlOffset=-0.63980103;
+		};
+		class Item2822
+		{
+			dataType="Marker";
+			position[]={7205.6069,104.38603,8984.8867};
+			name="stl_wp_479";
+			type="Empty";
+			id=3249;
+			atlOffset=-0.79621124;
+		};
+		class Item2823
+		{
+			dataType="Marker";
+			position[]={7204.1172,104.3284,8979.8154};
+			name="stl_wp_480";
+			type="Empty";
+			id=3250;
+			atlOffset=-0.79621124;
+		};
+		class Item2824
+		{
+			dataType="Marker";
+			position[]={7211.7197,104.32122,8981.6387};
+			name="stl_wp_481";
+			type="Empty";
+			id=3251;
+			atlOffset=-0.79621124;
+		};
+		class Item2825
+		{
+			dataType="Marker";
+			position[]={7211.2666,104.11354,8972.1572};
+			name="stl_wp_482";
+			type="Empty";
+			id=3252;
+			atlOffset=-0.79621124;
+		};
+		class Item2826
+		{
+			dataType="Marker";
+			position[]={7220.3091,103.4557,8955.8252};
+			name="stl_wp_483";
+			type="Empty";
+			id=3253;
+			atlOffset=-0.79620361;
+		};
+		class Item2827
+		{
+			dataType="Marker";
+			position[]={7223.7612,103.826,8961.6133};
+			name="stl_wp_484";
+			type="Empty";
+			id=3254;
+			atlOffset=-0.39260864;
+		};
+		class Item2828
+		{
+			dataType="Marker";
+			position[]={7234.7866,103.23939,8998.2441};
+			name="stl_wp_485";
+			type="Empty";
+			id=3255;
+			atlOffset=0.88170624;
+		};
+		class Item2829
+		{
+			dataType="Marker";
+			position[]={7249.9263,100.53519,9015.3027};
+			name="stl_wp_486";
+			type="Empty";
+			id=3256;
+			atlOffset=-0.79621887;
+		};
+		class Item2830
+		{
+			dataType="Marker";
+			position[]={7268.8394,99.257118,9007.8389};
+			name="stl_wp_487";
+			type="Empty";
+			id=3257;
+			atlOffset=-0.79621124;
+		};
+		class Item2831
+		{
+			dataType="Marker";
+			position[]={7266.4155,99.35717,9022.083};
+			name="stl_wp_488";
+			type="Empty";
+			id=3258;
+			atlOffset=-0.79621124;
+		};
+		class Item2832
+		{
+			dataType="Marker";
+			position[]={7261.0703,100.52255,9012.5439};
+			name="stl_wp_489";
+			type="Empty";
+			id=3259;
+			atlOffset=-0.16679382;
+		};
+		class Item2833
+		{
+			dataType="Marker";
+			position[]={7244.0854,100.88523,9028.3174};
+			name="stl_wp_490";
+			type="Empty";
+			id=3260;
+			atlOffset=-0.79621124;
+		};
+		class Item2834
+		{
+			dataType="Marker";
+			position[]={7272.8823,98.517113,9036.1387};
+			name="stl_wp_491";
+			type="Empty";
+			id=3261;
+			atlOffset=-0.79621124;
+		};
+		class Item2835
+		{
+			dataType="Marker";
+			position[]={7296.8872,96.549904,9050.5771};
+			name="stl_wp_492";
+			type="Empty";
+			id=3262;
+			atlOffset=-0.79621124;
+		};
+		class Item2836
+		{
+			dataType="Marker";
+			position[]={7279.7939,98.249512,9017.3652};
+			name="stl_wp_493";
+			type="Empty";
+			id=3263;
+			atlOffset=-0.79621124;
+		};
+		class Item2837
+		{
+			dataType="Marker";
+			position[]={7275.3237,98.664284,9000.0059};
+			name="stl_wp_494";
+			type="Empty";
+			id=3264;
+			atlOffset=-0.79621124;
+		};
+		class Item2838
+		{
+			dataType="Marker";
+			position[]={7282.1196,98.28479,8995.5439};
+			name="stl_wp_495";
+			type="Empty";
+			id=3265;
+			atlOffset=-0.79621124;
+		};
+		class Item2839
+		{
+			dataType="Marker";
+			position[]={7263.2578,99.064125,8979.0254};
+			name="stl_wp_496";
+			type="Empty";
+			id=3266;
+			atlOffset=-0.79621124;
+		};
+		class Item2840
+		{
+			dataType="Marker";
+			position[]={7243.0986,100.04613,8943.8213};
+			name="stl_wp_497";
+			type="Empty";
+			id=3267;
+			atlOffset=-0.79621887;
+		};
+		class Item2841
+		{
+			dataType="Marker";
+			position[]={7253.1597,98.241531,8924.8486};
+			name="stl_wp_498";
+			type="Empty";
+			id=3268;
+			atlOffset=-0.79621124;
+		};
+		class Item2842
+		{
+			dataType="Marker";
+			position[]={7263.9155,97.404831,8918.834};
+			name="stl_wp_499";
+			type="Empty";
+			id=3269;
+			atlOffset=-0.79621124;
+		};
+		class Item2843
+		{
+			dataType="Marker";
+			position[]={7269.4829,97.799652,8934.2646};
+			name="stl_wp_500";
+			type="Empty";
+			id=3270;
+			atlOffset=-0.79621124;
+		};
+		class Item2844
+		{
+			dataType="Marker";
+			position[]={7277.6226,97.791718,8937.1152};
+			name="stl_wp_501";
+			type="Empty";
+			id=3271;
+			atlOffset=-0.79621124;
+		};
+		class Item2845
+		{
+			dataType="Marker";
+			position[]={7286.1714,97.546951,8950.6709};
+			name="stl_wp_502";
+			type="Empty";
+			id=3272;
+			atlOffset=-0.79621124;
+		};
+		class Item2846
+		{
+			dataType="Marker";
+			position[]={7289.6367,97.711807,8963.3955};
+			name="stl_wp_503";
+			type="Empty";
+			id=3273;
+			atlOffset=-0.79621124;
+		};
+		class Item2847
+		{
+			dataType="Marker";
+			position[]={7270.8643,98.159225,8954.5107};
+			name="stl_wp_504";
+			type="Empty";
+			id=3274;
+			atlOffset=-0.79621124;
+		};
+		class Item2848
+		{
+			dataType="Marker";
+			position[]={7271.647,98.380768,8960.0088};
+			name="stl_wp_505";
+			type="Empty";
+			id=3275;
+			atlOffset=-0.54335785;
+		};
+		class Item2849
+		{
+			dataType="Marker";
+			position[]={7276.5806,98.373283,8968.791};
+			name="stl_wp_506";
+			type="Empty";
+			id=3276;
+			atlOffset=-0.41671753;
+		};
+		class Item2850
+		{
+			dataType="Marker";
+			position[]={7280.8516,98.196053,8977.6338};
+			name="stl_wp_507";
+			type="Empty";
+			id=3277;
+			atlOffset=-0.79621124;
+		};
+		class Item2851
+		{
+			dataType="Marker";
+			position[]={7295.3418,96.740479,8971.0557};
+			name="stl_wp_508";
+			type="Empty";
+			id=3278;
+			atlOffset=-0.79621124;
+		};
+		class Item2852
+		{
+			dataType="Marker";
+			position[]={7303.7656,95.143791,8977.9131};
+			name="stl_wp_509";
+			type="Empty";
+			id=3279;
+			atlOffset=-0.79621124;
+		};
+		class Item2853
+		{
+			dataType="Marker";
+			position[]={7287.4136,98.261749,8998.8857};
+			name="stl_wp_510";
+			type="Empty";
+			id=3280;
+			atlOffset=-0.79621124;
+		};
+		class Item2854
+		{
+			dataType="Marker";
+			position[]={7290.0806,97.138741,9012.6416};
+			name="stl_wp_511";
+			type="Empty";
+			id=3282;
+			atlOffset=-0.79621124;
+		};
+		class Item2855
+		{
+			dataType="Marker";
+			position[]={7293.9263,97.291786,9024.3564};
+			name="stl_wp_512";
+			type="Empty";
+			id=3283;
+			atlOffset=-0.79621124;
+		};
+		class Item2856
+		{
+			dataType="Marker";
+			position[]={7307.3462,96.448036,9037.7949};
+			name="stl_wp_513";
+			type="Empty";
+			id=3284;
+			atlOffset=-0.79621124;
+		};
+		class Item2857
+		{
+			dataType="Marker";
+			position[]={7327.7676,92.962906,9031.1211};
+			name="stl_wp_514";
+			type="Empty";
+			id=3285;
+			atlOffset=-0.79621124;
+		};
+		class Item2858
+		{
+			dataType="Marker";
+			position[]={7306.2295,94.347916,9010.9951};
+			name="stl_wp_515";
+			type="Empty";
+			id=3286;
+			atlOffset=-0.79621124;
+		};
+		class Item2859
+		{
+			dataType="Marker";
+			position[]={7319.5103,92.295265,8996.5576};
+			name="stl_wp_516";
+			type="Empty";
+			id=3287;
+			atlOffset=-0.79621124;
+		};
+		class Item2860
+		{
+			dataType="Marker";
+			position[]={7337.3135,88.850525,8988.082};
+			name="stl_wp_517";
+			type="Empty";
+			id=3288;
+			atlOffset=-0.79621124;
+		};
+		class Item2861
+		{
+			dataType="Marker";
+			position[]={7348.7729,92.790352,9056.8838};
+			name="stl_wp_518";
+			type="Empty";
+			id=3289;
+			atlOffset=-0.79621124;
+		};
+		class Item2862
+		{
+			dataType="Marker";
+			position[]={7358.6636,91.433556,9067.1484};
+			name="stl_wp_519";
+			type="Empty";
+			id=3290;
+			atlOffset=-0.79621124;
+		};
+		class Item2863
+		{
+			dataType="Marker";
+			position[]={7346.4238,87.034866,8992.9883};
+			name="stl_wp_520";
+			type="Empty";
+			id=3291;
+			atlOffset=-0.79621124;
+		};
+		class Item2864
+		{
+			dataType="Marker";
+			position[]={7368.0874,84.061264,8989.3203};
+			name="stl_wp_521";
+			type="Empty";
+			id=3292;
+			atlOffset=-0.79621124;
+		};
+		class Item2865
+		{
+			dataType="Marker";
+			position[]={7385.437,84.536964,8995.8984};
+			name="stl_wp_522";
+			type="Empty";
+			id=3293;
+			atlOffset=-0.79621124;
+		};
+		class Item2866
+		{
+			dataType="Marker";
+			position[]={7405.5781,83.022713,8987.5703};
+			name="stl_wp_523";
+			type="Empty";
+			id=3294;
+			atlOffset=-0.79621124;
+		};
+		class Item2867
+		{
+			dataType="Marker";
+			position[]={7397.9653,83.648605,8975.0762};
+			name="stl_wp_524";
+			type="Empty";
+			id=3295;
+			atlOffset=-0.79621124;
+		};
+		class Item2868
+		{
+			dataType="Marker";
+			position[]={7365.9482,84.020927,8964.8691};
+			name="stl_wp_525";
+			type="Empty";
+			id=3296;
+			atlOffset=-0.79621124;
+		};
+		class Item2869
+		{
+			dataType="Marker";
+			position[]={7363.584,83.893791,8983.3418};
+			name="stl_wp_526";
+			type="Empty";
+			id=3297;
+			atlOffset=-0.79621124;
+		};
+		class Item2870
+		{
+			dataType="Marker";
+			position[]={7382.7251,83.933083,8981.2168};
+			name="stl_wp_527";
+			type="Empty";
+			id=3298;
+			atlOffset=-0.79621124;
+		};
+		class Item2871
+		{
+			dataType="Marker";
+			position[]={7371.2437,84.153793,8976.7959};
+			name="stl_wp_528";
+			type="Empty";
+			id=3299;
+			atlOffset=-0.53620911;
+		};
+		class Item2872
+		{
+			dataType="Marker";
+			position[]={7363.7661,84.259651,8977.252};
+			name="stl_wp_529";
+			type="Empty";
+			id=3300;
+			atlOffset=-0.43035126;
+		};
+		class Item2873
+		{
+			dataType="Marker";
+			position[]={7394.0776,83.607697,8960.2119};
+			name="stl_wp_530";
+			type="Empty";
+			id=3301;
+			atlOffset=0.15651703;
+		};
+		class Item2874
+		{
+			dataType="Marker";
+			position[]={7400.314,81.233803,8952.9229};
+			name="stl_wp_531";
+			type="Empty";
+			id=3302;
+			atlOffset=-0.79621124;
+		};
+		class Item2875
+		{
+			dataType="Marker";
+			position[]={7403.0337,77.152863,8917.624};
+			name="stl_wp_532";
+			type="Empty";
+			id=3303;
+			atlOffset=-0.79621124;
+		};
+		class Item2876
+		{
+			dataType="Marker";
+			position[]={7381.6206,79.35524,8922.124};
+			name="stl_wp_533";
+			type="Empty";
+			id=3304;
+			atlOffset=-0.79621124;
+		};
+		class Item2877
+		{
+			dataType="Marker";
+			position[]={7363.6553,79.687164,8885.5918};
+			name="stl_wp_534";
+			type="Empty";
+			id=3305;
+			atlOffset=-0.79621124;
+		};
+		class Item2878
+		{
+			dataType="Marker";
+			position[]={7348.6768,81.323006,8882.7598};
+			name="stl_wp_535";
+			type="Empty";
+			id=3306;
+			atlOffset=-0.79621124;
+		};
+		class Item2879
+		{
+			dataType="Marker";
+			position[]={7333.4414,83.37326,8888.3516};
+			name="stl_wp_536";
+			type="Empty";
+			id=3307;
+			atlOffset=-0.79621124;
+		};
+		class Item2880
+		{
+			dataType="Marker";
+			position[]={7333.3716,85.018669,8906.8467};
+			name="stl_wp_537";
+			type="Empty";
+			id=3308;
+			atlOffset=-0.79621124;
+		};
+		class Item2881
+		{
+			dataType="Marker";
+			position[]={7347.0376,84.766884,8930.1328};
+			name="stl_wp_538";
+			type="Empty";
+			id=3309;
+			atlOffset=-0.79621124;
+		};
+		class Item2882
+		{
+			dataType="Marker";
+			position[]={7347.1235,85.620819,8951.8574};
+			name="stl_wp_539";
+			type="Empty";
+			id=3310;
+			atlOffset=-0.79621124;
+		};
+		class Item2883
+		{
+			dataType="Marker";
+			position[]={7331.7378,88.782333,8956.7998};
+			name="stl_wp_540";
+			type="Empty";
+			id=3311;
+			atlOffset=-0.79621124;
+		};
+		class Item2884
+		{
+			dataType="Marker";
+			position[]={7313.1494,92.812469,8945.3994};
+			name="stl_wp_541";
+			type="Empty";
+			id=3312;
+			atlOffset=-0.79621124;
+		};
+		class Item2885
+		{
+			dataType="Marker";
+			position[]={7322.4526,88.217323,8917.5059};
+			name="stl_wp_542";
+			type="Empty";
+			id=3313;
+			atlOffset=-0.79621124;
+		};
+		class Item2886
+		{
+			dataType="Marker";
+			position[]={7299.6191,94.142899,8917.7217};
+			name="stl_wp_543";
+			type="Empty";
+			id=3314;
+			atlOffset=-0.79621124;
+		};
+		class Item2887
+		{
+			dataType="Marker";
+			position[]={7289.6064,96.606407,8932.6025};
+			name="stl_wp_544";
+			type="Empty";
+			id=3315;
+			atlOffset=-0.79621124;
+		};
+		class Item2888
+		{
+			dataType="Marker";
+			position[]={7296.647,96.79232,8961.6777};
+			name="stl_wp_545";
+			type="Empty";
+			id=3316;
+			atlOffset=-0.79621124;
+		};
+		class Item2889
+		{
+			dataType="Marker";
+			position[]={7304.5239,94.799561,8969.5908};
+			name="stl_wp_546";
+			type="Empty";
+			id=3317;
+			atlOffset=-0.79621124;
+		};
+		class Item2890
+		{
+			dataType="Marker";
+			position[]={7318.6025,92.427208,8976.7705};
+			name="stl_wp_547";
+			type="Empty";
+			id=3318;
+			atlOffset=-0.79621124;
+		};
+		class Item2891
+		{
+			dataType="Marker";
+			position[]={7339.7153,85.461182,8926.6885};
+			name="stl_wp_548";
+			type="Empty";
+			id=3320;
+			atlOffset=-0.79621124;
+		};
+		class Item2892
+		{
+			dataType="Marker";
+			position[]={7364.1821,78.222046,8861.3643};
+			name="stl_wp_549";
+			type="Empty";
+			id=3321;
+			atlOffset=-0.79621124;
+		};
+		class Item2893
+		{
+			dataType="Marker";
+			position[]={7367.8447,81.154495,8917.0127};
+			name="stl_wp_550";
+			type="Empty";
+			id=3322;
+			atlOffset=-0.79621124;
+		};
+		class Item2894
+		{
+			dataType="Marker";
+			position[]={7409.5957,75.241508,8904.7627};
+			name="stl_wp_551";
+			type="Empty";
+			id=3323;
+			atlOffset=-0.79621124;
+		};
+		class Item2895
+		{
+			dataType="Marker";
+			position[]={7408.5898,75.071091,8831.8818};
+			name="stl_wp_552";
+			type="Empty";
+			id=3324;
+			atlOffset=-0.72220612;
+		};
+		class Item2896
+		{
+			dataType="Marker";
+			position[]={7381.6426,77.087181,8825.4414};
+			name="stl_wp_553";
+			type="Empty";
+			id=3325;
+			atlOffset=-0.79621124;
+		};
+		class Item2897
+		{
+			dataType="Marker";
+			position[]={7352.6724,79.246056,8826.7598};
+			name="stl_wp_554";
+			type="Empty";
+			id=3326;
+			atlOffset=-0.79621124;
+		};
+		class Item2898
+		{
+			dataType="Marker";
+			position[]={7333.2217,81.349892,8822.334};
+			name="stl_wp_555";
+			type="Empty";
+			id=3327;
+			atlOffset=-0.79621124;
+		};
+		class Item2899
+		{
+			dataType="Marker";
+			position[]={7327.6157,81.797012,8837.1797};
+			name="stl_wp_556";
+			type="Empty";
+			id=3328;
+			atlOffset=-0.79621124;
+		};
+		class Item2900
+		{
+			dataType="Marker";
+			position[]={7316.2568,83.574715,8830.6367};
+			name="stl_wp_557";
+			type="Empty";
+			id=3329;
+			atlOffset=-0.79621124;
+		};
+		class Item2901
+		{
+			dataType="Marker";
+			position[]={7307.978,84.652061,8840.5918};
+			name="stl_wp_558";
+			type="Empty";
+			id=3330;
+			atlOffset=-0.79621124;
+		};
+		class Item2902
+		{
+			dataType="Marker";
+			position[]={7297.2891,86.220985,8851.9951};
+			name="stl_wp_559";
+			type="Empty";
+			id=3331;
+			atlOffset=-0.79621124;
+		};
+		class Item2903
+		{
+			dataType="Marker";
+			position[]={7300.6636,85.568657,8856.0596};
+			name="stl_wp_560";
+			type="Empty";
+			id=3332;
+			atlOffset=-0.79621124;
+		};
+		class Item2904
+		{
+			dataType="Marker";
+			position[]={7324.9839,81.606155,8862.5918};
+			name="stl_wp_561";
+			type="Empty";
+			id=3333;
+			atlOffset=-0.79621124;
+		};
+		class Item2905
+		{
+			dataType="Marker";
+			position[]={7343.8774,79.888176,8858.6777};
+			name="stl_wp_562";
+			type="Empty";
+			id=3334;
+			atlOffset=-0.79621124;
+		};
+		class Item2906
+		{
+			dataType="Marker";
+			position[]={7341.8135,80.963341,8871.1055};
+			name="stl_wp_563";
+			type="Empty";
+			id=3335;
+			atlOffset=-0.79621124;
+		};
+		class Item2907
+		{
+			dataType="Marker";
+			position[]={7318.2915,86.052322,8890.4141};
+			name="stl_wp_564";
+			type="Empty";
+			id=3336;
+			atlOffset=-0.79621124;
+		};
+		class Item2908
+		{
+			dataType="Marker";
+			position[]={7299.0791,92.161766,8901.6982};
+			name="stl_wp_565";
+			type="Empty";
+			id=3337;
+			atlOffset=-0.79621124;
+		};
+		class Item2909
+		{
+			dataType="Marker";
+			position[]={7282.8008,95.83239,8914.8506};
+			name="stl_wp_566";
+			type="Empty";
+			id=3338;
+			atlOffset=-0.79621124;
+		};
+		class Item2910
+		{
+			dataType="Marker";
+			position[]={7283.6211,93.998672,8904.6689};
+			name="stl_wp_567";
+			type="Empty";
+			id=3339;
+			atlOffset=-0.79621124;
+		};
+		class Item2911
+		{
+			dataType="Marker";
+			position[]={7280.8818,92.836891,8898.2822};
+			name="stl_wp_568";
+			type="Empty";
+			id=3340;
+			atlOffset=-0.79621124;
+		};
+		class Item2912
+		{
+			dataType="Marker";
+			position[]={7270.2183,93.330467,8892.7646};
+			name="stl_wp_569";
+			type="Empty";
+			id=3341;
+			atlOffset=-0.79621124;
+		};
+		class Item2913
+		{
+			dataType="Marker";
+			position[]={7291.6694,89.150589,8883.9609};
+			name="stl_wp_570";
+			type="Empty";
+			id=3342;
+			atlOffset=-0.79621124;
+		};
+		class Item2914
+		{
+			dataType="Marker";
+			position[]={7282.1924,89.323326,8874.4648};
+			name="stl_wp_571";
+			type="Empty";
+			id=3343;
+			atlOffset=-0.79621124;
+		};
+		class Item2915
+		{
+			dataType="Marker";
+			position[]={7258.4922,92.763893,8881.4775};
+			name="stl_wp_572";
+			type="Empty";
+			id=3344;
+			atlOffset=-0.79621124;
+		};
+		class Item2916
+		{
+			dataType="Marker";
+			position[]={7249.2886,94.675575,8891.7041};
+			name="stl_wp_573";
+			type="Empty";
+			id=3345;
+			atlOffset=-0.79621124;
+		};
+		class Item2917
+		{
+			dataType="Marker";
+			position[]={7234.1807,96.848885,8904.1377};
+			name="stl_wp_574";
+			type="Empty";
+			id=3346;
+			atlOffset=-0.79621124;
+		};
+		class Item2918
+		{
+			dataType="Marker";
+			position[]={7239.0747,100.41322,8917.7949};
+			name="stl_wp_575";
+			type="Empty";
+			id=3347;
+			atlOffset=-0.79620361;
+		};
+		class Item2919
+		{
+			dataType="Marker";
+			position[]={7311.8911,84.572968,8803.0244};
+			name="stl_wp_576";
+			type="Empty";
+			id=3348;
+			atlOffset=-0.79621124;
+		};
+		class Item2920
+		{
+			dataType="Marker";
+			position[]={7309.3818,86.100853,8775.25};
+			name="stl_wp_577";
+			type="Empty";
+			id=3349;
+			atlOffset=-0.79621124;
+		};
+		class Item2921
+		{
+			dataType="Marker";
+			position[]={7365.5889,81.362312,8754.3662};
+			name="stl_wp_578";
+			type="Empty";
+			id=3351;
+			atlOffset=-0.79621124;
+		};
+		class Item2922
+		{
+			dataType="Trigger";
+			position[]={7897.0879,32.200001,9080.54};
+			class Attributes
+			{
+				name="BosquetTrigger";
+				condition="call{this}";
+				onActivation="if (ZoneArray select 4 select 3 == false) then { " \n "call{ZoneArray select 4 set [3,true];  " \n "" \n "[[4,30],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
+				onDeactivation="call{ZoneArray select 4 set [3,false];" \n "}";
+				sizeA=300;
+				sizeB=300;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isServerOnly=1;
+			};
+			id=3353;
+			type="EmptyDetector";
+		};
+		class Item2923
+		{
+			dataType="Marker";
+			position[]={7859.3398,36.749947,8997.292};
+			name="bos_wp_1";
+			type="Empty";
+			id=3355;
+			atlOffset=-0.79600143;
+		};
+		class Item2924
+		{
+			dataType="Marker";
+			position[]={7814.0684,36.706181,9041.2793};
+			name="bos_wp_2";
+			type="Empty";
+			id=3356;
+			atlOffset=-0.79600143;
+		};
+		class Item2925
+		{
+			dataType="Marker";
+			position[]={7844.9238,31.269978,9044.2852};
+			name="bos_wp_3";
+			type="Empty";
+			id=3357;
+			atlOffset=-0.79600143;
+		};
+		class Item2926
+		{
+			dataType="Marker";
+			position[]={7839.1465,31.469337,9063.1855};
+			name="bos_wp_4";
+			type="Empty";
+			id=3358;
+			atlOffset=-0.79600143;
+		};
+		class Item2927
+		{
+			dataType="Marker";
+			position[]={7842.9775,31.564152,9077.5742};
+			name="bos_wp_5";
+			type="Empty";
+			id=3359;
+			atlOffset=-0.79600143;
+		};
+		class Item2928
+		{
+			dataType="Marker";
+			position[]={7853.8599,31.403999,9073.9199};
+			name="bos_wp_6";
+			type="Empty";
+			id=3360;
+			atlOffset=-0.79600143;
+		};
+		class Item2929
+		{
+			dataType="Marker";
+			position[]={7870.3643,31.403999,9064.9531};
+			name="bos_wp_7";
+			type="Empty";
+			id=3361;
+			atlOffset=-0.79600143;
+		};
+		class Item2930
+		{
+			dataType="Marker";
+			position[]={7894.8687,31.403999,9032.252};
+			name="bos_wp_8";
+			type="Empty";
+			id=3362;
+			atlOffset=-0.79600143;
+		};
+		class Item2931
+		{
+			dataType="Marker";
+			position[]={7891.0054,31.403999,9053.7617};
+			name="bos_wp_9";
+			type="Empty";
+			id=3363;
+			atlOffset=-0.79600143;
+		};
+		class Item2932
+		{
+			dataType="Marker";
+			position[]={7880.1797,31.403999,9050.3145};
+			name="bos_wp_10";
+			type="Empty";
+			id=3364;
+			atlOffset=-0.79600143;
+		};
+		class Item2933
+		{
+			dataType="Marker";
+			position[]={7875.7046,31.824322,9054.3135};
+			name="bos_wp_11";
+			type="Empty";
+			id=3365;
+			atlOffset=-0.37567902;
+		};
+		class Item2934
+		{
+			dataType="Marker";
+			position[]={7884.5083,31.899509,9063.1533};
+			name="bos_wp_12";
+			type="Empty";
+			id=3366;
+			atlOffset=-0.30049133;
+		};
+		class Item2935
+		{
+			dataType="Marker";
+			position[]={7873.2729,31.909008,9061.6006};
+			name="bos_wp_13";
+			type="Empty";
+			id=3367;
+			atlOffset=-0.29099274;
+		};
+		class Item2936
+		{
+			dataType="Marker";
+			position[]={7845.8423,31.294228,9049.9209};
+			name="bos_wp_14";
+			type="Empty";
+			id=3368;
+			atlOffset=-0.79600143;
+		};
+		class Item2937
+		{
+			dataType="Marker";
+			position[]={7848.3584,31.410568,9057.9355};
+			name="bos_wp_15";
+			type="Empty";
+			id=3369;
+			atlOffset=-0.79600143;
+		};
+		class Item2938
+		{
+			dataType="Marker";
+			position[]={7853.7036,31.403999,9074.0625};
+			name="bos_wp_16";
+			type="Empty";
+			id=3370;
+			atlOffset=-0.79600143;
+		};
+		class Item2939
+		{
+			dataType="Marker";
+			position[]={7850.4297,31.403999,9076.5684};
+			name="bos_wp_17";
+			type="Empty";
+			id=3371;
+			atlOffset=-0.79600143;
+		};
+		class Item2940
+		{
+			dataType="Marker";
+			position[]={7850.1606,31.632725,9062.6182};
+			name="bos_wp_18";
+			type="Empty";
+			id=3372;
+			atlOffset=-0.567276;
+		};
+		class Item2941
+		{
+			dataType="Marker";
+			position[]={7869.9424,31.403999,9057.293};
+			name="bos_wp_19";
+			type="Empty";
+			id=3373;
+			atlOffset=-0.79600143;
+		};
+		class Item2942
+		{
+			dataType="Marker";
+			position[]={7838.7246,31.403999,9096.0498};
+			name="bos_wp_20";
+			type="Empty";
+			id=3374;
+			atlOffset=-0.79600143;
+		};
+		class Item2943
+		{
+			dataType="Marker";
+			position[]={7820.8105,31.523373,9101.5381};
+			name="bos_wp_21";
+			type="Empty";
+			id=3375;
+			atlOffset=-0.79600143;
+		};
+		class Item2944
+		{
+			dataType="Marker";
+			position[]={7801.168,33.364864,9089.7451};
+			name="bos_wp_22";
+			type="Empty";
+			id=3376;
+			atlOffset=-0.79600143;
+		};
+		class Item2945
+		{
+			dataType="Marker";
+			position[]={7804.7983,34.769836,9059.1484};
+			name="bos_wp_23";
+			type="Empty";
+			id=3377;
+			atlOffset=-0.79600143;
+		};
+		class Item2946
+		{
+			dataType="Marker";
+			position[]={7892.1533,31.416496,9027.6406};
+			name="bos_wp_24";
+			type="Empty";
+			id=3378;
+			atlOffset=-0.79600143;
+		};
+		class Item2947
+		{
+			dataType="Marker";
+			position[]={7894.5259,31.601067,9005.542};
+			name="bos_wp_25";
+			type="Empty";
+			id=3379;
+			atlOffset=-0.79600143;
+		};
+		class Item2948
+		{
+			dataType="Marker";
+			position[]={7890.3623,31.773834,8989.1807};
+			name="bos_wp_26";
+			type="Empty";
+			id=3380;
+			atlOffset=-0.79600143;
+		};
+		class Item2949
+		{
+			dataType="Marker";
+			position[]={7909.4038,31.403999,9009.1377};
+			name="bos_wp_27";
+			type="Empty";
+			id=3383;
+			atlOffset=-0.79600143;
+		};
+		class Item2950
+		{
+			dataType="Marker";
+			position[]={7909.8467,31.403999,8994.9736};
+			name="bos_wp_28";
+			type="Empty";
+			id=3384;
+			atlOffset=-0.79600143;
+		};
+		class Item2951
+		{
+			dataType="Marker";
+			position[]={7928.877,32.275948,9001.5244};
+			name="bos_wp_29";
+			type="Empty";
+			id=3385;
+			atlOffset=-0.79600143;
+		};
+		class Item2952
+		{
+			dataType="Marker";
+			position[]={7938.0435,32.294003,8988.5664};
+			name="bos_wp_30";
+			type="Empty";
+			id=3386;
+			atlOffset=-0.79600143;
+		};
+		class Item2953
+		{
+			dataType="Marker";
+			position[]={7948.1284,31.608139,9021.1914};
+			name="bos_wp_31";
+			type="Empty";
+			id=3387;
+			atlOffset=-0.79600143;
+		};
+		class Item2954
+		{
+			dataType="Marker";
+			position[]={7930.5161,31.403999,9033.4238};
+			name="bos_wp_32";
+			type="Empty";
+			id=3388;
+			atlOffset=-0.79600143;
+		};
+		class Item2955
+		{
+			dataType="Marker";
+			position[]={7913.2134,31.403999,9042.1865};
+			name="bos_wp_33";
+			type="Empty";
+			id=3389;
+			atlOffset=-0.79600143;
+		};
+		class Item2956
+		{
+			dataType="Marker";
+			position[]={7913.3169,31.403999,9046.8086};
+			name="bos_wp_34";
+			type="Empty";
+			id=3390;
+			atlOffset=-0.79600143;
+		};
+		class Item2957
+		{
+			dataType="Marker";
+			position[]={7926.5947,31.403999,9051.667};
+			name="bos_wp_35";
+			type="Empty";
+			id=3391;
+			atlOffset=-0.79600143;
+		};
+		class Item2958
+		{
+			dataType="Marker";
+			position[]={7935.7529,31.403999,9044.3486};
+			name="bos_wp_36";
+			type="Empty";
+			id=3392;
+			atlOffset=-0.79600143;
+		};
+		class Item2959
+		{
+			dataType="Marker";
+			position[]={7959.3174,31.403999,9046.9131};
+			name="bos_wp_37";
+			type="Empty";
+			id=3393;
+			atlOffset=-0.79600143;
+		};
+		class Item2960
+		{
+			dataType="Marker";
+			position[]={7967.665,31.403999,9050.8232};
+			name="bos_wp_38";
+			type="Empty";
+			id=3394;
+			atlOffset=-0.79600143;
+		};
+		class Item2961
+		{
+			dataType="Marker";
+			position[]={7983.0752,31.403999,9038.0498};
+			name="bos_wp_39";
+			type="Empty";
+			id=3395;
+			atlOffset=-0.79600143;
+		};
+		class Item2962
+		{
+			dataType="Marker";
+			position[]={7984.3638,31.621941,9033.8682};
+			name="bos_wp_40";
+			type="Empty";
+			id=3396;
+			atlOffset=-0.79600143;
+		};
+		class Item2963
+		{
+			dataType="Marker";
+			position[]={7978.5542,31.89735,9020.7031};
+			name="bos_wp_41";
+			type="Empty";
+			id=3397;
+			atlOffset=-0.79600143;
+		};
+		class Item2964
+		{
+			dataType="Marker";
+			position[]={7965.3799,31.797894,9002.9209};
+			name="bos_wp_42";
+			type="Empty";
+			id=3398;
+			atlOffset=-0.79600143;
+		};
+		class Item2965
+		{
+			dataType="Marker";
+			position[]={7992.9639,34.292381,8991.2412};
+			name="bos_wp_43";
+			type="Empty";
+			id=3399;
+			atlOffset=-0.79600143;
+		};
+		class Item2966
+		{
+			dataType="Marker";
+			position[]={7991.6289,32.453861,9019.8672};
+			name="bos_wp_44";
+			type="Empty";
+			id=3400;
+			atlOffset=-0.79600143;
+		};
+		class Item2967
+		{
+			dataType="Marker";
+			position[]={7987.7378,31.403809,9039.0605};
+			name="bos_wp_45";
+			type="Empty";
+			id=3401;
+			atlOffset=-0.79600143;
+		};
+		class Item2968
+		{
+			dataType="Marker";
+			position[]={7995.9336,31.103048,9059.1045};
+			name="bos_wp_46";
+			type="Empty";
+			id=3402;
+			atlOffset=-0.79600143;
+		};
+		class Item2969
+		{
+			dataType="Marker";
+			position[]={7987.3193,31.403999,9070.8975};
+			name="bos_wp_47";
+			type="Empty";
+			id=3403;
+			atlOffset=-0.79600143;
+		};
+		class Item2970
+		{
+			dataType="Marker";
+			position[]={7987.4077,29.356056,9083.5791};
+			name="bos_wp_48";
+			type="Empty";
+			id=3404;
+			atlOffset=-0.79600143;
+		};
+		class Item2971
+		{
+			dataType="Marker";
+			position[]={7983.5752,31.446423,9103.0566};
+			name="bos_wp_49";
+			type="Empty";
+			id=3405;
+			atlOffset=-0.79600143;
+		};
+		class Item2972
+		{
+			dataType="Marker";
+			position[]={7993.0396,31.399567,9123.8789};
+			name="bos_wp_50";
+			type="Empty";
+			id=3406;
+			atlOffset=-0.79600143;
+		};
+		class Item2973
+		{
+			dataType="Marker";
+			position[]={7999.5142,31.394386,9128.7412};
+			name="bos_wp_51";
+			type="Empty";
+			id=3407;
+			atlOffset=-0.79600143;
+		};
+		class Item2974
+		{
+			dataType="Marker";
+			position[]={7996.3672,31.396904,9138.9805};
+			name="bos_wp_52";
+			type="Empty";
+			id=3408;
+			atlOffset=-0.79600143;
+		};
+		class Item2975
+		{
+			dataType="Marker";
+			position[]={7997.709,31.395832,9152.1309};
+			name="bos_wp_53";
+			type="Empty";
+			id=3410;
+			atlOffset=-0.79600143;
+		};
+		class Item2976
+		{
+			dataType="Marker";
+			position[]={7993.7827,31.325935,9178.3818};
+			name="bos_wp_54";
+			type="Empty";
+			id=3412;
+			atlOffset=-0.79600143;
+		};
+		class Item2977
+		{
+			dataType="Marker";
+			position[]={7980.7505,31.403999,9071.4678};
+			name="bos_wp_55";
+			type="Empty";
+			id=3413;
+			atlOffset=-0.79600143;
+		};
+		class Item2978
+		{
+			dataType="Marker";
+			position[]={7965.5693,31.132729,9086.6914};
+			name="bos_wp_56";
+			type="Empty";
+			id=3414;
+			atlOffset=-0.79600143;
+		};
+		class Item2979
+		{
+			dataType="Marker";
+			position[]={7958.9023,32.094418,9114.8428};
+			name="bos_wp_57";
+			type="Empty";
+			id=3415;
+			atlOffset=-0.79600143;
+		};
+		class Item2980
+		{
+			dataType="Marker";
+			position[]={7942.9038,32.904438,9119.5869};
+			name="bos_wp_58";
+			type="Empty";
+			id=3416;
+			atlOffset=-0.79600143;
+		};
+		class Item2981
+		{
+			dataType="Marker";
+			position[]={7933.0942,32.192471,9131.9453};
+			name="bos_wp_59";
+			type="Empty";
+			id=3417;
+			atlOffset=-0.79600143;
+		};
+		class Item2982
+		{
+			dataType="Marker";
+			position[]={7916.0913,31.574654,9136.0781};
+			name="bos_wp_60";
+			type="Empty";
+			id=3418;
+			atlOffset=-0.79600143;
+		};
+		class Item2983
+		{
+			dataType="Marker";
+			position[]={7909.6768,31.403999,9158.5283};
+			name="bos_wp_61";
+			type="Empty";
+			id=3419;
+			atlOffset=-0.79600143;
+		};
+		class Item2984
+		{
+			dataType="Marker";
+			position[]={7910.23,31.403999,9172.5156};
+			name="bos_wp_62";
+			type="Empty";
+			id=3421;
+			atlOffset=-0.79600143;
+		};
+		class Item2985
+		{
+			dataType="Marker";
+			position[]={7920.6411,31.403999,9103.2891};
+			name="bos_wp_63";
+			type="Empty";
+			id=3422;
+			atlOffset=-0.79600143;
+		};
+		class Item2986
+		{
+			dataType="Marker";
+			position[]={7928.7886,33.422642,9116.5342};
+			name="bos_wp_64";
+			type="Empty";
+			id=3423;
+			atlOffset=-0.79600143;
+		};
+		class Item2987
+		{
+			dataType="Marker";
+			position[]={7946.4448,31.403999,9098.7803};
+			name="bos_wp_65";
+			type="Empty";
+			id=3424;
+			atlOffset=-0.79600143;
+		};
+		class Item2988
+		{
+			dataType="Marker";
+			position[]={7950.8809,31.403999,9095.1904};
+			name="bos_wp_66";
+			type="Empty";
+			id=3425;
+			atlOffset=-0.79600143;
+		};
+		class Item2989
+		{
+			dataType="Marker";
+			position[]={7949.4951,31.403999,9085.3672};
+			name="bos_wp_67";
+			type="Empty";
+			id=3426;
+			atlOffset=-0.79600143;
+		};
+		class Item2990
+		{
+			dataType="Marker";
+			position[]={7954.4878,31.403999,9080.4893};
+			name="bos_wp_68";
+			type="Empty";
+			id=3427;
+			atlOffset=-0.79600143;
+		};
+		class Item2991
+		{
+			dataType="Marker";
+			position[]={7963.0747,31.403999,9073.9355};
+			name="bos_wp_69";
+			type="Empty";
+			id=3428;
+			atlOffset=-0.79600143;
+		};
+		class Item2992
+		{
+			dataType="Marker";
+			position[]={7960.7378,31.403999,9056.8682};
+			name="bos_wp_70";
+			type="Empty";
+			id=3429;
+			atlOffset=-0.79600143;
+		};
+		class Item2993
+		{
+			dataType="Marker";
+			position[]={7975.1436,31.403999,9055.9199};
+			name="bos_wp_71";
+			type="Empty";
+			id=3430;
+			atlOffset=-0.79600143;
+		};
+		class Item2994
+		{
+			dataType="Marker";
+			position[]={7972.9697,31.403999,9066.9795};
+			name="bos_wp_72";
+			type="Empty";
+			id=3431;
+			atlOffset=-0.79600143;
+		};
+		class Item2995
+		{
+			dataType="Marker";
+			position[]={7972.4165,31.403999,9074.2988};
+			name="bos_wp_73";
+			type="Empty";
+			id=3432;
+			atlOffset=-0.79600143;
+		};
+		class Item2996
+		{
+			dataType="Marker";
+			position[]={7986.9004,31.403999,9059.541};
+			name="bos_wp_74";
+			type="Empty";
+			id=3433;
+			atlOffset=-0.79600143;
+		};
+		class Item2997
+		{
+			dataType="Marker";
+			position[]={7980.5269,31.403999,9050.2412};
+			name="bos_wp_75";
+			type="Empty";
+			id=3434;
+			atlOffset=-0.79600143;
+		};
+		class Item2998
+		{
+			dataType="Marker";
+			position[]={7967.5942,31.403999,9039.8652};
+			name="bos_wp_76";
+			type="Empty";
+			id=3435;
+			atlOffset=-0.79600143;
+		};
+		class Item2999
+		{
+			dataType="Marker";
+			position[]={7958.0879,31.403999,9043.1338};
+			name="bos_wp_77";
+			type="Empty";
+			id=3436;
+			atlOffset=-0.79600143;
+		};
+		class Item3000
+		{
+			dataType="Marker";
+			position[]={7951.4722,31.403999,9048.793};
+			name="bos_wp_78";
+			type="Empty";
+			id=3437;
+			atlOffset=-0.79600143;
+		};
+		class Item3001
+		{
+			dataType="Marker";
+			position[]={7944.9219,31.403999,9055.1865};
+			name="bos_wp_79";
+			type="Empty";
+			id=3438;
+			atlOffset=-0.79600143;
+		};
+		class Item3002
+		{
+			dataType="Marker";
+			position[]={7968.0288,31.403999,9062.707};
+			name="bos_wp_80";
+			type="Empty";
+			id=3439;
+			atlOffset=-0.79600143;
+		};
+		class Item3003
+		{
+			dataType="Marker";
+			position[]={7960.7344,31.403999,9067.0098};
+			name="bos_wp_81";
+			type="Empty";
+			id=3440;
+			atlOffset=-0.79600143;
+		};
+		class Item3004
+		{
+			dataType="Marker";
+			position[]={7954.2017,31.403999,9073.0977};
+			name="bos_wp_82";
+			type="Empty";
+			id=3441;
+			atlOffset=-0.79600143;
+		};
+		class Item3005
+		{
+			dataType="Marker";
+			position[]={7951.417,31.403999,9078.293};
+			name="bos_wp_83";
+			type="Empty";
+			id=3442;
+			atlOffset=-0.79600143;
+		};
+		class Item3006
+		{
+			dataType="Marker";
+			position[]={7946.7773,31.698956,9084.4189};
+			name="bos_wp_84";
+			type="Empty";
+			id=3443;
+			atlOffset=-0.50104523;
+		};
+		class Item3007
+		{
+			dataType="Marker";
+			position[]={7936.1401,31.698956,9078.5957};
+			name="bos_wp_85";
+			type="Empty";
+			id=3444;
+			atlOffset=-0.50104523;
+		};
+		class Item3008
+		{
+			dataType="Marker";
+			position[]={7926.4165,31.698959,9085.9014};
+			name="bos_wp_86";
+			type="Empty";
+			id=3445;
+			atlOffset=-0.50104141;
+		};
+		class Item3009
+		{
+			dataType="Marker";
+			position[]={7925.9346,31.698956,9078.3389};
+			name="bos_wp_87";
+			type="Empty";
+			id=3446;
+			atlOffset=-0.50104523;
+		};
+		class Item3010
+		{
+			dataType="Marker";
+			position[]={7930.1401,31.403999,9072.0088};
+			name="bos_wp_88";
+			type="Empty";
+			id=3447;
+			atlOffset=-0.79600143;
+		};
+		class Item3011
+		{
+			dataType="Marker";
+			position[]={7923.0552,31.403999,9056.4551};
+			name="bos_wp_89";
+			type="Empty";
+			id=3448;
+			atlOffset=-0.79600143;
+		};
+		class Item3012
+		{
+			dataType="Marker";
+			position[]={7918.1025,31.403999,9052.2236};
+			name="bos_wp_90";
+			type="Empty";
+			id=3449;
+			atlOffset=-0.79600143;
+		};
+		class Item3013
+		{
+			dataType="Marker";
+			position[]={7915.0342,31.403999,9099.1758};
+			name="bos_wp_91";
+			type="Empty";
+			id=3450;
+			atlOffset=-0.79600143;
+		};
+		class Item3014
+		{
+			dataType="Marker";
+			position[]={7929.291,31.403999,9097.2344};
+			name="bos_wp_92";
+			type="Empty";
+			id=3451;
+			atlOffset=-0.79600143;
+		};
+		class Item3015
+		{
+			dataType="Marker";
+			position[]={7941.4692,31.403999,9091.9482};
+			name="bos_wp_93";
+			type="Empty";
+			id=3452;
+			atlOffset=-0.79600143;
+		};
+		class Item3016
+		{
+			dataType="Marker";
+			position[]={7910.7583,31.403999,9112.124};
+			name="bos_wp_94";
+			type="Empty";
+			id=3453;
+			atlOffset=-0.79600143;
+		};
+		class Item3017
+		{
+			dataType="Marker";
+			position[]={7892.4438,32.393139,9175.4639};
+			name="bos_wp_95";
+			type="Empty";
+			id=3455;
+			atlOffset=-0.79600143;
+		};
+		class Item3018
+		{
+			dataType="Marker";
+			position[]={7896.6772,31.616646,9155.21};
+			name="bos_wp_96";
+			type="Empty";
+			id=3456;
+			atlOffset=-0.79600143;
+		};
+		class Item3019
+		{
+			dataType="Marker";
+			position[]={7894.1802,31.421593,9141.165};
+			name="bos_wp_97";
+			type="Empty";
+			id=3457;
+			atlOffset=-0.79600143;
+		};
+		class Item3020
+		{
+			dataType="Marker";
+			position[]={7889.9849,31.403999,9134.3037};
+			name="bos_wp_98";
+			type="Empty";
+			id=3458;
+			atlOffset=-0.79600143;
+		};
+		class Item3021
+		{
+			dataType="Marker";
+			position[]={7874.4238,31.407227,9133.1494};
+			name="bos_wp_99";
+			type="Empty";
+			id=3459;
+			atlOffset=-0.79600143;
+		};
+		class Item3022
+		{
+			dataType="Marker";
+			position[]={7875.1543,31.472206,9138.6367};
+			name="bos_wp_100";
+			type="Empty";
+			id=3460;
+			atlOffset=-0.79600143;
+		};
+		class Item3023
+		{
+			dataType="Marker";
+			position[]={7863.4619,32.834286,9152.5576};
+			name="bos_wp_101";
+			type="Empty";
+			id=3461;
+			atlOffset=-0.79600143;
+		};
+		class Item3024
+		{
+			dataType="Marker";
+			position[]={7851.9985,34.799423,9163.3486};
+			name="bos_wp_102";
+			type="Empty";
+			id=3462;
+			atlOffset=-0.79600143;
+		};
+		class Item3025
+		{
+			dataType="Marker";
+			position[]={7817.9473,33.840202,9143.9385};
+			name="bos_wp_103";
+			type="Empty";
+			id=3463;
+			atlOffset=-0.79600143;
+		};
+		class Item3026
+		{
+			dataType="Marker";
+			position[]={7831.5796,31.938431,9128.5508};
+			name="bos_wp_104";
+			type="Empty";
+			id=3464;
+			atlOffset=-0.79600143;
+		};
+		class Item3027
+		{
+			dataType="Marker";
+			position[]={7846.0244,31.404778,9131.876};
+			name="bos_wp_105";
+			type="Empty";
+			id=3465;
+			atlOffset=-0.79600143;
+		};
+		class Item3028
+		{
+			dataType="Marker";
+			position[]={7846.2671,31.355274,9128.7139};
+			name="bos_wp_106";
+			type="Empty";
+			id=3466;
+			atlOffset=-0.79600143;
+		};
+		class Item3029
+		{
+			dataType="Marker";
+			position[]={7851.3491,31.454639,9121.543};
+			name="bos_wp_107";
+			type="Empty";
+			id=3467;
+			atlOffset=-0.79600143;
+		};
+		class Item3030
+		{
+			dataType="Marker";
+			position[]={7866.2339,31.442783,9129.4717};
+			name="bos_wp_108";
+			type="Empty";
+			id=3468;
+			atlOffset=-0.79600143;
+		};
+		class Item3031
+		{
+			dataType="Marker";
+			position[]={7870.9878,31.417839,9125.417};
+			name="bos_wp_109";
+			type="Empty";
+			id=3469;
+			atlOffset=-0.79600143;
+		};
+		class Item3032
+		{
+			dataType="Marker";
+			position[]={7892.9614,31.403999,9130.5811};
+			name="bos_wp_110";
+			type="Empty";
+			id=3470;
+			atlOffset=-0.79600143;
+		};
+		class Item3033
+		{
+			dataType="Marker";
+			position[]={7898.8589,31.403999,9120.0205};
+			name="bos_wp_111";
+			type="Empty";
+			id=3471;
+			atlOffset=-0.79600143;
+		};
+		class Item3034
+		{
+			dataType="Marker";
+			position[]={7894.8921,31.403999,9115.8486};
+			name="bos_wp_112";
+			type="Empty";
+			id=3472;
+			atlOffset=-0.79600143;
+		};
+		class Item3035
+		{
+			dataType="Marker";
+			position[]={7892.9932,31.403999,9101.7412};
+			name="bos_wp_113";
+			type="Empty";
+			id=3473;
+			atlOffset=-0.79600143;
+		};
+		class Item3036
+		{
+			dataType="Marker";
+			position[]={7886.4482,31.403999,9114.3447};
+			name="bos_wp_114";
+			type="Empty";
+			id=3474;
+			atlOffset=-0.79600143;
+		};
+		class Item3037
+		{
+			dataType="Marker";
+			position[]={7878.5361,31.663929,9112.6465};
+			name="bos_wp_115";
+			type="Empty";
+			id=3475;
+			atlOffset=-0.53607178;
+		};
+		class Item3038
+		{
+			dataType="Marker";
+			position[]={7877.1733,31.664867,9108.1758};
+			name="bos_wp_116";
+			type="Empty";
+			id=3476;
+			atlOffset=-0.53513336;
+		};
+		class Item3039
+		{
+			dataType="Marker";
+			position[]={7875.4209,31.403999,9125.4473};
+			name="bos_wp_117";
+			type="Empty";
+			id=3477;
+			atlOffset=-0.79600143;
+		};
+		class Item3040
+		{
+			dataType="Marker";
+			position[]={7844.1479,31.403999,9095.123};
+			name="bos_wp_118";
+			type="Empty";
+			id=3478;
+			atlOffset=-0.79600143;
+		};
+		class Item3041
+		{
+			dataType="Marker";
+			position[]={7859.1484,31.403999,9090.5654};
+			name="bos_wp_119";
+			type="Empty";
+			id=3480;
+			atlOffset=-0.79600143;
+		};
+		class Item3042
+		{
+			dataType="Marker";
+			position[]={7865.5264,31.703434,9098.9971};
+			name="bos_wp_120";
+			type="Empty";
+			id=3481;
+			atlOffset=-0.49656677;
+		};
+		class Item3043
+		{
+			dataType="Marker";
+			position[]={7891.3311,31.403999,9082.2363};
+			name="bos_wp_121";
+			type="Empty";
+			id=3482;
+			atlOffset=-0.79600143;
+		};
+		class Item3044
+		{
+			dataType="Marker";
+			position[]={7868.8965,31.403999,9107.9043};
+			name="bos_wp_122";
+			type="Empty";
+			id=3483;
+			atlOffset=-0.79600143;
+		};
+		class Item3045
+		{
+			dataType="Marker";
+			position[]={7863.6523,31.403999,9110.8691};
+			name="bos_wp_123";
+			type="Empty";
+			id=3484;
+			atlOffset=-0.79600143;
+		};
+		class Item3046
+		{
+			dataType="Marker";
+			position[]={7866.48,31.420341,9117.6074};
+			name="bos_wp_124";
+			type="Empty";
+			id=3485;
+			atlOffset=-0.79600143;
+		};
+		class Item3047
+		{
+			dataType="Marker";
+			position[]={7963.7373,31.403999,9155.6914};
+			name="bos_wp_125";
+			type="Empty";
+			id=3486;
+			atlOffset=-0.79600143;
+		};
+		class Item3048
+		{
+			dataType="Marker";
+			position[]={7828.3218,38.30571,8997.4111};
+			name="bos_wp_126";
+			type="Empty";
+			id=3487;
+			atlOffset=-0.79600143;
+		};
+		class Item3049
+		{
+			dataType="Marker";
+			position[]={6339.1724,97.791748,10502.343};
+			name="marker_45";
+			text="INACCESSIBLE DURING ALPHA";
+			type="mil_dot";
+			id=3488;
+			atlOffset=-21.154961;
+		};
+		class Item3050
+		{
+			dataType="Marker";
+			position[]={6736.0469,68.705132,3266.3394};
+			name="marker_46";
+			text="INACCESSIBLE DURING ALPHA";
+			type="mil_dot";
+			id=3489;
+			atlOffset=-10.781883;
+		};
+		class Item3051
+		{
+			dataType="Marker";
+			position[]={7734.5649,188.60645,7971.937};
+			name="marker_47";
+			text="INACCESSIBLE DURING ALPHA";
+			type="mil_dot";
+			id=3490;
+			atlOffset=-7.7387085;
+		};
+		class Item3052
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4503.5078,401.21674,7137.3359};
+			};
+			id=3504;
+			type="ModuleCreateDiaryRecord_F";
+			atlOffset=-3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="The UN Bioterrorism Reponse Team (BRT) has been cut off as the zombie virus ravages across Malden. The team must must endure, survive, and cleanse their way across the island, eradicating this bio menace once and for all..." \n "<br/> - A horror-themed Arma 3 Campaign by UselessFodder" \n "<br/><br/>" \n "For a detailed explanation of how to play this map, see ""How to Play Overrun"" below or check out the tutorial video at youtube.com/UselessFodder . Thanks for playing!";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3053
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4526.5649,400.70761,7153.4971};
+				angles[]={0.10362019,0,0.0071907565};
+			};
+			id=3512;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="ALPHA TEST NOTES";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Thanks for testing Malden Overrun! If you run into any bugs or have good ideas for features which will fit within the idea of this map, then please post them in the Steam Workshop page for this map or submit them to our Discord at discord.gg/UselessFodder" \n "<br/><br/>" \n "- UselessFodder";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3054
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4523.6123,401.03903,7151.144};
+				angles[]={0.10362019,0,0.0071907565};
+			};
+			id=3513;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Sickness and Infection";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="- Planned Feature-";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3055
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4521.2192,401.19101,7149.3306};
+				angles[]={0.055152405,0,6.252799};
+			};
+			id=3514;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Side Missions";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="- Planned Feature-";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3056
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4518.5542,401.31802,7147.4136};
+				angles[]={6.2671809,0,6.2567959};
+			};
+			id=3515;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Spawns and Arsenals";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="There are two main spawns, each with an arsenal, in Overrun: One at the Base (arsenal is the stack of boxes near the entrance) and the other is a mobile spawn point centered ont he DECON Truck. (arsenal is located on the scroll wheel at the rear of the truck). More spawns may be unlocked in the future";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3057
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4515.5581,401.40045,7145.6938};
+				angles[]={6.2671809,0,6.2567959};
+			};
+			id=3516;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Faction Bank & Unlocks";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="For every zombie killed, secondary objective completed, and area DECONed, your team will earn points which are added to the Faction Bank. You can utilize these points to unlock special vehicles and equipment at the laptop within the BRT Base. To see how many points you have, simply walk up to the laptop and the Faction Bank will appear in the top right. NOTE: Once something is unlocked, it will be unlocked forever, so consider using your points wisely!";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3058
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4513.9214,401.36249,7144.3013};
+				angles[]={6.2671809,0,6.2567959};
+			};
+			id=3517;
+			type="ModuleCreateDiaryRecord_F";
+			atlOffset=3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Infection Rate & DECON";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="The main goal of Overrun is to 'DECON' every marked point on the map utlizing the BRT's advanced techinology held within the DECON Truck. For the DECON to work, however, your team must lower the infection rate within the zone by killing the infected within. Each kill will lower anywhere form 0.5 to 3%, depending upon the size of the zone, but from time to time secondary objectives will appear. While secondary objectives are active, YOU CANNOT LOWER THE INFECTION RATE. You must complete the objective before you can continue to lower it. Otherwise it will simply stay at the same level as it was when the secondary activated." \n "<br/><br/>" \n "Once the infection rate has been reduced to less than 10%, you can now begin the DECON process. Roll the DECON Truck to within 50 meters of the infection center (signified by a flag), then use the ""Begin DECON"" command. WARNING: The infected will sense the DECON Truck activating and begin to rush to destroy it! If you are able to successfully defend the truck against the onslaught, the area will be decontaminated and rendered safe. No more zombies will spawn and the marker will turn green. Congratulations on a successful DECON. Now, on to the next town!";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item3059
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4511.9155,401.33829,7142.6777};
+				angles[]={6.2376146,0,0.0031764992};
+			};
+			id=3518;
+			type="ModuleCreateDiaryRecord_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCreateDiaryRecord_F_PresetTitle";
+					expression="_this setVariable ['PresetTitle',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Situation";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCreateDiaryRecord_F_Title";
+					expression="_this setVariable ['Title',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Basics";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCreateDiaryRecord_F_Description";
+					expression="_this setVariable ['Description',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Malden Overrun is a new game mode which has the players in the shoes of a UN Bioterrorism Response Team (BRT) cut off on Malden during a zombie virus outbreak. The team must survive, fight, and eventually cleanse the island of the virus. As there are 30 points to decmontaminate, this is a LONG TERM scenario that will take days or even weeks to complete since each town will take anywhere from 1 to 2 hours. The scenario will save your progress every 20 minutes, however, so your team and leave and come back whenever you need.";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCreateDiaryRecord_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ModuleCreateDiaryRecord_F_Subject";
+					expression="_this setVariable ['Subject',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="How to Play Overrun";
+						};
+					};
+				};
+				nAttributes=5;
+			};
 		};
 	};
 };

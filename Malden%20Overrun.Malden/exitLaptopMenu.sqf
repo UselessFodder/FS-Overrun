@@ -12,14 +12,12 @@
 	}];
 
 	missionLaptop addAction ["Reset DECON Truck", { 
-		{null = execVM "resetDecon.sqf"} remoteExec ["call",0]; 
+		{null = execVM "resetDecon.sqf"} remoteExec ["call",2]; 
 	}];
 
-	/*
-	missionLaptop addAction ["Reset Mobile Respawn", { 
+	missionLaptop addAction ["Reset Transport Truck", { 
 		{null = execVM "resetRespawn.sqf"} remoteExec ["call",0]; 
 	}];
-	*/
 
 	missionLaptop addAction ["Unlock Menu", { 
 		{null = execVM "unlockMenu.sqf"} remoteExec ["call",0]; 

@@ -14,6 +14,20 @@ if(isServer) then {
 
 };
 
+  //attach patch to truck 
+  _tex = "UserTexture1m_F" createvehicle getpos deconTruck; 
+  _tex setobjectTexture [0,"BRT_Gray.paa"]; 
+  _tex Attachto [deconTruck, [-1.4,-2.3,0.4]];
+  _tex setdir 90;
+  _tex setObjectScale 1.5; 
+ 
+  //attach patch to truck 
+  _tex = "UserTexture1m_F" createvehicle getpos deconTruck; 
+  _tex setobjectTexture [0,"BRT_Gray.paa"]; 
+  _tex Attachto [deconTruck, [1.1,-2.3,0.4]];
+  _tex setdir 270;
+  _tex setObjectScale 1.7; 
+
 //add arsenal
 [deconTruck,ArsenalItems,true,true] remoteExecCall ["BIS_fnc_addVirtualItemCargo", 0];
 [deconTruck,ArsenalBackpacks,true,true] remoteExecCall ["BIS_fnc_addVirtualBackpackCargo", 0];

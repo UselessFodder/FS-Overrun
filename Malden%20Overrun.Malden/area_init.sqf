@@ -118,7 +118,7 @@ if(isServer) then {
 						format ["private _newValue = _previousValue - %1;", _perKill] +
 						
 						format ["ZoneArray select %1 set [2, _newValue];", _locationIndex] + 
-						//format ["hint 'Subtracting %1 to get ';", _perKill, ZoneArray select _locationIndex select 2] + //**TESTING DELETE
+						//format ["hintSilent 'Subtracting %1 to get ';", _perKill, ZoneArray select _locationIndex select 2] + //**TESTING DELETE
 						
 						//add currency to faction bank for each Z killed
 						"[1] execVM 'addToBank.sqf';" +
@@ -175,7 +175,7 @@ if(isServer) then {
 				missionNamespace setVariable [_groupVarName,_temp_Group];	
 			
 			//testing delete ***
-			//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ];
+			//hintSilent format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ];
 		
 			}; 
 		} else {
@@ -183,7 +183,7 @@ if(isServer) then {
 			//ZoneArray select _locationIndex select 3 = false;
 		}; //end if-else isInfected = true
 		
-		//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ]; ***
+		//hintSilent format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ]; ***
 		sleep 0.2;
 			
 	};//end while{true}

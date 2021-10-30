@@ -1,5 +1,5 @@
 /*
-	Executes a hint to all players near a given marker
+	Executes a hintSilent to all players near a given marker
 */
 params ["_loc","_distance","_message"];
 
@@ -11,5 +11,5 @@ private _message = _this  select 2;
 //[[_message, "PLAIN"]] remoteExec ["titleText", 0];
 //check if current player is within passed distance
 if((player distance (getMarkerPos _loc)) <= _distance) then {
-	Hint _message;
+	hintSilent _message;
 };

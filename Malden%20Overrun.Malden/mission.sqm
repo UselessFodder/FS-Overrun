@@ -16,14 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4511.8359,436.04993,7119.5029};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		pos[]={4491.1006,470.48132,7106.6123};
+		dir[]={0.83746725,-0.51556659,-0.18121733};
+		up[]={0.50390428,0.85684949,-0.10903852};
+		aside[]={-0.2114926,-7.4505806e-009,-0.97737962};
 	};
 };
 binarizationWanted=0;
-sourceName="Malden%20Overrun%20ReWrite";
+sourceName="Malden%20Overrun%20v0%2e1%2e1";
 addons[]=
 {
 	"A3_Ui_F",
@@ -315,6 +315,10 @@ class ScenarioData
 		minPlayers=1;
 		maxPlayers=20;
 	};
+	wreckRemovalMaxTime=3600;
+	corpseManagerMode=3;
+	corpseLimit=30;
+	corpseRemovalMaxTime=600;
 };
 class CustomAttributes
 {
@@ -421,7 +425,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.1.0";
+		briefingName="Malden Overrun v0.1.1";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -9097,8 +9101,8 @@ class Mission
 			position[]={4550.2939,403.50705,7095.2969};
 			class Attributes
 			{
-				onActivation="if (player in thisList) then {" \n "     hint format[""Current Faction Bank: %1"", FactionBank];" \n "};";
-				onDeactivation="if (player in thisList) then {" \n "     hint """";" \n "  };";
+				onActivation="if (player in thisList) then {" \n "     hintSilent format[""Current Faction Bank: %1"", FactionBank];" \n "};";
+				onDeactivation="if (player in thisList) then {" \n "     hintSilent """";" \n "  };";
 				sizeA=3;
 				sizeB=3;
 				repeatable=1;
@@ -14083,7 +14087,6 @@ class Mission
 			name="dou_SP_10";
 			type="Empty";
 			id=1273;
-			atlOffset=0.90702057;
 		};
 		class Item920
 		{
@@ -14092,7 +14095,6 @@ class Mission
 			name="dou_SP_11";
 			type="Empty";
 			id=1274;
-			atlOffset=1.5136871;
 		};
 		class Item921
 		{
@@ -14397,7 +14399,6 @@ class Mission
 			name="dou_SP_49";
 			type="Empty";
 			id=1313;
-			atlOffset=0.43326569;
 		};
 		class Item959
 		{
@@ -14478,7 +14479,6 @@ class Mission
 			name="dou_SP_59";
 			type="Empty";
 			id=1323;
-			atlOffset=0.34301758;
 		};
 		class Item969
 		{
@@ -14575,7 +14575,6 @@ class Mission
 			name="dou_SP_71";
 			type="Empty";
 			id=1335;
-			atlOffset=1.3314514;
 		};
 		class Item981
 		{
@@ -14608,7 +14607,6 @@ class Mission
 			name="dou_SP_75";
 			type="Empty";
 			id=1339;
-			atlOffset=1.1708603;
 		};
 		class Item985
 		{
@@ -15097,7 +15095,6 @@ class Mission
 			name="dou_SP_137";
 			type="Empty";
 			id=1404;
-			atlOffset=0.67966461;
 		};
 		class Item1046
 		{
@@ -15235,7 +15232,6 @@ class Mission
 			name="dou_SP_153";
 			type="Empty";
 			id=1421;
-			atlOffset=0.32978821;
 		};
 		class Item1063
 		{
@@ -15276,7 +15272,6 @@ class Mission
 			name="dou_SP_158";
 			type="Empty";
 			id=1426;
-			atlOffset=0.14664459;
 		};
 		class Item1068
 		{
@@ -15309,7 +15304,6 @@ class Mission
 			name="dou_SP_162";
 			type="Empty";
 			id=1430;
-			atlOffset=0.29543304;
 		};
 		class Item1072
 		{
@@ -15598,7 +15592,6 @@ class Mission
 			name="dou_SP_198";
 			type="Empty";
 			id=1467;
-			atlOffset=0.72181702;
 		};
 		class Item1108
 		{
@@ -15607,7 +15600,6 @@ class Mission
 			name="dou_SP_199";
 			type="Empty";
 			id=1468;
-			atlOffset=0.93685913;
 		};
 		class Item1109
 		{
@@ -18460,7 +18452,7 @@ class Mission
 			name="ho_wp_23";
 			type="Empty";
 			id=1852;
-			atlOffset=0.19284821;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1459
 		{
@@ -18469,7 +18461,7 @@ class Mission
 			name="ho_wp_24";
 			type="Empty";
 			id=1853;
-			atlOffset=1.0130768;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1460
 		{
@@ -19252,7 +19244,7 @@ class Mission
 			name="ho_wp_111";
 			type="Empty";
 			id=1945;
-			atlOffset=0.012245178;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1547
 		{
@@ -19729,7 +19721,7 @@ class Mission
 			name="ho_wp_164";
 			type="Empty";
 			id=1998;
-			atlOffset=0.44488525;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1600
 		{
@@ -19738,7 +19730,7 @@ class Mission
 			name="ho_wp_165";
 			type="Empty";
 			id=1999;
-			atlOffset=0.46868134;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1601
 		{
@@ -19747,7 +19739,7 @@ class Mission
 			name="ho_wp_166";
 			type="Empty";
 			id=2000;
-			atlOffset=0.25370789;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1602
 		{
@@ -19756,7 +19748,7 @@ class Mission
 			name="ho_wp_167";
 			type="Empty";
 			id=2001;
-			atlOffset=0.33078766;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1603
 		{
@@ -19765,7 +19757,7 @@ class Mission
 			name="ho_wp_168";
 			type="Empty";
 			id=2002;
-			atlOffset=0.29727173;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1604
 		{
@@ -20413,7 +20405,7 @@ class Mission
 			name="ho_wp_240";
 			type="Empty";
 			id=2074;
-			atlOffset=0.36125183;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1676
 		{
@@ -20422,7 +20414,7 @@ class Mission
 			name="ho_wp_241";
 			type="Empty";
 			id=2075;
-			atlOffset=0.88858032;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1677
 		{
@@ -20476,7 +20468,7 @@ class Mission
 			name="ho_wp_247";
 			type="Empty";
 			id=2081;
-			atlOffset=0.021125793;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1683
 		{
@@ -20647,7 +20639,7 @@ class Mission
 			name="ho_wp_266";
 			type="Empty";
 			id=2100;
-			atlOffset=0.33068848;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1702
 		{
@@ -20809,7 +20801,7 @@ class Mission
 			name="ho_wp_284";
 			type="Empty";
 			id=2118;
-			atlOffset=0.32190704;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1720
 		{
@@ -21736,7 +21728,7 @@ class Mission
 			name="ho_wp_387";
 			type="Empty";
 			id=2228;
-			atlOffset=0.3267746;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1823
 		{
@@ -21745,7 +21737,7 @@ class Mission
 			name="ho_wp_388";
 			type="Empty";
 			id=2229;
-			atlOffset=0.4123764;
+			atlOffset=2.2888184e-005;
 		};
 		class Item1824
 		{

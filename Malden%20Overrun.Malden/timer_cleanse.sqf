@@ -16,12 +16,12 @@ while{CleanseActive} do {
 	//check if deconTruck is still alive. If not, delete driver, set cleanseactive to false, and kill countdown timer
 	if (isNull deconTruck == true || deconTruck getHitPointDamage "HitEngine" == 1 || deconTruck getHitPointDamage "HitHull" == 1 || deconTruck getHitPointDamage "HitFuel" == 1) then {
 		
-		//kill timer & refresh hint
+		//kill timer & refresh hintSilent
 		//[-1] call BIS_fnc_countdown;
-		hint "";
+		hintSilent "";
 		
 		//[-1] remoteExec ["BIS_fnc_countdown", 0];
-		//[""] remoteExec ["hint", 0];
+		//[""] remoteExec ["hintSilent", 0];
 		
 		//inform the user
 		titleText ["DECON Vehicle destroyed. Area is not decontaminated...", "PLAIN"];
@@ -38,8 +38,8 @@ while{CleanseActive} do {
 			titleText[format ["Area %1 successfully decontaminated.", _location], "PLAIN"];
 			CleanseActive = false;			
 		
-		} else{//if timer is not complete, update hint
-			hint format ["%1 until DECON", floor _timeLeft];
+		} else{//if timer is not complete, update hintSilent
+			hintSilent format ["%1 until DECON", floor _timeLeft];
 		
 		};//end else
 	

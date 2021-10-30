@@ -48,13 +48,13 @@ unlockHeli = {
 			publicVariable "UnlockTracker";
 
 			//inform users
-			[format ["Helicopter has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["Helicopter has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
-			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0]; 
 			
 		};
@@ -77,13 +77,13 @@ unlockTech = {
 			UnlockTracker set [1, TRUE];
 			publicVariable "UnlockTracker";
 			//inform users
-			[format ["Technical has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["Technical has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
-			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			
 		};
@@ -106,13 +106,13 @@ unlockSuppress = {
 			//rerun initArsenal to update with new items
 			["initArsenal.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			//inform users
-			[format ["Suppressors have been unlocked. New bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["Suppressors have been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
-			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			
 		};
@@ -135,13 +135,13 @@ unlockNVG = {
 			//rerun initArsenal to update with new items
 			["initArsenal.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			//inform users
-			[format ["NVGs have been unlocked. New bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["NVGs have been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
-			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hint", 0];
+			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2];
 			
 		};

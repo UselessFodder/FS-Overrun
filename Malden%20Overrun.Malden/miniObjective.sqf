@@ -245,7 +245,7 @@ if (isServer) then {
 				params["_locationIndex","_researchObject"];
 				 //_researchObject = _this select 0;
 				 //_locationIndex = _this select 1;
-				hint format ["values are %1 + %2", _researchObject, _locationIndex]; //***TESTING DELETE
+				hintSilent format ["values are %1 + %2", _researchObject, _locationIndex]; //***TESTING DELETE
 				//objectiveComplete = true;
 				//publicVariable "objectiveComplete"; 
 				ZoneArray select _locationIndex set [4, false];

@@ -129,7 +129,7 @@ while{CleanseActive} do {
 			
 
 		
-		}else { //if timer is not complete, update hint and spawn more zombies
+		}else { //if timer is not complete, update hintSilent and spawn more zombies
 			//update hint
 			[["deconTruckMarker",300,format ["%1 seconds until DECON", floor _timeLeft], _location],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			

@@ -46,4 +46,4 @@ if(isServer) then {
 };
 
 //inform users
-hint "Mission State Saved";
+hintSilent "Mission State Saved";

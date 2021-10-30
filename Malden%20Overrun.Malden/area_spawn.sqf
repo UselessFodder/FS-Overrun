@@ -192,7 +192,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 						format ["private _newValue = _previousValue - %1;", _perKill] +
 						
 						format ["ZoneArray select %1 set [2, _newValue];", _locationIndex] + 
-						//format ["hint 'Subtracting %1 to get ';", _perKill, ZoneArray select _locationIndex select 2] + //**TESTING DELETE
+						//format ["hintSilent 'Subtracting %1 to get ';", _perKill, ZoneArray select _locationIndex select 2] + //**TESTING DELETE
 						
 						//add currency to faction bank for each Z killed
 						"[1] execVM 'addToBank.sqf';" +
@@ -249,13 +249,13 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			missionNamespace setVariable [_groupVarName,_temp_Group];	
 		
 		//testing delete ***
-		//hint format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ];			
+		//hintSilent format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ];			
 			
 		}; 
 	} else {
 		//if isInfected has changed to false, exit spawner
 		
-		//clear hint
+		//clear hintSilent
 		[[_location,500,""],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
 	}; //end if-else isInfected = true
@@ -271,7 +271,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 		} else {
 			//display area DECONNED
 			[[_location,300,Format ["%1 has been decontaminated.", _location]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
-			//hint Format ["%1 has been decontaminated.", _location];	
+			//hintSilent Format ["%1 has been decontaminated.", _location];	
 		};
 	};
 	
@@ -286,5 +286,5 @@ ZoneArray select _locationIndex set [4, false];
 //testing delete ***
 diag_log format ["Area %1 deactivated. Current infection is %2", _location, ZoneArray select _locationIndex select 2];
 	
-//clear area hint
+//clear area hintSilent
 [[_location,500,""],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];

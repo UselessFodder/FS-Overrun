@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4516.1729,428.78174,7142.5078};
-		dir[]={0.42852047,-0.38016903,-0.81965953};
-		up[]={0.17613494,0.92491704,-0.336905};
-		aside[]={-0.88619792,0,-0.46330693};
+		pos[]={8172.3501,45.974964,3128.9736};
+		dir[]={-0.28473607,-0.76823109,0.57336408};
+		up[]={-0.34169394,0.6401726,0.68805838};
+		aside[]={0.89563978,-1.4901161e-008,0.44478011};
 	};
 };
 binarizationWanted=0;
@@ -468,7 +468,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.1.2";
+		briefingName="Malden Overrun v0.2.0";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

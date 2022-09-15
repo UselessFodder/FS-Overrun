@@ -70,6 +70,7 @@ if(_nearLoc isEqualTo "") then {
 						deconTruck lockDriver true;
 						_deconMan = _decon createUnit ["B_Survivor_F", getPos deconTruck,[],5, "NONE"];
 						[_deconMan] orderGetIn true;
+						_deconMan disableAI "all";
 						_deconMan setBehaviour "CARELESS";
 						_deconMan assignAsCargo deconTruck;
 						_deconMan moveInCargo [deconTruck,0];

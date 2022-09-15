@@ -14,12 +14,27 @@ if(isServer) then {
 	 	//Log
 		diag_log format ["Initializing area %1. Current infection is %2", _location, ZoneArray select _locationIndex select 2];
 	 
-	 //Build spawnpoint array to area within colored marker
-	 private _spawnArray = allMapMarkers select {[_location, getMarkerPos _x] call BIS_fnc_inTrigger};
 
+	
 	 private _maxZ = _this select 1;
 	 //get the nearest whole max Z count from maxZ * infection rate
 	 private _currentMaxZ = round (_maxZ * _infectionRate);
+	 
+	 //update zone size
+	 [_locationIndex] execVM "resizeMarkers.sqf";
+
+	//Build spawnpoint array to area within colored marker
+	//private _spawnArray = allMapMarkers select {[_location, getMarkerPos _x] call BIS_fnc_inTrigger};
+	private _spawnArray = [];
+	while {(count _spawnArray) < (_maxZ/2)} do {
+		//select random spawnpoint not inside an object
+		private _locStartSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
+		private _saveSpawn = _locStartSpawn findEmptyPosition [0,10];
+		
+		//push into _spawnArray
+		_spawnArray pushBack _saveSpawn;
+		
+	};
 
 	 _numZ = {_x inArea _location && side _x == east} count allunits;
 	 _zCount = 0;
@@ -102,7 +117,7 @@ if(isServer) then {
 				//for each Z, create a random Z from global ZList (init.sqf)
 				for [{private _i = 0}, {_i < _spawnCount}, {_i = _i + 1}] do {
 					//create Z
-					_newZ = _temp_Group createUnit[(ZList select (random[0, 7, 15])), _currentSpawn, [], 5, "NONE"]; 
+					_newZ = _temp_Group createUnit[(selectRandom ZList), _currentSpawn, [], 5, "NONE"]; 
 					//set random skill level
 					_newZ setSkill _currentSkill;
 					
@@ -144,9 +159,25 @@ if(isServer) then {
 				_currentWaypoint = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 				
 				switch (selectRandom[4]) do {
-					case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol};
+					//case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol}; ***
+					case 0: {
+						private _currentZone = MarkerSize _location;
+						//get 20% of the average of the zone's total size
+						private _patrolDistance = ((_currentZone select 0) + (_currentZone select 1)) * 0.2;
+						
+						//long patrol
+						[_temp_Group, _currentWaypoint, _patrolDistance] call BIS_fnc_taskPatrol					
+					};
 					case 1: {[_temp_Group, _currentWaypoint] call BIS_fnc_taskDefend};
-					case 2: {[_temp_Group, _currentSpawn,5] call BIS_fnc_taskPatrol};
+					case 2: {
+						private _currentZone = MarkerSize _location;
+						//get 5% of the average of the zone's total size
+						private _patrolDistance = ((_currentZone select 0) + (_currentZone select 1)) * 0.05;
+						
+						//local patrol					
+						[_temp_Group, _currentSpawn,_patrolDistance] call BIS_fnc_taskPatrol
+						
+					};
 					case 3: {_orderPos = getPos (nearestBuilding _currentWaypoint); _temp_Group move _orderPos};
 					case 4: {								
 								_centerPos = ZoneArray select _locationIndex select 0;
@@ -159,8 +190,11 @@ if(isServer) then {
 									_orderRadius = _centerPosX;
 								};
 								
-								//randomize radius near center
+								//randomize radius near center of current zone size
+								//_orderRadiusMin = _infectionRate * 0.25;
+								//_orderRadiusMax = _infectionRate * 0.75;
 								_orderRadius = random [1, _orderRadius *.25, _orderRadius * .75];
+								//_orderRadius = random [1, _orderRadius *_orderRadiusMin, _orderRadius * _orderRadiusMax];
 								
 								//get a random position near zone center and order zombies to it
 								_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;

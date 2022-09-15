@@ -2,7 +2,7 @@
     File: area_cleanse.sqf
     Author: UselessFodder
     Date: 2020-10-18
-    Last Update: 2020-10-18
+    Last Update: 2022-09-13
 
     Description:
         Spawns zombies in 
@@ -20,17 +20,6 @@ private _locIndex = -1;
 
 diag_log "Cleanse activated";
 
-//check if vehicle is near a point
-/*
-{
-
-	if (50 >= (deconTruck distance getMarkerPos _x)) then {		
-		_nearLoc = _x;
-		_locIndex = _forEachIndex;		
-	};	
-	
-} forEach Locations;
-*/
 {
 	diag_log format ["Checking distance to %1", _x select 0];
 	if (50 >= (deconTruck distance getMarkerPos (_x select 0))) then {	

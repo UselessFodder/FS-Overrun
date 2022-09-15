@@ -40,9 +40,14 @@
 					//Locations select _i setMarkerAlpha 0.5;
 					ZoneArray select _i select 0 setMarkerAlpha 0.5;
 				};
+				
+				//update zone size based on new infection rates
+				[_i] execVM "resizeMarkers.sqf";
 			
 			};
+			
 
+			
 			//delay 20 seconds
 			Sleep 20;
 		};	

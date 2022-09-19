@@ -21,11 +21,11 @@ private _location = ZoneArray select _locationIndex select 0;
 //private _deconMan = null;
 
 	//get playercount and set appropriate amount of zombies
-	private _maxZ = 14;
+	private _maxZ = 10;
 
 	//if there is only 1 player, 7 Zs is too easy
 	if (count allPlayers > 2) then {
-		_maxZ = (count allPlayers) * 7;
+		_maxZ = (count allPlayers) * 5;
 	};
 
 	//ensure the zombie count doesn't get too excessive
@@ -129,10 +129,7 @@ private _location = ZoneArray select _locationIndex select 0;
 while{CleanseActive} do {
 	//check if deconTruck is still alive. If not, delete driver, set cleanseactive to false, and kill countdown timer
 	if (isNull deconTruck == true || deconTruck getHitPointDamage "HitEngine" == 1 || deconTruck getHitPointDamage "HitHull" == 1 || deconTruck getHitPointDamage "HitFuel" == 1) then {
-		/*if(isServer) then {
-			remove driver
-			deleteVehicle _deconMan;
-		};	*/
+		
 		
 		//set cleanseActive to false
 		CleanseActive = false;	
@@ -145,9 +142,12 @@ while{CleanseActive} do {
 		//log
 		diag_log "DECON truck destroyed. Cleaning";	
 		//clear timer
-		[["deconTruckMarker",300,"", _location],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0]
+		[["deconTruckMarker",300,"", _location],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		//titleText ["DECON Vehicle destroyed. Area is not decontaminated...", "PLAIN"];
-				
+		
+		//remove driver
+		deleteVehicle _deconMan;
+
 	} else { //if not, then check if timer is complete
 	
 		_timeLeft = [0] call BIS_fnc_countdown;

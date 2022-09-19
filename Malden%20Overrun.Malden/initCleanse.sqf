@@ -76,7 +76,7 @@ if(_nearLoc isEqualTo "") then {
 						_deconMan moveInCargo [deconTruck,0];
 						deconTruck allowCrewInImmobile true;
 						//if deconMan gets out, delete him
-						_deconMan addEventHandler ["GetOutMan", {params ["_unit", "_role", "_vehicle", "_turret"]; deleteVehicle _unit;}];
+						_deconMan addEventHandler ["GetOutMan", {params ["_unit", "_role", "_vehicle", "_turret"]; __unit moveInCargo [deconTruck,0];}];
 					};
 					
 					//[_locIndex,_nearLoc] remoteExec ["area_cleanse.sqf", [0,2] select isDedicated, true];

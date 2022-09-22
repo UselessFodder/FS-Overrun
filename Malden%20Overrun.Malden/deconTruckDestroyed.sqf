@@ -10,7 +10,7 @@ if(isServer) then {
 	//add new eventHandler to new vic
 	deconTruck addEventHandler ["Killed",{execVM "deconTruckDestroyed.sqf"}];
 	//add decon action to truck
-	[deconTruck,["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
+	[deconTruck,["Begin DECON", {{null = execVM "initCleanse.sqf"} remoteExec ["call",2];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""]] remoteExec ["addAction",0];
 
 };
 

@@ -2,7 +2,7 @@
     File: area_cleanse.sqf
     Author: UselessFodder
     Date: 2020-10-18
-    Last Update: 2020-10-18
+    Last Update: 2022-09-13
 
     Description:
         Spawns zombies in 
@@ -20,17 +20,6 @@ private _locIndex = -1;
 
 diag_log "Cleanse activated";
 
-//check if vehicle is near a point
-/*
-{
-
-	if (50 >= (deconTruck distance getMarkerPos _x)) then {		
-		_nearLoc = _x;
-		_locIndex = _forEachIndex;		
-	};	
-	
-} forEach Locations;
-*/
 {
 	diag_log format ["Checking distance to %1", _x select 0];
 	if (50 >= (deconTruck distance getMarkerPos (_x select 0))) then {	
@@ -81,12 +70,13 @@ if(_nearLoc isEqualTo "") then {
 						deconTruck lockDriver true;
 						_deconMan = _decon createUnit ["B_Survivor_F", getPos deconTruck,[],5, "NONE"];
 						[_deconMan] orderGetIn true;
+						_deconMan disableAI "all";
 						_deconMan setBehaviour "CARELESS";
 						_deconMan assignAsCargo deconTruck;
 						_deconMan moveInCargo [deconTruck,0];
 						deconTruck allowCrewInImmobile true;
 						//if deconMan gets out, delete him
-						_deconMan addEventHandler ["GetOutMan", {params ["_unit", "_role", "_vehicle", "_turret"]; deleteVehicle _unit;}];
+						_deconMan addEventHandler ["GetOutMan", {params ["_unit", "_role", "_vehicle", "_turret"]; __unit moveInCargo [deconTruck,0];}];
 					};
 					
 					//[_locIndex,_nearLoc] remoteExec ["area_cleanse.sqf", [0,2] select isDedicated, true];

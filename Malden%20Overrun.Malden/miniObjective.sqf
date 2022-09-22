@@ -27,7 +27,7 @@ if (isServer) then {
 		
 		//check if it is too close to a player
 		{
-			if ((getMarkerPos _currentLoc) distance _x < 31) then {
+			if ((_currentLoc) distance _x < 31) then {
 				_tooClose = true;				
 			};
 		} forEach allPlayers;
@@ -53,22 +53,22 @@ if (isServer) then {
 		private _bossGroup = createGroup[EAST,true]; 
 
 		//spawn the demon
-		_bossZ = _bossGroup createUnit[_demonSelect, getMarkerPos _currentLoc, [], 5, "NONE"];
+		_bossZ = _bossGroup createUnit[_demonSelect,  _currentLoc, [], 5, "NONE"];
 
 		//set demon to defend point ***add patrol possibility
-		//[_bossGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend;
+		//[_bossGroup, _currentLoc] call BIS_fnc_taskDefend;
 		
 		//set demon to defend point or patrol
 		switch (selectRandom[0,0,1]) do {
-			case 0: {[_bossGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend};
-			case 1: {[_bossGroup, getMarkerPos _currentLoc,20] call BIS_fnc_taskPatrol};
+			case 0: {[_bossGroup, _currentLoc] call BIS_fnc_taskDefend};
+			case 1: {[_bossGroup, _currentLoc,20] call BIS_fnc_taskPatrol};
 		};//end switch	
 
 		//add index to zombie unit
 		_bossZ setVariable ["_bossLocationIndex", _locationIndex, true];
 
 		//create marker to show research location
-		createMarker ["_bossZMarker", getMarkerPos _currentLoc];
+		createMarker ["_bossZMarker", _currentLoc];
 		
 		//make marker visible
 		"_bossZMarker" setMarkerShape "ELLIPSE";
@@ -142,13 +142,13 @@ if (isServer) then {
 		
 		//spawn zombies into group
 		for [{ _i = 0 }, { _i < (round(random 15 + 5)) }, { _i = _i + 1 }] do {
-			_newZ = zGroup createUnit[(ZList select (random 13)), getMarkerPos _currentLoc, [], 5, "NONE"]; 		
+			_newZ = zGroup createUnit[(ZList select (random 13)), _currentLoc, [], 5, "NONE"]; 		
 			//set random skill level
 			_newZ setSkill _currentSkill;			
 		};
 
 		//order group to protect spawn
-		[zGroup, getMarkerPos _currentLoc] call BIS_fnc_taskDefend;
+		[zGroup, _currentLoc] call BIS_fnc_taskDefend;
 		
 		//execute a script to check if zombies are still alive and if not, set mission active to false
 		[_locationIndex] remoteExec ["fnc_zGroupWatch",2];
@@ -196,7 +196,7 @@ if (isServer) then {
 		
 		
 		//create marker to show zombie location
-		createMarker ["_zMarker", getMarkerPos _currentLoc];
+		createMarker ["_zMarker", _currentLoc];
 		
 		//make marker visible
 		"_zMarker" setMarkerShape "ELLIPSE";
@@ -220,7 +220,7 @@ if (isServer) then {
 		_researchSelect = selectRandom ["Land_PlasticCase_01_large_black_CBRN_F","Land_PlasticCase_01_large_CBRN_F","Land_PlasticCase_01_large_olive_CBRN_F","Land_PlasticCase_01_medium_CBRN_F","Land_PlasticCase_01_medium_black_CBRN_F","Land_PlasticCase_01_medium_olive_CBRN_F","Land_PlasticCase_01_small_CBRN_F","Land_PlasticCase_01_small_olive_CBRN_F","Land_PlasticCase_01_small_black_CBRN_F","CBRNCase_01_F","Box_C_UAV_06_medical_F","Box_C_IDAP_UAV_06_medical_F","Land_MultiScreenComputer_01_closed_black_F","Land_MultiScreenComputer_01_closed_olive_F","Land_MultiScreenComputer_01_closed_sand_F","Laptop_EP1","Land_Laptop_device_F","Land_Laptop_unfolded_F"];		
 		
 		//create marker to show research location
-		createMarker ["_intelMarker", getMarkerPos _currentLoc];
+		createMarker ["_intelMarker", _currentLoc];
 		
 		//make marker visible
 		"_intelMarker" setMarkerShape "ELLIPSE";
@@ -228,7 +228,7 @@ if (isServer) then {
 		"_intelMarker" setMarkerSize [15,15];
 		"_intelMarker" setMarkerText "Research area";		
 		
-		private _spawnLoc = getMarkerPos _currentLoc;
+		private _spawnLoc = _currentLoc;
 		
 		//spawn object at selected point
 		_researchObject = _researchSelect createVehicle _spawnLoc;

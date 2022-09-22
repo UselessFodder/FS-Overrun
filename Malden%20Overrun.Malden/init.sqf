@@ -138,10 +138,64 @@ if (isServer) then {
 		execVM "techUnlock.sqf";
 	};
 
-	//zombie selection for spawning
-	ZList = ["RyanZombieB_RangeMaster_FOpfor", "RyanZombieC_man_polo_6_FOpfor", "RyanZombie15Opfor","RyanZombieC_man_w_worker_FmediumOpfor", "RyanZombieC_man_1Opfor", "RyanZombie25mediumOpfor", "RyanZombie18mediumOpfor", "RyanZombieC_man_pilot_FslowOpfor", "RyanZombie17slowOpfor", "RyanZombieCrawler20Opfor", "RyanZombieCrawler22Opfor", "RyanZombieSpider6Opfor", "RyanZombie23walkerOpfor", "RyanZombieB_Soldier_lite_FOpfor"];
-	//"RyanZombieboss27Opfor", "RyanZombieboss19Opfor" *** SAVE FOR LATER
+		/*
+		//zombie selection for spawning
+			ZList = ["RyanZombieB_RangeMaster_FOpfor", "RyanZombieC_man_polo_6_FOpfor", "RyanZombie15Opfor","RyanZombieC_man_w_worker_FmediumOpfor", "RyanZombieC_man_1Opfor", "RyanZombie25mediumOpfor", "RyanZombie18mediumOpfor", "RyanZombieC_man_pilot_FslowOpfor", "RyanZombie17slowOpfor", "RyanZombieCrawler20Opfor", "RyanZombieCrawler22Opfor", "RyanZombieSpider6Opfor", "RyanZombie23walkerOpfor", "RyanZombieB_Soldier_lite_FOpfor"];
+			//"RyanZombieboss27Opfor", "RyanZombieboss19Opfor" *** SAVE FOR LATER
+			
+			publicVariable "ZList";
+		*/
+		
+	//add zombies to spawn list based on params
+	ZList = [];
 	
+	//list to hold all configs
+	_zombieLists =[];
+	
+	//Medium Civ Zombies
+	_zConfig1 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium1opfor" );
+	//Medium Soldier Zombies
+	_zConfig2 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium5opfor");
+	//Slow Civ Zombies
+	_zConfig3 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow1opfor" );
+	//Slow Solder Zombies
+	_zConfig4 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow5opfor" );
+	
+	//add to configlist to push into ZList below
+	_zombieLists pushback _zConfig1;
+	_zombieLists pushback _zConfig2;
+	_zombieLists pushback _zConfig3;
+	_zombieLists pushback _zConfig4;
+	
+	//check if params allow these types of zombies
+	_classUnlocked = ["FastZombies", 0] call BIS_fnc_getParamValue;
+	if (_classUnlocked == 0) then {
+		_zConfig5 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast2opfor" );
+		_zombieLists pushback _zConfig5;
+		_zConfig6 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast5opfor" );
+		_zombieLists pushback _zConfig6;
+	};
+	_classUnlocked = ["CrawlZombies", 0] call BIS_fnc_getParamValue;
+	if (_classUnlocked == 0) then {
+		_zConfig7 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "RyanzombiesgroupCrawleropfor" >> "RyanzombiesgroupCrawler2opfor" );
+		_zombieLists pushback _zConfig7;
+	};
+	_classUnlocked = ["SpiderZombies", 0] call BIS_fnc_getParamValue;
+	if (_classUnlocked == 0) then {
+		_zConfig8 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupspideropfor" >> "Ryanzombiesgroupspider2opfor" );
+		_zombieLists pushback _zConfig8;
+	};
+	
+
+	//add all zombies from cfgGroup lists above into spawning list
+	{
+		"
+			ZList pushBack getText ( _x >> 'vehicle');
+			
+		" configClasses _x;
+	} forEach _zombieLists;
+	
+	//make ZList available for other scripts
 	publicVariable "ZList";
 
 	//variable to activate cleanse mode
@@ -164,6 +218,9 @@ if (isServer) then {
 
 	execVM "autosave.sqf";
 
+	//prevent time from changing
+	execVM "timeSet.sqf";
+
 };
 
 //init marker colors
@@ -172,11 +229,8 @@ execVM "infectionMarkers.sqf";
 //Decon marker
 execVM "deconMarker.sqf";
 
-//prevent time from changing
-execVM "timeSet.sqf";
-
 //initialize arsenal in box and decon truck
 execVM "initArsenal.sqf";
 
 //add decon action to deconTruck
-deconTruck addAction ["Begin DECON", {[[],"initCleanse.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
+deconTruck addAction ["Begin DECON", {[[],"initCleanse.sqf"] remoteExec ["BIS_fnc_execVM",2];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];

@@ -12,7 +12,7 @@ private _temp_Group = createGroup[EAST,true];
 //for each Z, create a random Z from global ZList (init.sqf)
 //for [{private _i = 0}, {_i < _spawnCount}, {_i = _i + 1}] do {
 	//create Z
-	_newZ = _temp_Group createUnit[(ZList select (random[0, 7, 15])), getMarkerPos _currentSpawn, [], 3, "NONE"]; 
+	_newZ = _temp_Group createUnit[(ZList select (random[0, 7, 15])), _currentSpawn, [], 3, "NONE"]; 
 	//set random skill level
 	_newZ setSkill _currentSkill;
 //};	

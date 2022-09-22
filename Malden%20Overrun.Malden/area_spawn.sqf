@@ -1,12 +1,14 @@
 /*
     File: area_Spawn.sqf
     Author: UselessFodder
-    Date: 2020-10-18
+    Date: 2022-09-13
     Last Update: 2020-10-18
 
     Description:
         Spawns zombies in 
 
+	TODO: order zombies outside zone back into zone
+	
 */
 
 /*
@@ -34,8 +36,6 @@ _previousInfection = _infectionRate;
 //_infectionHoldRate = InfectionRate select _locationIndex;
 _infectionHoldRate = ZoneArray select _locationIndex select 2;
 
-
-//while{ActiveSpawn select _locationIndex == true} do{ 		
 //while zone is active
 while{ZoneArray select _locationIndex select 3 == true} do{ 		
 	//check if isInfected is still true
@@ -44,6 +44,9 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 		//get updated infection rate and value to change to per kill
 		//_infectionRate = InfectionRate select _locationIndex;		
 		_infectionRate = ZoneArray select _locationIndex select 2;
+		
+		//update zone size
+		[_locationIndex] execVM "resizeMarkers.sqf";
 		
 		//update maxZ based on infectionRate to nearest whole Z
 		_currentMaxZ = round (_maxZ * _infectionRate);
@@ -217,30 +220,92 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			// get random point inside zone
 			_currentWaypoint = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 			
+			//switch (selectRandom[3]) do {
 			switch (selectRandom[0,1,2,3,4,4,4,4]) do {
-				case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol};
+				//case 0: {[_temp_Group, _currentWaypoint, 20] call BIS_fnc_taskPatrol}; ***
+				//long patrol around a different waypoint than spawn
+				case 0: {
+					private _currentZone = MarkerSize _location;
+					//get 20% of the average of the zone's total size
+					private _patrolDistance = ((_currentZone select 0) + (_currentZone select 1)) * 0.2;
+					
+					//long patrol
+					[_temp_Group, _currentWaypoint, _patrolDistance] call BIS_fnc_taskPatrol					
+				};
+				//defend current spawn point
 				case 1: {[_temp_Group, _currentWaypoint] call BIS_fnc_taskDefend};
-				case 2: {[_temp_Group, _currentSpawn,5] call BIS_fnc_taskPatrol};
-				case 3: {_orderPos = getPos (nearestBuilding _currentWaypoint); _temp_Group move _orderPos};
-				case 4: {								
-							_centerPos = ZoneArray select _locationIndex select 0;
+				
+				//patrol locally around spawn point
+				case 2: {
+					private _currentZone = MarkerSize _location;
+					//get 5% of the average of the zone's total size
+					private _patrolDistance = ((_currentZone select 0) + (_currentZone select 1)) * 0.05;
+					
+					//local patrol					
+					[_temp_Group, _currentSpawn,_patrolDistance] call BIS_fnc_taskPatrol
+					
+				};
+				//put group in building in zone and separate groups to prevent moving into formation
+				case 3: {				
+					private _allpositions = (nearestBuilding _currentWaypoint) buildingPos -1;	
+					private _unitCounter = 0;
+					{
+						_unitCounter = _unitCounter +1;						
+						if (_unitCounter > 3) then {
+							deleteVehicle _x;
 							
-							//find which axis is smaller and select that
-							_centerPosX = getMarkerSize _centerPos select 0;
-							_centerPosY = getMarkerSize _centerPos select 1;
-							_orderRadius = _centerPosY;
-							if (_centerPosX >= _centerPosY) then {
-								_orderRadius = _centerPosX;
+						} else {
+						
+							//get position inside building
+							private _posToMove = (nearestBuilding _currentWaypoint) buildingPos selectRandom[(count _allpositions)-1];
+							
+							//add a little distance so units don't spawn on top of each other
+							_posToMove = _posToMove vectorAdd [random[0.1,1.1,2]-1,random[0.1,1.1,2]-1,0];
+							
+							//TEST PLS DELETE***
+							diag_log ["Putting Z at %1", _posToMove];
+							
+							_x setPosATL _posToMove;
+							
+							//move all non-leaders into a separate group
+							if (_x != leader _temp_Group) then {
+								//set to new group to each spawn operates separately
+								_id = time;
+								_groupVarName = format ["EastGroup:%1", _id];
+								private _groupVarName = createGroup[EAST,true]; 
+								[_x] joinSilent _groupVarName;
 							};
-							
-							//randomize radius near center
-							_orderRadius = random [1, _orderRadius *.25, _orderRadius * .75];
-							
-							//get a random position near zone center and order zombies to it
-							_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;
-							[_temp_Group, _orderPos, 10] call BIS_fnc_taskPatrol;
 						};
-									
+					} forEach units _temp_Group;
+				
+				};
+				
+				//patrol around center of zone
+				case 4: {								
+					_centerPos = ZoneArray select _locationIndex select 0;
+					
+					//find which axis is smaller and select that
+					_centerPosX = getMarkerSize _centerPos select 0;
+					_centerPosY = getMarkerSize _centerPos select 1;
+					_orderRadius = _centerPosY;
+					if (_centerPosX >= _centerPosY) then {
+						_orderRadius = _centerPosX;
+					};
+					
+					//randomize radius near center of current zone size
+					//_orderRadiusMin = _infectionRate * 0.25;
+					//_orderRadiusMax = _infectionRate * 0.75;
+					_orderRadius = random [1, _orderRadius *.45, _orderRadius * .75];
+					//_orderRadius = random [1, _orderRadius *_orderRadiusMin, _orderRadius * _orderRadiusMax];
+					
+					//set a reasonable patrol distance
+					private _patrolDistance = (_centerPosX + _centerPosY) * 0.1;
+					
+					//get a random position near zone center and order zombies to it
+					_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;
+					[_temp_Group, _orderPos, _patrolDistance] call BIS_fnc_taskPatrol;
+				};
+			
 			};//end switch	
 
 			//set to new group to each spawn operates separately
@@ -267,6 +332,13 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			//display current infection rate
 			//_updatedInfection = InfectionRate select _locationIndex;
 			_updatedInfection = ZoneArray select _locationIndex select 2;
+			
+			//if infection is somehow below 0, set it to 0 again
+			if (_updatedInfection < 0) then {
+				_updatedInfection = 0;
+				ZoneArray select _locationIndex set [2, 0];
+			};
+			
 			[[_location,400,Format ["%1 infection rate: %2 %3", _location, round (_updatedInfection * 100), "%"]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		} else {
 			//display area DECONNED

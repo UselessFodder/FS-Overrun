@@ -220,6 +220,9 @@ if (isServer) then {
 
 	//prevent time from changing
 	execVM "timeSet.sqf";
+	
+	//secondary missions
+	execVM "initSecondary.sqf";
 
 };
 

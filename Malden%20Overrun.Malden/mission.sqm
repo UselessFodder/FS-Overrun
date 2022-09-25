@@ -12,22 +12,22 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=3693;
+		nextID=3698;
 	};
 	class MarkerIDProvider
 	{
-		nextID=46;
+		nextID=50;
 	};
 	class Camera
 	{
-		pos[]={7031.396,155.82346,9987.4336};
-		dir[]={0.15521646,-0.584961,0.79608089};
-		up[]={0.1119455,0.81106186,0.57415134};
-		aside[]={0.98152554,4.217145e-008,-0.19137418};
+		pos[]={6110.9521,227.69911,10567.144};
+		dir[]={0.35189655,-0.63386184,0.68876433};
+		up[]={0.28838843,0.7734437,0.56446099};
+		aside[]={0.8905111,-1.2725286e-007,-0.45497108};
 	};
 };
 binarizationWanted=0;
-sourceName="Malden%20Overrun%20v0%2e2%2e1";
+sourceName="Malden%20Overrun%20v0%2e3%2e0";
 addons[]=
 {
 	"A3_Ui_F",
@@ -468,7 +468,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.2.0";
+		briefingName="Malden Overrun v0.3.0";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -494,7 +494,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=393;
+		items=396;
 		class Item0
 		{
 			dataType="Marker";
@@ -9448,6 +9448,45 @@ class Mission
 			};
 			id=3692;
 			type="EmptyDetector";
+		};
+		class Item393
+		{
+			dataType="Trigger";
+			position[]={6163.0796,120.32023,10720.84};
+			angle=-2.8804588;
+			class Attributes
+			{
+				sizeA=338.25693;
+				sizeB=201.90044;
+				isRectangle=1;
+			};
+			id=3693;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.74738312;
+		};
+		class Item394
+		{
+			dataType="Marker";
+			position[]={6154.4717,117.53809,10701.645};
+			name="marker_48";
+			markerType="ELLIPSE";
+			type="";
+			colorName="ColorRed";
+			fillName="FDiagonal";
+			a=391.3161;
+			b=307.90598;
+			angle=15.972194;
+			id=3695;
+			atlOffset=-3.5848312;
+		};
+		class Item395
+		{
+			dataType="Marker";
+			position[]={5949.5713,106.29344,10932.221};
+			name="marker_49";
+			text="WARNING: EXTREME INFECTION";
+			type="mil_box";
+			id=3696;
 		};
 	};
 };

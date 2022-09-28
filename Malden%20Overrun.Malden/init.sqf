@@ -1,27 +1,5 @@
 // init.sqf for Malden Overrun
 
-/* ***TODO:
-		x Set up spawn point arrays
-		x Create zombie type array to create variety
-		x Set up separate groups of 5-10 based on maxZ
-		x patrol and defense routes for groups
-		x Arsenal
-		x FOB construction
-		x Mobile respawn
-		x Garbage Collection
-		x Turn off conditions
-		x Infection rate
-		x Set markers for all towns
-		x Initialize points	
-		X Decrease infection rate	
-		X Cleasing vehicle & DECON
-		X Saving
-		X Mini-Objectives
-		- Set triggers for all towns
-		X Victory conditions
-		
-*/
-
 //---------- Global variables------------------//
 
 	/*
@@ -42,20 +20,15 @@
 if (isServer) then {
 	//list of location names
 	Locations = ["Airport","Aratte","Arudy","Blanches","Bosquet","Cancon","Chapoi","Corton","Dorres","Dourdan","Faro","Goisse","Guran","Houdan","La_Pessagne","La_Riviere","La_Trinite","Larche","Lavalle","Le_Port","Le_Port_Harbor","Loisse","Lumber_Mill","Military_Base","Power_Plant","Radio_Station","Saint_Jean","Saint_Louis","Saint_Marie","Saint_Martin","Vigny"];
-	//publicVariable "Locations";
 	
 	//set default mission values to be overwritten by loaded ones later
 	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
-	//publicVariable "IsInfected";
 
 	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-	//publicVariable "InfectionRate";
 
 	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-	//publicVariable "ActiveSpawn";
 	
 	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-	//publicVariable "ActiveSpawn";
 
 	//currency for faction unlocks
 	FactionBank = 0;
@@ -65,6 +38,10 @@ if (isServer) then {
 	//0 - Heli, 1 - Tech, 2 - NVGs, 3 - Supressors
 	UnlockTracker = [false,false,false,false];
 	publicVariable "UnlockTracker";
+	
+	//tracker for access to finale
+	FinaleReady = false;
+	publicVariable "FinaleReady";
 
 	//check if profileNamespace contains changeable variables. If so, load variables
 	_saveCheck = profileNamespace getVariable "IsInfected";
@@ -137,14 +114,6 @@ if (isServer) then {
 	if (UnlockTracker select 1 == true) then {
 		execVM "techUnlock.sqf";
 	};
-
-		/*
-		//zombie selection for spawning
-			ZList = ["RyanZombieB_RangeMaster_FOpfor", "RyanZombieC_man_polo_6_FOpfor", "RyanZombie15Opfor","RyanZombieC_man_w_worker_FmediumOpfor", "RyanZombieC_man_1Opfor", "RyanZombie25mediumOpfor", "RyanZombie18mediumOpfor", "RyanZombieC_man_pilot_FslowOpfor", "RyanZombie17slowOpfor", "RyanZombieCrawler20Opfor", "RyanZombieCrawler22Opfor", "RyanZombieSpider6Opfor", "RyanZombie23walkerOpfor", "RyanZombieB_Soldier_lite_FOpfor"];
-			//"RyanZombieboss27Opfor", "RyanZombieboss19Opfor" *** SAVE FOR LATER
-			
-			publicVariable "ZList";
-		*/
 		
 	//add zombies to spawn list based on params
 	ZList = [];
@@ -223,8 +192,12 @@ if (isServer) then {
 	
 	//secondary missions
 	execVM "initSecondary.sqf";
+	
+	//check if all areas are DECON and players are ready for Finale event
+	execVM "finaleCheck.sqf";
 
 };
+//run on all clients
 
 //init marker colors
 execVM "infectionMarkers.sqf";
@@ -237,3 +210,4 @@ execVM "initArsenal.sqf";
 
 //add decon action to deconTruck
 deconTruck addAction ["Begin DECON", {[[],"initCleanse.sqf"] remoteExec ["BIS_fnc_execVM",2];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
+

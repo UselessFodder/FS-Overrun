@@ -12,7 +12,7 @@ class EditorData
 	};
 	class ItemIDProvider
 	{
-		nextID=3698;
+		nextID=3699;
 	};
 	class MarkerIDProvider
 	{
@@ -20,14 +20,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6110.9521,227.69911,10567.144};
-		dir[]={0.35189655,-0.63386184,0.68876433};
-		up[]={0.28838843,0.7734437,0.56446099};
-		aside[]={0.8905111,-1.2725286e-007,-0.45497108};
+		pos[]={6386.8931,143.20491,10366.653};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710671,0.70710683};
+		aside[]={1,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
-sourceName="Malden%20Overrun%20v0%2e3%2e0";
+sourceName="Malden%20Overrun%20v0%2e3%2e1";
 addons[]=
 {
 	"A3_Ui_F",
@@ -468,7 +468,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.3.0";
+		briefingName="Malden Overrun v0.3.1";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -494,7 +494,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=396;
+		items=397;
 		class Item0
 		{
 			dataType="Marker";
@@ -9452,41 +9452,63 @@ class Mission
 		class Item393
 		{
 			dataType="Trigger";
-			position[]={6163.0796,120.32023,10720.84};
-			angle=-2.8804588;
+			position[]={6165.0278,120.31987,10717.724};
+			angle=3.4027281;
 			class Attributes
 			{
-				sizeA=338.25693;
-				sizeB=201.90044;
+				name="finaleFence";
+				condition="this && FinaleReady == false";
+				onActivation="[[""finaleArea"",400,""INFECTION IS TOO STRONG. TURN BACK""],""messageNear.sqf""] remoteExec [""BIS_fnc_execVM"",0];" \n "[thisList select 0,thisTrigger] execVM ""slowDamage.sqf"";";
+				sizeA=373.60901;
+				sizeB=236.56799;
+				repeatable=1;
+				activationBy="WEST";
 				isRectangle=1;
 			};
 			id=3693;
 			type="EmptyDetectorAreaR50";
-			atlOffset=0.74738312;
+			atlOffset=0.54100037;
 		};
 		class Item394
 		{
 			dataType="Marker";
-			position[]={6154.4717,117.53809,10701.645};
-			name="marker_48";
+			position[]={6154.4722,117.538,10701.645};
+			name="finaleArea";
 			markerType="ELLIPSE";
 			type="";
 			colorName="ColorRed";
 			fillName="FDiagonal";
-			a=391.3161;
-			b=307.90598;
-			angle=15.972194;
+			a=391.31601;
+			b=307.90601;
+			angle=15.971997;
 			id=3695;
-			atlOffset=-3.5848312;
+			atlOffset=-3.5848999;
 		};
 		class Item395
 		{
 			dataType="Marker";
-			position[]={5949.5713,106.29344,10932.221};
-			name="marker_49";
+			position[]={5949.5708,106.293,10932.22};
+			name="finaleWarning";
 			text="WARNING: EXTREME INFECTION";
 			type="mil_box";
 			id=3696;
+			atlOffset=-0.00028991699;
+		};
+		class Item396
+		{
+			dataType="Trigger";
+			position[]={6162.585,120.3166,10720.326};
+			angle=3.4027271;
+			class Attributes
+			{
+				name="finaleTrigger";
+				sizeA=338.25699;
+				sizeB=201.89999;
+				isRectangle=1;
+			};
+			id=3698;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.74700165;
 		};
 	};
 };

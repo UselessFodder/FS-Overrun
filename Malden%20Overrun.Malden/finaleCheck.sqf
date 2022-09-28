@@ -28,17 +28,21 @@ _totalDeconed = 0;
 //log total number of deconed zones
 diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 
-//If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the players will win
+//If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the finale event will open up
 if (_totalDeconed >= _victoryZoneCount) then {
-	//*** SEPARATE INTO NEW SQF
-	[["You've done it... Malden has been cleansed of the zombie menace!", "PLAIN"]] remoteExec ["titleText", 0];
+	//Notify all players
+	[["The Infection level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
 	
-	sleep 5;
+	sleep 3;
 	
-	[["Thank you for testing the Malden Overrun Alpha!\nPlease give UselessFodder your feedback to improve this scenario!\nYou can find him at discord.gg/UselessFodder or on socials", "PLAIN"]] remoteExec ["titleText", 0];
+	//create a task notification
+	["TaskAssigned", ["", format ["Decontaminate the Infection source at the old Military Base"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
 	
-	sleep 5;
+	//change area warning to draw the players in
+	"finaleWarning" setMarkerText "DECONTAMINATE THE SOURCE";
 	
-	//end the mission and return to select screen
-	"end1" call BIS_fnc_endMission;
+	//set FinaleReady variable to ensure access to the final area
+	FinaleReady = true;
+	publicVariable "FinaleReady";
+
 };

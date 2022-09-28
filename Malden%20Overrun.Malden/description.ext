@@ -77,6 +77,21 @@ class Params
         texts[] = {""};
         default = "";
     };	
+	
+		class ReinfectionMission
+	{
+		title = "Allow 100% infection zones to Reinfect DECONed zones? (Recommend ON)";
+		texts[] = {"ON","OFF"};
+		values[] = {0,1};
+		default = 0;
+	};
+	
+    class Spacer2 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };		
 	class UnlockDescription
 	{
 		title = "Start with these unlocked? (Recommended to leave default for best experience)";
@@ -119,7 +134,7 @@ class Params
 		values[] = {0,1};
 		default = 0;
 	};
-    class Spacer2 {
+    class Spacer3 {
         title = "";
         values[] = {""};
         texts[] = {""};

@@ -10,6 +10,15 @@ publicVariable "NumberMissions";
 MissionMarkers = [];
 publicVariable "MissionMarkers";
 
+//array to hold all types of missions for selection
+_missionTypes = [];
+
+//add non-disabled mission types
+if (["ReinfectionMission", 0] call BIS_fnc_getParamValue == 0) then {
+	_missionTypes pushback 0;
+};
+
+
 //while loop to continuously spawn missions
 while {true} do {
 	//defined wait timer
@@ -19,7 +28,7 @@ while {true} do {
 	sleep random[600];
 	
 	//randomize mission
-	_currentMission = selectRandom[0,0,0]; //0 = horde reinfect, 1 = civ rescue, 2 = info retrieval
+	_currentMission = selectRandom _missionTypes; //0 = horde reinfect, 1 = civ rescue, 2 = info retrieval
 	
 	//horde reinfect
 	if (_currentMission == 0) then {

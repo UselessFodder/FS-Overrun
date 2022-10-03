@@ -42,8 +42,8 @@ if (_totalDeconed >= _victoryZoneCount) then {
 	//change area warning to draw the players in
 	"finaleWarning" setMarkerText "DECONTAMINATE THE SOURCE";
 	
+	
 	//set FinaleReady variable to ensure access to the final area
 	FinaleReady = true;
 	publicVariable "FinaleReady";
-
 };

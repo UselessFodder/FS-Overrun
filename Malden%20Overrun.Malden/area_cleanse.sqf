@@ -70,55 +70,13 @@ private _location = ZoneArray select _locationIndex select 0;
 		//DEBUG DELETE***		
 		_debugMarkerName = format ["debugMarker_%1", _debugMarkerNumber];
 		_debugMarker = createMarker [_debugMarkerName, _saveSpawn]; // Not visible yet.
-		_debugMarkerName setMarkerType "hd_dot"; // Visible.
-		_debugMarkerName setMarkerColor "ColorRed";
+		//_debugMarkerName setMarkerType "hd_dot"; // Visible.
+		//_debugMarkerName setMarkerColor "ColorRed";
 		diag_log format ["New Decon Position: %1 at %2",_debugMarkerName, _saveSpawn];
 		_debugMarkerNumber = _debugMarkerNumber + 1;
 				
 	};
 	
-	
-	/*
-		while {!_locCheck} do {
-			if (_locCheckCounter < 5) then {
-				
-				//select random spawnpoint
-				//_startSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
-				_startSpawn = [[[position deconTruck, _maximumDistance]], [position deconTruck, _maximumDistance]] call BIS_fnc_randomPos;
-				_currentSpawn = _startSpawn findEmptyPosition [0,10];
-				
-				//default _locCheck to true and only change to false if a player is too close to the spawn
-				_locCheck = true;
-				
-				//check if it is within minimum distance of a player
-				{
-					//_currentDistance = getMarkerPos _currentSpawn distance _x;
-					_currentDistance = _currentSpawn distance _x;
-					if (_currentDistance < _minimumDistance) then {
-						//*** debug
-						diag_log format ["Cannot use spawn as it is within %1 of a player, less than the minimum of %2", _currentDistance, _minimumDistance];
-					
-						//if the spawn is too close, change _locCheck to false so the check runs again
-						_locCheck = false;
-					};							
-				} forEach allPlayers;
-				
-				//increment counter
-				_locCheckCounter = _locCheckCounter + 1;
-			} else {
-					//if no location can be found in 5 tries, lower the distance and try again
-					if (_minimumDistance > 5) then {
-						_minimumDistance = _minimumDistance - 2;
-						_locCheckCounter = 0;							
-					} else {
-						//If distance is 5m, just use this as the best possible choice
-						_locCheck = true;							
-					};
-			};
-			
-		};
-	*/
-
 	//get start amount of zombies
 	_numZ = {_x inArea _location && side _x == east} count allunits;
 
@@ -194,7 +152,10 @@ while{CleanseActive} do {
 				publicVariable "CleanseActive";
 				
 				//check if this is the final zone for victory
-				execVM "victoryCheck.sqf";
+				//execVM "victoryCheck.sqf";
+				
+				//check to see if finale is unlocked
+				execVM "finaleCheck.sqf";
 				
 			};
 			
@@ -237,6 +198,6 @@ while{CleanseActive} do {
 		};//end else
 	};//end else
 	
-	//delay 0.5 seconds
-	sleep 1;
+	//delay 2 seconds
+	sleep 2;
 };

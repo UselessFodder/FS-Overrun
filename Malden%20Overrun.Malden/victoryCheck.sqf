@@ -30,15 +30,6 @@ diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 
 //If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the players will win
 if (_totalDeconed >= _victoryZoneCount) then {
-	//*** SEPARATE INTO NEW SQF
-	[["You've done it... Malden has been cleansed of the zombie menace!", "PLAIN"]] remoteExec ["titleText", 0];
-	
-	sleep 5;
-	
-	[["Thank you for testing the Malden Overrun Alpha!\nPlease give UselessFodder your feedback to improve this scenario!\nYou can find him at discord.gg/UselessFodder or on socials", "PLAIN"]] remoteExec ["titleText", 0];
-	
-	sleep 5;
-	
-	//end the mission and return to select screen
-	"end1" call BIS_fnc_endMission;
+	//generate victory
+	execVM "victory.sqf";
 };

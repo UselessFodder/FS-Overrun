@@ -202,6 +202,14 @@ if (isServer) then {
 //init marker colors
 execVM "infectionMarkers.sqf";
 
+//hide finale event markers
+"generatorStart" setMarkerAlpha 0;
+"serverStart" setMarkerAlpha 0;
+"startDecon" setMarkerAlpha 0;
+
+//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
+
+
 //Decon marker
 execVM "deconMarker.sqf";
 

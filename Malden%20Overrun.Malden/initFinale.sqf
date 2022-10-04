@@ -31,6 +31,9 @@ _phaseInterrupt = 0;
 	
 //create a task notification
 ["TaskAssigned", ["", format ["Restart the base generator"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
+
+//notify
+diag_log "Initialized Finale Event";
 	
 //start while zombie spawning loop for phases 0 - 3
 while {FinalePhase <= 3} do {
@@ -216,7 +219,7 @@ while {FinalePhase <= 3} do {
 						["startDecon","%1 seconds until complete DECON"] execVM "timerNotification.sqf";
 						
 						//start the defend phase
-						execVM "finaleDefend.sqf";
+						execVM "finaleDefend.sqf";												
 												
 					};
 					
@@ -249,11 +252,14 @@ while {FinalePhase <= 3} do {
 		
 		
 	//if trigger is inactive, leave sqf via a false FinalePhase #
+	
+	/*  Cannot do this yet as there is no way to reset the finale event
 	if (FinaleActive == false) then {
 		FinalePhase = 4;
 		publicVariable "FinalePhase";
 	};
-		
+	*/
+	
 	//delay next iteration	
 	sleep _sleepTimer;
 };

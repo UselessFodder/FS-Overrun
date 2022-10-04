@@ -17,6 +17,8 @@
 		
 	*/
 
+// ------------ Server only
+
 if (isServer) then {
 	//list of location names
 	Locations = ["Airport","Aratte","Arudy","Blanches","Bosquet","Cancon","Chapoi","Corton","Dorres","Dourdan","Faro","Goisse","Guran","Houdan","La_Pessagne","La_Riviere","La_Trinite","Larche","Lavalle","Le_Port","Le_Port_Harbor","Loisse","Lumber_Mill","Military_Base","Power_Plant","Radio_Station","Saint_Jean","Saint_Louis","Saint_Marie","Saint_Martin","Vigny"];
@@ -177,7 +179,14 @@ if (isServer) then {
 	//mobileRespawn addEventHandler ["Killed",{execVM "mobileRespawnDestroyed.sqf"}];
 	
 	//init deconTruckDestroted on correct vehicle
-	deconTruck addEventHandler ["Killed",{execVM "deconTruckDestroyed.sqf"}];
+	//deconTruck addEventHandler ["Killed",{execVM "deconTruckDestroyed.sqf"}];
+	deconTruck addEventHandler ["Killed",{
+		{
+			deleteVehicle _x;
+		} forEach attachedObjects deconTruck;
+		
+		execVM "deconTruckDestroyed.sqf"; 
+	}];
 
 	//Respawn marker
 	execVM "respawnMarker.sqf";
@@ -197,7 +206,8 @@ if (isServer) then {
 	execVM "finaleCheck.sqf";
 
 };
-//run on all clients
+
+// ----------- run on all clients
 
 //init marker colors
 execVM "infectionMarkers.sqf";

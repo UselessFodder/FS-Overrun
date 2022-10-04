@@ -17,7 +17,7 @@ private _nearZones = [];
 //holds selected origin of horde
  _originZone = nil;
 //holds selected target of horde
- _targetZone = nil;
+ _targetZone = "";
  //variable to hold mission end result for notification
  _missionEndResult = 0;
 
@@ -43,6 +43,12 @@ private _nearZones = [];
 
 diag_log format ["** Total number of 100% zones = %1 **", count _maxInfected];
 
+//if no target zones have been found
+if (count _maxInfected == 0) exitWith{
+
+	diag_log "** No 100% infection zones. Exiting reinfection script. **";
+};
+
 //randomize array to ensure it's not always the same zones
 _maxInfected = _maxInfected call BIS_fnc_arrayShuffle;
 
@@ -52,8 +58,8 @@ private _currentArray = 0;
 //selector to exit loop once selection complete
 private _zoneSelected = false;
 
-//find us a target zone
-while {_zoneSelected == false && _currentArray <= (count _maxInfected) - 1} do {
+//find us a target zone in 3 tries
+while {_zoneSelected == false && _currentArray <= 2} do {
 	_checkingZone = _maxInfected select _currentArray;
 	_nearZones = [];
 	
@@ -139,12 +145,10 @@ while {_zoneSelected == false && _currentArray <= (count _maxInfected) - 1} do {
 	_currentArray = _currentArray + 1;
 
 };
-//if no 100% zones have areas to reinfect near them, quit script
-if (_targetZone == nil) then {
-	if (true ) exitWith
-	{
-		diag_log "** No Zones to reinfect. Exiting **";
-	};
+//if no target zones have been found
+if (_targetZone == "") exitWith {
+
+	diag_log "** No Target Found to reinfect in 3 tries. Exiting **";
 };
 
 
@@ -206,13 +210,31 @@ MO_fnc_markerUpdate =
 	
 	diag_log format ["Horde destroyed. Deleting %1", _markerName];
 	deleteMarker _markerName;
+	
+	//find marker in MissionMarkers and delete it for garbage collection tracking	
+	_i = 0;
+	{
+		if(_x == _markerName) then {
+			MissionMarkers deleteAt _i;
+		};
+		_i = _i + 1;
+	} forEach MissionMarkers;	
+	publicVariable "MissionMarkers";
+	
+	
+	//log
+	diag_log format ["Removed Reinfection marker %1 from mission marker list: %2",_markerName, MissionMarkers];
 
 };
 
 [_temp_Group, _markerName] spawn MO_fnc_markerUpdate;
 
-//MissionMarkers pushback _markerName;
-//publicVariable "MissionMarkers";
+//update all mission markerShadow
+MissionMarkers pushback formatText ["%1",_markerName];
+publicVariable "MissionMarkers";
+
+//log
+diag_log format ["Added Reinfection marker %1 to mission marker list: %2",_markerName, MissionMarkers];
 
 //Notify players of horde
 ["TaskAssigned", ["", format ["A horde is moving from %1 to %2 to reinfect the zone!", _originZone, _targetZone]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];

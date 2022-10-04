@@ -9,12 +9,28 @@ private _dist = 800;
 _players = allPlayers;
 
 while{true} do{
+	//reset array
+	_garbage = [];
+
 	{
 		_unit = _x;
 		if ((side _unit) == east) then {
 			if ( ({(_unit distance _x) > _dist} count playableUnits) == ({isplayer _x} count playableUnits) ) then {
-				//add them to the garbage collection stack to check again later
-				_garbage pushBack _unit;
+				//check if unit is part of a secondary mission
+				_insideMission = false;				
+				{
+					//diag_log format ["Checking for %1 at %2",_x, getMarkerPos str _x];
+					if(_unit distance getMarkerPos str _x < 100) then{
+						_insideMission = true;
+						//log
+						diag_log format ["%1 is inside area %2 and won't be deleted by garbage collection",_unit,_x];
+					};
+				} forEach MissionMarkers;
+				
+				if(_insideMission == false) then {
+					//add them to the garbage collection stack to check again later
+					_garbage pushBack _unit;					
+				};
 			};
 		};
 	} forEach Allunits;
@@ -29,7 +45,7 @@ while{true} do{
 		if ((side _unit) == east) then {
 			if ( ({(_unit distance _x) > _dist} count playableUnits) == ({isplayer _x} count playableUnits) ) then {
 				deletevehicle _unit;
-				diag_log "Running garbage collection";
+				diag_log format ["Garbage collection deleted %1",_unit];
 			};
 		};
 	

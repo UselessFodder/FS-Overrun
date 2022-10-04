@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6096.3608,151.05806,10738.191};
-		dir[]={0.25927094,-0.78074837,0.56851614};
-		up[]={0.32396063,0.62484556,0.7103644};
-		aside[]={0.9098506,0,-0.41493604};
+		pos[]={6098.6812,122.97116,10752.186};
+		dir[]={-0.57742935,-0.3705571,-0.72750449};
+		up[]={-0.2303707,0.9288097,-0.29024455};
+		aside[]={-0.78326541,1.4901161e-008,0.62168747};
 	};
 };
 binarizationWanted=0;
@@ -9555,7 +9555,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={6162.585,120.3166,10720.326};
-			angle=3.4027271;
+			angle=3.4027281;
 			class Attributes
 			{
 				name="finaleTrigger";
@@ -9677,7 +9677,7 @@ class Mission
 									class data
 									{
 										singleType="STRING";
-										value="_this select 1 switchMove """";" \n "FinalePhase = 1; " \n "publicVariable ""FinalePhase"";" \n """serverStart"" setMarkerAlpha 1;" \n "[""TaskAssigned"", ["""", format [""Boot up the base communications server""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];";
+										value="_this select 1 switchMove """";" \n "FinalePhase = 1; " \n "publicVariable ""FinalePhase"";" \n """serverStart"" setMarkerAlpha 1;" \n "[""TaskAssigned"", ["""", format [""Boot up the base communications server""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];" \n "diag_log ""Phase 0, Generator, has been completed. Beginning Phase 1"";";
 									};
 								};
 								class Item8
@@ -11067,17 +11067,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6097.145,122.10109,10750.426};
-				angles[]={0,0.07375408,0};
+				position[]={6097.145,122.10107,10750.426};
+				angles[]={0,0.073757611,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=3788;
 			type="Land_Laptop_device_F";
+			atlOffset=0.89615631;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11166,7 +11166,7 @@ class Mission
 									class data
 									{
 										singleType="STRING";
-										value="FinalePhase = 3; " \n "publicVariable ""FinalePhase"";" \n "[""TaskAssigned"", ["""", format [""Defend the Decontamination machine!""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];";
+										value="FinalePhase = 3; " \n "publicVariable ""FinalePhase"";" \n "[""TaskAssigned"", ["""", format [""Defend the Decontamination machine!""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];" \n "diag_log ""Phase 2, Device start, has been completed. Beginning Final Defend event"";";
 									};
 								};
 								class Item8
@@ -11221,8 +11221,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6340.7578,110.45507,10736.188};
-				angles[]={0.0012448779,4.5012913,0.0079786023};
+				position[]={6340.7573,110.45507,10736.188};
+				angles[]={0.0012391838,4.5012913,0.0079761548};
 			};
 			side="Empty";
 			flags=4;
@@ -11321,7 +11321,7 @@ class Mission
 									class data
 									{
 										singleType="STRING";
-										value="FinalePhase = 2; " \n "publicVariable ""FinalePhase"";" \n """startDecon"" setMarkerAlpha 1;" \n "[""TaskAssigned"", ["""", format [""Begin the final Decontamination process...""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];";
+										value="FinalePhase = 2; " \n "publicVariable ""FinalePhase"";" \n """startDecon"" setMarkerAlpha 1;" \n "[""TaskAssigned"", ["""", format [""Begin the final Decontamination process...""]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];" \n "diag_log ""Phase 1, Server, has been completed. Beginning Phase 2"";";
 									};
 								};
 								class Item8

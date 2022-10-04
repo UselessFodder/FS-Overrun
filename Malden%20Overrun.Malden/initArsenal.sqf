@@ -31,6 +31,13 @@ if (isServer) then {
 		//diag_log format ["%1 added to ArsenalItems", (configName _x)];
 	} 
 	forEach ("((configName (_x)) isKindof ['ItemCore', configFile >> 'cfgWeapons']) && !(getText (configfile >> 'CfgWeapons' >> configName _x >> 'ItemInfo' >> 'mountAction') == 'MountOptic')" configClasses (configFile >> "cfgWeapons")); 
+	
+	//add all glasses, as well (why are these separate from everything else BI??)
+	{
+		ArsenalItems pushBack (configName _x);
+		//diag_log format ["Glasses: %1 added to ArsenalItems", (configName _x)];
+	} 
+	forEach ("(getText (_x >> 'displayName') != '')" configClasses (configFile >> "cfgGlasses"));
 
 	//holder for all thermal and nvg scopes
 	_nvgScopes = [];

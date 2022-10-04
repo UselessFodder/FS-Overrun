@@ -50,7 +50,7 @@ unlockHeli = {
 			//inform users
 			[format ["Helicopter has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
-			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
+			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
@@ -79,12 +79,12 @@ unlockTech = {
 			//inform users
 			[format ["Technical has been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
-			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
+			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
 			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
-			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2];
+			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			
 		};
 	};
@@ -108,12 +108,12 @@ unlockSuppress = {
 			//inform users
 			[format ["Suppressors have been unlocked. New bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
 			//exit menu
-			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2]; 
+			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0]; 
 			
 		} else {
 			//if there is not enough in bank, tell user
 			[format ["You do not have enough to unlock. Current bank total: %1", _currentBank]] remoteExec ["hintSilent", 0];
-			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",2];
+			["exitLaptopMenu.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			
 		};
 	};

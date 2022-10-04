@@ -20,12 +20,13 @@ if (["ReinfectionMission", 0] call BIS_fnc_getParamValue == 0) then {
 
 
 //while loop to continuously spawn missions
-while {true} do {
+while {count _missionTypes > 0} do {
 	//defined wait timer
 	sleep 1500; //25 minutes
 	
 	//randomize up to 10 minutes additional time
-	sleep random[600];
+	_additionalSleep = random[600];
+	sleep _additionalSleep;
 	
 	//randomize mission
 	_currentMission = selectRandom _missionTypes; //0 = horde reinfect, 1 = civ rescue, 2 = info retrieval
@@ -40,3 +41,6 @@ while {true} do {
 	publicVariable "NumberMissions";
 		
 };
+
+//notify if secondary mission ends
+diag_log "Secondary Mission Script coming to an end";

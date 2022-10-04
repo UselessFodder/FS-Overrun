@@ -15,6 +15,9 @@ _loopCount = 0;
 //bool to flip between modes
 _zombieControl = false;
 
+//log
+diag_log "Finale Defend script has begun";
+
 //start loop checking for only zombies in zone
 while{FinalePhase == 3} do {
 	//get number of units in area
@@ -36,6 +39,8 @@ while{FinalePhase == 3} do {
 			//warn players
 			[["finaleDefend",300,"We have to clear out those zombies or they'll overwhelm the machine!"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];			
 			
+			//log
+			diag_log format ["Zombies own the defend area. Stopping timer at %1 and starting %2 timer to clear zone", _finaleTimer, _defendTime];
 		};
 		
 		//keep finale timer the same
@@ -52,20 +57,39 @@ while{FinalePhase == 3} do {
 		//check if time has run out and, sadly, end the game with a bang if so
 		if(_loopCount == _defendTime) then {
 			[["finaleDefend",300,"THE MACHINE IS OVERLOADING"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+			
+			//log
+			diag_log "** Players failed to clear zone. Ending mission with a bang";
+			
 			sleep 2;
+			FinalePhase = 4;
+			publicVariable "FinalePhase";
+			
+			//kill timer
+			[-1] call BIS_fnc_countdown;	
+			
+			//kill off zombies to prevent server crash
+			{
+				if(side _x == east) then {
+					_x setDamage 1;
+				};
+				
+			} forEach allUnits;
+
 			//explode area
 			_bombloc = getMarkerPos "finaleDefend";
 			"Bo_GBU12_LGB" createVehicle (_bombloc);
-			sleep 0.2;
+			sleep 0.5;
 			"Bo_GBU12_LGB" createVehicle (_bombloc vectorAdd [10,10,0]);
-			sleep 0.1;
+			sleep 0.3;
 			"Bo_GBU12_LGB" createVehicle (_bombloc vectorAdd [0,-5,0]);
-			sleep 0.2;
+			sleep 0.4;
 			"Bo_GBU12_LGB" createVehicle (_bombloc vectorAdd [-10,0,0]);
 			
 			sleep 2;
 			//end game
-			["epicFail", false, 8] call BIS_fnc_endMission;
+			
+			["end1", false, 4] call BIS_fnc_endMission;
 			sleep 8;
 		};
 		
@@ -79,6 +103,9 @@ while{FinalePhase == 3} do {
 			_loopCount = 0;
 			//notify players
 			[["finaleDefend",300,"We've retaken the area. Keep holding!"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+			
+			//log
+			diag_log format ["Players have retaken the defend area. Starting timer with %1 seconds", _finaleTimer];
 		};
 	};
 

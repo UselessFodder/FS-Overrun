@@ -1,20 +1,32 @@
 /*
 	Script to initialize the Finale area event
 */
+//total defend time on final objective in seconds
+_defendTimer = 480; //8 minutes
+
 //number of zombies for phase 0
-_zombieCount0 = 40;
+_zombieCount0 = 60;
 //number of zombies for phase 1
-_zombieCount1 = 50;
+_zombieCount1 = 70;
 //number of zombies for phase 2
-_zombieCount2 = 60;
+_zombieCount2 = 80;
 //number of zombies for phase 3
-_zombieCount3 = 80;
+_zombieCount3 = 100;
+
+//lower numbers for smaller groups
+if (count allPlayers <= 6) then {
+	_zombieCount0 = _zombieCount0 *0.75;
+	_zombieCount1 = _zombieCount1 *0.75;
+	_zombieCount2 = _zombieCount2 *0.75;
+	_zombieCount2 = _zombieCount3 *0.75;
+};
 
 //number of zombies for current phae
 _zombieCountCurrent = _zombieCount0;
 
 //spawn location
 _location = "finaleArea";
+
 
 //start at the correct phase
 FinalePhase = 0;
@@ -56,13 +68,13 @@ while {FinalePhase <= 3} do {
 			private _locCheck = false;
 			private _locCheckCounter = 0;
 			private _minimumDistance = 30;
-			private _currentSpawn = [_location, false] call CBA_fnc_randPosArea;
+			private _currentSpawn = [_location, false, "Man"] call CBA_fnc_randPosArea;
 			
 			while {!_locCheck} do {
 				if (_locCheckCounter < 5) then {
 					
 					//select random spawnpoint
-					_startSpawn = [_location, false] call CBA_fnc_randPosArea;
+					_startSpawn = [_location, false, "Man"] call CBA_fnc_randPosArea;
 					_currentSpawn = _startSpawn findEmptyPosition [0,10];
 					
 					//default _locCheck to true and only change to false if a player is too close to the spawn
@@ -98,9 +110,9 @@ while {FinalePhase <= 3} do {
 			
 			
 			//prep to spawn a random amount of the remaining Z's needed
-			_spawnCount = (_zombieCountCurrent - _numZ) / (random [3,4,5]);
+			_spawnCount = ((_zombieCountCurrent - _numZ) / (random [3,4,5]));
 			
-			//make sure groups no larger than 8 spawn
+			//make sure groups no larger than 6 spawn
 			if (_spawnCount > 6) then {
 				_spawnCount = 6;
 			};
@@ -119,16 +131,42 @@ while {FinalePhase <= 3} do {
 			//_currentWaypoint = [_location, false] call CBA_fnc_randPosArea;
 			
 			//order zombies based on phase
+			[_temp_Group] execVM "unstickZombies.sqf";
+			
+	/*	
 			switch(FinalePhase) do {
 				//phase 0, zombies just patrol around
 				case 0: {
+				/*
 					//get total marker size
 					private _currentZone = MarkerSize _location;
 					//get 10% of the average of the zone's total size
 					private _patrolDistance = ((_currentZone select 0) + (_currentZone select 1)) * 0.15;
 					
 					//local patrol					
-					[_temp_Group, _currentSpawn,_patrolDistance] call BIS_fnc_taskPatrol				
+					[_temp_Group, _currentSpawn,_patrolDistance] call BIS_fnc_taskPatrol
+				/
+					//send zombies to center
+					_centerPos = _location;
+					
+					//find which axis is smaller and select that
+					_centerPosX = getMarkerSize _centerPos select 0;
+					_centerPosY = getMarkerSize _centerPos select 1;
+					_orderRadius = _centerPosY;
+					if (_centerPosX <= _centerPosY) then {
+						_orderRadius = _centerPosX;
+					};
+					
+					//randomize radius near center of current zone size
+					_orderRadius = random [1, _orderRadius *.25, _orderRadius * .65];
+					
+					//set a reasonable patrol distance
+					private _patrolDistance = (_centerPosX + _centerPosY) * 0.15;
+					
+					//get a random position near zone center and order zombies to it
+					_orderPos =  [getMarkerPos _centerPos, _orderRadius] call CBA_fnc_randPos;
+					[_temp_Group, _orderPos, _patrolDistance] call BIS_fnc_taskPatrol;
+				
 				};
 				//phase 1, zombies start patroling middle
 				case 1: {
@@ -174,12 +212,17 @@ while {FinalePhase <= 3} do {
 				
 			
 			};
+
+			//fix "stuck leader" bug
+			[_temp_Group] execVM "unstickZombies.sqf";
+	*/
 		
 			//set to new group to each spawn operates separately
 			_id = time;
 			_groupVarName = format ["EastGroup:%1", _id];
 			missionNamespace setVariable [_groupVarName,_temp_Group];	
-		
+
+	
 		};
 		
 		//update total zombie numbers

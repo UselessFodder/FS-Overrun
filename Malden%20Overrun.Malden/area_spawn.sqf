@@ -263,7 +263,7 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 							_posToMove = _posToMove vectorAdd [random[0.1,1.1,2]-1,random[0.1,1.1,2]-1,0];
 							
 							//TEST PLS DELETE***
-							diag_log ["Putting Z at %1", _posToMove];
+							diag_log format ["Putting Z into building at %1", _posToMove];
 							
 							_x setPosATL _posToMove;
 							

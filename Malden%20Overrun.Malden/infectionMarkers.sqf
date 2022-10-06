@@ -21,7 +21,7 @@
 					
 					//update marker colors and alpha
 					//Locations select _i setMarkerColor "ColorRed";
-					ZoneArray select _i select 0 setMarkerColor "ColorRed";
+					ZoneArray select _i select 0 setMarkerColor "ColorRed";					
 					
 					//set alpha to 80% for visibility, but never below 10%
 					//_colorAlpha = (InfectionRate select _i) * 0.8;
@@ -32,6 +32,11 @@
 										
 					//Locations select _i setMarkerAlpha _colorAlpha;
 					ZoneArray select _i select 0 setMarkerAlpha _colorAlpha;
+					
+					//if zone is 100%, make more alpha
+					if (ZoneArray select _i select 2 >= 1) then {
+						ZoneArray select _i select 0 setMarkerAlpha 1;
+					};
 
 				} else {
 					// If area is cleansed, mark it green

@@ -1,7 +1,11 @@
 /*
 	If littleBird is destroyed, this is called to replace it after 15 seconds
 */
+//log
+diag_log "** littlebird has been destroyed. Respawning in 60.";
+
 sleep 60;
+/*
 if(littleBird distance getMarkerPos "heliSpawn" < 20) then {
 
 	deleteVehicle littleBird;
@@ -9,13 +13,18 @@ if(littleBird distance getMarkerPos "heliSpawn" < 20) then {
 	
 };
 
+*/
+
 if(isServer) then {
 	//create new littleBird
 	littleBird = "B_Heli_Light_01_F" createVehicle getMarkerPos "heliSpawn"; 
 	littleBird setDir 136;
 
 	//add new eventHandler to new vic
-	littleBird addEventHandler ["Killed",{execVM "littleBirdDestroyed.sqf"}];
+	//littleBird addMPEventHandler ["MPKilled", {execVM "littleBirdDestroyed.sqf"}];
+	[littleBird, ["Killed",{
+		["littleBirdDestroyed.sqf"] remoteExec ["BIS_fnc_execVM",2]
+	}]] remoteExec ["addEventHandler",0];
 	
 	//global variable for if airborne decon needs to be rearmed
 	LittleBirdArmed = true;
@@ -26,6 +35,9 @@ if(isServer) then {
 	//[[LittleBirdArmed],"littleBirdAddAction.sqf"] remoteExec ["BIS_fnc_execVM",0];
 	[littleBird,["Airborne DECON", {["littleBirdDecon.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,true,"","LittleBirdArmed == true",5,false,"",""]] remoteExec ["addAction",0];
 	[littleBird,["Rearm Decontaminate", {["rearmLittleBird.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,true,"","LittleBirdArmed == false",5,false,"",""]] remoteExec ["addAction",0];
+	
+	//log
+	diag_log "** littleBird has been respawned.";
 	
 };
 

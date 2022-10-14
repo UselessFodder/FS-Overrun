@@ -178,15 +178,9 @@ if (isServer) then {
 	//init mobileRespawnDestroyed on correct vehicle ***
 	//mobileRespawn addEventHandler ["Killed",{execVM "mobileRespawnDestroyed.sqf"}];
 	
-	//init deconTruckDestroted on correct vehicle
+	
 	//deconTruck addEventHandler ["Killed",{execVM "deconTruckDestroyed.sqf"}];
-	deconTruck addEventHandler ["Killed",{
-		{
-			deleteVehicle _x;
-		} forEach attachedObjects deconTruck;
-		
-		execVM "deconTruckDestroyed.sqf"; 
-	}];
+
 
 	//Respawn marker
 	execVM "respawnMarker.sqf";
@@ -228,4 +222,16 @@ execVM "initArsenal.sqf";
 
 //add decon action to deconTruck
 deconTruck addAction ["Begin DECON", {[[],"initCleanse.sqf"] remoteExec ["BIS_fnc_execVM",2];},nil,1.5,FALSE,FALSE,"","CleanseActive == false",5,false,"",""];
+
+//init deconTruckDestroyed on correct vehicle
+deconTruck addEventHandler ["Killed",{
+	{
+		//deleteVehicle _x;
+		[_x] remoteExec ["deleteVehicle",2]
+	} forEach attachedObjects deconTruck;
+	
+	//execVM "deconTruckDestroyed.sqf"; 
+	["deconTruckDestroyed.sqf"] remoteExec ["BIS_fnc_execVM",2]
+}];
+
 

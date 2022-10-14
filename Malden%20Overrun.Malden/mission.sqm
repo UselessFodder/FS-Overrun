@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4489.1919,463.71362,7180.8672};
-		dir[]={0.5307498,-0.63298708,-0.56359076};
-		up[]={0.43396297,0.77416104,-0.46081474};
-		aside[]={-0.72799933,-3.3811375e-008,-0.6855793};
+		pos[]={6108.7793,128.33211,10766.953};
+		dir[]={-0.73600388,-0.60206431,-0.30960163};
+		up[]={-0.55497456,0.79843551,-0.23345129};
+		aside[]={-0.38775206,6.7830115e-008,0.92178273};
 	};
 };
 binarizationWanted=0;
@@ -8381,7 +8381,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [-1.4,-2.3,0.4]]; " \n "   _tex setdir 90; " \n "   _tex setObjectScale 1.5;  " \n "" \n "   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [1.1,-2.3,0.4]]; " \n "   _tex setdir 270; " \n "   _tex setObjectScale 1.7; ";
+				init="   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [-1.4,-2.3,0.4]]; " \n "   _tex setdir 90; " \n "   _tex setObjectScale 1.5;  " \n "" \n "   _tex = ""UserTexture1m_F"" createvehicle getpos this;  " \n "   _tex setobjectTexture [0,""BRT_Gray.paa""];  " \n "   _tex Attachto [this, [1.1,-2.3,0.4]]; " \n "   _tex setdir 270; " \n "   _tex setObjectScale 1.7; " \n "" \n "";
 				name="deconTruck";
 			};
 			id=981;
@@ -10367,20 +10367,33 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6095.8188,121.67915,10765.304};
-				angles[]={0,1.3285182,0};
+				position[]={6095.8052,121.67915,10765.498};
+				angles[]={0,1.3285097,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3740;
 			type="B_Slingload_01_Medevac_F";
-			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit"",""Medikit""],[10,1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -10393,7 +10406,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item415

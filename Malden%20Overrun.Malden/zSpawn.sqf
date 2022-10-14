@@ -25,7 +25,7 @@ private _temp_Group = createGroup[EAST,true];
 	_temp_Waypoint setWaypointType "SAD";
 	*/
 	
-	_newZ setPos [getPos _newZ select 0, getPos _newZ select 1, (getPos _newZ select 2) + 0.5]; //***
+	//_newZ setPos [getPos _newZ select 0, getPos _newZ select 1, (getPos _newZ select 2) + 0.5]; //***
 	
 	//order to either destroy vehicle or attack area
 /*	switch (selectRandom[0,1]) do {
@@ -38,12 +38,13 @@ private _temp_Group = createGroup[EAST,true];
 	//[_temp_Group, getMarkerPos "deconTruckMarker"] call BIS_fnc_taskAttack;
 	
 	//set to new group & waypoint to each spawn operates separately
+	/*
 	_id = time;
 	_groupVarName = format ["EastGroup:%1", _id];
 	_groupWayName = format ["EastWaypoint:%1", _id];
 	missionNamespace setVariable [_groupVarName,_temp_Group];
 	//missionNamespace setVariable [_groupWayName,_temp_Waypoint];
-	
+	*/
 	// Set group to attack deconTruck area. ***
 	//[_groupVarName, getMarkerPos "deconTruckMarker"] call BIS_fnc_taskAttack;	
 	

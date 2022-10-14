@@ -217,6 +217,8 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 			//get random point from _waypointArray
 			//_currentWaypoint = selectRandom _waypointArray;
 			
+		[_temp_Group,_locationIndex] execVM "areaOrders.sqf";
+		/*
 			// get random point inside zone
 			_currentWaypoint = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
 			
@@ -307,11 +309,14 @@ while{ZoneArray select _locationIndex select 3 == true} do{
 				};
 			
 			};//end switch	
+		*/
 
 			//set to new group to each spawn operates separately
+			/*
 			_id = time;
 			_groupVarName = format ["EastGroup:%1", _id];
 			missionNamespace setVariable [_groupVarName,_temp_Group];	
+			*/
 		
 		//testing delete ***
 		//hintSilent format ["Number of current zombies: %1 of %2", _numZ, _currentMaxZ];			

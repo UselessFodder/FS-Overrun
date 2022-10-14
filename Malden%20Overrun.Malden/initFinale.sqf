@@ -255,7 +255,7 @@ while {FinalePhase <= 3} do {
 						_phaseInterrupt = 1;
 						
 						//start timer script
-						[180,false] call BIS_fnc_countdown;								
+						[_defendTimer,false] call BIS_fnc_countdown;								
 						//[90,false] call BIS_fnc_countdown;	 //TESTING *** DELETE	
 						
 						//start timer informer

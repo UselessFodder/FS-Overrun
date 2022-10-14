@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4539.4502,416.40308,7101.5688};
-		dir[]={0.90577453,-0.33044487,0.26528996};
-		up[]={0.31712282,0.9438253,0.092881285};
-		aside[]={0.2810795,7.4505806e-009,-0.95968449};
+		pos[]={6108.7793,128.33211,10766.953};
+		dir[]={-0.73600388,-0.60206431,-0.30960163};
+		up[]={-0.55497456,0.79843551,-0.23345129};
+		aside[]={-0.38775206,6.7830115e-008,0.92178273};
 	};
 };
 binarizationWanted=0;
@@ -10367,20 +10367,33 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6095.8188,121.67915,10765.304};
-				angles[]={0,1.3285182,0};
+				position[]={6095.8052,121.67915,10765.498};
+				angles[]={0,1.3285097,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3740;
 			type="B_Slingload_01_Medevac_F";
-			atlOffset=7.6293945e-006;
 			class CustomAttributes
 			{
 				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit"",""Medikit""],[10,1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
 				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
@@ -10393,7 +10406,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item415

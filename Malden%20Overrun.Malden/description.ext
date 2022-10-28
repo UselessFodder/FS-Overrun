@@ -3,7 +3,7 @@ respawn = base;
 respawnOnStart = -1;
 respawndelay = 10;
 
-loadScreen = "MaldenOverrun.paa";
+loadScreen = "SefrouRamalOverrun.jpg";
 
 //custom patches
 class CfgUnitInsignia

@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2104.8667,19.3447,5678.5493};
-		dir[]={-0.0040284269,-0.32583457,-0.9454307};
-		up[]={-0.0013883509,0.94542617,-0.32583985};
-		aside[]={-1.0000019,1.7867251e-007,0.0042605549};
+		pos[]={4480.3306,77.652191,3942.7207};
+		dir[]={-0.1589819,-0.43935424,0.88414246};
+		up[]={-0.077756897,0.89830887,0.43242496};
+		aside[]={0.98422319,-1.8184073e-007,0.17697738};
 	};
 };
 binarizationWanted=0;
@@ -344,10 +344,10 @@ class ScenarioData
 	author="UselessFodder";
 	overviewText="ION Contactors have accidentally unleashed the curse of a dijnn and created a zombie plague in Sefrou-Ramal. Now they must endure, survive, and kill their way across the sand, eradicating this threat before convincing the dijnn to put the magick back in the bottle..";
 	overviewTextLocked="ION Contactors have accidentally unleashed the curse of a dijnn and created a zombie plague in Sefrou-Ramal. Now they must endure, survive, and kill their way across the sand, eradicating this threat before convincing the dijnn to put the magick back in the bottle..";
-	overViewPicture="MaldenOverrun.paa";
-	overViewPictureLocked="MaldenOverrun.paa";
+	overViewPicture="SefrouRamalOverrun.jpg";
+	overViewPictureLocked="SefrouRamalOverrun.jpg";
 	onLoadMission="ION Contactors have accidentally unleashed the curse of a dijnn and created a zombie plague in Sefrou-Ramal. Now they must endure, survive, and kill their way across the sand, eradicating this threat before convincing the dijnn to put the magick back in the bottle..";
-	loadScreen="MaldenOverrun.paa";
+	loadScreen="SefrouRamalOverrun.jpg";
 	disabledAI=1;
 	respawn=3;
 	respawnDelay=10;
@@ -662,7 +662,7 @@ class Mission
 			name="FOB";
 			text="ION Temporary Base";
 			type="mil_flag";
-			angle=7.0679946;
+			angle=7.0679917;
 			id=0;
 			atlOffset=0.02035141;
 		};

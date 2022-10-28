@@ -37,7 +37,7 @@ if (_totalDeconed >= _victoryZoneCount) then {
 	sleep 3;
 	
 	//create a task notification
-	["TaskAssigned", ["", format ["Convince the Jynn to lift the curse"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
+	["TaskAssigned", ["", format ["Convince the Djinn to lift the curse"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
 	
 	//change area warning to draw the players in
 	"finaleWarning" setMarkerText "LIFT THE CURSE";

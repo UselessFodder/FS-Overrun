@@ -18,7 +18,7 @@ if(techTruck distance getMarkerPos "techSpawn" < 20) then {
 
 if(isServer) then {
 	//create new techTruck
-	techTruck = "B_LSV_01_armed_F" createVehicle getMarkerPos "techSpawn"; 
+	techTruck = "B_ION_Offroad_armed_lxWS" createVehicle getMarkerPos "techSpawn"; 
 	techTruck setDir 133;
 
 	//add new eventHandler to new vic

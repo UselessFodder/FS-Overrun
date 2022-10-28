@@ -74,7 +74,7 @@ switch(FinalePhase) do {
 	//phase 3, all zombies to decon area
 	case 3: {
 		//add waypoint to center area
-		_temp_Group addWaypoint [getMarkerPos "startDecon", -1];
+		_temp_Group addWaypoint [getMarkerPos "phase3Marker", -1];
 	};
 };
 				

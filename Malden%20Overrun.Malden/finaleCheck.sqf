@@ -32,15 +32,15 @@ diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 //If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the finale event will open up
 if (_totalDeconed >= _victoryZoneCount) then {
 	//Notify all players
-	[["The Infection level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
+	[["The magick level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
 	
 	sleep 3;
 	
 	//create a task notification
-	["TaskAssigned", ["", format ["Decontaminate the Infection source at the old Military Base"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
+	["TaskAssigned", ["", format ["Convince the Jynn to lift the curse"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
 	
 	//change area warning to draw the players in
-	"finaleWarning" setMarkerText "DECONTAMINATE THE SOURCE";
+	"finaleWarning" setMarkerText "LIFT THE CURSE";
 	
 	
 	//set FinaleReady variable to ensure access to the final area

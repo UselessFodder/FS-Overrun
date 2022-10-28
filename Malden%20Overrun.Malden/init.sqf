@@ -6,14 +6,12 @@
 		Zone 2D Array Layout: [[0: Location Name, 1: IsInfected, 2: InfectionRate, 3: ActiveSpawn, 4: MissionActive, 5: CleanseActive, 6: ZoneSize[.5 W, .5H]]		
 		
 		Zone Key: 
-		0: Airport, 1: Aratte, 2: Arudy, 3: Blanches, 
-		4: Bosquet, 5: Cancon, 6: Chapoi, 7: Corton, 
-		8:Dorres, 9: Dourdan, 10: Faro, 11: Goisse, 
-		12: Guran, 13: Houdan, 14: La_Pessagne, 15: La_Riviere, 
-		16: La_Trinite, 17: Larche, 18: Lavalle, 19: Le_Port, 
-		20: Le_Port_Harbor, 21: Loisse, 22: Lumber_Mill, 23: Military_Base, 
-		24: Power_Plant, 25: Radio_Station, 26: Saint_Jean, 27: Saint_Louis, 
-		28: Saint_Marie, 29: Saint_Martin, 30: Vigny
+		0: Airbase, 1: Ait Ferhat, 2: Ait Khammar, 3: Ait Oulad, 
+		4: Al Mahbes, 5: Bir Dakhla, 6: Bir Tiguisit, 7: Date Plantation, 
+		8: Gas Station, 9: M'Semrir, 10: Meharrize, 11: Mhamid, 
+		12: Military Base, 13: Quadane, 14: Quarry, 15: Rissani, 
+		16: Surface Mine, 17: Tazzarine, 18: Tichla, 19: Toughza
+		20: Trainyard
 		
 	*/
 
@@ -21,16 +19,16 @@
 
 if (isServer) then {
 	//list of location names
-	Locations = ["Airport","Aratte","Arudy","Blanches","Bosquet","Cancon","Chapoi","Corton","Dorres","Dourdan","Faro","Goisse","Guran","Houdan","La_Pessagne","La_Riviere","La_Trinite","Larche","Lavalle","Le_Port","Le_Port_Harbor","Loisse","Lumber_Mill","Military_Base","Power_Plant","Radio_Station","Saint_Jean","Saint_Louis","Saint_Marie","Saint_Martin","Vigny"];
+	Locations = ["Airbase","Ait Ferhat","Ait Khammar","Ait Oulad","Al Mahbes","Bir Dakhla","Bir Tiguisit","Date Plantation","Gas Station","M'Semrir","Meharrize","Mhamid","Military Base","Quadane","Quarry","Rissani","Surface Mine","Tazzarine","Tichla","Toughza","Trainyard"];
 	
 	//set default mission values to be overwritten by loaded ones later
-	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
+	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
-	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
 
-	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 	
-	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 
 	//currency for faction unlocks
 	FactionBank = 0;
@@ -46,35 +44,35 @@ if (isServer) then {
 	publicVariable "FinaleReady";
 
 	//check if profileNamespace contains changeable variables. If so, load variables
-	_saveCheck = profileNamespace getVariable "IsInfected";
+	_saveCheck = profileNamespace getVariable "WSIsInfected";
 	
 	if (!isNil "_saveCheck") then{	
-		IsInfected = profileNamespace getVariable "IsInfected";
+		IsInfected = profileNamespace getVariable "WSIsInfected";
 		//publicVariable "IsInfected";	
 	};//end if
 	
-	_saveCheck = profileNamespace getVariable "InfectionRate";
+	_saveCheck = profileNamespace getVariable "WSInfectionRate";
 	
 	if (!isNil "_saveCheck") then{
-		InfectionRate = profileNamespace getVariable "InfectionRate";
+		InfectionRate = profileNamespace getVariable "WSInfectionRate";
 		//publicVariable "InfectionRate";		
 	};//end if	
 	
-	_saveCheck = profileNamespace getVariable "FactionBank";
+	_saveCheck = profileNamespace getVariable "WSFactionBank";
 	if (!isNil "_saveCheck") then{	
-		FactionBank = profileNamespace getVariable "FactionBank";
+		FactionBank = profileNamespace getVariable "WSFactionBank";
 		publicVariable "FactionBank";	
 	};//end if
 	
-	_saveCheck = profileNamespace getVariable "UnlockTracker";
+	_saveCheck = profileNamespace getVariable "WSUnlockTracker";
 	if (!isNil "_saveCheck") then{	
-		UnlockTracker = profileNamespace getVariable "UnlockTracker";
+		UnlockTracker = profileNamespace getVariable "WSUnlockTracker";
 		publicVariable "UnlockTracker";	
 	};//end if
 	
 	//generate 2D master array from inputs
 	ZoneArray = [];	
-	for [{private _i = 0}, {_i < 31}, {_i = _i + 1}] do {
+	for [{private _i = 0}, {_i < count Locations}, {_i = _i + 1}] do {
 		private _arrayInput = [Locations select _i, IsInfected select _i, InfectionRate select _i, ActiveSpawn select _i, MissionActive select _i, false, MarkerSize (Locations select _i)];
 		diag_log format ["Reading in %1 to ZoneArray slot %2", _arrayInput select 0, _i];
 		ZoneArray set [_i, _arrayInput];
@@ -207,11 +205,9 @@ if (isServer) then {
 execVM "infectionMarkers.sqf";
 
 //hide finale event markers
-"generatorStart" setMarkerAlpha 0;
-"serverStart" setMarkerAlpha 0;
-"startDecon" setMarkerAlpha 0;
-
-//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
+"phase1Marker" setMarkerAlpha 0;
+"phase2Marker" setMarkerAlpha 0;
+"phase3Marker" setMarkerAlpha 0;
 
 
 //Decon marker

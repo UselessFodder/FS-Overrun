@@ -39,10 +39,10 @@ _sleepTimer = 5;
 _phaseInterrupt = 0;
 
 //show first objective
-"generatorStart" setMarkerAlpha 1;
+"phase1Marker" setMarkerAlpha 1;
 	
 //create a task notification
-["TaskAssigned", ["", format ["Restart the base generator"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
+["TaskAssigned", ["", format ["Give a blood sacrifice"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
 
 //notify
 diag_log "Initialized Finale Event";
@@ -246,7 +246,8 @@ while {FinalePhase <= 3} do {
 									};
 								
 								//add waypoint to center area
-								_x addWaypoint [getMarkerPos "startDecon", -1];														
+								_x addWaypoint [getMarkerPos "phase3Marker", -1];
+								sleep 0.1;								
 																
 							};
 						} forEach allGroups;
@@ -259,7 +260,7 @@ while {FinalePhase <= 3} do {
 						//[90,false] call BIS_fnc_countdown;	 //TESTING *** DELETE	
 						
 						//start timer informer
-						["startDecon","%1 seconds until complete DECON"] execVM "timerNotification.sqf";
+						["phase3Marker","%1 seconds until complete DECON"] execVM "timerNotification.sqf";
 						
 						//start the defend phase
 						execVM "finaleDefend.sqf";												
@@ -284,7 +285,7 @@ while {FinalePhase <= 3} do {
 						
 					} else {
 						//if timer isn't up yet, notify of current time left
-						//[["startDecon",300,format ["%1 seconds until DECON", floor _timeLeft]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+						//[["phase3Marker",300,format ["%1 seconds until DECON", floor _timeLeft]],"hintNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 							
 					};
 					

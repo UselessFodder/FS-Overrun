@@ -22,7 +22,7 @@ if(isServer) then {
 	};
 
 	//save variables to namespace
-	profileNamespace setVariable ["IsInfected", _isInfectedArray];
+	profileNamespace setVariable ["WSIsInfected", _isInfectedArray];
 	
 	//get InfectionRate variables from array
 	private _infectionRateArray = [];	
@@ -33,9 +33,9 @@ if(isServer) then {
 	};
 	
 	//save variable to namespace
-	profileNamespace setVariable ["InfectionRate", _infectionRateArray];
-	profileNamespace setVariable ["FactionBank", FactionBank];
-	profileNamespace setVariable ["UnlockTracker", UnlockTracker];
+	profileNamespace setVariable ["WSInfectionRate", _infectionRateArray];
+	profileNamespace setVariable ["WSFactionBank", FactionBank];
+	profileNamespace setVariable ["WSUnlockTracker", UnlockTracker];
 
 	//save namespace
 	saveProfileNamespace;

@@ -37,7 +37,7 @@ while{FinalePhase == 3} do {
 			_zombieControl = true;
 			
 			//warn players
-			[["finaleDefend",300,"We have to clear out those zombies or they'll overwhelm the machine!"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];			
+			[["finaleDefend",300,"We have to clear out those zombies or the Jynn will kill us!"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];			
 			
 			//log
 			diag_log format ["Zombies own the defend area. Stopping timer at %1 and starting %2 timer to clear zone", _finaleTimer, _defendTime];
@@ -56,7 +56,7 @@ while{FinalePhase == 3} do {
 		
 		//check if time has run out and, sadly, end the game with a bang if so
 		if(_loopCount == _defendTime) then {
-			[["finaleDefend",300,"THE MACHINE IS OVERLOADING"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+			[["finaleDefend",300,"THE JYNN IS ANGRY"],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 			
 			//log
 			diag_log "** Players failed to clear zone. Ending mission with a bang";

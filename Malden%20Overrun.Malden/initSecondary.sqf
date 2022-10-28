@@ -25,7 +25,7 @@ while {count _missionTypes > 0} do {
 	sleep 1500; //25 minutes
 	
 	//randomize up to 10 minutes additional time
-	_additionalSleep = random[600];
+	_additionalSleep = random 600; 
 	sleep _additionalSleep;
 	
 	//randomize mission

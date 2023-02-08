@@ -116,7 +116,9 @@ if (isServer) then {
 	if (UnlockTracker select 1 == true) then {
 		execVM "techUnlock.sqf";
 	};
-		
+	
+	//*** REFACTOR THIS INTO A SEPARATE EDITABLE SCRIPT/LIST
+	
 	//add zombies to spawn list based on params
 	ZList = [];
 	

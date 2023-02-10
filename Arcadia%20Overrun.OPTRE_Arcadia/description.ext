@@ -1,0 +1,150 @@
+// initialize respawn base
+respawn = base;
+respawnOnStart = -1;
+respawndelay = 10;
+
+loadScreen = "MaldenOverrun.paa";
+
+//custom patches
+class CfgUnitInsignia
+{
+	class BRT_Blue
+	{
+		displayName = "Bioterrorism Response Team - Blue"; // Name displayed in Arsenal
+		author = "SlugFox97"; // Author displayed in Arsenal
+		texture = "BRT_Blue.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+	};
+	
+	class BRT_Gray
+	{
+		displayName = "Bioterrorism Response Team - Gray"; // Name displayed in Arsenal
+		author = "SlugFox97"; // Author displayed in Arsenal
+		texture = "BRT_Gray.paa"; // Image path
+		textureVehicle = ""; // Does nothing currently, reserved for future use
+
+
+	};	
+};
+
+class Params
+{
+	class PercentToVictory
+	{
+		title = "Percentage of Zones Cleared for Victory ";
+		texts[] = {"100%","90%","80%","70%"};
+		values[] = {1,0.9,0.8,0.7};
+		default = 1;
+	};
+    class 0 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };	
+	
+	class TypeDescription
+	{
+		title = "Select Zombie Spawn Types:";
+		texts[] = {""};
+		values[] = {""};
+		default = "";
+	};	
+	class FastZombies
+	{
+		title = "Fast Running Zombies? (Recommend OFF for high ping servers)";
+		texts[] = {"ON","OFF"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class CrawlZombies
+	{
+		title = "Crawling Zombies? (Recommend ON)";
+		texts[] = {"ON","OFF"};
+		values[] = {0,1};
+		default = 0;
+	};	
+	class SpiderZombies
+	{
+		title = "Spider Zombies? (Recommend ON)";
+		texts[] = {"ON","OFF"};
+		values[] = {0,1};
+		default = 0;
+	};	
+    class Spacer1 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };	
+	
+		class ReinfectionMission
+	{
+		title = "Allow 100% infection zones to Reinfect DECONed zones? (Recommend ON)";
+		texts[] = {"ON","OFF"};
+		values[] = {0,1};
+		default = 0;
+	};
+	
+    class Spacer2 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };		
+	class UnlockDescription
+	{
+		title = "Start with these unlocked? (Recommended to leave default for best experience)";
+		texts[] = {""};
+		values[] = {""};
+		default = "";
+	};
+	class NVGUnlocked
+	{
+		title = "- Night Vision Items?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class SupressorUnlocked
+	{
+		title = "- Supressors?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class TechnicalUnlocked
+	{
+		title = "- Techncial?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class LittleBirdUnlocked
+	{
+		title = "- DECON Little Bird?";
+		texts[] = {"No","UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class FullArsenalUnlocked
+	{
+		title = "Completely Unlock Arsenal? (NOTE: Significantly reduces difficulty and fun)";
+		texts[] = {"No","FULL UNLOCK"};
+		values[] = {0,1};
+		default = 0;
+	};
+    class Spacer3 {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };		
+	class ResetStatus 
+	{
+        title = "Fully Reset Campaign Progress? (NOTE: YOU CANNOT UNDO)";
+        texts[] = {"No","Negative","YES RESET"};
+        values[] = {1,2,3};
+        default = "1";
+    };	
+};

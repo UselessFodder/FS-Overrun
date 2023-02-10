@@ -98,13 +98,13 @@ if (_useCustom == 1) then {
 	DemonList = ["dev_flood_carrier_o","dev_flood_sangheili_at_o","dev_flood_combat_at_o"];
 	
 	//*** Friendly DECONTruck
-	DeconTruckType = "B_Truck_01_medical_F";
+	DeconTruckType = "OPTRE_m1087_stallion_unsc_medical";
 	
 	//*** Friendly Helicopter
-	LittleBirdType = "B_Heli_Light_01_F";
+	LittleBirdType = "OPTRE_UNSC_falcon";
 	
 	//*** Friendly armed truck
-	TechTruckType = "B_LSV_01_armed_F";
+	TechTruckType = "OPTRE_M12_LRV";
 	
 	//*** Objects for research mini-objective
 	ResearchObjects = ["Land_PlasticCase_01_large_black_CBRN_F","Land_PlasticCase_01_large_CBRN_F","Land_PlasticCase_01_large_olive_CBRN_F","Land_PlasticCase_01_medium_CBRN_F",

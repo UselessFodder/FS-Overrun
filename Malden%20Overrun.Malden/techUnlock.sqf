@@ -6,7 +6,7 @@ if (!isServer) exitWith {};
 
 if(isServer) then {
 	//create new technical
-	techTruck = "B_LSV_01_armed_F" createVehicle getMarkerPos "techSpawn"; 
+	techTruck = TechTruckType createVehicle getMarkerPos "techSpawn"; 
 	techTruck setDir 133;
 
 	//add new eventHandler to new vic

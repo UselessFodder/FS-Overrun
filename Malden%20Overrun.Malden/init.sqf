@@ -109,6 +109,9 @@ if (isServer) then {
 	publicVariable "UnlockTracker";
 	
 	
+	//Define all spawnable units
+	execVM "unitDefines.sqf";	
+	
 	//initialized unlocked vehicles
 	if (UnlockTracker select 0 == true) then {
 		execVM "littleBirdUnlock.sqf";
@@ -117,8 +120,9 @@ if (isServer) then {
 		execVM "techUnlock.sqf";
 	};
 	
-	//*** REFACTOR THIS INTO A SEPARATE EDITABLE SCRIPT/LIST
+
 	
+	/*
 	//add zombies to spawn list based on params
 	ZList = [];
 	
@@ -170,6 +174,7 @@ if (isServer) then {
 	
 	//make ZList available for other scripts
 	publicVariable "ZList";
+	*/
 
 	//variable to activate cleanse mode
 	CleanseActive = false;

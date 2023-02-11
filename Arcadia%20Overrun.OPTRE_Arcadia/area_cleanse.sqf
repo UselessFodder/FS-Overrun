@@ -152,10 +152,10 @@ while{CleanseActive} do {
 				publicVariable "CleanseActive";
 				
 				//check if this is the final zone for victory
-				//execVM "victoryCheck.sqf";
+				execVM "victoryCheck.sqf";
 				
 				//check to see if finale is unlocked
-				execVM "finaleCheck.sqf";
+				//execVM "finaleCheck.sqf";
 				
 			};
 			

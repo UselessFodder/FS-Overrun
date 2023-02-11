@@ -8,7 +8,7 @@
 		if(count allPlayers > 0) then {
 
 			//cycle through each location, add infection, and set alpha to half of infection rates
-			for "_i" from 0 to 30 do { 
+			for [{private _i = 0}, {_i < count ZoneArray}, {_i = _i + 1}] do {
 				//check if still infected
 				//if(IsInfected select _i)then {
 				if(ZoneArray select _i select 1) then {

@@ -6,14 +6,12 @@
 		Zone 2D Array Layout: [[0: Location Name, 1: IsInfected, 2: InfectionRate, 3: ActiveSpawn, 4: MissionActive, 5: CleanseActive, 6: ZoneSize[.5 W, .5H]]		
 		
 		Zone Key: 
-		0: Airport, 1: Aratte, 2: Arudy, 3: Blanches, 
-		4: Bosquet, 5: Cancon, 6: Chapoi, 7: Corton, 
-		8:Dorres, 9: Dourdan, 10: Faro, 11: Goisse, 
-		12: Guran, 13: Houdan, 14: La_Pessagne, 15: La_Riviere, 
-		16: La_Trinite, 17: Larche, 18: Lavalle, 19: Le_Port, 
-		20: Le_Port_Harbor, 21: Loisse, 22: Lumber_Mill, 23: Military_Base, 
-		24: Power_Plant, 25: Radio_Station, 26: Saint_Jean, 27: Saint_Louis, 
-		28: Saint_Marie, 29: Saint_Martin, 30: Vigny
+		0: Abandoned_Camp, 1: Alpheus_Powerplant, 2: Camp_Chimera, 3: Camp_Griffin, 
+		4: Camp_Hydra, 5: Camp_Pegasus, 6: Erseke, 7: Farmstead, 
+		8: Icarus_Airbase, 9: Icarus_Dockyard, 10: Industrial_Complex, 11: Ithaki, 
+		12: Kavala, 13: Kefalonia, 14: Lost_Village, 15: Lykaion_Outpost, 
+		16: Murakami, 17: New_Delphi_East, 18: New_Delphi_West, 19: Patras, 
+		20: Takeshi_Farm, 21: Volos
 		
 	*/
 
@@ -21,9 +19,25 @@
 
 if (isServer) then {
 	//list of location names
-	Locations = ["Airport","Aratte","Arudy","Blanches","Bosquet","Cancon","Chapoi","Corton","Dorres","Dourdan","Faro","Goisse","Guran","Houdan","La_Pessagne","La_Riviere","La_Trinite","Larche","Lavalle","Le_Port","Le_Port_Harbor","Loisse","Lumber_Mill","Military_Base","Power_Plant","Radio_Station","Saint_Jean","Saint_Louis","Saint_Marie","Saint_Martin","Vigny"];
+	Locations = ["Abandoned_Camp","Alpheus_Powerplant","Camp_Chimera","Camp_Griffin","Camp_Hydra","Camp_Pegasus","Erseke","Farmstead","Icarus_Airbase","Icarus_Dockyard","Industrial_Complex","Ithaki","Kavala","Kefalonia","Lost_Village","Lykaion_Outpost","Murakami","New_Delphi_East","New_Delphi_West","Patras","Takeshi_Farm","Volos"];
 	
-	//set default mission values to be overwritten by loaded ones later
+	//define value holder arrays
+	IsInfected = [];
+	InfectionRate = [];
+	ActiveSpawn = [];
+	MissionActive = [];
+	
+	//set default mission values to be overwritten by loaded ones later	
+	for [{private _i = 0}, {_i < count Locations}, {_i = _i + 1}] do {
+		IsInfected pushBack true;
+		InfectionRate pushBack 0.5;
+		ActiveSpawn pushBack false;
+		MissionActive pushBack false;
+		
+		//***DEBUG delete
+		diag_log format ["Default value read into %1",_i]; 
+	};
+	/* ***DELETE
 	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
 	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
@@ -31,6 +45,7 @@ if (isServer) then {
 	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 	
 	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+	*/
 
 	//currency for faction unlocks
 	FactionBank = 0;
@@ -46,35 +61,35 @@ if (isServer) then {
 	publicVariable "FinaleReady";
 
 	//check if profileNamespace contains changeable variables. If so, load variables
-	_saveCheck = profileNamespace getVariable "IsInfected";
+	_saveCheck = profileNamespace getVariable "ArcadiaIsInfected";
 	
 	if (!isNil "_saveCheck") then{	
-		IsInfected = profileNamespace getVariable "IsInfected";
+		IsInfected = profileNamespace getVariable "ArcadiaIsInfected";
 		//publicVariable "IsInfected";	
 	};//end if
 	
-	_saveCheck = profileNamespace getVariable "InfectionRate";
+	_saveCheck = profileNamespace getVariable "ArcadiaInfectionRate";
 	
 	if (!isNil "_saveCheck") then{
-		InfectionRate = profileNamespace getVariable "InfectionRate";
+		InfectionRate = profileNamespace getVariable "ArcadiaInfectionRate";
 		//publicVariable "InfectionRate";		
 	};//end if	
 	
-	_saveCheck = profileNamespace getVariable "FactionBank";
+	_saveCheck = profileNamespace getVariable "ArcadiaFactionBank";
 	if (!isNil "_saveCheck") then{	
-		FactionBank = profileNamespace getVariable "FactionBank";
+		FactionBank = profileNamespace getVariable "ArcadiaFactionBank";
 		publicVariable "FactionBank";	
 	};//end if
 	
-	_saveCheck = profileNamespace getVariable "UnlockTracker";
+	_saveCheck = profileNamespace getVariable "ArcadiaUnlockTracker";
 	if (!isNil "_saveCheck") then{	
-		UnlockTracker = profileNamespace getVariable "UnlockTracker";
+		UnlockTracker = profileNamespace getVariable "ArcadiaUnlockTracker";
 		publicVariable "UnlockTracker";	
 	};//end if
 	
 	//generate 2D master array from inputs
 	ZoneArray = [];	
-	for [{private _i = 0}, {_i < 31}, {_i = _i + 1}] do {
+	for [{private _i = 0}, {_i < count Locations}, {_i = _i + 1}] do {
 		private _arrayInput = [Locations select _i, IsInfected select _i, InfectionRate select _i, ActiveSpawn select _i, MissionActive select _i, false, MarkerSize (Locations select _i)];
 		diag_log format ["Reading in %1 to ZoneArray slot %2", _arrayInput select 0, _i];
 		ZoneArray set [_i, _arrayInput];
@@ -204,7 +219,7 @@ if (isServer) then {
 	execVM "initSecondary.sqf";
 	
 	//check if all areas are DECON and players are ready for Finale event
-	execVM "finaleCheck.sqf";
+	//execVM "finaleCheck.sqf";
 
 };
 

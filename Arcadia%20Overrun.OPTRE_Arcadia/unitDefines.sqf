@@ -91,8 +91,9 @@ if (_useCustom == 1) then {
 	
 	//*** Define any INDIVIDUAL classnames in this array here. This is useful for mods that don't use groups!
 	//HINT: Add units to the list multiple times to make them more likely to spawn
-	private _templist = ["dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o",
-		"dev_flood_sangheili_o","dev_flood_combat_o"];
+	private _templist = ["dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o",
+		"dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o",
+		"dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_infection_o","dev_flood_sangheili_o","dev_flood_combat_o"];
 	
 	//*** Boss-type monsters for the mini-objective. Must have AT LEAST one unit type
 	DemonList = ["dev_flood_carrier_o","dev_flood_sangheili_at_o","dev_flood_combat_at_o"];

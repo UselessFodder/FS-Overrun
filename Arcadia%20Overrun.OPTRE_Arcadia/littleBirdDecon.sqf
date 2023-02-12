@@ -26,7 +26,7 @@ if(isServer) then {
 	//if null, this is not near location
 	if(_nearLoc isEqualTo "") then {
 		//titleText ["The helicopter must be within 100 meters of an infection center.", "PLAIN"];
-		[["littleBirdMarker",200,"The helicopter must be within 100 meters of an infection center."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+		[["littleBirdMarker",200,"The helicopter must be within 100 meters of a Flood infection center."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		//add action back to heli
 		//[littleBird,["Airborne DECON", {["littleBirdDecon.sqf"] remoteExec ["BIS_fnc_execVM",2];},nil,1.5,FALSE,true,"","true",5,false,"",""]] remoteExec ["addAction",0];
 		//[littleBird,["Airborne DECON", {["littleBirdDecon.sqf"] remoteExec ["BIS_fnc_execVM",0];},nil,1.5,FALSE,true,"","true",5,false,"",""]] remoteExec ["addAction",-2];

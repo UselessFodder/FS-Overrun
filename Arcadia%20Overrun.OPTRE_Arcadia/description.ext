@@ -115,14 +115,14 @@ class Params
 	};
 	class TechnicalUnlocked
 	{
-		title = "- Techncial?";
+		title = "- Warthog?";
 		texts[] = {"No","UNLOCK"};
 		values[] = {0,1};
 		default = 0;
 	};
 	class LittleBirdUnlocked
 	{
-		title = "- DECON Little Bird?";
+		title = "- DECON Falcon?";
 		texts[] = {"No","UNLOCK"};
 		values[] = {0,1};
 		default = 0;

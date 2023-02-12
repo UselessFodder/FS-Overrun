@@ -107,7 +107,7 @@ if (isServer) then {
 			
 			//inform nearby players
 			private _messageMarker = ZoneArray select _locationIndex select 0;
-			[[_messageMarker,500,"Big Z is down. Carry on with the mission."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];		
+			[[_messageMarker,500,"Big Flood is down. Carry on with the mission."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];		
 
 			//subtract a point of infection so the objective doesn't proc again
 			private _currentInfection = ZoneArray select _locationIndex select 2;
@@ -126,7 +126,7 @@ if (isServer) then {
 		ZoneArray select _locationIndex set [4, true];
 		
 		//inform players		
-		[["_bossZMarker",500,"A singularly strong Z detected in your area. Kill it to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+		[["_bossZMarker",500,"A singularly strong Flood has been detected in your area. Kill it to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 	};
 	
 	
@@ -208,7 +208,7 @@ if (isServer) then {
 		ZoneArray select _locationIndex set [4, true];
 
 		//inform players
-		[["_zMarker",500,"A significant presence of Z's has been detected. Go clear them out to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+		[["_zMarker",500,"A significant presence of Flood forms has been detected. Go clear them out to reduce the infection..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
 		//log
 		diag_log format ["Zombie horde spawned near %1", ZoneArray select _locationIndex select 0];
@@ -296,7 +296,7 @@ if (isServer) then {
 		ZoneArray select _locationIndex set [4, true];
 
 		//inform players
-		[["_intelMarker",500,"Reports indicate valuable research was dropped in your area. Secure it for further study..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
+		[["_intelMarker",500,"Reports indicate valuable research on the Flood was dropped in your area. Secure it for further study..."],"messageNear.sqf"] remoteExec ["BIS_fnc_execVM",0];
 		
 		//log
 		diag_log format ["Research spawned near %1", ZoneArray select _locationIndex select 0];

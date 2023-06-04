@@ -1,5 +1,5 @@
 /*
-	Checks if all currently unlocked zones are deconed and begins final zone of they are
+	Checks if all currently unlocked zones are deconed and begins final zone, if enabled
 */
 
 //log run of this script
@@ -31,19 +31,26 @@ diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 
 //If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the finale event will open up
 if (_totalDeconed >= _victoryZoneCount) then {
-	//Notify all players
-	[["The Infection level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
-	
-	sleep 3;
-	
-	//create a task notification
-	["TaskAssigned", ["", format ["Decontaminate the Infection source at the old Military Base"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
-	
-	//change area warning to draw the players in
-	"finaleWarning" setMarkerText "DECONTAMINATE THE SOURCE";
-	
-	
-	//set FinaleReady variable to ensure access to the final area
-	FinaleReady = true;
-	publicVariable "FinaleReady";
+	//check if finale is enabled in params
+	private doFinale = ["DoFinale", true] call BIS_fnc_getParamValue;
+	if (doFinale) then {
+		//Notify all players
+		[["The Infection level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
+		
+		sleep 3;
+		
+		//create a task notification
+		["TaskAssigned", ["", format ["Decontaminate the Infection source at the old Military Base"]]] remoteExec ['BIS_fnc_showNotification',0,FALSE];
+		
+		//change area warning to draw the players in
+		"finaleWarning" setMarkerText "DECONTAMINATE THE SOURCE";
+		
+		
+		//set FinaleReady variable to ensure access to the final area
+		FinaleReady = true;
+		publicVariable "FinaleReady";
+	} else {
+		//if finale is disabled, simply generate victory
+		execVM "victory.sqf";
+	};
 };

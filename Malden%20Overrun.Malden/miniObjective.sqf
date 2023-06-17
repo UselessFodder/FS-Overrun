@@ -47,7 +47,7 @@ if (isServer) then {
 	//boss Z
 	if(_miniObj == 0) then {
 		//select a demon
-		_demonSelect = selectRandom["RyanZombieboss27Opfor", "RyanZombieboss19Opfor"];
+		_demonSelect = selectRandom DemonList;
 		
 		//create group to put demon in
 		private _bossGroup = createGroup[EAST,true]; 
@@ -217,7 +217,7 @@ if (isServer) then {
 		//gather research
 	if(_miniObj == 2) then {
 		//pick from research objects
-		_researchSelect = selectRandom ["Land_PlasticCase_01_large_black_CBRN_F","Land_PlasticCase_01_large_CBRN_F","Land_PlasticCase_01_large_olive_CBRN_F","Land_PlasticCase_01_medium_CBRN_F","Land_PlasticCase_01_medium_black_CBRN_F","Land_PlasticCase_01_medium_olive_CBRN_F","Land_PlasticCase_01_small_CBRN_F","Land_PlasticCase_01_small_olive_CBRN_F","Land_PlasticCase_01_small_black_CBRN_F","CBRNCase_01_F","Box_C_UAV_06_medical_F","Box_C_IDAP_UAV_06_medical_F","Land_MultiScreenComputer_01_closed_black_F","Land_MultiScreenComputer_01_closed_olive_F","Land_MultiScreenComputer_01_closed_sand_F","Laptop_EP1","Land_Laptop_device_F","Land_Laptop_unfolded_F"];		
+		_researchSelect = selectRandom ResearchObjects;		
 		
 		//create marker to show research location
 		createMarker ["_intelMarker", _currentLoc];

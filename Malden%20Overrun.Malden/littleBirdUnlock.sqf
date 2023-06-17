@@ -6,7 +6,7 @@ if (!isServer) exitWith {};
 if(isServer) then {
 
 	//create new littleBird
-	littleBird = "B_Heli_Light_01_F" createVehicle getMarkerPos "heliSpawn"; 
+	littleBird = LittleBirdType createVehicle getMarkerPos "heliSpawn"; 
 	littleBird setDir 136;
 
 	//add new eventHandler to new vic

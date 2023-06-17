@@ -9,7 +9,7 @@ sleep 60;
 
 if(isServer) then {
 	//create new deconTruck
-	deconTruck = "B_Truck_01_medical_F" createVehicle getMarkerPos "deconTruckPoint"; 
+	deconTruck = DeconTruckType createVehicle getMarkerPos "deconTruckPoint"; 
 	deconTruck setDir 150;
 
 

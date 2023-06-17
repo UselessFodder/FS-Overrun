@@ -109,6 +109,9 @@ if (isServer) then {
 	publicVariable "UnlockTracker";
 	
 	
+	//Define all spawnable units
+	execVM "unitDefines.sqf";	
+	
 	//initialized unlocked vehicles
 	if (UnlockTracker select 0 == true) then {
 		execVM "littleBirdUnlock.sqf";
@@ -116,58 +119,6 @@ if (isServer) then {
 	if (UnlockTracker select 1 == true) then {
 		execVM "techUnlock.sqf";
 	};
-		
-	//add zombies to spawn list based on params
-	ZList = [];
-	
-	//list to hold all configs
-	_zombieLists =[];
-	
-	//Medium Civ Zombies
-	_zConfig1 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium1opfor" );
-	//Medium Soldier Zombies
-	_zConfig2 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium5opfor");
-	//Slow Civ Zombies
-	_zConfig3 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow1opfor" );
-	//Slow Solder Zombies
-	_zConfig4 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow5opfor" );
-	
-	//add to configlist to push into ZList below
-	_zombieLists pushback _zConfig1;
-	_zombieLists pushback _zConfig2;
-	_zombieLists pushback _zConfig3;
-	_zombieLists pushback _zConfig4;
-	
-	//check if params allow these types of zombies
-	_classUnlocked = ["FastZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig5 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast2opfor" );
-		_zombieLists pushback _zConfig5;
-		_zConfig6 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast5opfor" );
-		_zombieLists pushback _zConfig6;
-	};
-	_classUnlocked = ["CrawlZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig7 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "RyanzombiesgroupCrawleropfor" >> "RyanzombiesgroupCrawler2opfor" );
-		_zombieLists pushback _zConfig7;
-	};
-	_classUnlocked = ["SpiderZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig8 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupspideropfor" >> "Ryanzombiesgroupspider2opfor" );
-		_zombieLists pushback _zConfig8;
-	};
-	
-
-	//add all zombies from cfgGroup lists above into spawning list
-	{
-		"
-			ZList pushBack getText ( _x >> 'vehicle');
-			
-		" configClasses _x;
-	} forEach _zombieLists;
-	
-	//make ZList available for other scripts
-	publicVariable "ZList";
 
 	//variable to activate cleanse mode
 	CleanseActive = false;
@@ -206,13 +157,18 @@ if (isServer) then {
 //init marker colors
 execVM "infectionMarkers.sqf";
 
-//hide finale event markers
-"generatorStart" setMarkerAlpha 0;
-"serverStart" setMarkerAlpha 0;
-"startDecon" setMarkerAlpha 0;
+//hide finale event markers, if they exist
+if("generatorStart" in allMapMarkers) then {
+	"generatorStart" setMarkerAlpha 0;
+};
+if("serverStart" in allMapMarkers) then {
+	"serverStart" setMarkerAlpha 0;
+};
+if("startDecon" in allMapMarkers) then {
+	"startDecon" setMarkerAlpha 0;
 
-//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
-
+	//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
+};
 
 //Decon marker
 execVM "deconMarker.sqf";

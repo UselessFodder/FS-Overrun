@@ -79,6 +79,21 @@ if(_nearLoc isEqualTo "") then {
 						_deconMan addEventHandler ["GetOutMan", {params ["_unit", "_role", "_vehicle", "_turret"]; __unit moveInCargo [deconTruck,0];}];
 					};
 					
+					//send all nearby zombies to attack
+					private _nearbyZGroups = [];
+					//get all units near truck
+					{
+						if(_x distance deconTruck < 600) then {
+							//only add groups if not yet added
+							_nearbyZGroups pushBackUnique group _x;
+						};
+					} forEach allUnits;
+					
+					//give orders to attack deconTruck
+					{
+						[_x] execVM "zOrders.sqf";
+					} forEach _nearbyZGroups;
+					
 					//[_locIndex,_nearLoc] remoteExec ["area_cleanse.sqf", [0,2] select isDedicated, true];
 					//[_locIndex,_nearLoc] execVM "area_cleanse.sqf";
 					[[_locIndex,_nearLoc],"area_cleanse.sqf"] remoteExec ["BIS_fnc_execVM",2];

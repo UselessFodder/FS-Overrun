@@ -20,14 +20,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6124.3501,134.2077,10771.895};
-		dir[]={-0.81899899,-0.49554107,-0.28927472};
-		up[]={-0.46725175,0.86858445,-0.16503575};
-		aside[]={-0.33304152,-1.4901161e-008,0.94291222};
+		pos[]={4565.1167,428.7973,7077.8862};
+		dir[]={-0.19269079,-0.62866139,0.75343597};
+		up[]={-0.15576735,0.77767336,0.60906464};
+		aside[]={0.96882445,3.2203388e-008,0.24777558};
 	};
 };
 binarizationWanted=0;
-sourceName="Malden%20Overrun%20v0%2e3";
+sourceName="Malden%20Overrun";
 addons[]=
 {
 	"A3_Ui_F",
@@ -645,7 +645,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Malden Overrun v0.3";
+		briefingName="Malden Overrun v0.5";
 		overviewText="Zombie survival horror campaign";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;

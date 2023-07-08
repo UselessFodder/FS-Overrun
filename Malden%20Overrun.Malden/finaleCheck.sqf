@@ -32,8 +32,8 @@ diag_log format ["%1 out of %2 zones deconed",_totalDeconed,_victoryZoneCount];
 //If all zones are deconed, _totalDeconed will equal _victoryZoneCount and the finale event will open up
 if (_totalDeconed >= _victoryZoneCount) then {
 	//check if finale is enabled in params
-	private doFinale = ["DoFinale", true] call BIS_fnc_getParamValue;
-	if (doFinale) then {
+	private _doFinale = ["DoFinale", 0] call BIS_fnc_getParamValue;
+	if (_doFinale) then {
 		//Notify all players
 		[["The Infection level is finally low enough. Let's finish this...", "PLAIN"]] remoteExec ["titleText", 0];
 		

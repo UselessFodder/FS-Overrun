@@ -13,10 +13,12 @@ private _zCount = 0;
 
 //objectiveComplete = false;
 //publicVariable "objectiveComplete";
-_currentLoc = selectRandom _objLocs;
+//_currentLoc = selectRandom _objLocs;
 
 if (isServer) then {
-	_suitableLoc = false;
+	
+	/*
+	_suitableLoc = false; //***OUTDATED DELETE AFTER TEST
 	_tooClose = false;
 	
 	
@@ -36,6 +38,50 @@ if (isServer) then {
 		if(_tooClose == false) then {
 			_suitableLoc = true;
 		};  
+	};
+	*/	
+	//select a position for the new spawn group and ensure it's more than 30m from the players
+	private _locCheck = false;
+	private _locCheckCounter = 0;
+	private _minimumDistance = 30;
+	private _currentLoc = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
+	
+	while {!_locCheck} do {
+		if (_locCheckCounter < 5) then {
+			
+			//select random spawnpoint
+			_startSpawn = [ZoneArray select _locationIndex select 0, false] call CBA_fnc_randPosArea;
+			_currentLoc = _startSpawn findEmptyPosition [0,10];
+			
+			//default _locCheck to true and only change to false if a player is too close to the spawn
+			_locCheck = true;
+			
+			//check if it is within minimum distance of a player
+			{
+				//_currentDistance = getMarkerPos _currentLoc distance _x;
+				_currentDistance = _currentLoc distance _x;
+				if (_currentDistance < _minimumDistance) then {
+					//*** debug
+					diag_log format ["Cannot use spawn as it is within %1 of a player, less than the minimum of %2", _currentDistance, _minimumDistance];
+				
+					//if the spawn is too close, change _locCheck to false so the check runs again
+					_locCheck = false;
+				};							
+			} forEach allPlayers;
+			
+			//increment counter
+			_locCheckCounter = _locCheckCounter + 1;
+		} else {
+				//if no location can be found in 5 tries, lower the distance and try again
+				if (_minimumDistance > 5) then {
+					_minimumDistance = _minimumDistance - 2;
+					_locCheckCounter = 0;							
+				} else {
+					//If distance is 5m, just use this as the best possible choice
+					_locCheck = true;							
+				};
+		};
+		
 	};
 
 	//select a random mini-objective
@@ -142,7 +188,7 @@ if (isServer) then {
 		
 		//spawn zombies into group
 		for [{ _i = 0 }, { _i < (round(random 15 + 5)) }, { _i = _i + 1 }] do {
-			_newZ = zGroup createUnit[(ZList select (random 13)), _currentLoc, [], 5, "NONE"]; 		
+			_newZ = zGroup createUnit[(selectRandom ZList), _currentLoc, [], 5, "NONE"]; 		
 			//set random skill level
 			_newZ setSkill _currentSkill;			
 		};

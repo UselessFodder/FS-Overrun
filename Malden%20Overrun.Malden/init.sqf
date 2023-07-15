@@ -20,17 +20,6 @@
 // ------------ Server only
 
 if (isServer) then {
-	//list of location names
-	Locations = ["Airport","Aratte","Arudy","Blanches","Bosquet","Cancon","Chapoi","Corton","Dorres","Dourdan","Faro","Goisse","Guran","Houdan","La_Pessagne","La_Riviere","La_Trinite","Larche","Lavalle","Le_Port","Le_Port_Harbor","Loisse","Lumber_Mill","Military_Base","Power_Plant","Radio_Station","Saint_Jean","Saint_Louis","Saint_Marie","Saint_Martin","Vigny"];
-	
-	//set default mission values to be overwritten by loaded ones later
-	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
-
-	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-
-	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-	
-	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 
 	//currency for faction unlocks
 	FactionBank = 0;
@@ -48,6 +37,7 @@ if (isServer) then {
 	//check if profileNamespace contains changeable variables. If so, load variables
 	_saveCheck = profileNamespace getVariable "IsInfected";
 	
+	IsInfected = [];
 	if (!isNil "_saveCheck") then{	
 		IsInfected = profileNamespace getVariable "IsInfected";
 		//publicVariable "IsInfected";	
@@ -55,6 +45,7 @@ if (isServer) then {
 	
 	_saveCheck = profileNamespace getVariable "InfectionRate";
 	
+	InfectionRate = [];
 	if (!isNil "_saveCheck") then{
 		InfectionRate = profileNamespace getVariable "InfectionRate";
 		//publicVariable "InfectionRate";		
@@ -72,17 +63,10 @@ if (isServer) then {
 		publicVariable "UnlockTracker";	
 	};//end if
 	
-	//generate 2D master array from inputs
-	ZoneArray = [];	
-	for [{private _i = 0}, {_i < 31}, {_i = _i + 1}] do {
-		private _arrayInput = [Locations select _i, IsInfected select _i, InfectionRate select _i, ActiveSpawn select _i, MissionActive select _i, false, MarkerSize (Locations select _i)];
-		diag_log format ["Reading in %1 to ZoneArray slot %2", _arrayInput select 0, _i];
-		ZoneArray set [_i, _arrayInput];
-		diag_log format ["Location %1 is now read into ZoneArray %2", ZoneArray select _i select 0, _i];
-	};
+	//build 2D master array
+	private _isDone = [IsInfected, InfectionRate] execVM "initArray.sqf";
 	
-	publicVariable "ZoneArray";	
-	diag_log format ["ZoneArray initialized with %1 entries", count ZoneArray];
+	waitUntil {scriptDone _isDone};
 	
 	//check params and run resetState if selected
 	if (["ResetStatus", 1] call BIS_fnc_getParamValue == 3)  then {

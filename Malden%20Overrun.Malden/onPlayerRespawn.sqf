@@ -1,6 +1,14 @@
 /*
-	Remove any default equipment and set basic items on respawn
+	Remove any default equipment and set arsenal items on respawn
 */
+
+private _loadout = player getVariable ["savedLoadout", []];
+
+// Check if there is a saved loadout
+if (!(_loadout isEqualTo [])) then {
+	// Restore the unit's loadout when they respawn
+	player setUnitLoadout _loadout;
+};
 
 //set default insignia
 [_this select 0, "brt_gray"] call BIS_fnc_setUnitInsignia;

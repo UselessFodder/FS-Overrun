@@ -20,12 +20,12 @@ NOTE: This persistent mission was inspired by the amazing KP-Liberation, but div
 
 For a detailed explanation of how to play this map, see "How to Play Overrun" in the briefing notes or check out the tutorial video at https://youtube.com/UselessFodder (uploaded soon (TM). If you encounter any bugs, please post them here on the Steam Workshop page or in our Discord at https://discord.gg/UselessFodder . Thanks for playing!
 
-To download the latest release version, please see the following Steam Workshops:
-Malden Overrun: https://steamcommunity.com/sharedfiles/filedetails/?id=2636565783
-Sefrou-Ramal Overrun: https://steamcommunity.com/sharedfiles/filedetails/?id=2879761892
-Required Mods Collection: https://steamcommunity.com/sharedfiles/filedetails/?id=2636691725
-Suggested Mods Collection: https://steamcommunity.com/sharedfiles/filedetails/?id=2636692891
-GitHub with most up to date version: https://github.com/UselessFodder/FS-Overrun
+To download the latest release version, please see the following Steam Workshops:<BR>
+Malden Overrun: https://steamcommunity.com/sharedfiles/filedetails/?id=2636565783 <BR>
+Sefrou-Ramal Overrun: https://steamcommunity.com/sharedfiles/filedetails/?id=2879761892 <BR>
+Required Mods Collection: https://steamcommunity.com/sharedfiles/filedetails/?id=2636691725 <BR>
+Suggested Mods Collection: https://steamcommunity.com/sharedfiles/filedetails/?id=2636692891 <BR>
+GitHub with most up to date version: https://github.com/UselessFodder/FS-Overrun <BR>
 
 This mission has been in the making for 3 years. Special Thanks to my community, the FoddSquad, for suffering through countless hours of tests. I owe a debt of gratitude to every single person who has come out to shoot zombies, get their radio changed by ghosts, and watch the DECON truck get yeeted across Malden. Thank you.
 

@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5227.4546,60.109539,6769.752};
-		dir[]={0.47935578,-0.086866289,-0.87333041};
-		up[]={0.041801184,0.9962194,-0.076156773};
-		aside[]={-0.87664235,-3.7332939e-007,-0.48117381};
+		pos[]={3625.0295,86.453552,5018.0205};
+		dir[]={-0.41294798,-0.45239449,0.79046535};
+		up[]={-0.20947553,0.89181799,0.4009786};
+		aside[]={0.88634986,-2.1944288e-008,0.46303946};
 	};
 };
 binarizationWanted=0;
@@ -222,8 +222,9 @@ class AddonsMetaData
 		};
 		class Item20
 		{
-			className="OPTRE_UNSC_Units_Army";
+			className="OPTRE_UNSC_Units";
 			name="OPTRE_UNSC_Units_Army";
+			author="Article 2 Studios";
 		};
 		class Item21
 		{
@@ -246,13 +247,15 @@ class AddonsMetaData
 		};
 		class Item24
 		{
-			className="OPTRE_Vehicles_Misc";
+			className="OPTRE_Vehicles";
 			name="OPTRE_Vehicles_Misc";
+			author="Article 2 Studios";
 		};
 		class Item25
 		{
-			className="OPTRE_Weapons_M247H";
+			className="OPTRE_Core";
 			name="OPTRE_Weapons_M247H";
+			author="Article 2 Studios";
 		};
 		class Item26
 		{
@@ -345,7 +348,7 @@ class CustomAttributes
 		class Attribute0
 		{
 			property="ENH_dynamicSkill";
-			expression="if (!is3DEN && _value # 0 && isServer) then      {        _value params        [          '_enable',          '_skillMinBLUFOR',          '_skillAimMinBLUFOR',          '_skillMaxBLUFOR',          '_skillAimMaxBlUFOR',          '_skillMinOPFOR',          '_skillAimMinOPFOR',          '_skillMaxOPFOR',          '_skillAimMaxOPFOR',          '_skillMinINDFOR',          '_skillAimMinINDFOR',          '_skillMaxINDFOR',          '_skillAimMaxINDFOR'        ];        [          true,          [            [WEST, _skillMinBLUFOR, _skillAimMinBLUFOR, _skillMaxBLUFOR, _skillAimMaxBlUFOR],            [EAST, _skillMinOPFOR, _skillAimMinOPFOR, _skillMaxOPFOR, _skillAimMaxOPFOR],            [INDEPENDENT, _skillMinINDFOR, _skillAimMinINDFOR, _skillMaxINDFOR, _skillAimMaxINDFOR]          ]        ] call BIS_fnc_EXP_camp_dynamicAISkill;      }";
+			expression="if (!is3DEN && _value # 0 && isServer) then      {        _value params        [          '_enable',          '_skillMinBLUFOR',          '_skillAimMinBLUFOR',          '_skillMaxBLUFOR',          '_skillAimMaxBlUFOR',          '_skillMinOPFOR',          '_skillAimMinOPFOR',          '_skillMaxOPFOR',          '_skillAimMaxOPFOR',          '_skillMinIndependent',          '_skillAimMinIndependent',          '_skillMaxIndependent',          '_skillAimMaxIndependent'        ];        [          true,          [            [WEST, _skillMinBLUFOR, _skillAimMinBLUFOR, _skillMaxBLUFOR, _skillAimMaxBlUFOR],            [EAST, _skillMinOPFOR, _skillAimMinOPFOR, _skillMaxOPFOR, _skillAimMaxOPFOR],            [INDEPENDENT, _skillMinIndependent, _skillAimMinIndependent, _skillMaxIndependent, _skillAimMaxIndependent]          ]        ] call BIS_fnc_EXP_camp_dynamicAISkill;      }";
 			class Value
 			{
 				class data
@@ -502,7 +505,7 @@ class CustomAttributes
 		class Attribute0
 		{
 			property="ENH_AddObjectsToZeus";
-			expression="    if (!is3DEN && isServer && _value && !(allCurators isEqualTo [])) then    {      [] spawn      {        scriptName 'ENH_Attribute_AddObjectsToZeus';        while {true} do        {          {          _x addCuratorEditableObjects            [              entities [[], ['Logic'], true],              true            ];          } count allCurators;          sleep 60;        };      };    }";
+			expression="    if (!is3DEN && isServer && _value && !(allCurators isEqualTo [])) then    {      0 spawn      {        scriptName 'ENH_Attribute_AddObjectsToZeus';        while {true} do        {          {          _x addCuratorEditableObjects            [              entities [[], ['Logic'], true],              true            ];          } count allCurators;          sleep 60;        };      };    }";
 			class Value
 			{
 				class data
@@ -541,7 +544,7 @@ class CustomAttributes
 		class Attribute3
 		{
 			property="ENH_SPR";
-			expression="if (!is3DEN && _value # 0 > 0 && !isMultiplayer) then      {        ENH_SPR_Ruleset = _value param [0, 0];        ENH_SPR_Delay = _value param [1, 20];        ENH_SPR_CanDie = _value param [2, false];        ENH_SPR_RestoreLoadout = _value param [3, false];        ENH_SPR_OnRespawnCode = compile (_value param [4, '']);        ENH_SPR_Positions =        [          allMapMarkers select {'respawn_east' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_west' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_guerilla' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_civilian' in toLower _x} apply {getMarkerPos _x}        ];        {          _x setVariable ['ENH_SPR_OriginalSide', side group _x];          _x setVariable ['ENH_SPR_OriginalLoadout', getUnitLoadout _x];          _x addEventHandler ['handleDamage',          {            params ['_unit', '', '_damage', '', '', '_index'];            if (!alive _unit || lifeState _unit isEqualTo 'INCAPACITATED') exitWith {0};            if (_unit getVariable ['ENH_SPR_Tickets', 0] == 0) then            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              _damage;            };            if (ENH_SPR_CanDie && _index in [1, 2] && _damage >= 1) exitWith            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              1;            };            if (_index < 8 && (_damage min 0.95) == 0.95) then            {              setAccTime 1;              _unit allowDamage false;              _unit setCaptive true;              _unit setUnconscious true;              _unit setVariable ['ENH_SPR_Tickets', (_unit getVariable ['ENH_SPR_Tickets', 0]) - 1];              if (isPlayer _unit) then {enableTeamSwitch false} else {removeSwitchableUnit _unit};              moveOut _unit;              _unit spawn ENH_fnc_SPR_respawnTimer;            };            _damage min 0.95;          }];        } forEach (allUnits select {_x getVariable ['ENH_SPR_Tickets', 0] > 0});                ENH_fnc_SPR_respawn =        {          scriptName 'ENH_Attribute_SPR_Respawn';          params ['_unit'];          if (isPlayer _unit) then {enableTeamSwitch true} else {addSwitchableUnit _unit};          if (ENH_SPR_RestoreLoadout) then {_unit setUnitLoadout (_unit getVariable 'ENH_SPR_OriginalLoadout')};          private _sideID = (_unit getVariable 'ENH_SPR_OriginalSide') call BIS_fnc_sideID;          private _positions = ENH_SPR_Positions select _sideID;          if (_positions isNotEqualTo []) then          {            switch (ENH_SPR_Ruleset) do            {              case 3:              {                _unit setPos (([_positions, [], {_unit distance _x}, 'ASCEND'] call BIS_fnc_sortBy) select 0);              };              case 2:              {                _unit setPos selectRandom _positions;              };            };          };          _unit setUnconscious false;          _unit allowDamage true;          _unit setDamage 0;          _unit switchMove '';          _unit call ENH_SPR_OnRespawnCode;          _unit spawn          {            sleep 8;            _this setCaptive false;          };        };                ENH_fnc_SPR_respawnTimer =        {          scriptName 'ENH_Attribute_SPR_RespawnTimer';          params ['_unit'];          private _respawnTime = time + ENH_SPR_Delay;          if (isPlayer _unit) then          {            private _ctrlRespawnTimer = (call BIS_fnc_displayMission) ctrlCreate ['RscStructuredText',-1];            _ctrlRespawnTimer ctrlSetPosition [0.25, 0, 0.5, 0.06];            _ctrlRespawnTimer ctrlSetBackgroundColor [0, 0, 0, 0.1];            _ctrlRespawnTimer ctrlCommit 0;            ENH_SPR_OriginalVolume = [soundVolume, musicVolume, radioVolume, speechVolume, environmentVolume];            0 cutText ['', 'BLACK OUT', 0.3];            0.3 fadeSound 0;            0.3 fadeMusic 0;            0.3 fadeRadio 0;            0.3 fadeSpeech 0;            0.3 fadeEnvironment 0;            showChat false;            while {time < _respawnTime} do            {              _ctrlRespawnTimer ctrlSetStructuredText parseText format ['<t size=''1.25'' color=''#218a36'' align=''center''>%1</t>', [(_respawnTime - time), 'HH:MM'] call BIS_fnc_timeToString];              sleep 0.1;            };            ctrlDelete _ctrlRespawnTimer;            0 cutText ['', 'BLACK IN', 8];            8 fadeSound (ENH_SPR_OriginalVolume # 0);            8 fadeMusic (ENH_SPR_OriginalVolume # 1);            8 fadeRadio (ENH_SPR_OriginalVolume # 2);            8 fadeSpeech (ENH_SPR_OriginalVolume # 3);            8 fadeEnvironment (ENH_SPR_OriginalVolume # 4);            showChat true;            [              ['Respawned'],              [format ['GRID: %1', mapGridPosition _unit]],              [format ['Tickets left: %1', _unit getVariable 'ENH_SPR_Tickets']]            ] spawn BIS_fnc_EXP_camp_SITREP;          }          else          {            if ((side player getFriend (_unit getVariable 'ENH_SPR_OriginalSide')) >= 0.6) then            {              [                str _unit, 'onEachFrame',                {                  drawIcon3D ['\a3\Modules_f\data\portraitRespawn_ca.paa', [0.13, 0.54, 0.21, 0.8], ASLToAGL ((_this # 0) modelToWorldVisualWorld [0, 0, 1]), 1, 1, 0, str round ((_this # 1) - time), 2];                },                [_unit, _respawnTime]              ] call BIS_fnc_addStackedEventHandler;            };            sleep ENH_SPR_Delay;          };          [str _unit, 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;          _unit call ENH_fnc_SPR_respawn;        };      }";
+			expression="if (!is3DEN && _value # 0 > 0 && !isMultiplayer) then      {        ENH_SPR_Ruleset = _value param [0, 0];        ENH_SPR_Delay = _value param [1, 20];        ENH_SPR_CanDie = _value param [2, false];        ENH_SPR_RestoreLoadout = _value param [3, false];        ENH_SPR_OnRespawnCode = compile (_value param [4, '']);        ENH_SPR_Positions =        [          allMapMarkers select {'respawn_east' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_west' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_guerilla' in toLower _x} apply {getMarkerPos _x},          allMapMarkers select {'respawn_civilian' in toLower _x} apply {getMarkerPos _x}        ];        {          _x setVariable ['ENH_SPR_OriginalSide', side group _x];          _x setVariable ['ENH_SPR_OriginalLoadout', getUnitLoadout _x];          _x addEventHandler ['handleDamage',          {            params ['_unit', '', '_damage', '', '', '_index'];            if (!alive _unit || lifeState _unit isEqualTo 'INCAPACITATED') exitWith {0};            if (_unit getVariable ['ENH_SPR_Tickets', 0] == 0) then            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              _damage;            };            if (ENH_SPR_CanDie && _index in [1, 2] && _damage >= 1) exitWith            {              _unit removeEventHandler ['handleDamage', _thisEventHandler];              1;            };            if (_index < 8 && (_damage min 0.95) == 0.95) then            {              setAccTime 1;              _unit allowDamage false;              _unit setCaptive true;              _unit setUnconscious true;              _unit setVariable ['ENH_SPR_Tickets', (_unit getVariable ['ENH_SPR_Tickets', 0]) - 1];              if (isPlayer _unit) then {enableTeamSwitch false} else {removeSwitchableUnit _unit};              moveOut _unit;              _unit spawn ENH_fnc_SPR_respawnTimer;            };            _damage min 0.95;          }];        } forEach (allUnits select {_x getVariable ['ENH_SPR_Tickets', 0] > 0});                ENH_fnc_SPR_respawn =        {          scriptName 'ENH_Attribute_SPR_Respawn';          params ['_unit'];          if (isPlayer _unit) then {enableTeamSwitch true} else {addSwitchableUnit _unit};          if (ENH_SPR_RestoreLoadout) then {_unit setUnitLoadout (_unit getVariable 'ENH_SPR_OriginalLoadout')};          private _sideID = (_unit getVariable 'ENH_SPR_OriginalSide') call BIS_fnc_sideID;          private _positions = ENH_SPR_Positions select _sideID;          if (_positions isNotEqualTo []) then          {            switch (ENH_SPR_Ruleset) do            {              case 3:              {                _unit setPos (([_positions, [], {_unit distance _x}, 'ASCEND'] call BIS_fnc_sortBy) select 0);              };              case 2:              {                _unit setPos selectRandom _positions;              };            };          };          _unit setUnconscious false;          _unit allowDamage true;          _unit setDamage 0;          _unit switchMove '';          _unit call ENH_SPR_OnRespawnCode;          _unit spawn          {            sleep 8;            _this setCaptive false;          };        };                ENH_fnc_SPR_respawnTimer =        {          scriptName 'ENH_Attribute_SPR_RespawnTimer';          params ['_unit'];          private _respawnTime = time + ENH_SPR_Delay;          if (isPlayer _unit) then          {            private _ctrlRespawnTimer = (call BIS_fnc_displayMission) ctrlCreate ['RscStructuredText',-1];            _ctrlRespawnTimer ctrlSetPosition [0.25, 0, 0.5, 0.06];            _ctrlRespawnTimer ctrlSetBackgroundColor [0, 0, 0, 0.1];            _ctrlRespawnTimer ctrlCommit 0;            ENH_SPR_OriginalVolume = [soundVolume, musicVolume, radioVolume, speechVolume, environmentVolume];            0 cutText ['', 'BLACK OUT', 0.3];            0.3 fadeSound 0;            0.3 fadeMusic 0;            0.3 fadeRadio 0;            0.3 fadeSpeech 0;            0.3 fadeEnvironment 0;            showChat false;            while {time < _respawnTime} do            {              _ctrlRespawnTimer ctrlSetStructuredText parseText format ['<t size=''1.25'' color=''#218a36'' align=''center''>%1</t>', [(_respawnTime - time), 'HH:MM'] call BIS_fnc_timeToString];              sleep 0.1;            };            ctrlDelete _ctrlRespawnTimer;            0 cutText ['', 'BLACK IN', 8];            8 fadeSound (ENH_SPR_OriginalVolume # 0);            8 fadeMusic (ENH_SPR_OriginalVolume # 1);            8 fadeRadio (ENH_SPR_OriginalVolume # 2);            8 fadeSpeech (ENH_SPR_OriginalVolume # 3);            8 fadeEnvironment (ENH_SPR_OriginalVolume # 4);            showChat true;            [              ['Respawned'],              [format ['GRID: %1', mapGridPosition _unit]],              [format ['Tickets left: %1', _unit getVariable 'ENH_SPR_Tickets']]            ] spawn BIS_fnc_EXP_camp_SITREP;          }          else          {            private _respawnEH = -1;            if ((side player getFriend (_unit getVariable 'ENH_SPR_OriginalSide')) >= 0.6) then            {              _respawnEH = addMissionEventHandler              [                'draw3D',                {                  drawIcon3D ['\a3\Modules_f\data\portraitRespawn_ca.paa', [0.13, 0.54, 0.21, 0.8], ASLToAGL ((_thisArgs # 0) modelToWorldVisualWorld [0, 0, 1]), 1, 1, 0, str round ((_thisArgs # 1) - time), 2];                },                [_unit, _respawnTime]              ];            };            sleep ENH_SPR_Delay;            removeMissionEventHandler ['draw3D', _respawnEH];            [str _unit, 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;          };          _unit call ENH_fnc_SPR_respawn;        };      }";
 			class Value
 			{
 				class data
@@ -646,7 +649,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=220;
+		items=198;
 		class Item0
 		{
 			dataType="Marker";
@@ -671,46 +674,6 @@ class Mission
 		};
 		class Item2
 		{
-			dataType="Trigger";
-			position[]={9464.1777,133.69368,8562.2314};
-			class Attributes
-			{
-				name="MurakamiTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 16 select 3 == false) then { " \n "call{ZoneArray select 16 set [3,true]; " \n " " \n "[[16,30],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
-				onDeactivation="call{ZoneArray select 16 set [3,false];" \n "}";
-				sizeA=184.12601;
-				sizeB=184.12601;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=12;
-			type="EmptyDetector";
-			atlOffset=3.8090057;
-		};
-		class Item3
-		{
-			dataType="Trigger";
-			position[]={10589.46,98.657143,9654.9736};
-			class Attributes
-			{
-				name="IthakiTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 11 select 3 == false) then { " \n "call{ZoneArray select 11 set [3,true]; " \n " " \n "[[11,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 2 set [11,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=15;
-			type="EmptyDetector";
-			atlOffset=7.6293945e-006;
-		};
-		class Item4
-		{
 			dataType="Marker";
 			position[]={10595.054,98.653999,9660.2803};
 			name="Ithaki";
@@ -722,7 +685,7 @@ class Mission
 			id=16;
 			atlOffset=0.00015258789;
 		};
-		class Item5
+		class Item3
 		{
 			dataType="Object";
 			class PositionInfo
@@ -770,7 +733,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item6
+		class Item4
 		{
 			dataType="Object";
 			class PositionInfo
@@ -787,7 +750,7 @@ class Mission
 			type="Campfire_burning_F";
 			atlOffset=-6.8664551e-005;
 		};
-		class Item7
+		class Item5
 		{
 			dataType="Marker";
 			position[]={5187.8818,182.86481,6752.9473};
@@ -798,7 +761,7 @@ class Mission
 			id=36;
 			atlOffset=121.86594;
 		};
-		class Item8
+		class Item6
 		{
 			dataType="Object";
 			class PositionInfo
@@ -815,7 +778,7 @@ class Mission
 			type="Land_PortableLight_double_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item9
+		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
@@ -832,7 +795,7 @@ class Mission
 			type="Land_PortableLight_single_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item10
+		class Item8
 		{
 			dataType="Object";
 			class PositionInfo
@@ -849,7 +812,7 @@ class Mission
 			type="Land_SandbagBarricade_01_half_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item11
+		class Item9
 		{
 			dataType="Object";
 			class PositionInfo
@@ -865,7 +828,7 @@ class Mission
 			id=42;
 			type="Land_BagFence_Long_F";
 		};
-		class Item12
+		class Item10
 		{
 			dataType="Object";
 			class PositionInfo
@@ -882,7 +845,7 @@ class Mission
 			type="Land_BagFence_Corner_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item13
+		class Item11
 		{
 			dataType="Object";
 			class PositionInfo
@@ -898,7 +861,7 @@ class Mission
 			id=44;
 			type="Land_SandbagBarricade_01_F";
 		};
-		class Item14
+		class Item12
 		{
 			dataType="Object";
 			class PositionInfo
@@ -915,7 +878,7 @@ class Mission
 			type="Land_BarGate_01_open_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item15
+		class Item13
 		{
 			dataType="Object";
 			class PositionInfo
@@ -932,7 +895,7 @@ class Mission
 			type="Land_BagFence_Round_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item16
+		class Item14
 		{
 			dataType="Object";
 			class PositionInfo
@@ -949,7 +912,7 @@ class Mission
 			type="Land_BagFence_Long_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item17
+		class Item15
 		{
 			dataType="Object";
 			class PositionInfo
@@ -965,7 +928,7 @@ class Mission
 			id=50;
 			type="Land_BagFence_Round_F";
 		};
-		class Item18
+		class Item16
 		{
 			dataType="Object";
 			class PositionInfo
@@ -981,7 +944,7 @@ class Mission
 			id=51;
 			type="Land_BagFence_Round_F";
 		};
-		class Item19
+		class Item17
 		{
 			dataType="Object";
 			class PositionInfo
@@ -997,7 +960,7 @@ class Mission
 			id=57;
 			type="Land_BagFence_Round_F";
 		};
-		class Item20
+		class Item18
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1014,7 +977,7 @@ class Mission
 			type="Land_CampingChair_V2_F";
 			atlOffset=-0.00011444092;
 		};
-		class Item21
+		class Item19
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1031,7 +994,7 @@ class Mission
 			type="Land_CampingChair_V2_F";
 			atlOffset=-0.00012207031;
 		};
-		class Item22
+		class Item20
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1048,7 +1011,7 @@ class Mission
 			type="Land_CampingChair_V2_F";
 			atlOffset=-9.1552734e-005;
 		};
-		class Item23
+		class Item21
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1064,7 +1027,7 @@ class Mission
 			id=65;
 			type="HeliH";
 		};
-		class Item24
+		class Item22
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1081,7 +1044,7 @@ class Mission
 			type="Land_Sleeping_bag_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item25
+		class Item23
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1097,7 +1060,7 @@ class Mission
 			id=67;
 			type="Land_Sleeping_bag_folded_F";
 		};
-		class Item26
+		class Item24
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1113,7 +1076,7 @@ class Mission
 			id=68;
 			type="Land_Sleeping_bag_brown_F";
 		};
-		class Item27
+		class Item25
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1129,7 +1092,7 @@ class Mission
 			id=69;
 			type="Land_Sleeping_bag_F";
 		};
-		class Item28
+		class Item26
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1145,7 +1108,7 @@ class Mission
 			id=70;
 			type="Land_Ground_sheet_folded_OPFOR_F";
 		};
-		class Item29
+		class Item27
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1161,7 +1124,7 @@ class Mission
 			id=71;
 			type="Land_Ground_sheet_F";
 		};
-		class Item30
+		class Item28
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1177,7 +1140,7 @@ class Mission
 			type="Land_Sleeping_bag_F";
 			atlOffset=0.034034729;
 		};
-		class Item31
+		class Item29
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1194,7 +1157,7 @@ class Mission
 			type="Land_CampingTable_white_F";
 			atlOffset=-9.9182129e-005;
 		};
-		class Item32
+		class Item30
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1211,7 +1174,7 @@ class Mission
 			type="FoldChair";
 			atlOffset=-0.0001449585;
 		};
-		class Item33
+		class Item31
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1228,7 +1191,7 @@ class Mission
 			type="Land_WoodPile_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item34
+		class Item32
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1245,7 +1208,7 @@ class Mission
 			type="Land_WoodPile_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item35
+		class Item33
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1261,7 +1224,7 @@ class Mission
 			type="Land_Compass_F";
 			atlOffset=0.073707581;
 		};
-		class Item36
+		class Item34
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1278,7 +1241,7 @@ class Mission
 			type="Land_Pumpkin_01_F";
 			atlOffset=0.00027084351;
 		};
-		class Item37
+		class Item35
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1295,7 +1258,7 @@ class Mission
 			type="Land_TinContainer_F";
 			atlOffset=-2.2888184e-005;
 		};
-		class Item38
+		class Item36
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1312,7 +1275,7 @@ class Mission
 			type="Land_PaperBox_01_small_closed_brown_food_F";
 			atlOffset=-5.3405762e-005;
 		};
-		class Item39
+		class Item37
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1329,7 +1292,7 @@ class Mission
 			type="Land_Tableware_01_cup_F";
 			atlOffset=0.00029373169;
 		};
-		class Item40
+		class Item38
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1346,7 +1309,7 @@ class Mission
 			type="Land_Can_V3_F";
 			atlOffset=-7.6293945e-006;
 		};
-		class Item41
+		class Item39
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1362,13 +1325,13 @@ class Mission
 			id=105;
 			type="Land_PortableLight_single_F";
 		};
-		class Item42
+		class Item40
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={5190.4517,62.344524,6744.0024};
-				angles[]={0,1.5872062,-0};
+				angles[]={0,1.5872062,0};
 			};
 			side="Empty";
 			flags=5;
@@ -1378,7 +1341,7 @@ class Mission
 			id=106;
 			type="Land_PortableLight_single_F";
 		};
-		class Item43
+		class Item41
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1395,7 +1358,7 @@ class Mission
 			type="PortableHelipadLight_01_white_F";
 			atlOffset=-0.00018692017;
 		};
-		class Item44
+		class Item42
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1412,7 +1375,7 @@ class Mission
 			type="PortableHelipadLight_01_white_F";
 			atlOffset=-0.00076293945;
 		};
-		class Item45
+		class Item43
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1429,7 +1392,7 @@ class Mission
 			type="PortableHelipadLight_01_white_F";
 			atlOffset=-0.00067138672;
 		};
-		class Item46
+		class Item44
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1446,7 +1409,7 @@ class Mission
 			type="Land_PortableLight_double_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item47
+		class Item45
 		{
 			dataType="Marker";
 			position[]={5207.1416,180.46954,6726.459};
@@ -1457,7 +1420,7 @@ class Mission
 			id=112;
 			atlOffset=120.27348;
 		};
-		class Item48
+		class Item46
 		{
 			dataType="Marker";
 			position[]={5192.4907,183.27979,6700.9102};
@@ -1467,7 +1430,7 @@ class Mission
 			id=115;
 			atlOffset=119.11004;
 		};
-		class Item49
+		class Item47
 		{
 			dataType="Marker";
 			position[]={4894.5171,78.358002,10795.38};
@@ -1480,7 +1443,7 @@ class Mission
 			id=170;
 			atlOffset=77.924797;
 		};
-		class Item50
+		class Item48
 		{
 			dataType="Marker";
 			position[]={5423.5342,270.95099,9589.7451};
@@ -1492,7 +1455,7 @@ class Mission
 			id=172;
 			atlOffset=78.259537;
 		};
-		class Item51
+		class Item49
 		{
 			dataType="Marker";
 			position[]={4510.2598,133.08501,8956.7588};
@@ -1504,7 +1467,7 @@ class Mission
 			id=173;
 			atlOffset=78.2509;
 		};
-		class Item52
+		class Item50
 		{
 			dataType="Marker";
 			position[]={7064.915,92.188004,8938.5986};
@@ -1516,7 +1479,7 @@ class Mission
 			id=174;
 			atlOffset=78.251411;
 		};
-		class Item53
+		class Item51
 		{
 			dataType="Marker";
 			position[]={7302.8701,141.55099,10687.003};
@@ -1528,7 +1491,7 @@ class Mission
 			id=175;
 			atlOffset=81.107124;
 		};
-		class Item54
+		class Item52
 		{
 			dataType="Marker";
 			position[]={5862.5,6.02,689.315};
@@ -1540,7 +1503,7 @@ class Mission
 			id=177;
 			atlOffset=-0.03000021;
 		};
-		class Item55
+		class Item53
 		{
 			dataType="Marker";
 			position[]={8811.1787,255.21201,10713.717};
@@ -1553,7 +1516,7 @@ class Mission
 			id=178;
 			atlOffset=69.586029;
 		};
-		class Item56
+		class Item54
 		{
 			dataType="Marker";
 			position[]={10252.394,112.863,7865.9941};
@@ -1565,7 +1528,7 @@ class Mission
 			id=179;
 			atlOffset=78.250618;
 		};
-		class Item57
+		class Item55
 		{
 			dataType="Marker";
 			position[]={6806.2568,237.64799,7384.9692};
@@ -1577,7 +1540,7 @@ class Mission
 			id=181;
 			atlOffset=-0.00036621094;
 		};
-		class Item58
+		class Item56
 		{
 			dataType="Marker";
 			position[]={9897.459,77.309998,1716.158};
@@ -1589,7 +1552,7 @@ class Mission
 			id=182;
 			atlOffset=71.439995;
 		};
-		class Item59
+		class Item57
 		{
 			dataType="Marker";
 			position[]={9586.7344,82.181999,3120.249};
@@ -1601,7 +1564,7 @@ class Mission
 			id=183;
 			atlOffset=78.250725;
 		};
-		class Item60
+		class Item58
 		{
 			dataType="Marker";
 			position[]={8992.3711,84.250999,4175.5352};
@@ -1613,7 +1576,7 @@ class Mission
 			id=184;
 			atlOffset=78.250999;
 		};
-		class Item61
+		class Item59
 		{
 			dataType="Marker";
 			position[]={5561.8862,161.642,5258.5371};
@@ -1626,7 +1589,7 @@ class Mission
 			id=185;
 			atlOffset=78.251366;
 		};
-		class Item62
+		class Item60
 		{
 			dataType="Marker";
 			position[]={11143.825,85.386002,9332.1982};
@@ -1639,7 +1602,7 @@ class Mission
 			id=186;
 			atlOffset=34.895844;
 		};
-		class Item63
+		class Item61
 		{
 			dataType="Marker";
 			position[]={1685.3409,338.35599,2747.541};
@@ -1651,7 +1614,7 @@ class Mission
 			id=187;
 			atlOffset=79.404907;
 		};
-		class Item64
+		class Item62
 		{
 			dataType="Marker";
 			position[]={4051.7664,97.199997,7291.7773};
@@ -1663,7 +1626,7 @@ class Mission
 			id=189;
 			atlOffset=4.9271469;
 		};
-		class Item65
+		class Item63
 		{
 			dataType="Marker";
 			position[]={3548.187,3.612,5067.0981};
@@ -1675,7 +1638,7 @@ class Mission
 			id=191;
 			atlOffset=-0.00026535988;
 		};
-		class Item66
+		class Item64
 		{
 			dataType="Marker";
 			position[]={7936.1055,202.353,2673.0752};
@@ -1687,7 +1650,7 @@ class Mission
 			id=194;
 			atlOffset=158.64352;
 		};
-		class Item67
+		class Item65
 		{
 			dataType="Marker";
 			position[]={3086.457,250.37,5901.1338};
@@ -1698,26 +1661,7 @@ class Mission
 			b=125;
 			id=195;
 		};
-		class Item68
-		{
-			dataType="Trigger";
-			position[]={7936.2109,36.16,2676.906};
-			class Attributes
-			{
-				name="Camp_ChimeraTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 2 select 3 == false) then { " \n "call{ZoneArray select 2 set [3,true]; " \n " " \n "[[2,35],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 2 set [3,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=250;
-			type="EmptyDetector";
-		};
-		class Item69
+		class Item66
 		{
 			dataType="Marker";
 			position[]={5194.8916,183.88989,6756.9951};
@@ -1729,7 +1673,7 @@ class Mission
 			id=252;
 			atlOffset=123.66277;
 		};
-		class Item70
+		class Item67
 		{
 			dataType="Marker";
 			position[]={5233.606,182.13394,6739.0732};
@@ -1739,7 +1683,7 @@ class Mission
 			id=253;
 			atlOffset=123.97273;
 		};
-		class Item71
+		class Item68
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1773,7 +1717,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item72
+		class Item69
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1790,7 +1734,7 @@ class Mission
 			type="Land_SandbagBarricade_01_half_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item73
+		class Item70
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1807,7 +1751,7 @@ class Mission
 			type="Land_SandbagBarricade_01_half_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item74
+		class Item71
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1824,7 +1768,7 @@ class Mission
 			type="Land_SandbagBarricade_01_half_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item75
+		class Item72
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1841,7 +1785,7 @@ class Mission
 			type="Land_BottlePlastic_V1_F";
 			atlOffset=-2.6702881e-005;
 		};
-		class Item76
+		class Item73
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1858,7 +1802,7 @@ class Mission
 			type="Land_BottlePlastic_V1_F";
 			atlOffset=-2.6702881e-005;
 		};
-		class Item77
+		class Item74
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1875,7 +1819,7 @@ class Mission
 			type="Land_BottlePlastic_V1_F";
 			atlOffset=-2.6702881e-005;
 		};
-		class Item78
+		class Item75
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1892,7 +1836,7 @@ class Mission
 			type="Land_BottlePlastic_V1_F";
 			atlOffset=-2.6702881e-005;
 		};
-		class Item79
+		class Item76
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1909,7 +1853,7 @@ class Mission
 			type="Land_Tableware_01_stackOfNapkins_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item80
+		class Item77
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1926,7 +1870,7 @@ class Mission
 			type="Land_FoodContainer_01_F";
 			atlOffset=-6.1035156e-005;
 		};
-		class Item81
+		class Item78
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1961,7 +1905,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item82
+		class Item79
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1978,7 +1922,7 @@ class Mission
 			type="Tarp_01_Large_Green_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item83
+		class Item80
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1995,7 +1939,7 @@ class Mission
 			type="WaterSpill_01_Small_New_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item84
+		class Item81
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2012,7 +1956,7 @@ class Mission
 			type="WaterSpill_01_Small_Foam_F";
 			atlOffset=7.6293945e-006;
 		};
-		class Item85
+		class Item82
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2047,7 +1991,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item86
+		class Item83
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2064,7 +2008,7 @@ class Mission
 			type="PressureHose_01_Roll_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item87
+		class Item84
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2099,7 +2043,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item88
+		class Item85
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2116,7 +2060,7 @@ class Mission
 			type="Land_Bowl_EP1";
 			atlOffset=-1.5258789e-005;
 		};
-		class Item89
+		class Item86
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2151,7 +2095,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item90
+		class Item87
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2213,7 +2157,7 @@ class Mission
 				nAttributes=3;
 			};
 		};
-		class Item91
+		class Item88
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2230,7 +2174,7 @@ class Mission
 			type="Reflector_Cone_01_white_F";
 			atlOffset=3.8146973e-006;
 		};
-		class Item92
+		class Item89
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2246,7 +2190,7 @@ class Mission
 			id=284;
 			type="Reflector_Cone_01_white_F";
 		};
-		class Item93
+		class Item90
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2262,7 +2206,7 @@ class Mission
 			id=285;
 			type="Reflector_Cone_01_white_F";
 		};
-		class Item94
+		class Item91
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2324,7 +2268,7 @@ class Mission
 				nAttributes=3;
 			};
 		};
-		class Item95
+		class Item92
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2343,7 +2287,7 @@ class Mission
 			type="Land_Laptop_unfolded_F";
 			atlOffset=0.0002822876;
 		};
-		class Item96
+		class Item93
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2360,7 +2304,7 @@ class Mission
 			type="SatelliteAntenna_01_Small_Olive_F";
 			atlOffset=0.00017547607;
 		};
-		class Item97
+		class Item94
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2376,7 +2320,7 @@ class Mission
 			id=311;
 			type="Land_PCSet_01_mouse_F";
 		};
-		class Item98
+		class Item95
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2393,26 +2337,7 @@ class Mission
 			id=314;
 			type="Land_EmergencyBlanket_01_discarded_F";
 		};
-		class Item99
-		{
-			dataType="Trigger";
-			position[]={3085.8831,250.37,5901.2358};
-			class Attributes
-			{
-				name="Camp_GriffinTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 3 select 3 == false) then { " \n "call{ZoneArray select 3 set [3,true]; " \n " " \n "[[3,35],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 3 set [3,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=330;
-			type="EmptyDetector";
-		};
-		class Item100
+		class Item96
 		{
 			dataType="Marker";
 			position[]={9466.4326,133.80701,8570.8936};
@@ -2422,7 +2347,7 @@ class Mission
 			id=339;
 			atlOffset=4.1222229;
 		};
-		class Item101
+		class Item97
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2437,7 +2362,7 @@ class Mission
 			id=340;
 			type="Flag_White_F";
 		};
-		class Item102
+		class Item98
 		{
 			dataType="Marker";
 			position[]={10592.129,98.685127,9655.0215};
@@ -2446,7 +2371,7 @@ class Mission
 			id=341;
 			atlOffset=7.6293945e-006;
 		};
-		class Item103
+		class Item99
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2461,7 +2386,7 @@ class Mission
 			id=342;
 			type="Flag_White_F";
 		};
-		class Item104
+		class Item100
 		{
 			dataType="Marker";
 			position[]={7067.8511,92.1875,8942.0928};
@@ -2470,7 +2395,7 @@ class Mission
 			id=345;
 			atlOffset=78.250908;
 		};
-		class Item105
+		class Item101
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2486,7 +2411,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=-9.5367432e-007;
 		};
-		class Item106
+		class Item102
 		{
 			dataType="Marker";
 			position[]={7310.271,138.69501,10691.568};
@@ -2496,7 +2421,7 @@ class Mission
 			id=347;
 			atlOffset=78.251144;
 		};
-		class Item107
+		class Item103
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2511,7 +2436,7 @@ class Mission
 			id=348;
 			type="Flag_White_F";
 		};
-		class Item108
+		class Item104
 		{
 			dataType="Marker";
 			position[]={4895.0449,78.49659,10795.251};
@@ -2520,7 +2445,7 @@ class Mission
 			id=349;
 			atlOffset=77.967659;
 		};
-		class Item109
+		class Item105
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2536,7 +2461,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=-2.9802322e-008;
 		};
-		class Item110
+		class Item106
 		{
 			dataType="Marker";
 			position[]={5422.1758,270.94019,9589.457};
@@ -2545,7 +2470,7 @@ class Mission
 			id=353;
 			atlOffset=78.250824;
 		};
-		class Item111
+		class Item107
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2560,7 +2485,7 @@ class Mission
 			id=354;
 			type="Flag_White_F";
 		};
-		class Item112
+		class Item108
 		{
 			dataType="Marker";
 			position[]={5864.7358,6.158,691.43701};
@@ -2568,9 +2493,9 @@ class Mission
 			text="Eastern District";
 			type="mil_flag";
 			id=355;
-			atlOffset=0.00029706955;
+			atlOffset=0.00029754639;
 		};
-		class Item113
+		class Item109
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2586,7 +2511,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=0.17940426;
 		};
-		class Item114
+		class Item110
 		{
 			dataType="Marker";
 			position[]={8814.7373,188.5088,10716.692};
@@ -2595,7 +2520,7 @@ class Mission
 			id=357;
 			atlOffset=2.4140472;
 		};
-		class Item115
+		class Item111
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2610,7 +2535,7 @@ class Mission
 			id=358;
 			type="Flag_White_F";
 		};
-		class Item116
+		class Item112
 		{
 			dataType="Marker";
 			position[]={10253.284,112.86336,7868.9551};
@@ -2619,7 +2544,7 @@ class Mission
 			id=359;
 			atlOffset=78.250977;
 		};
-		class Item117
+		class Item113
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2634,7 +2559,7 @@ class Mission
 			id=360;
 			type="Flag_White_F";
 		};
-		class Item118
+		class Item114
 		{
 			dataType="Marker";
 			position[]={4505.3467,133.08519,8956.3877};
@@ -2643,7 +2568,7 @@ class Mission
 			id=361;
 			atlOffset=78.251083;
 		};
-		class Item119
+		class Item115
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2658,7 +2583,7 @@ class Mission
 			id=362;
 			type="Flag_White_F";
 		};
-		class Item120
+		class Item116
 		{
 			dataType="Marker";
 			position[]={6806.0649,237.64836,7387.3564};
@@ -2666,7 +2591,7 @@ class Mission
 			type="mil_flag";
 			id=365;
 		};
-		class Item121
+		class Item117
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2681,7 +2606,7 @@ class Mission
 			id=366;
 			type="Flag_White_F";
 		};
-		class Item122
+		class Item118
 		{
 			dataType="Marker";
 			position[]={8967.2432,84.250931,4176.6157};
@@ -2690,7 +2615,7 @@ class Mission
 			id=369;
 			atlOffset=78.250931;
 		};
-		class Item123
+		class Item119
 		{
 			dataType="Object";
 			class PositionInfo
@@ -2705,27 +2630,7 @@ class Mission
 			id=370;
 			type="Flag_White_F";
 		};
-		class Item124
-		{
-			dataType="Trigger";
-			position[]={1696.644,259.3797,2748.0371};
-			class Attributes
-			{
-				name="Lost_VillageTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 14 select 3 == false) then { " \n "call{ZoneArray select 14 set [3,true];  " \n " " \n "[[14,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
-				onDeactivation="call{ZoneArray select 14 set [3,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=402;
-			type="EmptyDetector";
-			atlOffset=1.7650146;
-		};
-		class Item125
+		class Item120
 		{
 			dataType="Group";
 			side="West";
@@ -3448,7 +3353,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression=" if (isNil 'CBA_fnc_setCallsign') then { _this setGroupID [_value]; } else { [_this, _value] call CBA_fnc_setCallsign; }; ";
+					expression="                            if (isNil 'CBA_fnc_setCallsign') then {                                _this setGroupID [_value];                            } else {                                [_this, _value] call CBA_fnc_setCallsign;                            };";
 					class Value
 					{
 						class data
@@ -3461,7 +3366,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item126
+		class Item121
 		{
 			dataType="Group";
 			side="West";
@@ -4185,7 +4090,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression=" if (isNil 'CBA_fnc_setCallsign') then { _this setGroupID [_value]; } else { [_this, _value] call CBA_fnc_setCallsign; }; ";
+					expression="                            if (isNil 'CBA_fnc_setCallsign') then {                                _this setGroupID [_value];                            } else {                                [_this, _value] call CBA_fnc_setCallsign;                            };";
 					class Value
 					{
 						class data
@@ -4198,7 +4103,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item127
+		class Item122
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4265,26 +4170,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item128
-		{
-			dataType="Trigger";
-			position[]={3547.8269,3.7255409,5066.8262};
-			class Attributes
-			{
-				name="Alpheus_PowerplantTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 1 select 3 == false) then { " \n "call{ZoneArray select 1 set [3,true];  " \n "" \n "[[1,30],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 1 set [3,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=503;
-			type="EmptyDetector";
-		};
-		class Item129
+		class Item123
 		{
 			dataType="Marker";
 			position[]={3541.5525,5.3712916,5066.0435};
@@ -4292,7 +4178,7 @@ class Mission
 			type="mil_flag";
 			id=506;
 		};
-		class Item130
+		class Item124
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4307,7 +4193,7 @@ class Mission
 			id=507;
 			type="Flag_White_F";
 		};
-		class Item131
+		class Item125
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4323,7 +4209,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=-3.8146973e-006;
 		};
-		class Item132
+		class Item126
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4339,7 +4225,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=2.8267446;
 		};
-		class Item133
+		class Item127
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4355,7 +4241,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=5.0115051;
 		};
-		class Item134
+		class Item128
 		{
 			dataType="Marker";
 			position[]={7935.7744,202.35306,2677.769};
@@ -4364,7 +4250,7 @@ class Mission
 			id=514;
 			atlOffset=158.57289;
 		};
-		class Item135
+		class Item129
 		{
 			dataType="Marker";
 			position[]={3084.0251,250.37,5898.9429};
@@ -4372,7 +4258,7 @@ class Mission
 			type="mil_flag";
 			id=515;
 		};
-		class Item136
+		class Item130
 		{
 			dataType="Marker";
 			position[]={1694.9741,334.67975,2755.6699};
@@ -4381,35 +4267,16 @@ class Mission
 			id=516;
 			atlOffset=78.250946;
 		};
-		class Item137
-		{
-			dataType="Trigger";
-			position[]={7065.1421,13.936591,8936.8896};
-			class Attributes
-			{
-				name="VolosTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 21 select 3 == false) then { " \n "call{ZoneArray select 21 set [3,true]; " \n "" \n "[[21,60],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
-				onDeactivation="call{ZoneArray select 21 set [3,false];" \n "}";
-				sizeA=555.66699;
-				sizeB=555.66699;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=749;
-			type="EmptyDetector";
-		};
-		class Item138
+		class Item131
 		{
 			dataType="Marker";
 			position[]={5247.0928,58.216171,6728.7432};
 			name="techSpawn";
 			type="Empty";
-			angle=29.786808;
+			angle=29.786804;
 			id=765;
 		};
-		class Item139
+		class Item132
 		{
 			dataType="Marker";
 			position[]={5247.6162,58.306458,6716.7754};
@@ -4418,7 +4285,7 @@ class Mission
 			angle=41.510067;
 			id=768;
 		};
-		class Item140
+		class Item133
 		{
 			dataType="Trigger";
 			position[]={5243.1396,58.128494,6741.355};
@@ -4436,27 +4303,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=7.6293945e-006;
 		};
-		class Item141
-		{
-			dataType="Trigger";
-			position[]={11158.234,50.647537,9326.4824};
-			angle=0.56976277;
-			class Attributes
-			{
-				name="FarmsteadTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 7 select 3 == false) then {  " \n "call{ZoneArray select 7 set [3,true];    " \n "" \n "[[7,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];}  " \n "} ";
-				onDeactivation="call{ZoneArray select 7 set [3,false];" \n "}";
-				sizeA=483.06601;
-				sizeB=360.19901;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=1101;
-			type="EmptyDetector";
-		};
-		class Item142
+		class Item134
 		{
 			dataType="Marker";
 			position[]={11155.131,78.174255,9324.6523};
@@ -4466,26 +4313,7 @@ class Mission
 			id=1102;
 			atlOffset=22.629639;
 		};
-		class Item143
-		{
-			dataType="Trigger";
-			position[]={5561.6899,83.390633,5256.4629};
-			class Attributes
-			{
-				name="ErsekeTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 6 select 3 == false) then { " \n "call{ZoneArray select 6 set [3,true]; " \n " " \n "[[6,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 6 set [3,false];" \n "}";
-				sizeA=487.95801;
-				sizeB=487.95801;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=1104;
-			type="EmptyDetector";
-		};
-		class Item144
+		class Item135
 		{
 			dataType="Marker";
 			position[]={5562.3384,161.64139,5255.3638};
@@ -4494,7 +4322,7 @@ class Mission
 			id=1190;
 			atlOffset=78.250755;
 		};
-		class Item145
+		class Item136
 		{
 			dataType="Object";
 			class PositionInfo
@@ -4509,45 +4337,7 @@ class Mission
 			id=1191;
 			type="Flag_White_F";
 		};
-		class Item146
-		{
-			dataType="Trigger";
-			position[]={10254.503,34.612381,7869.9209};
-			class Attributes
-			{
-				name="Camp_PegasusTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 5 select 3 == false) then { " \n "call{ZoneArray select 5 set [3,true]; " \n " " \n "[[5,35],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 9 set [5,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=1262;
-			type="EmptyDetector";
-		};
-		class Item147
-		{
-			dataType="Trigger";
-			position[]={6803.25,237.64836,7386.4199};
-			class Attributes
-			{
-				name="Lykaion_OutpostTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 15 select 3 == false) then { " \n "call{ZoneArray select 15 set [3,true]; " \n " " \n "[[15,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 15 set [3,false];" \n "}";
-				sizeA=200;
-				sizeB=200;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=2249;
-			type="EmptyDetector";
-		};
-		class Item148
+		class Item137
 		{
 			dataType="Trigger";
 			position[]={5227.2173,58.212872,6740.3423};
@@ -4567,46 +4357,7 @@ class Mission
 			type="EmptyDetector";
 			atlOffset=3.8146973e-006;
 		};
-		class Item149
-		{
-			dataType="Trigger";
-			position[]={4510.502,54.834106,8956.4912};
-			angle=0.72982693;
-			class Attributes
-			{
-				name="KEfaloniaTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 13 select 3 == false) then { " \n "call{ZoneArray select 13 set [3,true]; " \n "" \n "[[13,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
-				onDeactivation="call{ZoneArray select 13 set [3,false];" \n "}";
-				sizeA=500;
-				sizeB=500;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=2766;
-			type="EmptyDetector";
-		};
-		class Item150
-		{
-			dataType="Trigger";
-			position[]={5422.5898,192.69035,9591.5723};
-			class Attributes
-			{
-				name="Camp_HydraTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 4 select 3 == false) then { " \n "call{ZoneArray select 4 set [3,true];  " \n "" \n "[[4,35],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 4 set [3,false];" \n "}";
-				sizeA=224.228;
-				sizeB=224.228;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3353;
-			type="EmptyDetector";
-		};
-		class Item151
+		class Item138
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4686,7 +4437,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item152
+		class Item139
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4767,7 +4518,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item153
+		class Item140
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4848,7 +4599,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item154
+		class Item141
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4929,7 +4680,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item155
+		class Item142
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5010,7 +4761,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item156
+		class Item143
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5091,7 +4842,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item157
+		class Item144
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5172,7 +4923,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item158
+		class Item145
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5253,27 +5004,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item159
-		{
-			dataType="Trigger";
-			position[]={5901.1162,6.2289448,642.633};
-			class Attributes
-			{
-				name="New_Delphi_EastTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 17 select 3 == false) then { " \n "call{ZoneArray select 17 set [3,true]; " \n "" \n "[[17,80],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} " \n "";
-				onDeactivation="call{ZoneArray select 17 set [3,false];" \n "}";
-				sizeA=533.28802;
-				sizeB=580.698;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3519;
-			type="EmptyDetector";
-			atlOffset=0.15999985;
-		};
-		class Item160
+		class Item146
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5288,7 +5019,7 @@ class Mission
 			id=1103;
 			type="Flag_White_F";
 		};
-		class Item161
+		class Item147
 		{
 			dataType="Marker";
 			position[]={5140.564,25.177,689.26099};
@@ -5300,27 +5031,7 @@ class Mission
 			id=188;
 			atlOffset=19.021149;
 		};
-		class Item162
-		{
-			dataType="Trigger";
-			position[]={8814.3701,222.28976,10711.055};
-			class Attributes
-			{
-				name="Abandoned_CampTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 0 select 3 == false) then { " \n "call{ZoneArray select 0 set [3,true]; " \n " " \n "[[0,40],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 0 set [3,false];" \n "}";
-				sizeA=368.41101;
-				sizeB=368.41101;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3520;
-			type="EmptyDetector";
-			atlOffset=36.632996;
-		};
-		class Item163
+		class Item148
 		{
 			dataType="Marker";
 			position[]={5146.8809,25.165001,688.27197};
@@ -5330,7 +5041,7 @@ class Mission
 			id=3521;
 			atlOffset=18.965591;
 		};
-		class Item164
+		class Item149
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5346,27 +5057,7 @@ class Mission
 			type="Flag_White_F";
 			atlOffset=0.27701664;
 		};
-		class Item165
-		{
-			dataType="Trigger";
-			position[]={5015.2612,6.3200002,698.60797};
-			class Attributes
-			{
-				name="New_Delphi_WestTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 18 select 3 == false) then { " \n "call{ZoneArray select 18 set [3,true]; " \n " " \n "[[18,80],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 18 set [3,false];" \n "}";
-				sizeA=585.16901;
-				sizeB=622.492;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3523;
-			type="EmptyDetector";
-			atlOffset=0.17825365;
-		};
-		class Item166
+		class Item150
 		{
 			dataType="Marker";
 			position[]={4065.6548,97.19989,7309.4658};
@@ -5375,7 +5066,7 @@ class Mission
 			id=3524;
 			atlOffset=4.5561981;
 		};
-		class Item167
+		class Item151
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5390,83 +5081,7 @@ class Mission
 			id=3525;
 			type="Flag_White_F";
 		};
-		class Item168
-		{
-			dataType="Trigger";
-			position[]={4063.429,92.643692,7310.7671};
-			class Attributes
-			{
-				name="PatrasTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 19 select 3 == false) then { " \n "call{ZoneArray select 19 set [3,true]; " \n " " \n "[[19,65],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 19 set [3,false];" \n "}";
-				sizeA=480.229;
-				sizeB=480.229;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3526;
-			type="EmptyDetector";
-		};
-		class Item169
-		{
-			dataType="Trigger";
-			position[]={8984.5996,6,4177.8682};
-			class Attributes
-			{
-				name="Industrial_ComplexTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 10 select 3 == false) then { " \n "call{ZoneArray select 10 set [3,true]; " \n "  " \n "[[10,80],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 10 set [3,false];" \n "}";
-				sizeA=450;
-				sizeB=450;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3681;
-			type="EmptyDetector";
-		};
-		class Item170
-		{
-			dataType="Trigger";
-			position[]={9875.5127,5.8699999,1729.4399};
-			class Attributes
-			{
-				name="Icarus_AirbaseTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 8 select 3 == false) then { " \n "call{ZoneArray select 8 set [3,true]; " \n "  " \n "[[8,80],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 8 set [3,false];" \n "}";
-				sizeA=628.66101;
-				sizeB=970.65503;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3684;
-			type="EmptyDetector";
-		};
-		class Item171
-		{
-			dataType="Trigger";
-			position[]={9584.916,3.8612802,3121.2361};
-			class Attributes
-			{
-				name="Icarus_DockyardTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 9 select 3 == false) then { " \n "call{ZoneArray select 9 set [3,true]; " \n "  " \n "[[9,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "} ";
-				onDeactivation="call{ZoneArray select 9 set [3,false];" \n "}";
-				sizeA=331.97501;
-				sizeB=386.78601;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3685;
-			type="EmptyDetector";
-		};
-		class Item172
+		class Item152
 		{
 			dataType="Marker";
 			position[]={9898.2578,77.310356,1710.5432};
@@ -5475,7 +5090,7 @@ class Mission
 			id=3686;
 			atlOffset=71.440353;
 		};
-		class Item173
+		class Item153
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5490,7 +5105,7 @@ class Mission
 			id=3687;
 			type="Flag_White_F";
 		};
-		class Item174
+		class Item154
 		{
 			dataType="Marker";
 			position[]={9588.4443,82.230965,3121.0852};
@@ -5499,7 +5114,7 @@ class Mission
 			id=3688;
 			atlOffset=78.250961;
 		};
-		class Item175
+		class Item155
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5514,46 +5129,7 @@ class Mission
 			id=3689;
 			type="Flag_White_F";
 		};
-		class Item176
-		{
-			dataType="Trigger";
-			position[]={4894.1372,-9.5099211e-005,10795.642};
-			class Attributes
-			{
-				name="KavalaTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 12 select 3 == false) then { " \n "call{ZoneArray select 12 set [3,true];  " \n "" \n "[[12,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 12 set [3,false];" \n "}";
-				sizeA=300;
-				sizeB=300;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3691;
-			type="EmptyDetector";
-			atlOffset=-0.36399999;
-		};
-		class Item177
-		{
-			dataType="Trigger";
-			position[]={7302.543,60.443928,10691.934};
-			class Attributes
-			{
-				name="Takeshi_FarmTrigger";
-				condition="call{this}";
-				onActivation="if (ZoneArray select 20 select 3 == false) then { " \n "call{ZoneArray select 20 set [3,true];  " \n "" \n "[[20,50],""area_init.sqf""] remoteExec [""BIS_fnc_execVM"",[0,2] select isMultiplayer];} " \n "}";
-				onDeactivation="call{ZoneArray select 20 set [3,false];" \n "}";
-				sizeA=464.664;
-				sizeB=464.664;
-				repeatable=1;
-				activationBy="ANYPLAYER";
-				isServerOnly=1;
-			};
-			id=3692;
-			type="EmptyDetector";
-		};
-		class Item178
+		class Item156
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5569,7 +5145,7 @@ class Mission
 			id=61;
 			type="CampEast_EP1";
 		};
-		class Item179
+		class Item157
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5617,7 +5193,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item180
+		class Item158
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5697,7 +5273,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item181
+		class Item159
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5778,7 +5354,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item182
+		class Item160
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5814,7 +5390,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item183
+		class Item161
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5830,9 +5406,9 @@ class Mission
 			};
 			id=3842;
 			type="OPTRE_Static_M247H_Tripod";
-			atlOffset=-0.00030517578;
+			atlOffset=0.0011062622;
 		};
-		class Item184
+		class Item162
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5848,8 +5424,9 @@ class Mission
 			};
 			id=3843;
 			type="OPTRE_Static_M247H_Tripod";
+			atlOffset=0.0013504028;
 		};
-		class Item185
+		class Item163
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5865,6 +5442,7 @@ class Mission
 			};
 			id=3846;
 			type="OPTRE_m1087_stallion_unsc";
+			atlOffset=-0.00029754639;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -5883,7 +5461,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item186
+		class Item164
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5899,8 +5477,9 @@ class Mission
 			};
 			id=3847;
 			type="OPTRE_Static_M247H_Tripod";
+			atlOffset=0.0013580322;
 		};
-		class Item187
+		class Item165
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5943,7 +5522,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item188
+		class Item166
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5960,7 +5539,7 @@ class Mission
 			type="Land_OPTRE_mod_building_green";
 			atlOffset=0.025520325;
 		};
-		class Item189
+		class Item167
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5977,7 +5556,7 @@ class Mission
 			type="Land_shipping_crate_lg_locked_amg";
 			atlOffset=-0.00051879883;
 		};
-		class Item190
+		class Item168
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5993,7 +5572,7 @@ class Mission
 			id=3863;
 			type="Land_OPTRE_hard_tent_des";
 		};
-		class Item191
+		class Item169
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6009,7 +5588,7 @@ class Mission
 			id=3866;
 			type="OPTRE_tree_Blue_1";
 		};
-		class Item192
+		class Item170
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6025,7 +5604,7 @@ class Mission
 			id=3867;
 			type="OPTRE_tree_Red_2";
 		};
-		class Item193
+		class Item171
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6040,8 +5619,9 @@ class Mission
 			};
 			id=3870;
 			type="Land_OPTRE_GuardShack";
+			atlOffset=0.00044250488;
 		};
-		class Item194
+		class Item172
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6056,7 +5636,7 @@ class Mission
 			id=3879;
 			type="Land_OPTRE_FR_Bunker_Main";
 		};
-		class Item195
+		class Item173
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6072,7 +5652,7 @@ class Mission
 			id=3880;
 			type="Land_OPTRE_mod_building_green";
 		};
-		class Item196
+		class Item174
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6088,7 +5668,7 @@ class Mission
 			id=3881;
 			type="Land_Slum_02_ruins_F";
 		};
-		class Item197
+		class Item175
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6105,7 +5685,7 @@ class Mission
 			type="Land_House_Small_01_F";
 			atlOffset=0.42256165;
 		};
-		class Item198
+		class Item176
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6121,7 +5701,7 @@ class Mission
 			id=3884;
 			type="OPTRE_tree_Red_2";
 		};
-		class Item199
+		class Item177
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6137,7 +5717,7 @@ class Mission
 			type="Land_OPTRE_mil_antenna_mast";
 			atlOffset=-0.11846924;
 		};
-		class Item200
+		class Item178
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6153,7 +5733,7 @@ class Mission
 			type="OmniDirectionalAntenna_01_sand_F";
 			atlOffset=0.21426392;
 		};
-		class Item201
+		class Item179
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6168,7 +5748,7 @@ class Mission
 			type="OmniDirectionalAntenna_01_sand_F";
 			atlOffset=4.556427;
 		};
-		class Item202
+		class Item180
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6184,7 +5764,7 @@ class Mission
 			type="Land_Telek1";
 			atlOffset=-1.003479;
 		};
-		class Item203
+		class Item181
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6201,7 +5781,7 @@ class Mission
 			type="Land_OPTRE_FC_FR_Bridge_Middle_2";
 			atlOffset=2.2132313;
 		};
-		class Item204
+		class Item182
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6218,7 +5798,7 @@ class Mission
 			type="Land_OPTRE_FC_FR_Bridge_Middle_2";
 			atlOffset=1.0000547;
 		};
-		class Item205
+		class Item183
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -6262,7 +5842,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item206
+		class Item184
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -6306,7 +5886,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item207
+		class Item185
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -6350,7 +5930,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item208
+		class Item186
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -6394,7 +5974,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item209
+		class Item187
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6411,7 +5991,7 @@ class Mission
 			type="Land_OPTRE_corrugated_crate01";
 			atlOffset=-0.0009803772;
 		};
-		class Item210
+		class Item188
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6425,8 +6005,9 @@ class Mission
 			};
 			id=3913;
 			type="Land_Small_Light_Column";
+			atlOffset=-0.013435364;
 		};
-		class Item211
+		class Item189
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6443,7 +6024,7 @@ class Mission
 			type="Land_OPTRE_barrel_water";
 			atlOffset=-0.00025558472;
 		};
-		class Item212
+		class Item190
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6457,8 +6038,9 @@ class Mission
 			};
 			id=3916;
 			type="Land_Small_Light_Column";
+			atlOffset=-0.013435364;
 		};
-		class Item213
+		class Item191
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6472,8 +6054,9 @@ class Mission
 			};
 			id=3917;
 			type="Land_Small_Light_Column";
+			atlOffset=-0.013435364;
 		};
-		class Item214
+		class Item192
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6487,8 +6070,9 @@ class Mission
 			};
 			id=3918;
 			type="Land_Small_Light_Column";
+			atlOffset=-0.013435364;
 		};
-		class Item215
+		class Item193
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6505,7 +6089,7 @@ class Mission
 			type="Land_OPTRE_M72_barrier";
 			atlOffset=-0.001499176;
 		};
-		class Item216
+		class Item194
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6522,7 +6106,7 @@ class Mission
 			type="Land_OPTRE_M72_barrier";
 			atlOffset=-3.8146973e-005;
 		};
-		class Item217
+		class Item195
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6539,7 +6123,7 @@ class Mission
 			type="Land_OPTRE_generator";
 			atlOffset=-0.001335144;
 		};
-		class Item218
+		class Item196
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6556,7 +6140,7 @@ class Mission
 			id=3929;
 			type="Land_OPTRE_datapad";
 		};
-		class Item219
+		class Item197
 		{
 			dataType="Object";
 			class PositionInfo

@@ -16,12 +16,12 @@ if(isServer) then {
 	//check if littleBird is near a point
 	{
 
-		if (100 >= (littleBird distance getMarkerPos _x)) then {		
+		if (100 >= (littleBird distance getMarkerPos (_x select 0))) then {		
 			_nearLoc = _x;
 			_locIndex = _forEachIndex;		
 		};	
 		
-	} forEach Locations;
+	} forEach ZoneArray;
 
 	//if null, this is not near location
 	if(_nearLoc isEqualTo "") then {

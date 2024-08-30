@@ -18,34 +18,6 @@
 // ------------ Server only
 
 if (isServer) then {
-	//list of location names
-	Locations = ["Abandoned_Camp","Alpheus_Powerplant","Camp_Chimera","Camp_Griffin","Camp_Hydra","Camp_Pegasus","Erseke","Farmstead","Icarus_Airbase","Icarus_Dockyard","Industrial_Complex","Ithaki","Kavala","Kefalonia","Lost_Village","Lykaion_Outpost","Murakami","New_Delphi_East","New_Delphi_West","Patras","Takeshi_Farm","Volos"];
-	
-	//define value holder arrays
-	IsInfected = [];
-	InfectionRate = [];
-	ActiveSpawn = [];
-	MissionActive = [];
-	
-	//set default mission values to be overwritten by loaded ones later	
-	for [{private _i = 0}, {_i < count Locations}, {_i = _i + 1}] do {
-		IsInfected pushBack true;
-		InfectionRate pushBack 0.5;
-		ActiveSpawn pushBack false;
-		MissionActive pushBack false;
-		
-		//***DEBUG delete
-		diag_log format ["Default value read into %1",_i]; 
-	};
-	/* ***DELETE
-	IsInfected = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
-
-	InfectionRate = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-
-	ActiveSpawn = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-	
-	MissionActive = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-	*/
 
 	//currency for faction unlocks
 	FactionBank = 0;
@@ -63,6 +35,7 @@ if (isServer) then {
 	//check if profileNamespace contains changeable variables. If so, load variables
 	_saveCheck = profileNamespace getVariable "ArcadiaIsInfected";
 	
+	IsInfected = [];
 	if (!isNil "_saveCheck") then{	
 		IsInfected = profileNamespace getVariable "ArcadiaIsInfected";
 		//publicVariable "IsInfected";	
@@ -70,6 +43,7 @@ if (isServer) then {
 	
 	_saveCheck = profileNamespace getVariable "ArcadiaInfectionRate";
 	
+	InfectionRate = [];
 	if (!isNil "_saveCheck") then{
 		InfectionRate = profileNamespace getVariable "ArcadiaInfectionRate";
 		//publicVariable "InfectionRate";		
@@ -87,17 +61,10 @@ if (isServer) then {
 		publicVariable "UnlockTracker";	
 	};//end if
 	
-	//generate 2D master array from inputs
-	ZoneArray = [];	
-	for [{private _i = 0}, {_i < count Locations}, {_i = _i + 1}] do {
-		private _arrayInput = [Locations select _i, IsInfected select _i, InfectionRate select _i, ActiveSpawn select _i, MissionActive select _i, false, MarkerSize (Locations select _i)];
-		diag_log format ["Reading in %1 to ZoneArray slot %2", _arrayInput select 0, _i];
-		ZoneArray set [_i, _arrayInput];
-		diag_log format ["Location %1 is now read into ZoneArray %2", ZoneArray select _i select 0, _i];
-	};
+	//build 2D master array
+	private _isDone = [IsInfected, InfectionRate] execVM "initArray.sqf";
 	
-	publicVariable "ZoneArray";	
-	diag_log format ["ZoneArray initialized with %1 entries", count ZoneArray];
+	waitUntil {scriptDone _isDone};
 	
 	//check params and run resetState if selected
 	if (["ResetStatus", 1] call BIS_fnc_getParamValue == 3)  then {
@@ -134,62 +101,6 @@ if (isServer) then {
 	if (UnlockTracker select 1 == true) then {
 		execVM "techUnlock.sqf";
 	};
-	
-
-	
-	/*
-	//add zombies to spawn list based on params
-	ZList = [];
-	
-	//list to hold all configs
-	_zombieLists =[];
-	
-	//Medium Civ Zombies
-	_zConfig1 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium1opfor" );
-	//Medium Soldier Zombies
-	_zConfig2 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupmediumopfor" >> "Ryanzombiesgroupmedium5opfor");
-	//Slow Civ Zombies
-	_zConfig3 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow1opfor" );
-	//Slow Solder Zombies
-	_zConfig4 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupslowopfor" >> "Ryanzombiesgroupslow5opfor" );
-	
-	//add to configlist to push into ZList below
-	_zombieLists pushback _zConfig1;
-	_zombieLists pushback _zConfig2;
-	_zombieLists pushback _zConfig3;
-	_zombieLists pushback _zConfig4;
-	
-	//check if params allow these types of zombies
-	_classUnlocked = ["FastZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig5 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast2opfor" );
-		_zombieLists pushback _zConfig5;
-		_zConfig6 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupfastopfor" >> "Ryanzombiesgroupfast5opfor" );
-		_zombieLists pushback _zConfig6;
-	};
-	_classUnlocked = ["CrawlZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig7 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "RyanzombiesgroupCrawleropfor" >> "RyanzombiesgroupCrawler2opfor" );
-		_zombieLists pushback _zConfig7;
-	};
-	_classUnlocked = ["SpiderZombies", 0] call BIS_fnc_getParamValue;
-	if (_classUnlocked == 0) then {
-		_zConfig8 = ( configfile >> "CfgGroups" >> "East" >> "Ryanzombiesfactionopfor" >> "Ryanzombiesgroupspideropfor" >> "Ryanzombiesgroupspider2opfor" );
-		_zombieLists pushback _zConfig8;
-	};
-	
-
-	//add all zombies from cfgGroup lists above into spawning list
-	{
-		"
-			ZList pushBack getText ( _x >> 'vehicle');
-			
-		" configClasses _x;
-	} forEach _zombieLists;
-	
-	//make ZList available for other scripts
-	publicVariable "ZList";
-	*/
 
 	//variable to activate cleanse mode
 	CleanseActive = false;
@@ -228,13 +139,18 @@ if (isServer) then {
 //init marker colors
 execVM "infectionMarkers.sqf";
 
-//hide finale event markers
-"generatorStart" setMarkerAlpha 0;
-"serverStart" setMarkerAlpha 0;
-"startDecon" setMarkerAlpha 0;
+//hide finale event markers, if they exist
+if("generatorStart" in allMapMarkers) then {
+	"generatorStart" setMarkerAlpha 0;
+};
+if("serverStart" in allMapMarkers) then {
+	"serverStart" setMarkerAlpha 0;
+};
+if("startDecon" in allMapMarkers) then {
+	"startDecon" setMarkerAlpha 0;
 
-//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
-
+	//diag_log format ["Current marker alphas: %1, %2, %3", markerAlpha "generatorStart", markerAlpha "serverStart", markerAlpha "startDecon"];
+};
 
 //Decon marker
 execVM "deconMarker.sqf";

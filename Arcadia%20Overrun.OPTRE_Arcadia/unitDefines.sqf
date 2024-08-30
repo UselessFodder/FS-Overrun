@@ -60,6 +60,56 @@ if (_useCustom == 0) then {
 	
 	//*** Boss-type monsters for the mini-objective
 	DemonList = ["RyanZombieboss27Opfor", "RyanZombieboss19Opfor"];
+
+	
+	//check if these mods are enabled
+	//WebKnights Zombies and Creatures
+	_wkUnlocked = isClass(configFile >> "cfgPatches" >> "WBK_ZombieCreatures");
+	if(_wkUnlocked) then {
+		//note in debug
+		diag_log "WebKnights is Enabled. Loading WK Zombies and Creatures";
+		//add in zombies from WebKnights at appropriate amounts to balance out with Z&D
+		_wkList = ["Zombie_O_Crawler_Civ","Zombie_O_Crawler_Civ","Zombie_O_Crawler_Civ","Zombie_O_Crawler_Civ","Zombie_O_Crawler_Civ","Zombie_O_Crawler_Civ",
+			"Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ",
+			"Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ","Zombie_O_Shambler_Civ",
+			"Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ",
+			"Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ","Zombie_O_RA_Civ",
+			"Zombie_O_RC_Civ","Zombie_O_RC_Civ","Zombie_O_RC_Civ","Zombie_O_RC_Civ","Zombie_O_RC_Civ","Zombie_O_RC_Civ",
+			"Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ",
+			"Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ","Zombie_O_Walker_Civ",
+			"WBK_SpecialZombie_Corrupted_3","WBK_SpecialZombie_Corrupted_3","WBK_SpecialZombie_Corrupted_3","WBK_SpecialZombie_Corrupted_3",
+			"Zombie_Special_OPFOR_Leaper_1","Zombie_Special_OPFOR_Leaper_1","Zombie_Special_OPFOR_Leaper_2","Zombie_Special_OPFOR_Leaper_2",
+			"Zombie_Special_OPFOR_Boomer","Zombie_Special_OPFOR_Boomer","Zombie_Special_OPFOR_Boomer","Zombie_Special_OPFOR_Screamer","Zombie_Special_OPFOR_Screamer"
+			];
+		
+		{
+			ZList pushBack _x;
+		} forEach _wkList;
+	};
+	
+	//Devourerking's Necroplague Mutants
+	_devUnlocked = isClass(configfile >> "CfgPatches" >> "dev_mutant_common");
+	if(_devUnlocked) then {
+		//note in debug
+		diag_log "Devourking's is Enabled. Loading Devourerking's Necroplague Mutants";
+		//add in monsters from Devourking's at appropriate amounts to balance out with Z&D
+		_devList = ["dev_parasite_o","dev_parasite_o","dev_parasite_o","dev_parasite_o","dev_parasite_o","dev_parasite_o","dev_parasite_o","dev_parasite_o",
+		"dev_asymhuman_stage2_o","dev_asymhuman_stage2_o","dev_asymhuman_stage2_o","dev_asymhuman_stage2_o","dev_asymhuman_stage2_o","dev_asymhuman_stage2_o",
+		"dev_form939_o","dev_form939_o","dev_form939_o","dev_form939_o","dev_form939_o","dev_form939_o"
+		];
+		
+		{
+			ZList pushBack _x;
+		} forEach _devList;
+		
+		//add in special boss types
+		_devBoss = ["dev_asymhuman_o","dev_toxmut_o"];
+		
+		{
+			DemonList pushBack _x;
+		} forEach _devBoss;
+	};
+	
 	
 	//*** Friendly DECONTruck
 	DeconTruckType = "B_Truck_01_medical_F";

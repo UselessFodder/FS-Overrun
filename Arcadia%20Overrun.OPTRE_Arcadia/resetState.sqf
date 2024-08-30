@@ -13,7 +13,6 @@ if (_actuallyReset == true) then {
 	//start save log
 	diag_log "Resetting Save";	
 	
-
 	//get IsInfected variables from array
 	private _isInfectedArray = [];	
 	_zoneArraySize = count ZoneArray;
@@ -28,9 +27,10 @@ if (_actuallyReset == true) then {
 	
 	//get InfectionRate variables from array
 	private _infectionRateArray = [];	
-	for [{private _i = 0}, {_i < _zoneArraySize}, {_i = _i +1}] do{
-		_currentRate = 0.50;
-		ZoneArray select _i set [2, _currentRate];
+	for [{private _i = 0}, {_i < _zoneArraySize}, {_i = _i +1}] do{		
+		//add InfectionRate randomized between 30% - 80%
+		private _infectionRate = parseNumber ((0.3 + random 0.5) toFixed 2);
+		ZoneArray select _i set [2, _infectionRate];
 		//diag_log format ["%1 read into %2 slot in InfectionRate", _infectionRateArray select (count _infectionRateArray -1), (count _infectionRateArray) - 1];		
 	};	
 	
